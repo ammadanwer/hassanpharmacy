@@ -1,0 +1,59 @@
+{
+  "source": "reference-captures/emareez-newsale-draft-all-pages-current.json",
+  "captured_at": "2026-07-02",
+  "rows": [
+    {
+      "draft_id": "115",
+      "date": "2025-11-19",
+      "total_items": 2,
+      "total_amount": 24168,
+      "discount_percent": 0,
+      "discount_amount": 0,
+      "total_payable": 0,
+      "items": [
+        {
+          "product_name": "PIOZER G 30/2MG TAB",
+          "batch_no": "55gg",
+          "qt_in_box": 0.70,
+          "qt_in_units": 7,
+          "total_qty": 7,
+          "cost_price": 20,
+          "rate": 24,
+          "amount": 168,
+          "discount_percent": null,
+          "discount_amount": null,
+          "payable_amount": 168
+        },
+        {
+          "product_name": "0meprazole",
+          "batch_no": "23",
+          "qt_in_box": 0.08,
+          "qt_in_units": 4,
+          "total_qty": 4,
+          "cost_price": 5000,
+          "rate": 6000,
+          "amount": 24000,
+          "discount_percent": null,
+          "discount_amount": null,
+          "payable_amount": 24000
+        }
+      ]
+    },
+    { "draft_id": "1234567", "date": "2025-11-19", "total_items": 2, "total_amount": 37800, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "5678", "date": "2025-11-19", "total_items": 2, "total_amount": 37800, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "11687", "date": "2025-11-19", "total_items": 2, "total_amount": 37800, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "116", "date": "2025-11-19", "total_items": 2, "total_amount": 37800, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "6811", "date": "2025-11-19", "total_items": 2, "total_amount": 37800, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "798", "date": "2025-11-19", "total_items": 2, "total_amount": 3048, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "678", "date": "2025-11-17", "total_items": 2, "total_amount": 3060, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "876", "date": "2025-11-14", "total_items": 2, "total_amount": 2560, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "789", "date": "2025-11-09", "total_items": 2, "total_amount": 440, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "345", "date": "2025-11-08", "total_items": 2, "total_amount": 126, "discount_percent": 19.52, "discount_amount": 24.60, "total_payable": 101.40 },
+    { "draft_id": "25", "date": "2025-11-04", "total_items": 1, "total_amount": 50, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "1", "date": "2025-11-04", "total_items": 3, "total_amount": 1210, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "456", "date": "2025-10-31", "total_items": 3, "total_amount": 740, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "123456", "date": "2025-10-13", "total_items": 2, "total_amount": 380, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 },
+    { "draft_id": "123", "date": "2025-10-12", "total_items": 2, "total_amount": 1050, "discount_percent": 0, "discount_amount": 0, "total_payable": 0 }
+  ],
+  "notes": "All Draft Sales table rows are captured from live E-Mareez. Draft 115 item details are captured from the non-mutating edit/resume view; other draft item details remain table-derived only until each edit view is captured."
+}

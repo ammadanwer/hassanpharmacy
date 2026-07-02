@@ -1,0 +1,366 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/expense-category",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Expense",
+    "Expense Category",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Category",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Category",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    }
+  ],
+  "headers": [
+    [
+      "Category Name",
+      "Description",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nExpense\nExpense Category\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd New Category\nCategory Name\tDescription\tActions\nRepairing & Maintenance Dera\t\t\n\n.\t.\t\n\nMUHHAMAD HASSAIN SALARY\tMonthly Salary Rs 27000\t\n\nPROFESSIONAL CHARGES\tStamppaper\t\n\n.\t.\t\n\n.\t.\t\n\n.\t.\t\n\n.\t.\t\n\nPrinting & Stationery\t\t\n\nLAUNDARY\tExpensis\t\n\n.\t.\t\n\nR & M Vehicle\t\t\n\n.\t.\t\n\n.\t.\t\n\n.\t.\t\n\nRepairing & Maintenance Hospital\tMaintenance and Repairs\t\n\n.\t.\t\n\nBONUS\tElse\t\n\n.\t.\t\n\n.\t.\t\n\nSMS PACKEGE\tSMS appointment, reminder payment\t\n\nMedical consumables\t\t\n\nfood\t\t\n\nSALARY\t\t\n\nHouse Hold Expence\t\t\n\nMedical Instruments\tEquipment, etc\t\n\nDaily Wages\t\t\n\nbill\t\t\n\nPharmacy Bill\t\t\n\nYAG MACHINE CHARGES\tYAG MACHINE CHARGES\t\n\nEYLEA INJECTION COST\tEYLEA INJECTION COST\t\n\nAL Madina lab\tlab tests\t\n\nEYLEA INJECTION\t\t\n\nEYLEA EXTRA DOSE\t\t\n\nEYLEA THEATER CHARGES\t\t\n\nFemto hospital charges\t\t\n\nAdvance From Salary\t\t\n\nSalary\tASIF\t\n\ntesting\tThis is just for testing.\t\n\ntest\tthis is just for testing.\t\n\nAdvance from salery\t\t\n\nClinic Grocery Items\t\t\n\noffice supplies\tstationary and supplies\t\n\nlense for operation\t\t\n\nextra saman for operation\t\t\n\ntheater charges for phaco\t\t\n\nkitchen supplies\teveryday tea\t\n\nHydrafacial\t\t\n\nHOUSE KEEPING SUPPLIES\tbrushes, surf, toilet supplies, dust bin and dust bin bags etc\t\n\nASLAM TRADERS\tTOTAL FOR INVOICE/ 20.281\t\n< BACK\n1\n2\n3\n4\n5\n...\n7\nNEXT >\nRows per page\n50\n100\n1-50 of 309",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Category Name",
+          "Description",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "Repairing & Maintenance Dera",
+            "",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            "MUHHAMAD HASSAIN SALARY",
+            "Monthly Salary Rs 27000",
+            ""
+          ],
+          [
+            "PROFESSIONAL CHARGES",
+            "Stamppaper",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            "Printing & Stationery",
+            "",
+            ""
+          ],
+          [
+            "LAUNDARY",
+            "Expensis",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            "R & M Vehicle",
+            "",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            "Repairing & Maintenance Hospital",
+            "Maintenance and Repairs",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            "BONUS",
+            "Else",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            ".",
+            ".",
+            ""
+          ],
+          [
+            "SMS PACKEGE",
+            "SMS appointment, reminder payment",
+            ""
+          ],
+          [
+            "Medical consumables",
+            "",
+            ""
+          ],
+          [
+            "food",
+            "",
+            ""
+          ],
+          [
+            "SALARY",
+            "",
+            ""
+          ],
+          [
+            "House Hold Expence",
+            "",
+            ""
+          ],
+          [
+            "Medical Instruments",
+            "Equipment, etc",
+            ""
+          ],
+          [
+            "Daily Wages",
+            "",
+            ""
+          ],
+          [
+            "bill",
+            "",
+            ""
+          ],
+          [
+            "Pharmacy Bill",
+            "",
+            ""
+          ],
+          [
+            "YAG MACHINE CHARGES",
+            "YAG MACHINE CHARGES",
+            ""
+          ],
+          [
+            "EYLEA INJECTION COST",
+            "EYLEA INJECTION COST",
+            ""
+          ],
+          [
+            "AL Madina lab",
+            "lab tests",
+            ""
+          ],
+          [
+            "EYLEA INJECTION",
+            "",
+            ""
+          ],
+          [
+            "EYLEA EXTRA DOSE",
+            "",
+            ""
+          ],
+          [
+            "EYLEA THEATER CHARGES",
+            "",
+            ""
+          ],
+          [
+            "Femto hospital charges",
+            "",
+            ""
+          ],
+          [
+            "Advance From Salary",
+            "",
+            ""
+          ],
+          [
+            "Salary",
+            "ASIF",
+            ""
+          ],
+          [
+            "testing",
+            "This is just for testing.",
+            ""
+          ],
+          [
+            "test",
+            "this is just for testing.",
+            ""
+          ],
+          [
+            "Advance from salery",
+            "",
+            ""
+          ],
+          [
+            "Clinic Grocery Items",
+            "",
+            ""
+          ],
+          [
+            "office supplies",
+            "stationary and supplies",
+            ""
+          ],
+          [
+            "lense for operation",
+            "",
+            ""
+          ],
+          [
+            "extra saman for operation",
+            "",
+            ""
+          ],
+          [
+            "theater charges for phaco",
+            "",
+            ""
+          ],
+          [
+            "kitchen supplies",
+            "everyday tea",
+            ""
+          ],
+          [
+            "Hydrafacial",
+            "",
+            ""
+          ],
+          [
+            "HOUSE KEEPING SUPPLIES",
+            "brushes, surf, toilet supplies, dust bin and dust bin bags etc",
+            ""
+          ],
+          [
+            "ASLAM TRADERS",
+            "TOTAL FOR INVOICE/ 20.281",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

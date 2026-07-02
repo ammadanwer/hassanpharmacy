@@ -1,0 +1,1703 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Choose time, selected time is 12:00 AM",
+    "Choose time, selected time is 11:59 PM",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "text": "Date\nDate Range\n​\n​\n\nTime\n\n​\n​\nPrint Sales History\nAll\n​\n​\nGross Sales\nRs. 3023165.65\nTotal Discount\nRs. 200090.05\nNet Sales\nRs. 2823083.71\nTotal Cost\nRs. 2409824.95\nNet Revenue\nRs. 413258.76\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n252\t2024-08-25\t03:46:15 PM\t3000\t500.00\t15000.00\t-12000.00\t\n12000.00\n\t0.00\t24000.00\t\n\n240\t2024-08-22\t12:37:44 AM\t4000\t3.00\t120.00\t3880.00\t\n4000.00\n\t0.00\t120.00\t\n\n237\t2024-08-22\t07:52:42 PM\t1003\t5.00\t50.15\t953.00\t\n953.00\n\t0.00\t0.15\t\n\n227\t2024-08-21\t11:45:44 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n225\t2024-08-21\t08:13:32 PM\t660\t5.00\t33.00\t627.00\t\n627.00\n\t0.00\t0.00\t\n\n215\t2024-08-20\t07:47:28 PM\t800\t5.00\t40.00\t760.00\t\n1000.00\n\t0.00\t240.00\t\n\n158\t2024-08-16\t06:06:08 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n142\t2024-08-15\t03:37:27 PM\t430\t5.00\t21.50\t409.00\t\n500.00\n\t0.00\t91.50\t\n\n124\t2024-08-11\t05:39:48 PM\t1000\t2.00\t20.00\t980.00\t\n1000.00\n\t0.00\t20.00\t\n\n117\t2024-08-08\t09:40:11 PM\t1260\t5.00\t63.00\t1197.00\t\n1500.00\n\t0.00\t303.00\t\n\n116\t2024-08-08\t07:52:57 PM\t4000\t5.00\t200.00\t3800.00\t\n4000.00\n\t0.00\t200.00\t\n\n115\t2024-08-08\t05:58:30 PM\t360\t5.00\t18.00\t342.00\t\n500.00\n\t0.00\t158.00\t\n\n111\t2024-08-07\t05:26:18 PM\t1000\t2.00\t20.00\t980.00\t\n1000.00\n\t0.00\t20.00\t\n\n110\t2024-08-06\t08:37:06 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n109\t2024-08-06\t08:33:01 PM\t1000\t5.00\t50.00\t950.00\t\n1000.00\n\t0.00\t50.00\t\n\n102\t2024-08-04\t07:09:37 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n101\t2024-07-31\t04:17:35 PM\t180\t5.00\t9.00\t171.00\t\n500.00\n\t0.00\t329.00\t\n\n100\t2024-07-29\t11:46:24 PM\t1500\t2.00\t30.00\t1470.00\t\n2000.00\n\t0.00\t530.00\t\n\n97\t2024-07-26\t05:09:17 PM\t1000\t5.00\t50.00\t950.00\t\n1000.00\n\t0.00\t50.00\t\n\n91\t2024-07-19\t08:19:06 PM\t1000\t5.00\t50.00\t950.00\t\n1000.00\n\t0.00\t50.00\t\n\n87\t2024-07-11\t11:20:05 PM\t1500\t2.00\t30.00\t1470.00\t\n5000.00\n\t0.00\t3530.00\t\n\n86\t2024-07-11\t04:58:25 PM\t160\t5.00\t8.00\t152.00\t\n200.00\n\t0.00\t48.00\t\n\n85\t2024-07-10\t08:07:04 PM\t180\t5.00\t9.00\t171.00\t\n20",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+      "page": 14,
+      "offset": 20,
+      "limit": 20,
+      "captured": 20,
+      "captures": [
+        {
+          "invoiceNumber": "87",
+          "index": 20,
+          "row": [
+            "87",
+            "2024-07-11",
+            "11:20:05 PM",
+            "1500",
+            "2.00",
+            "30.00",
+            "1470.00",
+            "5000.00",
+            "0.00",
+            "3530.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 87 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-11 11:20:05 PM 1,500 30 1,470 5,000 3,530 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 3 - 500 1,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-11",
+                  "11:20:05 PM",
+                  "1,500",
+                  "30",
+                  "1,470",
+                  "5,000",
+                  "",
+                  "3,530"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "3",
+                  "-",
+                  "500",
+                  "1,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "86",
+          "index": 21,
+          "row": [
+            "86",
+            "2024-07-11",
+            "04:58:25 PM",
+            "160",
+            "5.00",
+            "8.00",
+            "152.00",
+            "200.00",
+            "0.00",
+            "48.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 86 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-11 04:58:25 PM 160 8 152 200 48 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 87451 Dopamine 2 - 80 160.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-11",
+                  "04:58:25 PM",
+                  "160",
+                  "8",
+                  "152",
+                  "200",
+                  "",
+                  "48"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "87451",
+                  "Dopamine",
+                  "2",
+                  "-",
+                  "80",
+                  "160.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "85",
+          "index": 22,
+          "row": [
+            "85",
+            "2024-07-10",
+            "08:07:04 PM",
+            "180",
+            "5.00",
+            "9.00",
+            "171.00",
+            "200.00",
+            "0.00",
+            "29.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 85 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-10 08:07:04 PM 180 9 171 200 29 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 47856 Flagyl 3 - 60 180.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-10",
+                  "08:07:04 PM",
+                  "180",
+                  "9",
+                  "171",
+                  "200",
+                  "",
+                  "29"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "47856",
+                  "Flagyl",
+                  "3",
+                  "-",
+                  "60",
+                  "180.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "84",
+          "index": 23,
+          "row": [
+            "84",
+            "2024-07-10",
+            "07:56:40 PM",
+            "2500",
+            "2.00",
+            "50.00",
+            "2450.00",
+            "3000.00",
+            "0.00",
+            "550.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 84 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-10 07:56:40 PM 2,500 50 2,450 3,000 550 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 5 - 500 2,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-10",
+                  "07:56:40 PM",
+                  "2,500",
+                  "50",
+                  "2,450",
+                  "3,000",
+                  "",
+                  "550"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "5",
+                  "-",
+                  "500",
+                  "2,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "83",
+          "index": 24,
+          "row": [
+            "83",
+            "2024-07-09",
+            "08:02:55 PM",
+            "1000",
+            "5.00",
+            "50.00",
+            "950.00",
+            "1000.00",
+            "0.00",
+            "50.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 83 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-09 08:02:55 PM 1,000 50 950 1,000 50 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-09",
+                  "08:02:55 PM",
+                  "1,000",
+                  "50",
+                  "950",
+                  "1,000",
+                  "",
+                  "50"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "82",
+          "index": 25,
+          "row": [
+            "82",
+            "2024-07-09",
+            "06:28:05 PM",
+            "1040",
+            "0.00",
+            "0.00",
+            "1040.00",
+            "1040.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 82 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-09 06:28:05 PM 1,040 0 1,040 1,040 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2456 Ketasol 1 - 40 40.00 1 Adalat 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-09",
+                  "06:28:05 PM",
+                  "1,040",
+                  "0",
+                  "1,040",
+                  "1,040",
+                  "",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2456",
+                  "Ketasol",
+                  "1",
+                  "-",
+                  "40",
+                  "40.00"
+                ],
+                [
+                  "1",
+                  "Adalat",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "81",
+          "index": 26,
+          "row": [
+            "81",
+            "2024-07-08",
+            "12:55:06 AM",
+            "8500",
+            "2.00",
+            "170.00",
+            "8330.00",
+            "9000.00",
+            "0.00",
+            "670.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 81 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-08 12:55:06 AM 8,500 170 8,330 9,000 670 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 2 - 500 1,000.00 2 Actrapid HM Penfi| 15 - 500 7,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-08",
+                  "12:55:06 AM",
+                  "8,500",
+                  "170",
+                  "8,330",
+                  "9,000",
+                  "",
+                  "670"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ],
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "15",
+                  "-",
+                  "500",
+                  "7,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "79",
+          "index": 27,
+          "row": [
+            "79",
+            "2024-07-08",
+            "06:06:49 PM",
+            "80",
+            "5.00",
+            "4.00",
+            "76.00",
+            "500.00",
+            "0.00",
+            "424.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 79 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-08 06:06:49 PM 80 4 76 500 424 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2456 Ketasol 2 - 40 80.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-08",
+                  "06:06:49 PM",
+                  "80",
+                  "4",
+                  "76",
+                  "500",
+                  "",
+                  "424"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2456",
+                  "Ketasol",
+                  "2",
+                  "-",
+                  "40",
+                  "80.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "77",
+          "index": 28,
+          "row": [
+            "77",
+            "2024-07-03",
+            "05:32:40 PM",
+            "120",
+            "5.00",
+            "6.00",
+            "114.00",
+            "500.00",
+            "0.00",
+            "386.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 77 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-03 05:32:40 PM 120 6 114 500 386 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 47856 Flagyl 2 - 60 120.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-03",
+                  "05:32:40 PM",
+                  "120",
+                  "6",
+                  "114",
+                  "500",
+                  "",
+                  "386"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "47856",
+                  "Flagyl",
+                  "2",
+                  "-",
+                  "60",
+                  "120.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "76",
+          "index": 29,
+          "row": [
+            "76",
+            "2024-07-03",
+            "04:47:39 PM",
+            "80",
+            "0.00",
+            "0.00",
+            "80.00",
+            "80.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 76 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-03 04:47:39 PM 80 0 80 80 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 87451 Dopamine 1 - 80 80.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-03",
+                  "04:47:39 PM",
+                  "80",
+                  "0",
+                  "80",
+                  "80",
+                  "",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "87451",
+                  "Dopamine",
+                  "1",
+                  "-",
+                  "80",
+                  "80.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "75",
+          "index": 30,
+          "row": [
+            "75",
+            "2024-07-03",
+            "04:35:07 PM",
+            "80",
+            "0.00",
+            "0.00",
+            "80.00",
+            "500.00",
+            "0.00",
+            "420.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 75 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-03 04:35:07 PM 80 0 80 500 420 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 87451 Dopamine 1 - 80 80.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-03",
+                  "04:35:07 PM",
+                  "80",
+                  "0",
+                  "80",
+                  "500",
+                  "",
+                  "420"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "87451",
+                  "Dopamine",
+                  "1",
+                  "-",
+                  "80",
+                  "80.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "74",
+          "index": 31,
+          "row": [
+            "74",
+            "2024-07-03",
+            "04:17:19 PM",
+            "800",
+            "0.00",
+            "0.00",
+            "800.00",
+            "1000.00",
+            "0.00",
+            "200.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 74 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-03 04:17:19 PM 800 0 800 1,000 200 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 87451 Dopamine 10 - 80 800.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-03",
+                  "04:17:19 PM",
+                  "800",
+                  "0",
+                  "800",
+                  "1,000",
+                  "",
+                  "200"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "87451",
+                  "Dopamine",
+                  "10",
+                  "-",
+                  "80",
+                  "800.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "73",
+          "index": 32,
+          "row": [
+            "73",
+            "2024-07-03",
+            "03:48:39 PM",
+            "15000",
+            "3.00",
+            "450.00",
+            "14550.00",
+            "15000.00",
+            "0.00",
+            "450.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 73 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-03 03:48:39 PM 15,000 450 14,550 15,000 450 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 30 - 500 15,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-03",
+                  "03:48:39 PM",
+                  "15,000",
+                  "450",
+                  "14,550",
+                  "15,000",
+                  "",
+                  "450"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "30",
+                  "-",
+                  "500",
+                  "15,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "72",
+          "index": 33,
+          "row": [
+            "72",
+            "2024-07-01",
+            "11:43:09 PM",
+            "400",
+            "2.00",
+            "8.00",
+            "392.00",
+            "400.00",
+            "0.00",
+            "8.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 72 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-01 11:43:09 PM 400 8 392 400 8 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 87451 Dopamine 5 - 80 400.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-01",
+                  "11:43:09 PM",
+                  "400",
+                  "8",
+                  "392",
+                  "400",
+                  "",
+                  "8"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "87451",
+                  "Dopamine",
+                  "5",
+                  "-",
+                  "80",
+                  "400.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "71",
+          "index": 34,
+          "row": [
+            "71",
+            "2024-07-01",
+            "05:36:55 PM",
+            "1000",
+            "5.00",
+            "50.00",
+            "950.00",
+            "1000.00",
+            "0.00",
+            "50.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 71 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-01 05:36:55 PM 1,000 50 950 1,000 50 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-01",
+                  "05:36:55 PM",
+                  "1,000",
+                  "50",
+                  "950",
+                  "1,000",
+                  "",
+                  "50"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "70",
+          "index": 35,
+          "row": [
+            "70",
+            "2024-07-01",
+            "04:35:31 PM",
+            "3045",
+            "0.00",
+            "0.00",
+            "3045.00",
+            "3045.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 70 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-01 04:35:31 PM 3,045 0 3,045 3,045 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 1 - 500 500.00 12345 Gripe water 1 - 45 45.00 3 Panadol CF 5 - 500 2,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-01",
+                  "04:35:31 PM",
+                  "3,045",
+                  "0",
+                  "3,045",
+                  "3,045",
+                  "",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "1",
+                  "-",
+                  "500",
+                  "500.00"
+                ],
+                [
+                  "12345",
+                  "Gripe water",
+                  "1",
+                  "-",
+                  "45",
+                  "45.00"
+                ],
+                [
+                  "3",
+                  "Panadol CF",
+                  "5",
+                  "-",
+                  "500",
+                  "2,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "64",
+          "index": 36,
+          "row": [
+            "64",
+            "2024-06-28",
+            "11:22:03 PM",
+            "5000",
+            "2.00",
+            "100.00",
+            "4900.00",
+            "5000.00",
+            "0.00",
+            "100.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 64 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-06-28 11:22:03 PM 5,000 100 4,900 5,000 100 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 10 - 500 5,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-06-28",
+                  "11:22:03 PM",
+                  "5,000",
+                  "100",
+                  "4,900",
+                  "5,000",
+                  "",
+                  "100"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "10",
+                  "-",
+                  "500",
+                  "5,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "63",
+          "index": 37,
+          "row": [
+            "63",
+            "2024-06-27",
+            "11:43:09 PM",
+            "12000",
+            "3.00",
+            "360.00",
+            "11640.00",
+            "12000.00",
+            "0.00",
+            "360.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 63 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-06-27 11:43:09 PM 12,000 360 11,640 12,000 360 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 10 - 500 5,000.00 7895 Adalat 78 - 60 4,680.00 2456 Ketasol 10 - 40 400.00 87451 Dopamine 10 - 80 800.00 8974 Furoxone 10 - 40 400.00 47856 Flagyl 12 - 60 720.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-06-27",
+                  "11:43:09 PM",
+                  "12,000",
+                  "360",
+                  "11,640",
+                  "12,000",
+                  "",
+                  "360"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "10",
+                  "-",
+                  "500",
+                  "5,000.00"
+                ],
+                [
+                  "7895",
+                  "Adalat",
+                  "78",
+                  "-",
+                  "60",
+                  "4,680.00"
+                ],
+                [
+                  "2456",
+                  "Ketasol",
+                  "10",
+                  "-",
+                  "40",
+                  "400.00"
+                ],
+                [
+                  "87451",
+                  "Dopamine",
+                  "10",
+                  "-",
+                  "80",
+                  "800.00"
+                ],
+                [
+                  "8974",
+                  "Furoxone",
+                  "10",
+                  "-",
+                  "40",
+                  "400.00"
+                ],
+                [
+                  "47856",
+                  "Flagyl",
+                  "12",
+                  "-",
+                  "60",
+                  "720.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "62",
+          "index": 38,
+          "row": [
+            "62",
+            "2024-06-27",
+            "11:42:54 PM",
+            "12000",
+            "3.00",
+            "360.00",
+            "11640.00",
+            "12000.00",
+            "0.00",
+            "360.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 62 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-06-27 11:42:54 PM 12,000 360 11,640 12,000 360 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 7895 Adalat 78 - 60 4,680.00 2456 Ketasol 10 - 40 400.00 87451 Dopamine 10 - 80 800.00 8974 Furoxone 10 - 40 400.00 47856 Flagyl 12 - 60 720.00 2 Actrapid HM Penfi| 10 - 500 5,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-06-27",
+                  "11:42:54 PM",
+                  "12,000",
+                  "360",
+                  "11,640",
+                  "12,000",
+                  "",
+                  "360"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "7895",
+                  "Adalat",
+                  "78",
+                  "-",
+                  "60",
+                  "4,680.00"
+                ],
+                [
+                  "2456",
+                  "Ketasol",
+                  "10",
+                  "-",
+                  "40",
+                  "400.00"
+                ],
+                [
+                  "87451",
+                  "Dopamine",
+                  "10",
+                  "-",
+                  "80",
+                  "800.00"
+                ],
+                [
+                  "8974",
+                  "Furoxone",
+                  "10",
+                  "-",
+                  "40",
+                  "400.00"
+                ],
+                [
+                  "47856",
+                  "Flagyl",
+                  "12",
+                  "-",
+                  "60",
+                  "720.00"
+                ],
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "10",
+                  "-",
+                  "500",
+                  "5,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "61",
+          "index": 39,
+          "row": [
+            "61",
+            "2024-06-27",
+            "11:39:57 PM",
+            "7000",
+            "2.00",
+            "140.00",
+            "6860.00",
+            "7000.00",
+            "0.00",
+            "140.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 61 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-06-27 11:39:57 PM 7,000 140 6,860 7,000 140 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 7895 Adalat 78 - 60 4,680.00 2456 Ketasol 10 - 40 400.00 87451 Dopamine 10 - 80 800.00 8974 Furoxone 10 - 40 400.00 47856 Flagyl 12 - 60 720.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-06-27",
+                  "11:39:57 PM",
+                  "7,000",
+                  "140",
+                  "6,860",
+                  "7,000",
+                  "",
+                  "140"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "7895",
+                  "Adalat",
+                  "78",
+                  "-",
+                  "60",
+                  "4,680.00"
+                ],
+                [
+                  "2456",
+                  "Ketasol",
+                  "10",
+                  "-",
+                  "40",
+                  "400.00"
+                ],
+                [
+                  "87451",
+                  "Dopamine",
+                  "10",
+                  "-",
+                  "80",
+                  "800.00"
+                ],
+                [
+                  "8974",
+                  "Furoxone",
+                  "10",
+                  "-",
+                  "40",
+                  "400.00"
+                ],
+                [
+                  "47856",
+                  "Flagyl",
+                  "12",
+                  "-",
+                  "60",
+                  "720.00"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

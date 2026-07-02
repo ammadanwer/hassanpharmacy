@@ -1,0 +1,53 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/order-purchase",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "medical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "nonMedical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Medicine Name",
+      "Dose",
+      "Total Quantity",
+      "R. Quantity",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "Medical\nNon Medical\n​\nMedicine Name\tDose\tTotal Quantity\tR. Quantity\tManufacturer Name\tActions\n10 cc s\t00mg\t200\t\n10\n\tShifa\t\n\n10cc Syringe\t10 Milliliter (mL)\t48\t\n0\n\tShifa\t\n\n4OMG RISEK\t-\t9\t\n0\n\t1\t\n\n7.5 GLOVES\t-\t4\t\n1\n\tAmeer\t\n\nActrac\t20mg\t5\t\n1\n\tServing health\t\n\nAdalat\t30mg\t960\t\n-61\n\tBayer\t\n\nAdalat\t30mg\t4\t\n0\n\tBayer\t\n\nAlprib 20mg\t20mg\t20\t\n0\n\tRays pharma\t\n\nB ACTIVE SYP 120ML\t-\t144\t\n0\n\tUNICORN\t\n\nbbextrin\t20 Milligram (mg)\t40\t\n8\n\tSunshine Pharmaceuticals\t\n\ncefia\t100 Milligram (mg)\t20\t\n6\n\tHighnoon\t\n\nDow D\t5mg/ Milliliter (mL)\t2\t\n0\n\tMartin dow\t\n\nFEFAN DS TAB\t-\t20\t\n0\n\tamson\t\n\nFlagyl\t60ml\t25\t\n0\n\tSanofi-aventis\t\n\nFuroxone\t100mg\t20\t\n-10\n\tGSK\t\n\nGyno-Travogen Vag\t5g\t5\t\n0\n\tBayer\t\n\nJ FLEX TAB\t-\t15\t\n4\n\tMIKSONS\t\n\nM & M 49.3 GG\t-\t12\t\n0\n\tGENERAL ITEM\t\n\nomeprazole\t-\t150\t\n-3\n\t2\t\n\nOmgel Podina\t-\t110\t\n32\n\t1\t\n\npanadol\t3mg\t305\t\n52\n\tNovartis\t\n\npanadol\t-\t400\t\n-8\n\t26/A,VIA PALERMO-PARMA-ITALY\t\n\nPanadol Extra\t500mg\t900\t\n-100\n\tGSK\t\n\nPANADOL TAB\t-\t500\t\n0\n\tGSK\t\n\nPAN AMIN SG 500ML\t-\t16\t\n0\n\tOTSUKA\t\n\nPD-CEF IM\t500mg\t31\t\n0\n\tPDH Pharma\t\n\nP DOXIME INJ 10ML\t-\t1\t\n0\n\tAtco\t\n\nPLATRID AP 75/75\t75MG Milligrams per deciliter (mg/dL)\t1\t\n0\n\tSAMI\t\n\nSalazopyrin\t500mg\t10\t\n-40\n\tPfizer\t\n\nSANI PLAST\t-\t200\t\n36\n\t2\t\n\nselanz\t50mg\t1200\t\n0\n\t3H HOFFMANN HUMAN HEALTH LHR.\t\n\nT DAY 5MG TAB\t-\t525\t\n50\n\tGlaxoSmithKline\t\n\nTransamin\t250mg\t19\t\n1\n\tBayer\t\n\nZYTO 250MG TAB\t-\t201\t\n53\n\tHigh Q\t\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-34 of 34\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help"
+}

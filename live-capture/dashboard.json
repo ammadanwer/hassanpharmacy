@@ -1,0 +1,172 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Rs. 0 Today's Net Sale Rs. 4,828.673 Monthly Revenue Pending: 0 VIEW DETAILS 35,62,256 All Products Medical: 35,61,286 Non-Medical: 970 12,72,85,27,380.207 Total Cost 10 Medicine Shortage Resolve Now List of Expired Medicine Batch View Expired Batches 74hh 12365po 7378m gh899 kk8999 1245 896547 2856 423654 622 41256 47858 954788 18887 8989 123456 11227p 11227 133y 12557p 02 7575 45poo 87451 10235 88888kkk pppcvx 152578 4555 121 457iiuu ghh111 47856 1111 1 gh899 45kikhgjj 45kik 1122 23655 34789 1222 47856 bb123 bb123 12345 25-12-11 (1) 897456 45kik 147poutt 123365 56 14kkkk 47147lll 12544 W LEVO 250MG TABS TERBISIL B BRAUN 22G R PRO TAB 30'S WEBBOX BEAF DOG FOOD 2KG B ACTIVE DROP 20ML Actifed P Lotion Disprin 10CC SYRINGE Loprot Actrac Betaderm Lofexidine Siniry Gripe water T DAY 5MG TAB 30S T DAY 5MG TAB PANADOL Baby Lotion X CORELEX 4MG Calpol O CID 20MG TAB Dopamine Caflam Sulphur Panadol Transamin flygel Gripe water PANADOL EXTRA 0.9% SODIUM CHLORIDE 25ML Flagyl Omeprazole risek 20 Pandol m R PRO TAB 30'S AIREEZ 5MG TAB EFLOGEN CREAM 15GM 7.5 GLOVES Fair and Lovely Acneez CRAN BEE SACH Flagyl BBA BBA Gripe water Panadol CF TERBIDERM 125MG TAB N A DROP 10ML EFLOGEN CREAM 15GM BBA Panadol Disprin 212 MEN NYC BODY SPRAY aerofen 100 JACK 3D PRE WORK OUT Toot Siah 24/05/2026 31/01/2026 04/02/2025 04/02/2026 05/02/2025 17/06/2026 28/09/2025 24/11/2025 01/07/2025 09/01/2026 10/06/2024 01/10/2024 01/07/2025 01/02/2025 21/12/2024 30/09/2025 23/07/2025 23/05/2026 23/06/2025 23/08/2025 27/12/2025 28/12/2025 10/05/2026 08/05/2026 19/11/2025 08/08/2025 01/11/2025 01/12/2025 14/03/2026 30/09/2025 24/06/2026 26/12/2025 09/06/2026 01/09/2025 24/09/2025 06/03/2026 31/12/2025 28/02/2026 21/09/2025 23/10/2025 26/09/2025 26/09/2025 09/06/2026 02/12/2025 02/12/2025 12/12/2025 22/01/2025 21/01/2026 11/03/2026 28/02/2026 02/12/2025 16/05/2026 12/03/2026 21/04/2026 21/05/2026 30/05/2026 19/05/2026 Quick Monthly Report January 2026 February 2026 March 2026 April 2026 May 2026 June 2026 755 Qty of Products Sold 38 Invoices Generated Medicine Batches Overview Go To Batch Management 160 Batches in Stock 42 Batches out of Stock 59 Expired Batches Panadol CF, selanz, Adalat Frequently bought Item(s) Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "controls": [
+    {
+      "i": 0,
+      "tag": "BUTTON",
+      "text": "VIEW DETAILS",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 1,
+      "tag": "BUTTON",
+      "text": "View Expired Batches",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 2,
+      "tag": "BUTTON",
+      "text": "January 2026 February 2026 March 2026 April 2026 May 2026 June 2026",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 3,
+      "tag": "SELECT",
+      "text": "January 2026 February 2026 March 2026 April 2026 May 2026 June 2026",
+      "placeholder": "",
+      "type": "select-one",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "i": 4,
+      "tag": "BUTTON",
+      "text": "Go To Batch Management",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 6,
+      "tag": "BUTTON",
+      "text": "Add New Sale",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 8,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 9,
+      "tag": "DIV",
+      "text": "Sales",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 10,
+      "tag": "DIV",
+      "text": "Inventory",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 11,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 12,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 13,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 14,
+      "tag": "DIV",
+      "text": "Settings",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 15,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    }
+  ],
+  "fields": [
+    {
+      "i": 0,
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "label": "",
+      "options": "January 2026|February 2026|March 2026|April 2026|May 2026|June 2026"
+    }
+  ],
+  "tables": []
+}

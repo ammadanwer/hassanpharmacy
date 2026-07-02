@@ -1,0 +1,88 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/manufacturer",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Add New Manufacturer Manufacturer Name 1 1% 11 2 26/A,VIA PALERMO-PARMA-ITALY -3.50 3A Pharma 3H HOFFMANN HUMAN HEALTH LHR. 3M USA 3 STAR PHARMA A A1 Aamir medicose AAS Fertility Care Pharmaceutical ab ABASEEN ENTERPRISES abbot Abbot Pharma abbott Abbott Abbott ABBOTT ABBOTT LABAORATORIES Abbott Laboratories Abbott Laboratories (Pakistan) Ltd Abbott Laboratories (Pakistan) Ltd. ABBUTT abbvie tablet abc abcd abcdef Abcdef abcdefg Abcdefg abcsd abcsef Abdullah brothers ABH PHARMA Abosset abros Pharma (Pvt.) Ltd ABS Pharma ACM dermatology labourtries ACME ACME PHARMA MARKEKETIN A COMBINE PAKISTAN LTD. ACON Acti-Med Acto pharma ACUMEN PHARMA Adamjee < BACK 1 2 3 4 5 ... 50 NEXT > Rows per page 50 \u200b 1-50 of 2465 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search...",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "50",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add New Manufacturer",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "50",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Manufacturer Name",
+        "1"
+      ],
+      "rows": [
+        [
+          "1"
+        ],
+        [
+          "1%"
+        ],
+        [
+          "11"
+        ],
+        [
+          "2"
+        ],
+        [
+          "26/A,VIA PALERMO-PARMA-ITALY"
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Manufacturer Name 1 1% 11 2 26/A,VIA PALERMO-PARMA-ITALY -3.50 3A Pharma 3H HOFFMANN HUMAN HEALTH LHR. 3M USA 3 STAR PHARMA A A1 Aamir medicose AAS Fertility Care Pharmaceutical ab ABASEEN ENTERPRISES abbot Abbot Pharma abbott Abbott Abbott ABBOTT ABBOTT LABAORATORIES Abbott Laboratories Abbott Laboratories (Pakistan) Ltd Abbott Laboratories (Pakistan) Ltd. ABBUTT abbvie tablet abc abcd abcdef Abcdef abcdefg Abcdefg abcsd abcsef Abdullah brothers ABH PHARMA Abosset abros Pharma (Pvt.) Ltd ABS Pharma ACM dermatology labourtries ACME ACME PHARMA MARKEKETIN A COMBINE PAKISTAN LTD. ACON Acti-Med Acto pharma ACUMEN PHARMA Adamjee",
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

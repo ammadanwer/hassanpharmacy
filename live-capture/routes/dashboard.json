@@ -1,0 +1,22 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [],
+  "buttons": [
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [],
+  "cards": [
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/staff-management",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add Staff",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Role",
+      "Phone #",
+      "Address",
+      "Email",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\nAmir\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nhaseeb\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\niqbal\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nYasir\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nYasir\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nShehzad Ali\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nytdtdty\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\ndr bilal\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nMansoor\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nSherry\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nStaff M\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nmateen\tManager\t03210001111\t-\tmateen@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nMaham Fatima\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\ngghjh\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nHaris\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n\nWaleed\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nView\nEdit\nBlock\nEdit Pin\nEdit Permissions\n< BACK\n1\nNEXT >\nRows per page\n50\n100\n1-16 of 16",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Name",
+          "Role",
+          "Phone #",
+          "Address",
+          "Email",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "Amir",
+            "Manager",
+            "05154945800",
+            "-",
+            "alphaprofessionalsconsultancy@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "haseeb",
+            "Pharmacist",
+            "03211111111",
+            "-",
+            "hassanpharmacy344@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "iqbal",
+            "Stock_manager",
+            "03087940516",
+            "-",
+            "hassanpharmacy040@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Yasir",
+            "Manager",
+            "03084452646",
+            "-",
+            "hackerbaby323@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Yasir",
+            "Manager",
+            "03486100540",
+            "Moreminabad",
+            "ygoraya11@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Shehzad Ali",
+            "Manager",
+            "03300119805",
+            "DHA phase 2 extension",
+            "shehzad.ali@madadd.pk",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "ytdtdty",
+            "Pharmacist",
+            "03545458547",
+            "yuhi",
+            "123@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "dr bilal",
+            "Technician",
+            "03042917850",
+            "hunaiz pharmacy jdw road sadiqabad ryk",
+            "ba6955593@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Mansoor",
+            "Pharmacist",
+            "03346713888",
+            "ewwdw",
+            "mansoorjutt5@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Sherry",
+            "Stock_manager",
+            "03200035336",
+            "Faisalabad",
+            "nigivig922@djkux.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Staff M",
+            "Pharmacist",
+            "00006777777",
+            "00",
+            "shahidjaveed78@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "mateen",
+            "Manager",
+            "03210001111",
+            "-",
+            "mateen@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Maham Fatima",
+            "Pharmacist",
+            "03217225937",
+            "Tariq Bin Zaid Colony Sahiwal Street 7 h",
+            "mahamshahid1221@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "gghjh",
+            "Pharmacist",
+            "03331474147",
+            "-",
+            "gghhh@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Haris",
+            "Manager",
+            "03025088035",
+            "Safari valley , Bahria Town Phase 8",
+            "haseebkiani511@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ],
+          [
+            "Waleed",
+            "Pharmacist",
+            "03088088866",
+            "D-12 Islamabad",
+            "qdata815@gmail.com",
+            "View\nEdit\nBlock\nEdit Pin\nEdit Permissions"
+          ]
+        ]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/category",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Add New Category Category Name Type Actions ACNE FACE WASH Non Medical Alcohal Pad Medical Ampules Medical Analgesics Medical Antacids Medical Anti Allergic Medical Anti Ameobic (inflamation) Medical Anti Asthmatic Agent Medical Antibiotics Medical Anticonvulsants Medical Anti Cough Medical Antidepressants Medical Anti deressant Medical Anti Fungal Medical Antihistamines Medical Anti hyperglycemic Agent Medical Anti-hypertensive Medical Antihypertensives Drug Medical Anti Inflammatory Medical Anti Malaruial Medical Anti Melasma Medical Antiparkinson Medical Antipsychotics Medical Anti Scar Gel Medical Antithyroid agents Medical Antiviral Drug Medical Anxiolytics Medical BABY LINER Non Medical bag Non Medical BANDAGE Medical BANDGE Non Medical blade Non Medical BLADE Medical BLEACH CREAM Non Medical BLOOD KIT Medical BLOOD KIT Non Medical BLOOD LANCING DEVICE Medical BODY RAZER Non Medical BODY SPRAY Non Medical Body wash Medical Bowls Non Medical BP OPERATUS Medical BRACE SUPPORT Non Medical BREAST PUMP Medical Brightning Cream Medical BRUSH Non Medical Cake Non Medical Calendula Oil (N) Medical Canula Medical CANULA Medical < BACK 1 2 3 4 5 ... 7 NEXT > Rows per page 50 \u200b 1-50 of 331 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search...",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "50",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add New Category",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Category Name",
+        "Type",
+        "Actions",
+        "ACNE FACE WASH",
+        "Non Medical",
+        ""
+      ],
+      "rows": [
+        [
+          "ACNE FACE WASH",
+          "Non Medical",
+          ""
+        ],
+        [
+          "Alcohal Pad",
+          "Medical",
+          ""
+        ],
+        [
+          "Ampules",
+          "Medical",
+          ""
+        ],
+        [
+          "Analgesics",
+          "Medical",
+          ""
+        ],
+        [
+          "Antacids",
+          "Medical",
+          ""
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Category Name Type Actions ACNE FACE WASH Non Medical Alcohal Pad Medical Ampules Medical Analgesics Medical Antacids Medical Anti Allergic Medical Anti Ameobic (inflamation) Medical Anti Asthmatic Agent Medical Antibiotics Medical Anticonvulsants Medical Anti Cough Medical Antidepressants Medical Anti deressant Medical Anti Fungal Medical Antihistamines Medical Anti hyperglycemic Agent Medical Anti-hypertensive Medical Antihypertensives Drug Medical Anti Inflammatory Medical Anti Malaruial Medical Anti Melasma Medical Antiparkinson Medical Antipsychotics Medical Anti Scar Gel Medical Antithyroid agents Medical Antiviral Drug Medical Anxiolytics Medical BABY LINER Non Medical bag Non Medical BANDAGE Medical BANDGE Non Medical blade Non Medical BLADE Medical BLEACH CREAM Non Medical BLOOD KIT Medical BLOOD KIT Non Medical BLOOD LANCING DEVICE Medical BODY RAZER Non Medical BODY SPRAY Non Medical Body wash Medical Bowls Non Medical BP OPERATUS Medical BRACE SUPPORT Non Medical BREAST PUMP Medical Brightning Cream Medical BRUSH Non Medical Cake Non Medical Calendula Oil (N) Medical Canula Medical CANULA Medical",
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

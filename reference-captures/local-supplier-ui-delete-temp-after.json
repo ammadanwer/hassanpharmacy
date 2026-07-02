@@ -1,0 +1,88 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/supplier",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Supplier",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "CODX UI DELETE TEST 1782927654322",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Supplier Name/Company",
+      "Contact Person",
+      "Phone#",
+      "Email",
+      "Total Batches",
+      "Stock Purchase Price",
+      "Paid Amount",
+      "Supplier Outstanding",
+      "Status",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd New Supplier\nSupplier Name/Company\tContact Person\tPhone#\tEmail\tTotal Batches\tStock Purchase Price\tPaid Amount\tSupplier Outstanding\tStatus\tActions\nNo Data Found\n< BACK\n1\nNEXT >\nRows per page\n0-0 of 0",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Supplier Name/Company",
+          "Contact Person",
+          "Phone#",
+          "Email",
+          "Total Batches",
+          "Stock Purchase Price",
+          "Paid Amount",
+          "Supplier Outstanding",
+          "Status",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "No Data Found"
+          ]
+        ]
+      }
+    ]
+  ]
+}

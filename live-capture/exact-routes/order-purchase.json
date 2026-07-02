@@ -1,0 +1,123 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/order-purchase",
+  "body": "Medical Non Medical \u200b Medicine Name Dose Total Quantity R. Quantity Manufacturer Name Actions 10 cc s 00mg 200 10 Shifa 10cc Syringe 10 Milliliter (mL) 48 0 Shifa 4OMG RISEK - 9 0 1 7.5 GLOVES - 4 1 Ameer Actrac 20mg 5 1 Serving health Adalat 30mg 960 -61 Bayer Adalat 30mg 4 0 Bayer Alprib 20mg 20mg 20 0 Rays pharma B ACTIVE SYP 120ML - 144 0 UNICORN bbextrin 20 Milligram (mg) 40 8 Sunshine Pharmaceuticals cefia 100 Milligram (mg) 20 6 Highnoon Dow D 5mg/ Milliliter (mL) 2 0 Martin dow FEFAN DS TAB - 20 0 amson Flagyl 60ml 25 0 Sanofi-aventis Furoxone 100mg 20 -10 GSK Gyno-Travogen Vag 5g 5 0 Bayer J FLEX TAB - 15 4 MIKSONS M & M 49.3 GG - 12 0 GENERAL ITEM omeprazole - 150 -3 2 Omgel Podina - 110 32 1 panadol 3mg 305 52 Novartis panadol - 400 -8 26/A,VIA PALERMO-PARMA-ITALY Panadol Extra 500mg 900 -100 GSK PANADOL TAB - 500 0 GSK PAN AMIN SG 500ML - 16 0 OTSUKA PD-CEF IM 500mg 31 0 PDH Pharma P DOXIME INJ 10ML - 1 0 Atco PLATRID AP 75/75 75MG Milligrams per deciliter (mg/dL) 1 0 SAMI Salazopyrin 500mg 10 -40 Pfizer SANI PLAST - 200 36 2 selanz 50mg 1200 0 3H HOFFMANN HUMAN HEALTH LHR. T DAY 5MG TAB - 525 50 GlaxoSmithKline Transamin 250mg 19 1 Bayer ZYTO 250MG TAB - 200 52 High Q < BACK 1 NEXT > Rows per page 50 \u200b 1-34 of 34 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "medical",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "nonMedical",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search...",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Medicine Name",
+        "Dose",
+        "Total Quantity",
+        "R. Quantity",
+        "Manufacturer Name",
+        "Actions",
+        "10 cc s",
+        "00mg",
+        "200",
+        "10",
+        "Shifa",
+        ""
+      ],
+      "rows": [
+        [
+          "10 cc s",
+          "00mg",
+          "200",
+          "10",
+          "Shifa",
+          ""
+        ],
+        [
+          "10cc Syringe",
+          "10 Milliliter (mL)",
+          "48",
+          "0",
+          "Shifa",
+          ""
+        ],
+        [
+          "4OMG RISEK",
+          "-",
+          "9",
+          "0",
+          "1",
+          ""
+        ],
+        [
+          "7.5 GLOVES",
+          "-",
+          "4",
+          "1",
+          "Ameer",
+          ""
+        ]
+      ]
+    }
+  ]
+}

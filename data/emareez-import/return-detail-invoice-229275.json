@@ -1,0 +1,49 @@
+{
+  "invoiceNumber": "229275",
+  "salesInvoice": {
+    "date": "2026-06-23",
+    "time": "06:00:06 PM",
+    "totalAmount": "640",
+    "discountAmount": "140",
+    "totalPayable": "500",
+    "paid": "500",
+    "due": "0",
+    "changeReturned": "0"
+  },
+  "returnInvoice": {
+    "date": "2026-06-23",
+    "returnedAmount": "117.18",
+    "returnedDiscountPercent": "21.88",
+    "returnedDiscountAmount": "32.82"
+  },
+  "afterReturnSalesInvoice": {
+    "totalAmount": "382.82",
+    "netPaid": "382.82"
+  },
+  "items": [
+    {
+      "batchNo": "123321",
+      "productName": "RISEK 20MG CAP",
+      "qtySold": "10",
+      "qtyReturned": "-",
+      "rate": "28",
+      "amount": "280.00"
+    },
+    {
+      "batchNo": "1257mmm",
+      "productName": "Risek",
+      "qtySold": "10",
+      "qtyReturned": "-",
+      "rate": "6",
+      "amount": "60.00"
+    },
+    {
+      "batchNo": "145yy",
+      "productName": "ZYTO 250MG TAB",
+      "qtySold": "10",
+      "qtyReturned": "5",
+      "rate": "30",
+      "amount": "150.00"
+    }
+  ]
+}

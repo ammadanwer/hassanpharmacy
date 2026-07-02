@@ -1,0 +1,148 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/stock-audit",
+  "body": "Product Name Batch Type Quantity Select Adjustment \u200b Select Batch \u200b Unit \u200b \u200b Increase \u200b Add To List Stock Audit List Product Name Batch No. Quantity Type Quantity Before Quantity Adjusted Quantity After Adjustment Type Amount Actions No Data Found Total Amount Rs. 0 SAVE Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search by medicine name...",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "Select Batch",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "Unit",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "0",
+      "options": ""
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "role": "",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 6,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "Increase",
+      "options": ""
+    },
+    {
+      "i": 7,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "0",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add To List",
+    "SAVE",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Product Name",
+        "Batch",
+        "Type",
+        "Quantity",
+        "Select Adjustment",
+        "",
+        "\u200b",
+        "Select Batch \u200b",
+        "Unit \u200b",
+        "\u200b",
+        "Increase \u200b",
+        "Add To List"
+      ],
+      "rows": [
+        [
+          "\u200b",
+          "Select Batch \u200b",
+          "Unit \u200b",
+          "\u200b",
+          "Increase \u200b",
+          "Add To List"
+        ]
+      ]
+    },
+    {
+      "i": 1,
+      "heads": [
+        "Product Name",
+        "Batch No.",
+        "Quantity Type",
+        "Quantity Before",
+        "Quantity Adjusted",
+        "Quantity After",
+        "Adjustment Type",
+        "Amount",
+        "Actions",
+        "No Data Found"
+      ],
+      "rows": [
+        [
+          "No Data Found"
+        ]
+      ]
+    }
+  ]
+}

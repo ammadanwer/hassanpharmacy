@@ -1,0 +1,61 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/daily-expense",
+  "body": "Date Date Range Download Expense PDF \u200b Add Expense Date Name Expense Category Expense Amount Actions No Data found! Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "single",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "range",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "date",
+      "placeholder": "",
+      "label": "",
+      "text": "2026-06-29",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add Expense",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Date",
+        "Name",
+        "Expense Category",
+        "Expense Amount",
+        "Actions"
+      ],
+      "rows": []
+    }
+  ]
+}

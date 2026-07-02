@@ -1,0 +1,286 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/productsaleshistory",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "View Product History"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "View Product History",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "close",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "< BACK",
+    "1",
+    "2",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "Dopamine",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Dose",
+      "Generic Name",
+      "Sold Quantity",
+      "Action"
+    ],
+    [
+      "Invoice Number",
+      "Date",
+      "Total Amount (RS)",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Returned",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nProduct Name\tDose\tGeneric Name\tSold Quantity\tAction\nDopamine\t200mg/5ml\t-\t451\tView Product History\n< BACK\n1\nNEXT >\nRows per page\n50\n100\n1-1 of 1\nView Product History\nInvoice Number\tDate\tTotal Amount (RS)\tDiscount(%)\tDiscount Amt\tTotal Payable\tPaid\tDue(s)\tReturned\tActions\n73468\t2025-08-20\t200\t0.00\t18.00\t182.00\t190.00\t0.00\t8.00\t\n\n74876\t2025-08-22\t80\t0.00\t0.00\t80.00\t80.00\t0.00\t0.00\t\n\n82624\t2025-09-09\t0\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n84769\t2025-09-13\t820\t0.00\t0.00\t820.00\t900.00\t0.00\t80.00\t\n\n86280\t2025-09-17\t560\t0.00\t0.00\t560.00\t560.00\t0.00\t0.00\t\n\n88738\t2025-09-23\t290\t6.90\t20.01\t269.99\t500.00\t0.00\t230.01\t\n\n88742\t2025-09-23\t130\t3.85\t5.00\t125.00\t500.00\t0.00\t375.00\t\n\n94392\t2025-10-07\t5600\t0.00\t0.00\t5600.00\t5600.00\t0.00\t400.00\t\n\n94492\t2025-10-08\t80\t0.00\t0.00\t80.00\t80.00\t80.00\t0.00\t\n\n96041\t2025-10-12\t1050\t4.76\t50.00\t1000.00\t5000.00\t0.00\t4000.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n50\n100\n51-60 of 60",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Product Name",
+          "Dose",
+          "Generic Name",
+          "Sold Quantity",
+          "Action"
+        ],
+        "rows": [
+          [
+            "Dopamine",
+            "200mg/5ml",
+            "-",
+            "451",
+            "View Product History"
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Invoice Number",
+          "Date",
+          "Total Amount (RS)",
+          "Discount(%)",
+          "Discount Amt",
+          "Total Payable",
+          "Paid",
+          "Due(s)",
+          "Returned",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "73468",
+            "2025-08-20",
+            "200",
+            "0.00",
+            "18.00",
+            "182.00",
+            "190.00",
+            "0.00",
+            "8.00",
+            ""
+          ],
+          [
+            "74876",
+            "2025-08-22",
+            "80",
+            "0.00",
+            "0.00",
+            "80.00",
+            "80.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "82624",
+            "2025-09-09",
+            "0",
+            "0.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "84769",
+            "2025-09-13",
+            "820",
+            "0.00",
+            "0.00",
+            "820.00",
+            "900.00",
+            "0.00",
+            "80.00",
+            ""
+          ],
+          [
+            "86280",
+            "2025-09-17",
+            "560",
+            "0.00",
+            "0.00",
+            "560.00",
+            "560.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "88738",
+            "2025-09-23",
+            "290",
+            "6.90",
+            "20.01",
+            "269.99",
+            "500.00",
+            "0.00",
+            "230.01",
+            ""
+          ],
+          [
+            "88742",
+            "2025-09-23",
+            "130",
+            "3.85",
+            "5.00",
+            "125.00",
+            "500.00",
+            "0.00",
+            "375.00",
+            ""
+          ],
+          [
+            "94392",
+            "2025-10-07",
+            "5600",
+            "0.00",
+            "0.00",
+            "5600.00",
+            "5600.00",
+            "0.00",
+            "400.00",
+            ""
+          ],
+          [
+            "94492",
+            "2025-10-08",
+            "80",
+            "0.00",
+            "0.00",
+            "80.00",
+            "80.00",
+            "80.00",
+            "0.00",
+            ""
+          ],
+          [
+            "96041",
+            "2025-10-12",
+            "1050",
+            "4.76",
+            "50.00",
+            "1000.00",
+            "5000.00",
+            "0.00",
+            "4000.00",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

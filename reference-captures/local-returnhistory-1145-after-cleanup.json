@@ -1,0 +1,313 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Sales History Details",
+    "Invoice Number : 1145"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "view",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Close"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID...",
+      "value": "1145",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ],
+    [
+      "Date",
+      "Time",
+      "Total Amount",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned"
+    ],
+    [
+      "Date",
+      "Returned Amount",
+      "Returned Discount Amt(RS)"
+    ],
+    [
+      "Total Amount",
+      "Net Paid"
+    ],
+    [
+      "Batch no.",
+      "Product Name",
+      "QTY Sold",
+      "QTY Returned",
+      "Rate/Sell Price",
+      "Amount"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nGross Sales\nRs. 757.89\nTotal Return\nRs. 192.11\nNet Sale\nRs. 720.39\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n1145\nReturn Invoice\t2024-10-24\t08:34:40 PM\t750.00\t3.95\t30.00\t720.00\t808.00\t0.00\t87.50\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1\nSales History Details\nInvoice Number : 1145\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2024-10-24\t08:34:40 PM\t950\t37.5\t912.5\t1,000\t\t87.5\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(RS)\n2024-10-24\t192.11\t7.89\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n720.39\t720.39\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\n2856\tLotion\t3\t-\t250\t750.00\n10235\tCaflam\t0\t-\t100\t0.00\nClose",
+  "evalResults": {
+    "beforeClick": {
+      "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+      "headings": [
+        "Sales History Details",
+        "Invoice Number : 1145",
+        "Sales Invoice",
+        "Return Invoice",
+        "After Return Sales Invoice",
+        "Purchase Item List"
+      ],
+      "buttons": [
+        "Dashboard",
+        "Sales",
+        "New Sale",
+        "Return Item",
+        "Sales History",
+        "Return History",
+        "Product Sales History",
+        "Customer History",
+        "Inventory",
+        "Staff Management",
+        "Shift Management",
+        "Daily Expense",
+        "Settings",
+        "Get Technical Help",
+        "Collapse sidebar",
+        "Add New Sale",
+        "Renew",
+        "Open account menu",
+        "view",
+        "< BACK",
+        "1",
+        "NEXT >",
+        "Close"
+      ],
+      "inputs": [
+        {
+          "placeholder": "",
+          "value": "single",
+          "type": "radio"
+        },
+        {
+          "placeholder": "",
+          "value": "range",
+          "type": "radio"
+        },
+        {
+          "placeholder": "",
+          "value": "",
+          "type": "date"
+        },
+        {
+          "placeholder": "",
+          "value": "",
+          "type": "date"
+        },
+        {
+          "placeholder": "Search by Invoice ID...",
+          "value": "1145",
+          "type": "text"
+        },
+        {
+          "placeholder": "",
+          "value": "All",
+          "type": "text"
+        },
+        {
+          "placeholder": "",
+          "value": "50",
+          "type": "text"
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "Invoice Number",
+            "Date",
+            "Time",
+            "Total Amount(RS.)",
+            "Discount(%)",
+            "Discount Amount",
+            "Total Payable",
+            "Paid",
+            "Due(s)",
+            "Change Returned",
+            "Action"
+          ],
+          "rows": [
+            [
+              "1145 Return Invoice",
+              "2024-10-24",
+              "08:34:40 PM",
+              "750.00",
+              "3.95",
+              "30.00",
+              "720.00",
+              "808.00",
+              "0.00",
+              "87.50",
+              ""
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Date",
+            "Time",
+            "Total Amount",
+            "Discount Amount",
+            "Total Payable",
+            "Paid",
+            "Due(s)",
+            "Change Returned"
+          ],
+          "rows": [
+            [
+              "2024-10-24",
+              "08:34:40 PM",
+              "950",
+              "37.5",
+              "912.5",
+              "1,000",
+              "",
+              "87.5"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Date",
+            "Returned Amount",
+            "Returned Discount Amt(RS)"
+          ],
+          "rows": [
+            [
+              "2024-10-24",
+              "192.11",
+              "7.89"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Total Amount",
+            "Net Paid"
+          ],
+          "rows": [
+            [
+              "720.39",
+              "720.39"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Batch no.",
+            "Product Name",
+            "QTY Sold",
+            "QTY Returned",
+            "Rate/Sell Price",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "2856",
+              "Lotion",
+              "3",
+              "-",
+              "250",
+              "750.00"
+            ],
+            [
+              "10235",
+              "Caflam",
+              "0",
+              "-",
+              "100",
+              "0.00"
+            ]
+          ]
+        }
+      ],
+      "bodyText": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Select Date Select Date Range From Date To Date Gross Sales Rs. 757.89 Total Return Rs. 192.11 Net Sale Rs. 720.39 Invoice Number Date Time Total Amount(RS.) Discount(%) Discount Amount Total Payable Paid Due(s) Change Returned Action 1145 Return Invoice 2024-10-24 08:34:40 PM 750.00 3.95 30.00 720.00 808.00 0.00 87.50 < BACK 1 NEXT > Rows per page 1-1 of 1 Sales History Details Invoice Number : 1145 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-10-24 08:34:40 PM 950 37.5 912.5 1,000 87.5 Return Invoice Date Returned Amount Returned Discount Amt(RS) 2024-10-24 192.11 7.89 After Return Sales Invoice Total Amount Net Paid 720.39 720.39 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2856 Lotion 3 - 250 750.00 10235 Caflam 0 - 100 0.00 Close"
+    }
+  }
+}

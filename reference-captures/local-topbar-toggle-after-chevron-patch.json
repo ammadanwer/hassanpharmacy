@@ -1,0 +1,66 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "List of Expired Medicine Batch",
+    "Quick Monthly Report",
+    "Medicine Batches Overview"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "VIEW DETAILS",
+    "Resolve Now »",
+    "View Expired Batches »",
+    "Go To Batch Management »"
+  ],
+  "inputs": [
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "2026-07",
+      "text": "July 2026\nJune 2026\nMay 2026\nApril 2026\nMarch 2026\nFebruary 2026\nJanuary 2026"
+    }
+  ],
+  "headers": [],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nRs. 0\nToday's Net Sale\nRs. 0\nMonthly Revenue\nPending: 0\nVIEW DETAILS\n35,63,879\nAll Products\nMedical: 35,62,909 | Non-Medical: 970\n12,72,86,39,583.027\nTotal Cost\n10\nMedicine Shortage\nResolve Now »\nList of Expired Medicine Batch\nView Expired Batches »\n74hh\tW LEVO 250MG TABS\t24/05/2026\n12365po\tTERBISIL\t31/01/2026\n7378m\tB BRAUN 22G\t04/02/2025\ngh899\tR PRO TAB 30'S\t04/02/2026\nkk8999\tWEBBOX BEAF DOG FOOD 2KG\t05/02/2025\n1245\tB ACTIVE DROP 20ML\t17/06/2026\n896547\tActifed P\t28/09/2025\n2856\tLotion\t24/11/2025\n423654\tDisprin\t01/07/2025\n622\t10CC SYRINGE\t09/01/2026\n41256\tLoprot\t10/06/2024\n47858\tActrac\t01/10/2024\n954788\tBetaderm\t01/07/2025\n18887\tLofexidine\t01/02/2025\n8989\tSiniry\t21/12/2024\n123456\tGripe water\t30/09/2025\n11227p\tT DAY 5MG TAB 30S\t23/07/2025\n11227\tT DAY 5MG TAB\t23/05/2026\n133y\tPANADOL\t23/06/2025\n12557p\tBaby Lotion X\t23/08/2025\n02\tCORELEX 4MG\t27/12/2025\n7575\tCalpol\t28/12/2025\n45poo\tO CID 20MG TAB\t10/05/2026\n87451\tDopamine\t08/05/2026\n10235\tCaflam\t19/11/2025\n88888kkk\tSulphur\t08/08/2025\npppcvx\tPanadol\t01/11/2025\n152578\tTransamin\t01/12/2025\n4555\tflygel\t14/03/2026\n457iiuu\tPANADOL EXTRA\t24/06/2026\n121\tGripe water\t30/09/2025\n47856\tFlagyl\t09/06/2026\nghh111\t0.9% SODIUM CHLORIDE 25ML\t26/12/2025\n1111\tOmeprazole risek 20\t01/09/2025\n1\tPandol m\t24/09/2025\n45kikhgjj\tAIREEZ 5MG TAB\t31/12/2025\n45kik\tEFLOGEN CREAM 15GM\t28/02/2026\ngh899\tR PRO TAB 30'S\t06/03/2026\n34789\tAcneez\t26/09/2025\n1122\t7.5 GLOVES\t21/09/2025\n23655\tFair and Lovely\t23/10/2025\n1222\tCRAN BEE SACH\t26/09/2025\n47856\tFlagyl\t09/06/2026\nbb123\tBBA\t02/12/2025\n12345\tGripe water\t12/12/2025\nbb123\tBBA\t02/12/2025\n25-12-11 (1)\tPanadol CF\t22/01/2025\n897456\tTERBIDERM 125MG TAB N\t21/01/2026\n\tA DROP 10ML\t11/03/2026\n45kik\tEFLOGEN CREAM 15GM\t28/02/2026\n\tBBA\t02/12/2025\n147poutt\tPanadol\t16/05/2026\n123365\tDisprin\t12/03/2026\n56\t212 MEN NYC BODY SPRAY\t21/04/2026\n1",
+  "evalResults": {
+    "afterClick": {
+      "before": {
+        "collapsed": false,
+        "label": "Collapse sidebar",
+        "svgCount": 2,
+        "width": 52,
+        "text": "",
+        "topbarHeight": 64
+      },
+      "afterCollapse": {
+        "collapsed": true,
+        "label": "Expand sidebar",
+        "svgCount": 1,
+        "width": 44,
+        "text": "",
+        "topbarHeight": 64
+      },
+      "afterExpand": {
+        "collapsed": false,
+        "label": "Collapse sidebar",
+        "svgCount": 2,
+        "width": 52,
+        "text": "",
+        "topbarHeight": 64
+      }
+    }
+  }
+}

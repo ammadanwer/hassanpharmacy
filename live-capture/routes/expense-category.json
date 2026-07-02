@@ -1,0 +1,101 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/expense-category",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Add New Category Category Name Description Actions Repairing & Maintenance Dera . . MUHHAMAD HASSAIN SALARY Monthly Salary Rs 27000 PROFESSIONAL CHARGES Stamppaper . . . . . . . . Printing & Stationery LAUNDARY Expensis . . R & M Vehicle . . . . . . Repairing & Maintenance Hospital Maintenance and Repairs . . ENTERTAINMENT Else . . . . SMS PACKEGE SMS appointment, reminder payment Medical consumables food SALARY House Hold Expence Medical Instruments Equipment, etc Daily Wages bill Pharmacy Bill YAG MACHINE CHARGES YAG MACHINE CHARGES EYLEA INJECTION COST EYLEA INJECTION COST AL Madina lab lab tests EYLEA INJECTION EYLEA EXTRA DOSE EYLEA THEATER CHARGES Femto hospital charges Advance From Salary Salary ASIF testing This is just for testing. test this is just for testing. Advance from salery Clinic Grocery Items office supplies stationary and supplies lense for operation extra saman for operation theater charges for phaco kitchen supplies everyday tea Hydrafacial HOUSE KEEPING SUPPLIES brushes, surf, toilet supplies, dust bin and dust bin bags etc ASLAM TRADERS TOTAL FOR INVOICE/ 20.281 < BACK 1 2 3 4 5 ... 7 NEXT > Rows per page 50 \u200b 1-50 of 309 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search Category",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "50",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add New Category",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Category Name",
+        "Description",
+        "Actions",
+        "Repairing & Maintenance Dera",
+        "",
+        ""
+      ],
+      "rows": [
+        [
+          "Repairing & Maintenance Dera",
+          "",
+          ""
+        ],
+        [
+          ".",
+          ".",
+          ""
+        ],
+        [
+          "MUHHAMAD HASSAIN SALARY",
+          "Monthly Salary Rs 27000",
+          ""
+        ],
+        [
+          "PROFESSIONAL CHARGES",
+          "Stamppaper",
+          ""
+        ],
+        [
+          ".",
+          ".",
+          ""
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

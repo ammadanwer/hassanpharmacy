@@ -1,0 +1,100 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/daily-expense",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Expense"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Expense",
+    "Expense Category",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Download Expense PDF",
+    "Add Expense",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "2026-07-02",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Expense Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "yyyy-mm-dd",
+      "value": "2026/07/02",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Expense",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "e.g. 1500",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "placeholder": "Enter Description...",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Date",
+      "Name",
+      "Expense Category",
+      "Expense Amount",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nExpense\nExpense Category\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nDate\nDownload Expense PDF\nAdd Expense\nDate\tName\tExpense Category\tExpense Amount\tActions\nNo Data found!\nAdd Expense\nExpense Name\nDate\nExpense Category *\nAmount\nDescription\nAdd"
+}

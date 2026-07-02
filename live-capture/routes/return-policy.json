@@ -1,0 +1,65 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/return-policy",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Products Return Policy Add New Policy Policy Description Actions Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable Additional Notes/Instructions Add New Instructions Title Description Actions helping to petients help to petients and olders nnn warranty Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [],
+  "buttons": [
+    "Add New Policy",
+    "Add New Instructions",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Policy Description",
+        "Actions",
+        "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+        ""
+      ],
+      "rows": [
+        [
+          "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+          ""
+        ]
+      ]
+    },
+    {
+      "i": 1,
+      "heads": [
+        "Title",
+        "Description",
+        "Actions",
+        "helping to petients",
+        "help to petients and olders",
+        ""
+      ],
+      "rows": [
+        [
+          "helping to petients",
+          "help to petients and olders",
+          ""
+        ],
+        [
+          "nnn",
+          "warranty",
+          ""
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Policy Description Actions Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+    "Title Description Actions helping to petients help to petients and olders nnn warranty",
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

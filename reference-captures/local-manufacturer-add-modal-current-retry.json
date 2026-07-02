@@ -1,0 +1,232 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/manufacturer",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add New Manufacturer"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Manufacturer",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "50",
+    "NEXT >",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Manufacturer Name"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd New Manufacturer\nManufacturer Name\n1\n1%\n11\n2\n26/A,VIA PALERMO-PARMA-ITALY\n-3.50\n3A Pharma\n3H HOFFMANN HUMAN HEALTH LHR.\n3M USA\n3 STAR PHARMA\nA\nA1\nAamir medicose\nAAS Fertility Care Pharmaceutical\nab\nABASEEN ENTERPRISES\nabbot\nAbbot Pharma\nabbott\nAbbott\nAbbott\nABBOTT\nABBOTT LABAORATORIES\nAbbott Laboratories\nAbbott Laboratories (Pakistan) Ltd\nAbbott Laboratories (Pakistan) Ltd.\nABBUTT\nabbvie tablet\nabc\nabcd\nabcdef\nAbcdef\nabcdefg\nAbcdefg\nabcsd\nabcsef\nAbdullah brothers\nABH PHARMA\nAbosset\nabros Pharma (Pvt.) Ltd\nABS Pharma\nACM dermatology labourtries\nACME\nACME PHARMA MARKEKETIN\nA COMBINE PAKISTAN LTD.\nACON\nActi-Med\nActo pharma\nACUMEN PHARMA\nAdamjee\n< BACK\n1\n2\n3\n4\n5\n...\n50\nNEXT >\nRows per page\n1-50 of 2465\nAdd New Manufacturer\nManufacturer Name\nAdd",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Manufacturer Name"
+        ],
+        "rows": [
+          [
+            "1"
+          ],
+          [
+            "1%"
+          ],
+          [
+            "11"
+          ],
+          [
+            "2"
+          ],
+          [
+            "26/A,VIA PALERMO-PARMA-ITALY"
+          ],
+          [
+            "-3.50"
+          ],
+          [
+            "3A Pharma"
+          ],
+          [
+            "3H HOFFMANN HUMAN HEALTH LHR."
+          ],
+          [
+            "3M USA"
+          ],
+          [
+            "3 STAR PHARMA"
+          ],
+          [
+            "A"
+          ],
+          [
+            "A1"
+          ],
+          [
+            "Aamir medicose"
+          ],
+          [
+            "AAS Fertility Care Pharmaceutical"
+          ],
+          [
+            "ab"
+          ],
+          [
+            "ABASEEN ENTERPRISES"
+          ],
+          [
+            "abbot"
+          ],
+          [
+            "Abbot Pharma"
+          ],
+          [
+            "abbott"
+          ],
+          [
+            "Abbott"
+          ],
+          [
+            "Abbott"
+          ],
+          [
+            "ABBOTT"
+          ],
+          [
+            "ABBOTT LABAORATORIES"
+          ],
+          [
+            "Abbott Laboratories"
+          ],
+          [
+            "Abbott Laboratories (Pakistan) Ltd"
+          ],
+          [
+            "Abbott Laboratories (Pakistan) Ltd."
+          ],
+          [
+            "ABBUTT"
+          ],
+          [
+            "abbvie tablet"
+          ],
+          [
+            "abc"
+          ],
+          [
+            "abcd"
+          ],
+          [
+            "abcdef"
+          ],
+          [
+            "Abcdef"
+          ],
+          [
+            "abcdefg"
+          ],
+          [
+            "Abcdefg"
+          ],
+          [
+            "abcsd"
+          ],
+          [
+            "abcsef"
+          ],
+          [
+            "Abdullah brothers"
+          ],
+          [
+            "ABH PHARMA"
+          ],
+          [
+            "Abosset"
+          ],
+          [
+            "abros Pharma (Pvt.) Ltd"
+          ],
+          [
+            "ABS Pharma"
+          ],
+          [
+            "ACM dermatology labourtries"
+          ],
+          [
+            "ACME"
+          ],
+          [
+            "ACME PHARMA MARKEKETIN"
+          ],
+          [
+            "A COMBINE PAKISTAN LTD."
+          ],
+          [
+            "ACON"
+          ],
+          [
+            "Acti-Med"
+          ],
+          [
+            "Acto pharma"
+          ],
+          [
+            "ACUMEN PHARMA"
+          ],
+          [
+            "Adamjee"
+          ]
+        ]
+      }
+    ]
+  ]
+}

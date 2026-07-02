@@ -1,0 +1,1499 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/newsale",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "Clear",
+    "Clear",
+    "Open",
+    "Add to List",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Proceed to Checkout",
+    "< BACK",
+    "1",
+    "2",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Product Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Barcode",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Sale Type",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter quantity",
+      "value": " ",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Sell Price",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Sell Price",
+      "value": "80",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Draft ID",
+      "Date",
+      "Total Items",
+      "Total Amount",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Action",
+      "Product Name",
+      "Bar Code",
+      "Sale Type",
+      "Quantity",
+      "Product Name",
+      "Batch no.",
+      "Qt in Box",
+      "Qt in Units",
+      "Total Quantity",
+      "Cost Price",
+      "Rate/Sell Price",
+      "Amount",
+      "Discount(%)",
+      "Discount(Amt)",
+      "Payable Amt",
+      "Actions"
+    ],
+    [
+      "Product Name",
+      "Bar Code",
+      "Sale Type",
+      "Quantity"
+    ],
+    [
+      "Product Name",
+      "Batch no.",
+      "Qt in Box",
+      "Qt in Units",
+      "Total Quantity",
+      "Cost Price",
+      "Rate/Sell Price",
+      "Amount",
+      "Discount(%)",
+      "Discount(Amt)",
+      "Payable Amt",
+      "Actions"
+    ]
+  ],
+  "text": "New Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\n345\t2025-11-08\t2\t126\t19.52\t24.60\t101.40\t\n\n25\t2025-11-04\t1\t50\t0.00\t0.00\t0.00\t\n\n1\t2025-11-04\t3\t1210\t0.00\t0.00\t0.00\t\n\n456\t2025-10-31\t3\t740\t0.00\t0.00\t0.00\t\n\n123456\t2025-10-13\t2\t380\t0.00\t0.00\t0.00\t\n\n123\t2025-10-12\t2\t1050\t0.00\t0.00\t0.00\t\n\n\nProduct Name\tBar Code\tSale Type\tQuantity\t\n\n\n​\n\t\n​\n\t\n​\n\t\n​\n\t\nAdd to List\n\nSales Items List\n\nProduct Name\tBatch no.\tQt in Box\tQt in Units\tTotal Quantity\tCost Price\tRate/Sell Price\tAmount\tDiscount(%)\tDiscount(Amt)\tPayable Amt\tActions\nFlagyl 90ml\t47856\t0.29\t5\t5\t30.00\t\n​\nUpdate Globally\n\t250.00\t\n​\n\t\n​\n\t\n250.00\n\t\n\nDopamine 200mg/5ml\t87451\tInfinity\t10\t10\t50.00\t\n​\nUpdate Globally\n\t800.00\t\n​\n\t\n​\n\t\n800.00\n\t\nProceed to Checkout\n< BACK\n1\n2\nNEXT >\nRows per page\n10\n​\n11-16 of 16\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/newsale",
+      "captured": 16,
+      "pages": [
+        {
+          "draftId": "115",
+          "page": 1,
+          "row": [
+            "115",
+            "2025-11-19",
+            "2",
+            "24168",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions PIOZER G 30/2MG TAB 55gg 0.70 7 7 20.00 ​ Update Globally 168.00 ​ ​ 168.00 0meprazole 23 0.08 4 4 5000.00 ​ Update Globally 24000.00 ​ ​ 24000.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "PIOZER G 30/2MG TAB",
+                  "55gg",
+                  "0.70",
+                  "7",
+                  "7",
+                  "20.00",
+                  "​ Update Globally",
+                  "168.00",
+                  "​",
+                  "​",
+                  "168.00",
+                  ""
+                ],
+                [
+                  "0meprazole",
+                  "23",
+                  "0.08",
+                  "4",
+                  "4",
+                  "5000.00",
+                  "​ Update Globally",
+                  "24000.00",
+                  "​",
+                  "​",
+                  "24000.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "1234567",
+          "page": 1,
+          "row": [
+            "1234567",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions 0meprazole 23 0.12 6 6 5000.00 ​ Update Globally 36000.00 ​ ​ 36000.00 0PZOL 150 mg 3 0.06 3 3 500.00 ​ Update Globally 1800.00 ​ ​ 1800.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "0meprazole",
+                  "23",
+                  "0.12",
+                  "6",
+                  "6",
+                  "5000.00",
+                  "​ Update Globally",
+                  "36000.00",
+                  "​",
+                  "​",
+                  "36000.00",
+                  ""
+                ],
+                [
+                  "0PZOL 150 mg",
+                  "3",
+                  "0.06",
+                  "3",
+                  "3",
+                  "500.00",
+                  "​ Update Globally",
+                  "1800.00",
+                  "​",
+                  "​",
+                  "1800.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "5678",
+          "page": 1,
+          "row": [
+            "5678",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions 0meprazole 23 0.12 6 6 5000.00 ​ Update Globally 36000.00 ​ ​ 36000.00 0PZOL 150 mg 3 0.06 3 3 500.00 ​ Update Globally 1800.00 ​ ​ 1800.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "0meprazole",
+                  "23",
+                  "0.12",
+                  "6",
+                  "6",
+                  "5000.00",
+                  "​ Update Globally",
+                  "36000.00",
+                  "​",
+                  "​",
+                  "36000.00",
+                  ""
+                ],
+                [
+                  "0PZOL 150 mg",
+                  "3",
+                  "0.06",
+                  "3",
+                  "3",
+                  "500.00",
+                  "​ Update Globally",
+                  "1800.00",
+                  "​",
+                  "​",
+                  "1800.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "11687",
+          "page": 1,
+          "row": [
+            "11687",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions 0meprazole 23 0.12 6 6 5000.00 ​ Update Globally 36000.00 ​ ​ 36000.00 0PZOL 150 mg 3 0.06 3 3 500.00 ​ Update Globally 1800.00 ​ ​ 1800.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "0meprazole",
+                  "23",
+                  "0.12",
+                  "6",
+                  "6",
+                  "5000.00",
+                  "​ Update Globally",
+                  "36000.00",
+                  "​",
+                  "​",
+                  "36000.00",
+                  ""
+                ],
+                [
+                  "0PZOL 150 mg",
+                  "3",
+                  "0.06",
+                  "3",
+                  "3",
+                  "500.00",
+                  "​ Update Globally",
+                  "1800.00",
+                  "​",
+                  "​",
+                  "1800.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "116",
+          "page": 1,
+          "row": [
+            "116",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions 0meprazole 23 0.12 6 6 5000.00 ​ Update Globally 36000.00 ​ ​ 36000.00 0PZOL 150 mg 3 0.06 3 3 500.00 ​ Update Globally 1800.00 ​ ​ 1800.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "0meprazole",
+                  "23",
+                  "0.12",
+                  "6",
+                  "6",
+                  "5000.00",
+                  "​ Update Globally",
+                  "36000.00",
+                  "​",
+                  "​",
+                  "36000.00",
+                  ""
+                ],
+                [
+                  "0PZOL 150 mg",
+                  "3",
+                  "0.06",
+                  "3",
+                  "3",
+                  "500.00",
+                  "​ Update Globally",
+                  "1800.00",
+                  "​",
+                  "​",
+                  "1800.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "6811",
+          "page": 1,
+          "row": [
+            "6811",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions 0meprazole 23 0.12 6 6 5000.00 ​ Update Globally 36000.00 ​ ​ 36000.00 0PZOL 150 mg 3 0.06 3 3 500.00 ​ Update Globally 1800.00 ​ ​ 1800.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "0meprazole",
+                  "23",
+                  "0.12",
+                  "6",
+                  "6",
+                  "5000.00",
+                  "​ Update Globally",
+                  "36000.00",
+                  "​",
+                  "​",
+                  "36000.00",
+                  ""
+                ],
+                [
+                  "0PZOL 150 mg",
+                  "3",
+                  "0.06",
+                  "3",
+                  "3",
+                  "500.00",
+                  "​ Update Globally",
+                  "1800.00",
+                  "​",
+                  "​",
+                  "1800.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "798",
+          "page": 1,
+          "row": [
+            "798",
+            "2025-11-19",
+            "2",
+            "3048",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions Adalat 30mg 1 0.60 6 6 460.00 ​ Update Globally 3000.00 ​ ​ 3000.00 PIOZER G 30/2MG TAB 55gg 0.20 2 2 20.00 ​ Update Globally 48.00 ​ ​ 48.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "Adalat 30mg",
+                  "1",
+                  "0.60",
+                  "6",
+                  "6",
+                  "460.00",
+                  "​ Update Globally",
+                  "3000.00",
+                  "​",
+                  "​",
+                  "3000.00",
+                  ""
+                ],
+                [
+                  "PIOZER G 30/2MG TAB",
+                  "55gg",
+                  "0.20",
+                  "2",
+                  "2",
+                  "20.00",
+                  "​ Update Globally",
+                  "48.00",
+                  "​",
+                  "​",
+                  "48.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "678",
+          "page": 1,
+          "row": [
+            "678",
+            "2025-11-17",
+            "2",
+            "3060",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions Adalat 30mg 1 0.60 6 6 460.00 ​ Update Globally 3000.00 ​ ​ 3000.00 Panadol CF 500mg 322 1.20 6 6 5.00 ​ Update Globally 60.00 ​ ​ 60.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "Adalat 30mg",
+                  "1",
+                  "0.60",
+                  "6",
+                  "6",
+                  "460.00",
+                  "​ Update Globally",
+                  "3000.00",
+                  "​",
+                  "​",
+                  "3000.00",
+                  ""
+                ],
+                [
+                  "Panadol CF 500mg",
+                  "322",
+                  "1.20",
+                  "6",
+                  "6",
+                  "5.00",
+                  "​ Update Globally",
+                  "60.00",
+                  "​",
+                  "​",
+                  "60.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "876",
+          "page": 1,
+          "row": [
+            "876",
+            "2025-11-14",
+            "2",
+            "2560",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions Adalat 30mg 1 0.50 5 5 460.00 ​ Update Globally 2500.00 ​ ​ 2500.00 Panadol CF 500mg 322 1.20 6 6 5.00 ​ Update Globally 60.00 ​ ​ 60.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "Adalat 30mg",
+                  "1",
+                  "0.50",
+                  "5",
+                  "5",
+                  "460.00",
+                  "​ Update Globally",
+                  "2500.00",
+                  "​",
+                  "​",
+                  "2500.00",
+                  ""
+                ],
+                [
+                  "Panadol CF 500mg",
+                  "322",
+                  "1.20",
+                  "6",
+                  "6",
+                  "5.00",
+                  "​ Update Globally",
+                  "60.00",
+                  "​",
+                  "​",
+                  "60.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "789",
+          "page": 1,
+          "row": [
+            "789",
+            "2025-11-09",
+            "2",
+            "440",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions DI JOINT TAB NaN 7 7 50.00 ​ Update Globally 420.00 ​ ​ 420.00 Panadol CF 500mg 322 0.40 2 2 5.00 ​ Update Globally 20.00 ​ ​ 20.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "DI JOINT TAB",
+                  "",
+                  "NaN",
+                  "7",
+                  "7",
+                  "50.00",
+                  "​ Update Globally",
+                  "420.00",
+                  "​",
+                  "​",
+                  "420.00",
+                  ""
+                ],
+                [
+                  "Panadol CF 500mg",
+                  "322",
+                  "0.40",
+                  "2",
+                  "2",
+                  "5.00",
+                  "​ Update Globally",
+                  "20.00",
+                  "​",
+                  "​",
+                  "20.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "345",
+          "page": 2,
+          "row": [
+            "345",
+            "2025-11-08",
+            "2",
+            "126",
+            "19.52",
+            "24.60",
+            "101.40",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions PAN AMIN SG 500ML 22 0.50 2 2 2.00 ​ Update Globally 6.00 ​ ​ 6.00 PIOZER G 30/2MG TAB 55gg 0.50 5 5 20.00 ​ Update Globally 120.00 ​ ​ 120.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "PAN AMIN SG 500ML",
+                  "22",
+                  "0.50",
+                  "2",
+                  "2",
+                  "2.00",
+                  "​ Update Globally",
+                  "6.00",
+                  "​",
+                  "​",
+                  "6.00",
+                  ""
+                ],
+                [
+                  "PIOZER G 30/2MG TAB",
+                  "55gg",
+                  "0.50",
+                  "5",
+                  "5",
+                  "20.00",
+                  "​ Update Globally",
+                  "120.00",
+                  "​",
+                  "​",
+                  "120.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "25",
+          "page": 2,
+          "row": [
+            "25",
+            "2025-11-04",
+            "1",
+            "50",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions panadol 3mg 22 0.50 5 5 5.00 ​ Update Globally 50.00 ​ ​ 50.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "panadol 3mg",
+                  "22",
+                  "0.50",
+                  "5",
+                  "5",
+                  "5.00",
+                  "​ Update Globally",
+                  "50.00",
+                  "​",
+                  "​",
+                  "50.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "1",
+          "page": 2,
+          "row": [
+            "1",
+            "2025-11-04",
+            "3",
+            "1210",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions panadol 3mg 22 2.00 20 20 5.00 ​ Update Globally 200.00 ​ ​ 200.00 Adalat 30mg 1 0.20 2 2 460.00 ​ Update Globally 1000.00 ​ ​ 1000.00 T DAY 5MG TAB 11227 0.20 1 1 5.00 ​ Update Globally 10.00 ​ ​ 10.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "panadol 3mg",
+                  "22",
+                  "2.00",
+                  "20",
+                  "20",
+                  "5.00",
+                  "​ Update Globally",
+                  "200.00",
+                  "​",
+                  "​",
+                  "200.00",
+                  ""
+                ],
+                [
+                  "Adalat 30mg",
+                  "1",
+                  "0.20",
+                  "2",
+                  "2",
+                  "460.00",
+                  "​ Update Globally",
+                  "1000.00",
+                  "​",
+                  "​",
+                  "1000.00",
+                  ""
+                ],
+                [
+                  "T DAY 5MG TAB",
+                  "11227",
+                  "0.20",
+                  "1",
+                  "1",
+                  "5.00",
+                  "​ Update Globally",
+                  "10.00",
+                  "​",
+                  "​",
+                  "10.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "456",
+          "page": 2,
+          "row": [
+            "456",
+            "2025-10-31",
+            "3",
+            "740",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions PIOZER G 30/2MG TAB 55gg 1.00 10 10 20.00 ​ Update Globally 240.00 ​ ​ 240.00 DI JOINT TAB NaN 7 7 50.00 ​ Update Globally 420.00 ​ ​ 420.00 T DAY 5MG TAB 11227 1.60 8 8 5.00 ​ Update Globally 80.00 ​ ​ 80.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "PIOZER G 30/2MG TAB",
+                  "55gg",
+                  "1.00",
+                  "10",
+                  "10",
+                  "20.00",
+                  "​ Update Globally",
+                  "240.00",
+                  "​",
+                  "​",
+                  "240.00",
+                  ""
+                ],
+                [
+                  "DI JOINT TAB",
+                  "",
+                  "NaN",
+                  "7",
+                  "7",
+                  "50.00",
+                  "​ Update Globally",
+                  "420.00",
+                  "​",
+                  "​",
+                  "420.00",
+                  ""
+                ],
+                [
+                  "T DAY 5MG TAB",
+                  "11227",
+                  "1.60",
+                  "8",
+                  "8",
+                  "5.00",
+                  "​ Update Globally",
+                  "80.00",
+                  "​",
+                  "​",
+                  "80.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "123456",
+          "page": 2,
+          "row": [
+            "123456",
+            "2025-10-13",
+            "2",
+            "380",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions Dopamine 200mg/5ml 87451 Infinity 1 1 50.00 ​ Update Globally 80.00 ​ ​ 80.00 Nebulization Char 123 Infinity 2 2 130.00 ​ Update Globally 300.00 ​ ​ 300.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "Dopamine 200mg/5ml",
+                  "87451",
+                  "Infinity",
+                  "1",
+                  "1",
+                  "50.00",
+                  "​ Update Globally",
+                  "80.00",
+                  "​",
+                  "​",
+                  "80.00",
+                  ""
+                ],
+                [
+                  "Nebulization Char",
+                  "123",
+                  "Infinity",
+                  "2",
+                  "2",
+                  "130.00",
+                  "​ Update Globally",
+                  "300.00",
+                  "​",
+                  "​",
+                  "300.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "draftId": "123",
+          "page": 2,
+          "row": [
+            "123",
+            "2025-10-12",
+            "2",
+            "1050",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "expandedText": "Product Name Bar Code Sale Type Quantity ​ ​ ​ ​ Add to List Sales Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions Flagyl 90ml 47856 0.29 5 5 30.00 ​ Update Globally 250.00 ​ ​ 250.00 Dopamine 200mg/5ml 87451 Infinity 10 10 50.00 ​ Update Globally 800.00 ​ ​ 800.00 Proceed to Checkout",
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity"
+              ],
+              "rows": [
+                [
+                  "​",
+                  "​",
+                  "​",
+                  "​",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "Flagyl 90ml",
+                  "47856",
+                  "0.29",
+                  "5",
+                  "5",
+                  "30.00",
+                  "​ Update Globally",
+                  "250.00",
+                  "​",
+                  "​",
+                  "250.00",
+                  ""
+                ],
+                [
+                  "Dopamine 200mg/5ml",
+                  "87451",
+                  "Infinity",
+                  "10",
+                  "10",
+                  "50.00",
+                  "​ Update Globally",
+                  "800.00",
+                  "​",
+                  "​",
+                  "800.00",
+                  ""
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

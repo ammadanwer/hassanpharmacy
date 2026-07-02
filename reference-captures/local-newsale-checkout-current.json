@@ -1,0 +1,100 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Payments & Receivables"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "‹ Back",
+    "Add Customer Details",
+    "Save as a Draft",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Doctor Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "RS.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "0",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Payment",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\n‹ Back\nDoctor Name(Optional)\nPayments & Receivables\nAdd Customer Details\nTotal Amount: RS. 80.00\nAdd Discount\n%\nSelect Payment Method\nVISA\ne\nJazzCash\nCard\nCash\nDue Payment\nRS. 0.00\nPayable Amount\nRS. 80.00\nReceive Now:\nReturned Cash: RS. 0.00\nSave as a Draft\nGenerate Invoice",
+  "scrapedTables": [
+    []
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/nonmedicines",
+  "body": "Active Non-Medicine Reported Non-Medicine Add New \u200b Some products are out of stock. Some medicines have been added but areawaiting stock entry. Products Without Stock (5) Out of Stock (1) Low in Stock (0) Name Brand Name Category Total Quantity Remaining Quantity Actions 212 MEN NYC BODY SPRAY Other 12 12 4 POSITION CARRIER CA005 Other 200 196 Baby Lotion X 26/A,VIA PALERMO-PARMA-ITALY BABY LINER 50 48 Bio check strip Aims pharmaceutical Sugar Strip 20 8 Dettol 100ML abcd Hygienic 6 3 enliten whitening bar Abbott NIPPLES 5 0 Fair and Lovely Abbott NIPPLES 500 483 Faiza Beauty Cream Abdullah brothers Cream 36 36 Golden pearl CREATIVE MARKETING Cream 42 37 Laboob Kabir QARSHI Food 0 0 Lotion Novartis NIPPLES 25 8 Lotions AKRON BABY LINER 0 0 NAIL REMOWER POSEGHER RMMH service charges 100 90 Navia white Abdullah brothers Cream 18 14 PARLEY GOLD PARLEY GOLD CREAM Cream 36 31 sandal beauty cream Abdullah brothers Cream 5 4 xyzzz Novo Nordisk shampoooo 0 0 < BACK 1 NEXT > Rows per page 50 \u200b 1-17 of 17 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "active",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "reported",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search...",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "INPUT",
+      "role": "",
+      "type": "checkbox",
+      "placeholder": "",
+      "label": "",
+      "text": "on",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "role": "",
+      "type": "checkbox",
+      "placeholder": "",
+      "label": "",
+      "text": "on",
+      "options": ""
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "role": "",
+      "type": "checkbox",
+      "placeholder": "",
+      "label": "",
+      "text": "on",
+      "options": ""
+    },
+    {
+      "i": 6,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 7,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add New",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Name",
+        "Brand Name",
+        "Category",
+        "Total Quantity",
+        "Remaining Quantity",
+        "Actions",
+        "212 MEN NYC BODY SPRAY",
+        "Other",
+        "",
+        "12",
+        "12",
+        ""
+      ],
+      "rows": [
+        [
+          "212 MEN NYC BODY SPRAY",
+          "Other",
+          "",
+          "12",
+          "12",
+          ""
+        ],
+        [
+          "4 POSITION CARRIER CA005",
+          "Other",
+          "",
+          "200",
+          "196",
+          ""
+        ],
+        [
+          "Baby Lotion X",
+          "26/A,VIA PALERMO-PARMA-ITALY",
+          "BABY LINER",
+          "50",
+          "48",
+          ""
+        ],
+        [
+          "Bio check strip",
+          "Aims pharmaceutical",
+          "Sugar Strip",
+          "20",
+          "8",
+          ""
+        ]
+      ]
+    }
+  ]
+}

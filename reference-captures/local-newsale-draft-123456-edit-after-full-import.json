@@ -1,0 +1,91 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "2",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Draft ID",
+      "Date",
+      "Total Items",
+      "Total Amount",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\n345\t2025-11-08\t2\t126\t19.52\t24.60\t101.40\t\n\n25\t2025-11-04\t1\t50\t0.00\t0.00\t0.00\t\n\n1\t2025-11-04\t3\t1210\t0.00\t0.00\t0.00\t\n\n456\t2025-10-31\t3\t740\t0.00\t0.00\t0.00\t\n\n123456\t2025-10-13\t2\t380\t0.00\t0.00\t0.00\t\n\n123\t2025-10-12\t2\t1050\t0.00\t0.00\t0.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n11-16 of 16",
+  "evalResults": {
+    "beforeClick": {
+      "has123456": false,
+      "clicked": false,
+      "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\n115\t2025-11-19\t2\t24168\t0.00\t0.00\t0.00\t\n\n1234567\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n5678\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n11687\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n116\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n6811\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n798\t2025-11-19\t2\t3048\t0.00\t0.00\t0.00\t\n\n678\t2025-11-17\t2\t3060\t0.00\t0.00\t0.00\t\n\n876\t2025-11-14\t2\t2560\t0.00\t0.00\t0.00\t\n\n789\t2025-11-09\t2\t440\t0.00\t0.00\t0.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n11-16 of 16"
+    }
+  }
+}

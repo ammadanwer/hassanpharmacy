@@ -1,0 +1,250 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Sales History Details",
+    "Invoice Number : 229275"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "view",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Close",
+    "Print Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID...",
+      "value": "229275",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "all",
+      "text": "All"
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ],
+    [
+      "Date",
+      "Time",
+      "Total Amount",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned"
+    ],
+    [
+      "Date",
+      "Returned Amount",
+      "Returned Discount Amt(%)",
+      "Returned Discount Amt(RS)"
+    ],
+    [
+      "Total Amount",
+      "Net Paid"
+    ],
+    [
+      "Batch no.",
+      "Product Name",
+      "QTY Sold",
+      "QTY Returned",
+      "Rate/Sell Price",
+      "Amount"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nAll\nGross Sales\nRs. 490.00\nTotal Return\nRs. 383.00\nNet Sale\nRs. 107.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t490.00\t21.88\t107.00\t383.00\t383.00\t0.00\t0.00\t\n< BACK\n1\nNEXT >\nRows per page\n50\n100\n1-1 of 1\nSales History Details\nInvoice Number : 229275\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2026-06-23\t06:00:06 PM\t640\t140\t500\t500\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2026-06-23\t117.18\t21.88\t32.82\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n382.82\t382.82\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\n123321\tRISEK 20MG CAP\t10\t-\t28\t280.00\n1257mmm\tRisek\t10\t-\t6\t60.00\n145yy\tZYTO 250MG TAB\t10\t5\t30\t150.00\nClose\nPrint Invoice",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Invoice Number",
+          "Date",
+          "Time",
+          "Total Amount(RS.)",
+          "Discount(%)",
+          "Discount Amount",
+          "Total Payable",
+          "Paid",
+          "Due(s)",
+          "Change Returned",
+          "Action"
+        ],
+        "rows": [
+          [
+            "229275\nReturn Invoice",
+            "2026-06-23",
+            "06:00:06 PM",
+            "490.00",
+            "21.88",
+            "107.00",
+            "383.00",
+            "383.00",
+            "0.00",
+            "0.00",
+            ""
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Date",
+          "Time",
+          "Total Amount",
+          "Discount Amount",
+          "Total Payable",
+          "Paid",
+          "Due(s)",
+          "Change Returned"
+        ],
+        "rows": [
+          [
+            "2026-06-23",
+            "06:00:06 PM",
+            "640",
+            "140",
+            "500",
+            "500",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Date",
+          "Returned Amount",
+          "Returned Discount Amt(%)",
+          "Returned Discount Amt(RS)"
+        ],
+        "rows": [
+          [
+            "2026-06-23",
+            "117.18",
+            "21.88",
+            "32.82"
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Total Amount",
+          "Net Paid"
+        ],
+        "rows": [
+          [
+            "382.82",
+            "382.82"
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Batch no.",
+          "Product Name",
+          "QTY Sold",
+          "QTY Returned",
+          "Rate/Sell Price",
+          "Amount"
+        ],
+        "rows": [
+          [
+            "123321",
+            "RISEK 20MG CAP",
+            "10",
+            "-",
+            "28",
+            "280.00"
+          ],
+          [
+            "1257mmm",
+            "Risek",
+            "10",
+            "-",
+            "6",
+            "60.00"
+          ],
+          [
+            "145yy",
+            "ZYTO 250MG TAB",
+            "10",
+            "5",
+            "30",
+            "150.00"
+          ]
+        ]
+      }
+    ]
+  ]
+}

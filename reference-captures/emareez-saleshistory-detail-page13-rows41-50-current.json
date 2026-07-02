@@ -1,0 +1,901 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Choose time, selected time is 12:00 AM",
+    "Choose time, selected time is 11:59 PM",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "text": "Date\nDate Range\n​\n​\n\nTime\n\n​\n​\nPrint Sales History\nAll\n​\n​\nGross Sales\nRs. 3023165.65\nTotal Discount\nRs. 200090.05\nNet Sales\nRs. 2823083.71\nTotal Cost\nRs. 2409824.95\nNet Revenue\nRs. 413258.76\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n9405\t2025-01-04\t02:41:23 AM\t790\t0.00\t0.00\t790.00\t\n790.00\n\t0.00\t0.00\t\n\n8869\t2025-01-02\t03:17:58 PM\t780\t0.00\t0.00\t780.00\t\n780.00\n\t0.00\t0.00\t\n\n8765\t2024-12-31\t12:10:35 AM\t280\t0.00\t0.00\t280.00\t\n1000.00\n\t0.00\t720.00\t\n\n8744\t2024-12-31\t10:26:31 PM\t520\t20.00\t104.00\t416.00\t\n1000.00\n\t0.00\t584.00\t\n\n8527\t2024-12-30\t10:32:39 PM\t780\t0.00\t0.00\t780.00\t\n780.00\n\t0.00\t0.00\t\n\n7300\t2024-12-23\t08:11:39 PM\t2550\t3.92\t100.00\t2450.00\t\n2450.00\n\t0.00\t0.00\t\n\n6736\t2024-12-20\t02:20:49 AM\t840\t0.00\t0.00\t840.00\t\n840.00\n\t0.00\t0.00\t\n\n6493\t2024-12-18\t02:37:49 AM\t25000\t0.00\t0.00\t25000.00\t\n25000.00\n\t0.00\t0.00\t\n\n6490\t2024-12-18\t12:50:32 AM\t260\t0.00\t0.00\t260.00\t\n500.00\n\t0.00\t240.00\t\n\n6489\t2024-12-18\t12:49:14 AM\t246\t0.00\t0.00\t246.00\t\n500.00\n\t0.00\t254.00\t\n\n6381\t2024-12-17\t09:43:37 PM\t1280\t5.00\t64.00\t1216.00\t\n1216.00\n\t0.00\t0.00\t\n\n5951\t2024-12-14\t10:08:48 PM\t100\t0.00\t0.00\t100.00\t\n100.00\n\t0.00\t0.00\t\n\n5950\t2024-12-14\t10:08:06 PM\t470\t0.00\t0.00\t470.00\t\n470.00\n\t0.00\t0.00\t\n\n4482\t2024-12-03\t04:00:55 PM\t80\t0.00\t0.00\t80.00\t\n80.00\n\t0.00\t0.00\t\n\n4478\t2024-12-03\t03:29:17 PM\t100\t0.00\t0.00\t100.00\t\n100.00\n\t0.00\t0.00\t\n\n4061\t2024-11-29\t06:58:32 PM\t1000\t0.00\t0.00\t1000.00\t\n1000.00\n\t0.00\t0.00\t\n\n2883\t2024-11-21\t04:17:29 PM\t223.38\t0.00\t0.00\t223.00\t\n223.00\n\t0.00\t0.00\t\n\n2397\t2024-11-17\t09:26:52 PM\t1400\t0.00\t0.00\t1400.00\t\n1400.00\n\t0.00\t0.00\t\n\n2351\t2024-11-16\t07:03:19 PM\t2000\t0.00\t0.00\t2000.00\t\n2000.00\n\t0.00\t0.00\t\n\n1879\t2024-11-12\t05:07:31 PM\t1400\t0.00\t0.00\t1400.00\t\n1400.00\n\t0.00\t0.00\t\n\n1778\t2024-11-11\t05:26:31 PM\t1400\t0.00\t0.00\t1400.00\t\n1400.00\n\t0.00\t0.00\t\n\n1528\t2024-11-07\t08:33:18 PM\t586.76\t0.00\t0.00\t587.00\t\n1000.00\n\t0.00\t413.24\t\n\n1436\t2024-11-06\t08:36:25 PM\t833.8\t0.00\t0.00\t834.00\t\n834.00\n\t0.00\t0.00\t\n\n1396\t20",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+      "page": 13,
+      "offset": 40,
+      "limit": 10,
+      "captured": 10,
+      "captures": [
+        {
+          "invoiceNumber": "368",
+          "index": 40,
+          "row": [
+            "368",
+            "2024-09-03",
+            "11:38:46 PM",
+            "120",
+            "2.00",
+            "2.40",
+            "118.00",
+            "150.00",
+            "0.00",
+            "32.40",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 368 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-09-03 11:38:46 PM 120 2.4 117.6 150 32.4 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 47856 Flagyl 2 - 60 120.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-09-03",
+                  "11:38:46 PM",
+                  "120",
+                  "2.4",
+                  "117.6",
+                  "150",
+                  "",
+                  "32.4"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "47856",
+                  "Flagyl",
+                  "2",
+                  "-",
+                  "60",
+                  "120.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "310",
+          "index": 41,
+          "row": [
+            "310",
+            "2024-08-30",
+            "09:16:25 PM",
+            "200",
+            "5.00",
+            "10.00",
+            "190.00",
+            "200.00",
+            "0.00",
+            "10.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 310 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-30 09:16:25 PM 200 10 190 200 10 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 123456 Gripe water 2 - 100 200.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-30",
+                  "09:16:25 PM",
+                  "200",
+                  "10",
+                  "190",
+                  "200",
+                  "",
+                  "10"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "123456",
+                  "Gripe water",
+                  "2",
+                  "-",
+                  "100",
+                  "200.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "285",
+          "index": 42,
+          "row": [
+            "285",
+            "2024-08-29",
+            "08:28:58 PM",
+            "2000",
+            "2.00",
+            "40.00",
+            "1960.00",
+            "2000.00",
+            "0.00",
+            "40.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 285 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-29 08:28:58 PM 2,000 40 1,960 2,000 40 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 3 Panadol CF 4 - 500 2,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-29",
+                  "08:28:58 PM",
+                  "2,000",
+                  "40",
+                  "1,960",
+                  "2,000",
+                  "",
+                  "40"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "3",
+                  "Panadol CF",
+                  "4",
+                  "-",
+                  "500",
+                  "2,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "284",
+          "index": 43,
+          "row": [
+            "284",
+            "2024-08-29",
+            "04:59:32 PM",
+            "2500",
+            "3.00",
+            "75.00",
+            "2425.00",
+            "3000.00",
+            "0.00",
+            "575.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 284 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-29 04:59:32 PM 2,500 75 2,425 3,000 575 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 5 - 500 2,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-29",
+                  "04:59:32 PM",
+                  "2,500",
+                  "75",
+                  "2,425",
+                  "3,000",
+                  "",
+                  "575"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "5",
+                  "-",
+                  "500",
+                  "2,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "281",
+          "index": 44,
+          "row": [
+            "281",
+            "2024-08-28",
+            "11:34:32 PM",
+            "15",
+            "10.00",
+            "1.50",
+            "14.00",
+            "20.00",
+            "0.00",
+            "6.50",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 281 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-28 11:34:32 PM 15 1.5 13.5 20 6.5 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 5214 Salazopyrin 1 - 15 15.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-28",
+                  "11:34:32 PM",
+                  "15",
+                  "1.5",
+                  "13.5",
+                  "20",
+                  "",
+                  "6.5"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "5214",
+                  "Salazopyrin",
+                  "1",
+                  "-",
+                  "15",
+                  "15.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "278",
+          "index": 45,
+          "row": [
+            "278",
+            "2024-08-28",
+            "03:58:47 PM",
+            "300",
+            "2.00",
+            "6.00",
+            "294.00",
+            "300.00",
+            "0.00",
+            "6.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 278 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-28 03:58:47 PM 300 6 294 300 6 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 47856 Flagyl 5 - 60 300.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-28",
+                  "03:58:47 PM",
+                  "300",
+                  "6",
+                  "294",
+                  "300",
+                  "",
+                  "6"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "47856",
+                  "Flagyl",
+                  "5",
+                  "-",
+                  "60",
+                  "300.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "277",
+          "index": 46,
+          "row": [
+            "277",
+            "2024-08-28",
+            "03:58:24 PM",
+            "300",
+            "2.00",
+            "6.00",
+            "294.00",
+            "300.00",
+            "0.00",
+            "6.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 277 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-28 03:58:24 PM 300 6 294 300 6 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 47856 Flagyl 5 - 60 300.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-28",
+                  "03:58:24 PM",
+                  "300",
+                  "6",
+                  "294",
+                  "300",
+                  "",
+                  "6"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "47856",
+                  "Flagyl",
+                  "5",
+                  "-",
+                  "60",
+                  "300.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "266",
+          "index": 47,
+          "row": [
+            "266",
+            "2024-08-27",
+            "08:34:56 PM",
+            "27280",
+            "200.00",
+            "54560.00",
+            "-27280.00",
+            "20000.00",
+            "0.00",
+            "47280.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 266 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-27 08:34:56 PM 27,280 54,560 -27,280 20,000 47,280 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 6 - 500 3,000.00 78415 Panadol Extra 500 - 30 15,000.00 1 Adalat 17 - 500 8,500.00 7895 Adalat 13 - 60 780.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-27",
+                  "08:34:56 PM",
+                  "27,280",
+                  "54,560",
+                  "-27,280",
+                  "20,000",
+                  "",
+                  "47,280"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "6",
+                  "-",
+                  "500",
+                  "3,000.00"
+                ],
+                [
+                  "78415",
+                  "Panadol Extra",
+                  "500",
+                  "-",
+                  "30",
+                  "15,000.00"
+                ],
+                [
+                  "1",
+                  "Adalat",
+                  "17",
+                  "-",
+                  "500",
+                  "8,500.00"
+                ],
+                [
+                  "7895",
+                  "Adalat",
+                  "13",
+                  "-",
+                  "60",
+                  "780.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "260",
+          "index": 48,
+          "row": [
+            "260",
+            "2024-08-26",
+            "09:03:07 PM",
+            "2500",
+            "3.00",
+            "75.00",
+            "2425.00",
+            "3000.00",
+            "0.00",
+            "575.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 260 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-26 09:03:07 PM 2,500 75 2,425 3,000 575 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 3 Panadol CF 5 - 500 2,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-26",
+                  "09:03:07 PM",
+                  "2,500",
+                  "75",
+                  "2,425",
+                  "3,000",
+                  "",
+                  "575"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "3",
+                  "Panadol CF",
+                  "5",
+                  "-",
+                  "500",
+                  "2,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "253",
+          "index": 49,
+          "row": [
+            "253",
+            "2024-08-25",
+            "04:11:20 PM",
+            "18000",
+            "500.00",
+            "90000.00",
+            "-72000.00",
+            "60000.00",
+            "0.00",
+            "132000.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 253 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-25 04:11:20 PM 18,000 90,000 -72,000 60,000 1,32,000 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 6 - 500 3,000.00 78415 Panadol Extra 500 - 30 15,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-25",
+                  "04:11:20 PM",
+                  "18,000",
+                  "90,000",
+                  "-72,000",
+                  "60,000",
+                  "",
+                  "1,32,000"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "6",
+                  "-",
+                  "500",
+                  "3,000.00"
+                ],
+                [
+                  "78415",
+                  "Panadol Extra",
+                  "500",
+                  "-",
+                  "30",
+                  "15,000.00"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,901 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Choose time, selected time is 12:00 AM",
+    "Choose time, selected time is 11:59 PM",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "text": "Date\nDate Range\n​\n​\n\nTime\n\n​\n​\nPrint Sales History\nAll\n​\n​\nGross Sales\nRs. 3023165.65\nTotal Discount\nRs. 200090.05\nNet Sales\nRs. 2823083.71\nTotal Cost\nRs. 2409824.95\nNet Revenue\nRs. 413258.76\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n232938\t2026-06-30\t10:31:19 PM\t474.03999999999996\t0.00\t0.00\t474.00\t\n474.00\n\t0.00\t0.40\t\n\n232723\t2026-06-30\t05:04:22 PM\t150\t0.00\t0.00\t150.00\t\n150.00\n\t0.00\t350.00\t\n\n232206\t2026-06-29\t09:18:33 PM\t70\t0.00\t0.00\t70.00\t\n70.00\n\t0.00\t0.00\t\n\n232204\t2026-06-29\t09:16:07 PM\t162\t0.00\t0.00\t162.00\t\n200.00\n\t0.00\t38.00\t\n\n231647\t2026-06-28\t08:49:05 PM\t2550\t0.00\t0.00\t2550.00\t\n2550.00\n\t0.00\t0.00\t\n\n231646\t2026-06-28\t08:48:38 PM\t1500\t0.00\t0.00\t1500.00\t\n1500.00\n\t0.00\t0.00\t\n\n231645\t2026-06-28\t08:47:54 PM\t99\t2.00\t1.98\t97.00\t\n97.00\n\t0.00\t0.00\t\n\n230911\t2026-06-27\t03:23:47 PM\t12\t0.00\t0.00\t12.00\t\n50.00\n\t0.00\t38.00\t\n\n229368\t2026-06-23\t08:17:11 PM\t12\t0.00\t0.00\t12.00\t\n50.00\n\t0.00\t38.00\t\n\n\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t489.99999999999994\t21.88\t107.18\t383.00\t\n383.00\n\t0.00\t0.00\t\n\n229237\t2026-06-23\t05:25:35 PM\t10\t10.00\t1.00\t9.00\t\n9.00\n\t0.00\t91.00\t\n\n229009\t2026-06-22\t01:29:43 AM\t360\t0.00\t0.00\t360.00\t\n400.00\n\t0.00\t40.00\t\n\n228957\t2026-06-22\t12:29:59 AM\t25\t0.00\t0.00\t25.00\t\n50.00\n\t0.00\t25.00\t\n\n228952\t2026-06-22\t12:27:51 AM\t30\t0.00\t0.00\t30.00\t\n50.00\n\t0.00\t20.00\t\n\n228950\t2026-06-22\t12:27:03 AM\t150\t0.00\t0.00\t150.00\t\n180.00\n\t0.00\t30.00\t\n\n228847\t2026-06-22\t11:00:12 PM\t125\t0.00\t0.00\t125.00\t\n200.00\n\t0.00\t75.00\t\n\n228523\t2026-06-22\t04:34:53 PM\t200\t0.00\t0.00\t200.00\t\n200.00\n\t0.00\t0.00\t\n\n228435\t2026-06-22\t01:24:33 PM\t25\t0.00\t0.00\t25.00\t\n25.00\n\t0.00\t0.00\t\n\n228408\t2026-06-21\t02:10:11 AM\t360\t5.00\t18.00\t342.00\t\n1000.00\n\t0.00\t658.00\t\n\n228407\t2026-06-21\t02:07:18 AM\t300\t0.00\t0.00\t300.00\t\n500.00\n\t0.00\t200.00\t\n\n228257\t2026-06-21\t09:52:22 PM\t1200\t10.00\t120.00\t1080.00\t\n1080.00\n\t0.00\t420.00\t\n\n228252\t2026-06-21\t09:49:53 PM\t360\t3.00\t10.80\t349.00\t\n500.00\n\t0.00\t151.00\t\n\n228251\t2026-06-21\t09:46:54",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+      "page": 1,
+      "offset": 40,
+      "limit": 10,
+      "captured": 10,
+      "captures": [
+        {
+          "invoiceNumber": "219103",
+          "index": 40,
+          "row": [
+            "219103",
+            "2026-06-03",
+            "04:27:30 AM",
+            "108",
+            "7.41",
+            "8.00",
+            "100.00",
+            "100.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 219103 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-06-03 04:27:30 AM 108 8 100 100 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 12544 CAC 1000 10ML ING 3 - 36 108.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-06-03",
+                  "04:27:30 AM",
+                  "108",
+                  "8",
+                  "100",
+                  "100",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "12544",
+                  "CAC 1000 10ML ING",
+                  "3",
+                  "-",
+                  "36",
+                  "108.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "217526",
+          "index": 41,
+          "row": [
+            "217526",
+            "2026-06-01",
+            "07:18:42 PM",
+            "3398.15",
+            "0.00",
+            "0.00",
+            "3398.00",
+            "4000.00",
+            "0.00",
+            "602.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 217526 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-06-01 07:18:42 PM 3,398.15 0 3,398 4,000 0 602 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 12544 Laboob Kabir 5 - 580 2,900.00 12544 CAC 1000 10ML ING 4 - 36 144.00 64345 RIMONA SACHETS 5 - 70.83 354.15 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-06-01",
+                  "07:18:42 PM",
+                  "3,398.15",
+                  "0",
+                  "3,398",
+                  "4,000",
+                  "0",
+                  "602"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "12544",
+                  "Laboob Kabir",
+                  "5",
+                  "-",
+                  "580",
+                  "2,900.00"
+                ],
+                [
+                  "12544",
+                  "CAC 1000 10ML ING",
+                  "4",
+                  "-",
+                  "36",
+                  "144.00"
+                ],
+                [
+                  "64345",
+                  "RIMONA SACHETS",
+                  "5",
+                  "-",
+                  "70.83",
+                  "354.15"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "217296",
+          "index": 42,
+          "row": [
+            "217296",
+            "2026-05-31",
+            "04:07:16 AM",
+            "360",
+            "0.00",
+            "0.00",
+            "360.00",
+            "500.00",
+            "0.00",
+            "140.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 217296 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-31 04:07:16 AM 360 0 360 500 0 140 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 12544 CAC 1000 10ML ING 10 - 36 360.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-31",
+                  "04:07:16 AM",
+                  "360",
+                  "0",
+                  "360",
+                  "500",
+                  "0",
+                  "140"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "12544",
+                  "CAC 1000 10ML ING",
+                  "10",
+                  "-",
+                  "36",
+                  "360.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "215491",
+          "index": 43,
+          "row": [
+            "215491",
+            "2026-05-26",
+            "05:22:04 PM",
+            "144",
+            "0.00",
+            "0.00",
+            "144.00",
+            "144.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 215491 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-26 05:22:04 PM 144 0 144 144 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 12544 CAC 1000 10ML ING 4 - 36 144.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-26",
+                  "05:22:04 PM",
+                  "144",
+                  "0",
+                  "144",
+                  "144",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "12544",
+                  "CAC 1000 10ML ING",
+                  "4",
+                  "-",
+                  "36",
+                  "144.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "215488",
+          "index": 44,
+          "row": [
+            "215488",
+            "2026-05-26",
+            "05:14:28 PM",
+            "3187.35",
+            "5.00",
+            "159.37",
+            "3028.00",
+            "4500.00",
+            "0.00",
+            "1472.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 215488 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-26 05:14:28 PM 3,187.35 159.37 3,028 4,500 0 1,472 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 64345 RIMONA SACHETS 45 - 70.83 3,187.35 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-26",
+                  "05:14:28 PM",
+                  "3,187.35",
+                  "159.37",
+                  "3,028",
+                  "4,500",
+                  "0",
+                  "1,472"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "64345",
+                  "RIMONA SACHETS",
+                  "45",
+                  "-",
+                  "70.83",
+                  "3,187.35"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "214487",
+          "index": 45,
+          "row": [
+            "214487",
+            "2026-05-24",
+            "05:16:16 PM",
+            "360",
+            "0.00",
+            "0.00",
+            "360.00",
+            "1000.00",
+            "0.00",
+            "640.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 214487 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-24 05:16:16 PM 360 0 360 1,000 0 640 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 12544 CAC 1000 10ML ING 10 - 36 360.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-24",
+                  "05:16:16 PM",
+                  "360",
+                  "0",
+                  "360",
+                  "1,000",
+                  "0",
+                  "640"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "12544",
+                  "CAC 1000 10ML ING",
+                  "10",
+                  "-",
+                  "36",
+                  "360.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "213731",
+          "index": 46,
+          "row": [
+            "213731",
+            "2026-05-22",
+            "03:40:11 AM",
+            "900",
+            "0.00",
+            "0.00",
+            "900.00",
+            "1000.00",
+            "0.00",
+            "100.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 213731 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-22 03:40:11 AM 900 0 900 1,000 0 100 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 124 BARILOL 30 - 30 900.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-22",
+                  "03:40:11 AM",
+                  "900",
+                  "0",
+                  "900",
+                  "1,000",
+                  "0",
+                  "100"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "124",
+                  "BARILOL",
+                  "30",
+                  "-",
+                  "30",
+                  "900.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "213005",
+          "index": 47,
+          "row": [
+            "213005",
+            "2026-05-21",
+            "10:17:31 PM",
+            "475",
+            "1.11",
+            "5.25",
+            "470.00",
+            "500.00",
+            "0.00",
+            "30.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 213005 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-21 10:17:31 PM 475 5.25 470 500 0 30 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 33klkk SANI PLAST 50 - 3.5 175.00 ab123 Navia white 1 - 300 300.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-21",
+                  "10:17:31 PM",
+                  "475",
+                  "5.25",
+                  "470",
+                  "500",
+                  "0",
+                  "30"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "33klkk",
+                  "SANI PLAST",
+                  "50",
+                  "-",
+                  "3.5",
+                  "175.00"
+                ],
+                [
+                  "ab123",
+                  "Navia white",
+                  "1",
+                  "-",
+                  "300",
+                  "300.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "212992",
+          "index": 48,
+          "row": [
+            "212992",
+            "2026-05-21",
+            "10:03:44 PM",
+            "70",
+            "0.00",
+            "0.00",
+            "70.00",
+            "100.00",
+            "0.00",
+            "30.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 212992 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-21 10:03:44 PM 70 0 70 100 0 30 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 457gg SHE IS HAPPY SPRAY 200ML 2 - 10 20.00 30 panadol 10 - 5 50.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-21",
+                  "10:03:44 PM",
+                  "70",
+                  "0",
+                  "70",
+                  "100",
+                  "0",
+                  "30"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "457gg",
+                  "SHE IS HAPPY SPRAY 200ML",
+                  "2",
+                  "-",
+                  "10",
+                  "20.00"
+                ],
+                [
+                  "30",
+                  "panadol",
+                  "10",
+                  "-",
+                  "5",
+                  "50.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "212975",
+          "index": 49,
+          "row": [
+            "212975",
+            "2026-05-21",
+            "09:37:26 PM",
+            "141.66",
+            "1.00",
+            "1.42",
+            "140.00",
+            "200.00",
+            "0.00",
+            "60.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 212975 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-05-21 09:37:26 PM 141.66 1.42 140 200 0 60 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 64345 RIMONA SACHETS 2 - 70.83 141.66 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-05-21",
+                  "09:37:26 PM",
+                  "141.66",
+                  "1.42",
+                  "140",
+                  "200",
+                  "0",
+                  "60"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "64345",
+                  "RIMONA SACHETS",
+                  "2",
+                  "-",
+                  "70.83",
+                  "141.66"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

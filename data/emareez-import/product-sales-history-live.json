@@ -1,0 +1,1169 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/productsaleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Dose",
+      "Generic Name",
+      "Sold Quantity",
+      "Action"
+    ]
+  ],
+  "text": "Select Date\nSelect Date Range\n​\n​\n​\nProduct Name\tDose\tGeneric Name\tSold Quantity\tAction\nRECALCIN DROPS\t-\t-\t20\t\n\nDr Fee Discount\t000\t-\t4\t\n\ncefia\t100 Milligram (mg)\t-\t14\t\n\nNebulization Char\t-\t-\t117\t\n\n7.5 GLOVES\t-\t-\t3\t\n\n0meprazole\t-\t-\t292\t\n\nNAIL REMOWER POSEGHER\t-\t-\t10\t\n\nOmeprazole risek 20\t20\tOmeprazole\t216\t\n\nZ CALAMINA 50ML LOTION\t-\t-\t3\t\n\nGolden pearl\t250 Gram (g)\t-\t5\t\n\nFYLOD\tKG\tDOXOFYLINE\t3\t\n\nBio check strip\t-\t-\t12\t\n\nAcumeb inj.\t-\t-\t12\t\n\nBBA\t50 Molarity (M)\tssdd\t118\t\n\nSynflex\t550 Milligram (mg)\t-\t41\t\n\nBeto c\t1 Atmosphere (atm)\tB1 B3 B12\t15\t\n\nTranscam-DS\t1 Atmosphere (atm)\tTranexamic Acid\t12\t\n\nOSEF 500MG CAP\t-\tCefadroxil\t45\t\n\nselanz\t50mg\tselanz\t1200\t\n\nbbextrin\t20 Milligram (mg)\tNSAID\t32\t\n\nDow D\t5mg/ Milliliter (mL)\t-\t2\t\n\nTAB CIRTRAZINE\t1 Milligram (mg)\tTAB CITRAZINE HCL\t112\t\n\nAMINOLEBAN DRIP\t-\t-\t14\t\n\n-ve 1.00\t1.00\teye glasses\t5\t\n\nSANI PLAST\t-\tSANI PLAST\t164\t\n\n4OMG RISEK\t-\t-\t9\t\n\nGLU LEAN\t200MG/20MG\tGLU LEAN\t31\t\n\ncap brino 250MG\t-\t-\t58\t\n\n10cc Syringe\t10 Milliliter (mL)\tSYRINGE\t48\t\n\nOmgel Podina\t-\tPODINA\t78\t\n\nAlprib 20mg\t20mg\t-\t20\t\n\nAedgi\t150 Milligrams per deciliter (mg/dL)\t-\t21\t\n\nPLATRID AP 75/75\t75MG Milligrams per deciliter (mg/dL)\tClopidogrel\t1\t\n\nTest abc\t20mg Atmosphere (atm)\t-\t4\t\n\nomeprazole\t-\tabc\t153\t\n\nFaiza Beauty Cream\t-\t-\t-\t\n\nsandal beauty cream\t-\t-\t1\t\n\nNavia white\t-\t-\t4\t\n\ncarlov\t6.25 Milligram (mg)\tcarvedilol\t13\t\n\nPARLEY GOLD\t250\t-\t5\t\n\n|Selenium 6x\t-\tSelenium 6x\t2\t\n\nDettol 100ML\t100ml Milliliter (mL)\t-\t3\t\n\nGlucophage XR 750\t-\tGlucophage XR 750\t10\t\n\nLaboob Kabir\t-\t-\t8\t\n\n\t-\t-\t-\t\n< BACK\n1\n2\n3\nNEXT >\nRows per page\n50\n​\n101-145 of 145\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Product Name",
+          "Dose",
+          "Generic Name",
+          "Sold Quantity",
+          "Action"
+        ],
+        "rows": [
+          [
+            "Actrapid HM Penfi|",
+            "100IU",
+            "-",
+            "164",
+            ""
+          ],
+          [
+            "Adalat",
+            "30mg",
+            "-",
+            "1077",
+            ""
+          ],
+          [
+            "Adalat",
+            "30mg",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "Aerolin Evohaler Inhaler",
+            "0ml",
+            "-",
+            "43",
+            ""
+          ],
+          [
+            "Betaderm",
+            "15g",
+            "-",
+            "19",
+            ""
+          ],
+          [
+            "Dopamine",
+            "200mg/5ml",
+            "-",
+            "451",
+            ""
+          ],
+          [
+            "Flagyl",
+            "90ml",
+            "-",
+            "188",
+            ""
+          ],
+          [
+            "Flagyl",
+            "60ml",
+            "-",
+            "25",
+            ""
+          ],
+          [
+            "Furoxone",
+            "100mg",
+            "-",
+            "30",
+            ""
+          ],
+          [
+            "Gripe water",
+            "120ml",
+            "-",
+            "8",
+            ""
+          ],
+          [
+            "Gyno-Travogen Vag",
+            "5g",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "Ketasol",
+            "100mg",
+            "-",
+            "77",
+            ""
+          ],
+          [
+            "Panadol",
+            "500mg",
+            "-",
+            "190",
+            ""
+          ],
+          [
+            "Panadol Extra",
+            "500mg",
+            "-",
+            "1000",
+            ""
+          ],
+          [
+            "Salazopyrin",
+            "500mg",
+            "-",
+            "50",
+            ""
+          ],
+          [
+            "Actrac",
+            "20mg",
+            "gelatin",
+            "4",
+            ""
+          ],
+          [
+            "panadol",
+            "3mg",
+            "pain killer",
+            "253",
+            ""
+          ],
+          [
+            "Acneez",
+            "60ml",
+            "bar",
+            "27",
+            ""
+          ],
+          [
+            "Panadol CF",
+            "500mg",
+            "-",
+            "1225",
+            ""
+          ],
+          [
+            "Disprin",
+            "20mg",
+            "-",
+            "75",
+            ""
+          ],
+          [
+            "Hydrogen",
+            "25mg",
+            "-",
+            "52",
+            ""
+          ],
+          [
+            "Actifed P",
+            "mg",
+            "-",
+            "6",
+            ""
+          ],
+          [
+            "Sulphur",
+            "30ml",
+            "-",
+            "436",
+            ""
+          ],
+          [
+            "Calpol",
+            "100ml",
+            "-",
+            "13",
+            ""
+          ],
+          [
+            "10CC SYRINGE",
+            "10 mg",
+            "-",
+            "80",
+            ""
+          ],
+          [
+            "Lofexidine",
+            "30ml",
+            "-",
+            "1",
+            ""
+          ],
+          [
+            "flygel",
+            "100mg",
+            "-",
+            "38",
+            ""
+          ],
+          [
+            "septran",
+            "80/400mg",
+            "-",
+            "22",
+            ""
+          ],
+          [
+            "10 cc s",
+            "00mg",
+            "surgical",
+            "194",
+            ""
+          ],
+          [
+            "Caflam",
+            "50mg",
+            "-",
+            "43",
+            ""
+          ],
+          [
+            "Transamin",
+            "250mg",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "Fair and Lovely",
+            "100mg",
+            "-",
+            "17",
+            ""
+          ],
+          [
+            "PANADOL EXTRA",
+            "500+65mg",
+            "-",
+            "237",
+            ""
+          ],
+          [
+            "Lotion",
+            "500mg",
+            "-",
+            "17",
+            ""
+          ],
+          [
+            "enliten whitening bar",
+            "20ml",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "PD-CEF IM",
+            "500mg",
+            "-",
+            "31",
+            ""
+          ],
+          [
+            "BARILOL",
+            "5mg",
+            "-",
+            "62",
+            ""
+          ],
+          [
+            "Risek",
+            "40mg",
+            "-",
+            "282",
+            ""
+          ],
+          [
+            "0PZOL",
+            "150 mg",
+            "fafa",
+            "121",
+            ""
+          ],
+          [
+            "TERBISIL",
+            "15gram",
+            "-",
+            "9",
+            ""
+          ],
+          [
+            "Getryal",
+            "50 Milligram (mg)",
+            "-",
+            "51",
+            ""
+          ],
+          [
+            "0.9% SODIUM CHLORIDE 25ML",
+            "-",
+            "-",
+            "50",
+            ""
+          ],
+          [
+            "ZYTO 250MG TAB",
+            "-",
+            "-",
+            "148",
+            ""
+          ],
+          [
+            "PANADOL",
+            "100 Kilogram (kg)",
+            "-",
+            "63",
+            ""
+          ],
+          [
+            "Panadol",
+            "500 Milligram (mg)",
+            "-",
+            "102",
+            ""
+          ],
+          [
+            "4 POSITION CARRIER CA005",
+            "-",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "GAIN FAST 5.1LB.",
+            "-",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "H & S ANTI HAIRFALL 360ML",
+            "-",
+            "-",
+            "21",
+            ""
+          ],
+          [
+            "JACK 3D PRE WORK OUT",
+            "-",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "N G TUBE SILICON ALL SIZE & COMPANY",
+            "-",
+            "-",
+            "2",
+            ""
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "headers": [
+          "Product Name",
+          "Dose",
+          "Generic Name",
+          "Sold Quantity",
+          "Action"
+        ],
+        "rows": [
+          [
+            "SHE IS HAPPY SPRAY 200ML",
+            "-",
+            "-",
+            "3",
+            ""
+          ],
+          [
+            "SS BD 700ML N",
+            "-",
+            "-",
+            "17",
+            ""
+          ],
+          [
+            "W PH BAR 100GM",
+            "-",
+            "-",
+            "7",
+            ""
+          ],
+          [
+            "YUMMY G COLA BOTTLES 150G",
+            "-",
+            "-",
+            "9",
+            ""
+          ],
+          [
+            "FEFAN DS TAB",
+            "-",
+            "-",
+            "20",
+            ""
+          ],
+          [
+            "D ALL 1ML INJ",
+            "-",
+            "-",
+            "17",
+            ""
+          ],
+          [
+            "P DOXIME INJ 10ML",
+            "-",
+            "-",
+            "1",
+            ""
+          ],
+          [
+            "TERBIDERM 125MG TAB N",
+            "-",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "ORLIS 120MG BN CAP",
+            "-",
+            "-",
+            "12",
+            ""
+          ],
+          [
+            "V CLEAN WASH 120ML",
+            "-",
+            "-",
+            "8",
+            ""
+          ],
+          [
+            "GARNIER LIGHT & RADIANT DAY CREAM",
+            "-",
+            "-",
+            "16",
+            ""
+          ],
+          [
+            "M & M 47.9 G",
+            "-",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "M & M 48G",
+            "-",
+            "-",
+            "10",
+            ""
+          ],
+          [
+            "M & M 49.3 GG",
+            "-",
+            "-",
+            "12",
+            ""
+          ],
+          [
+            "ZACT LION SMOKER 150G",
+            "-",
+            "-",
+            "20",
+            ""
+          ],
+          [
+            "RISEK 20MG CAP",
+            "-",
+            "-",
+            "130",
+            ""
+          ],
+          [
+            "CAC 1000 10ML ING",
+            "-",
+            "-",
+            "106",
+            ""
+          ],
+          [
+            "T DAY 5MG TAB",
+            "-",
+            "-",
+            "475",
+            ""
+          ],
+          [
+            "J TONE SERUM 20ML",
+            "-",
+            "-",
+            "11",
+            ""
+          ],
+          [
+            "ZYTO 250MG TAB",
+            "-",
+            "-",
+            "35",
+            ""
+          ],
+          [
+            "PIOZER G 30/2MG TAB",
+            "-",
+            "-",
+            "71",
+            ""
+          ],
+          [
+            "CRAN BEE SACH",
+            "-",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "RIMONA SACHETS",
+            "-",
+            "-",
+            "79",
+            ""
+          ],
+          [
+            "EFLOGEN CREAM 15GM",
+            "-",
+            "-",
+            "50",
+            ""
+          ],
+          [
+            "O CID 20MG TAB",
+            "-",
+            "-",
+            "25",
+            ""
+          ],
+          [
+            "J FLEX TAB",
+            "-",
+            "-",
+            "11",
+            ""
+          ],
+          [
+            "PAN AMIN SG 500ML",
+            "-",
+            "-",
+            "16",
+            ""
+          ],
+          [
+            "AVSAR 160/5MG TAB",
+            "-",
+            "-",
+            "14",
+            ""
+          ],
+          [
+            "DI JOINT TAB",
+            "-",
+            "-",
+            "24",
+            ""
+          ],
+          [
+            "R ZOLE 40MG TAB",
+            "-",
+            "-",
+            "19",
+            ""
+          ],
+          [
+            "A DROP 10ML",
+            "-",
+            "-",
+            "59",
+            ""
+          ],
+          [
+            "2SUM 1GM INJ",
+            "-",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "2SUM 2GM INJ",
+            "-",
+            "-",
+            "2",
+            ""
+          ],
+          [
+            "CEREMIN 3*4 INJ",
+            "-",
+            "-",
+            "24",
+            ""
+          ],
+          [
+            "B ACTIVE DROP 20ML",
+            "-",
+            "-",
+            "7",
+            ""
+          ],
+          [
+            "B ACTIVE SYP 120ML",
+            "-",
+            "-",
+            "144",
+            ""
+          ],
+          [
+            "W LEVO 250MG TABS",
+            "-",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "Hicartif 100mg inj",
+            "100 Milligram (mg)",
+            "-",
+            "22",
+            ""
+          ],
+          [
+            "ADENURIC 40MG TAB",
+            "-",
+            "-",
+            "14",
+            ""
+          ],
+          [
+            "BM pharma Alfalfa Compound Syrup",
+            "60 Milliliter (mL)",
+            "-",
+            "2",
+            ""
+          ],
+          [
+            "CORELEX 4MG",
+            "1",
+            "-",
+            "8",
+            ""
+          ],
+          [
+            "G AZITHRO 15ML",
+            "1",
+            "-",
+            "20",
+            ""
+          ],
+          [
+            "panadol",
+            "-",
+            "-",
+            "408",
+            ""
+          ],
+          [
+            "E Cap 20mg capsule",
+            "20 Milligram (mg)",
+            "Esomeprazole",
+            "99",
+            ""
+          ],
+          [
+            "Baby Lotion X",
+            "50 Celsius (°C)",
+            "-",
+            "2",
+            ""
+          ],
+          [
+            "DABA 2GM SACHET",
+            "-",
+            "-",
+            "22",
+            ""
+          ],
+          [
+            "T 59",
+            "30",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "SEAXIME DS",
+            "30 Milliliter (mL)",
+            "-",
+            "50",
+            ""
+          ],
+          [
+            "PANADOL TAB",
+            "-",
+            "-",
+            "500",
+            ""
+          ],
+          [
+            "GH AD DROPS",
+            "30mL",
+            "-",
+            "15",
+            ""
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "headers": [
+          "Product Name",
+          "Dose",
+          "Generic Name",
+          "Sold Quantity",
+          "Action"
+        ],
+        "rows": [
+          [
+            "RECALCIN DROPS",
+            "-",
+            "-",
+            "20",
+            ""
+          ],
+          [
+            "Dr Fee Discount",
+            "000",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "cefia",
+            "100 Milligram (mg)",
+            "-",
+            "14",
+            ""
+          ],
+          [
+            "Nebulization Char",
+            "-",
+            "-",
+            "117",
+            ""
+          ],
+          [
+            "7.5 GLOVES",
+            "-",
+            "-",
+            "3",
+            ""
+          ],
+          [
+            "0meprazole",
+            "-",
+            "-",
+            "292",
+            ""
+          ],
+          [
+            "NAIL REMOWER POSEGHER",
+            "-",
+            "-",
+            "10",
+            ""
+          ],
+          [
+            "Omeprazole risek 20",
+            "20",
+            "Omeprazole",
+            "216",
+            ""
+          ],
+          [
+            "Z CALAMINA 50ML LOTION",
+            "-",
+            "-",
+            "3",
+            ""
+          ],
+          [
+            "Golden pearl",
+            "250 Gram (g)",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "FYLOD",
+            "KG",
+            "DOXOFYLINE",
+            "3",
+            ""
+          ],
+          [
+            "Bio check strip",
+            "-",
+            "-",
+            "12",
+            ""
+          ],
+          [
+            "Acumeb inj.",
+            "-",
+            "-",
+            "12",
+            ""
+          ],
+          [
+            "BBA",
+            "50 Molarity (M)",
+            "ssdd",
+            "118",
+            ""
+          ],
+          [
+            "Synflex",
+            "550 Milligram (mg)",
+            "-",
+            "41",
+            ""
+          ],
+          [
+            "Beto c",
+            "1 Atmosphere (atm)",
+            "B1 B3 B12",
+            "15",
+            ""
+          ],
+          [
+            "Transcam-DS",
+            "1 Atmosphere (atm)",
+            "Tranexamic Acid",
+            "12",
+            ""
+          ],
+          [
+            "OSEF 500MG CAP",
+            "-",
+            "Cefadroxil",
+            "45",
+            ""
+          ],
+          [
+            "selanz",
+            "50mg",
+            "selanz",
+            "1200",
+            ""
+          ],
+          [
+            "bbextrin",
+            "20 Milligram (mg)",
+            "NSAID",
+            "32",
+            ""
+          ],
+          [
+            "Dow D",
+            "5mg/ Milliliter (mL)",
+            "-",
+            "2",
+            ""
+          ],
+          [
+            "TAB CIRTRAZINE",
+            "1 Milligram (mg)",
+            "TAB CITRAZINE HCL",
+            "112",
+            ""
+          ],
+          [
+            "AMINOLEBAN DRIP",
+            "-",
+            "-",
+            "14",
+            ""
+          ],
+          [
+            "-ve 1.00",
+            "1.00",
+            "eye glasses",
+            "5",
+            ""
+          ],
+          [
+            "SANI PLAST",
+            "-",
+            "SANI PLAST",
+            "164",
+            ""
+          ],
+          [
+            "4OMG RISEK",
+            "-",
+            "-",
+            "9",
+            ""
+          ],
+          [
+            "GLU LEAN",
+            "200MG/20MG",
+            "GLU LEAN",
+            "31",
+            ""
+          ],
+          [
+            "cap brino 250MG",
+            "-",
+            "-",
+            "58",
+            ""
+          ],
+          [
+            "10cc Syringe",
+            "10 Milliliter (mL)",
+            "SYRINGE",
+            "48",
+            ""
+          ],
+          [
+            "Omgel Podina",
+            "-",
+            "PODINA",
+            "78",
+            ""
+          ],
+          [
+            "Alprib 20mg",
+            "20mg",
+            "-",
+            "20",
+            ""
+          ],
+          [
+            "Aedgi",
+            "150 Milligrams per deciliter (mg/dL)",
+            "-",
+            "21",
+            ""
+          ],
+          [
+            "PLATRID AP 75/75",
+            "75MG Milligrams per deciliter (mg/dL)",
+            "Clopidogrel",
+            "1",
+            ""
+          ],
+          [
+            "Test abc",
+            "20mg Atmosphere (atm)",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "omeprazole",
+            "-",
+            "abc",
+            "153",
+            ""
+          ],
+          [
+            "Faiza Beauty Cream",
+            "-",
+            "-",
+            "-",
+            ""
+          ],
+          [
+            "sandal beauty cream",
+            "-",
+            "-",
+            "1",
+            ""
+          ],
+          [
+            "Navia white",
+            "-",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "carlov",
+            "6.25 Milligram (mg)",
+            "carvedilol",
+            "13",
+            ""
+          ],
+          [
+            "PARLEY GOLD",
+            "250",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "|Selenium 6x",
+            "-",
+            "Selenium 6x",
+            "2",
+            ""
+          ],
+          [
+            "Dettol 100ML",
+            "100ml Milliliter (mL)",
+            "-",
+            "3",
+            ""
+          ],
+          [
+            "Glucophage XR 750",
+            "-",
+            "Glucophage XR 750",
+            "10",
+            ""
+          ],
+          [
+            "Laboob Kabir",
+            "-",
+            "-",
+            "8",
+            ""
+          ],
+          [
+            "",
+            "-",
+            "-",
+            "-",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

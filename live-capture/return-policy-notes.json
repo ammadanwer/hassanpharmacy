@@ -1,0 +1,191 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/return-policy",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Products Return Policy Add New Policy Policy Description Actions Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable Additional Notes/Instructions Add New Instructions Title Description Actions helping to petients help to petients and olders nnn warranty Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes Get Technical Help",
+  "controls": [
+    {
+      "i": 0,
+      "tag": "BUTTON",
+      "text": "Add New Policy",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": true,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containe"
+    },
+    {
+      "i": 1,
+      "tag": "BUTTON",
+      "text": "Add New Instructions",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containe"
+    },
+    {
+      "i": 3,
+      "tag": "BUTTON",
+      "text": "Add New Sale",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 5,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 6,
+      "tag": "DIV",
+      "text": "Sales",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 7,
+      "tag": "DIV",
+      "text": "Inventory",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 8,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 9,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 10,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 11,
+      "tag": "DIV",
+      "text": "Settings",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 12,
+      "tag": "DIV",
+      "text": "Change Password",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 13,
+      "tag": "DIV",
+      "text": "Return Policy/Notes",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 14,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    }
+  ],
+  "fields": [],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Policy Description",
+        "Actions",
+        "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+        ""
+      ],
+      "rows": [
+        [
+          "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+          ""
+        ]
+      ]
+    },
+    {
+      "i": 1,
+      "heads": [
+        "Title",
+        "Description",
+        "Actions",
+        "helping to petients",
+        "help to petients and olders",
+        ""
+      ],
+      "rows": [
+        [
+          "helping to petients",
+          "help to petients and olders",
+          ""
+        ],
+        [
+          "nnn",
+          "warranty",
+          ""
+        ]
+      ]
+    }
+  ]
+}

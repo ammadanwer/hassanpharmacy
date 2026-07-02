@@ -1,0 +1,77 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/order-purchase",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "medical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "nonMedical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Medicine Name",
+      "Dose",
+      "Total Quantity",
+      "R. Quantity",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "Medical\nNon Medical\n​\nMedicine Name\tDose\tTotal Quantity\tR. Quantity\tManufacturer Name\tActions\nenliten whitening bar\t20ml\t5\t\n0\n\tAbbott\t\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-1 of 1\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Medicine Name",
+          "Dose",
+          "Total Quantity",
+          "R. Quantity",
+          "Manufacturer Name",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "enliten whitening bar",
+            "20ml",
+            "5",
+            "0",
+            "Abbott",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

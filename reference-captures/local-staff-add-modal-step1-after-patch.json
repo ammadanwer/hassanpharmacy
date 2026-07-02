@@ -1,0 +1,316 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/staff-management",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Staff"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add Staff",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select an option",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "email",
+      "placeholder": "Enter Email",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "03xx xxxxxxxxx",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Address",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select an option",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter 3 digit pin",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Role",
+      "Phone #",
+      "Address",
+      "Email",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\nAmir\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\nhaseeb\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\niqbal\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\nYasir\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\nYasir\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\nShehzad Ali\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\nytdtdty\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\ndr bilal\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\nMansoor\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\nSherry\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\nStaff M\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\nmateen\tManager\t03210001111\t-\tmateen@gmail.com\t\n\nMaham Fatima\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\n\ngghjh\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\n\nHaris\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\n\nWaleed\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nAdd Staff\n01 Add Staff\n02 Assign Pin\n03 User Permissions\nName\nRole\nEmail\nNumber\nAddress\nGender\nSales PIN (3 digits)\nNext",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Name",
+          "Role",
+          "Phone #",
+          "Address",
+          "Email",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "Amir",
+            "Manager",
+            "05154945800",
+            "-",
+            "alphaprofessionalsconsultancy@gmail.com",
+            ""
+          ],
+          [
+            "haseeb",
+            "Pharmacist",
+            "03211111111",
+            "-",
+            "hassanpharmacy344@gmail.com",
+            ""
+          ],
+          [
+            "iqbal",
+            "Stock_manager",
+            "03087940516",
+            "-",
+            "hassanpharmacy040@gmail.com",
+            ""
+          ],
+          [
+            "Yasir",
+            "Manager",
+            "03084452646",
+            "-",
+            "hackerbaby323@gmail.com",
+            ""
+          ],
+          [
+            "Yasir",
+            "Manager",
+            "03486100540",
+            "Moreminabad",
+            "ygoraya11@gmail.com",
+            ""
+          ],
+          [
+            "Shehzad Ali",
+            "Manager",
+            "03300119805",
+            "DHA phase 2 extension",
+            "shehzad.ali@madadd.pk",
+            ""
+          ],
+          [
+            "ytdtdty",
+            "Pharmacist",
+            "03545458547",
+            "yuhi",
+            "123@gmail.com",
+            ""
+          ],
+          [
+            "dr bilal",
+            "Technician",
+            "03042917850",
+            "hunaiz pharmacy jdw road sadiqabad ryk",
+            "ba6955593@gmail.com",
+            ""
+          ],
+          [
+            "Mansoor",
+            "Pharmacist",
+            "03346713888",
+            "ewwdw",
+            "mansoorjutt5@gmail.com",
+            ""
+          ],
+          [
+            "Sherry",
+            "Stock_manager",
+            "03200035336",
+            "Faisalabad",
+            "nigivig922@djkux.com",
+            ""
+          ],
+          [
+            "Staff M",
+            "Pharmacist",
+            "00006777777",
+            "00",
+            "shahidjaveed78@gmail.com",
+            ""
+          ],
+          [
+            "mateen",
+            "Manager",
+            "03210001111",
+            "-",
+            "mateen@gmail.com",
+            ""
+          ],
+          [
+            "Maham Fatima",
+            "Pharmacist",
+            "03217225937",
+            "Tariq Bin Zaid Colony Sahiwal Street 7 h",
+            "mahamshahid1221@gmail.com",
+            ""
+          ],
+          [
+            "gghjh",
+            "Pharmacist",
+            "03331474147",
+            "-",
+            "gghhh@gmail.com",
+            ""
+          ],
+          [
+            "Haris",
+            "Manager",
+            "03025088035",
+            "Safari valley , Bahria Town Phase 8",
+            "haseebkiani511@gmail.com",
+            ""
+          ],
+          [
+            "Waleed",
+            "Pharmacist",
+            "03088088866",
+            "D-12 Islamabad",
+            "qdata815@gmail.com",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

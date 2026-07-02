@@ -1,0 +1,190 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/nonmedicines",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Non Medical Product"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter barcode.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Manufacturer",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Weight",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Unit",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Category",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Brand Name",
+      "Category",
+      "Total Quantity",
+      "Remaining Quantity",
+      "Actions"
+    ]
+  ],
+  "html": "<form class=\"simple-modal\"><div class=\"modal-head\"><h2>Add Non Medical Product</h2><button type=\"button\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg></button></div><div class=\"simple-modal-body three\"><label><span class=\"field-title\">Bar Code </span><input type=\"text\" placeholder=\"Enter barcode.\" value=\"\"></label><label><span class=\"field-title\">Name </span><input required=\"\" type=\"text\" placeholder=\"Enter Name\" value=\"\"></label><label class=\"lookup-field\"><span class=\"field-title\">Brand/Manufacturer Name </span><div class=\"input-action lookup-action no-action\"><input placeholder=\"Select Manufacturer\" value=\"\"></div><input type=\"hidden\" readonly=\"\" value=\"\"></label><label class=\"product-measure-field\"><span class=\"field-title\">Weight</span><span class=\"product-measure-inputs\"><input type=\"text\" placeholder=\"Enter Weight\" value=\"\"><input type=\"text\" placeholder=\"Select Unit\" value=\"\"></span></label><label class=\"lookup-field\"><span class=\"field-title\">Category </span><div class=\"input-action lookup-action no-action\"><input placeholder=\"Select Category\" value=\"\"></div><input type=\"hidden\" readonly=\"\" value=\"\"></label></div><div class=\"modal-actions\"><span></span><button class=\"primary\">Add</button></div></form>",
+  "text": ""
+}

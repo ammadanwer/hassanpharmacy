@@ -1,0 +1,23 @@
+{
+  "invoiceNumber": "232723",
+  "date": "2026-06-30",
+  "time": "05:04:22 PM",
+  "summary": {
+    "totalAmount": "150",
+    "discountAmount": "0",
+    "totalPayable": "150",
+    "paid": "150",
+    "due": "0",
+    "changeReturned": "350"
+  },
+  "items": [
+    {
+      "batchNo": "23",
+      "productName": "0meprazole",
+      "qtySold": "1",
+      "qtyReturned": "-",
+      "rate": "150",
+      "amount": "150.00"
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/staff-management",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Add Staff"
+  ],
+  "buttons": [
+    "Add Staff",
+    "Add New Sale",
+    "show more",
+    "close",
+    "Back",
+    "Done"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Role",
+      "Phone #",
+      "Address",
+      "Email",
+      "Actions"
+    ],
+    [
+      "Permissions",
+      "View",
+      "Edit",
+      "Add",
+      "Delete"
+    ]
+  ],
+  "html": "<div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth css-1kfr6u2\" role=\"dialog\" aria-labelledby=\":r7:\"><h2 class=\"MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-l32dt7\" id=\"customized-dialog-title\">Add Staff<button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1hpaes8\" tabindex=\"0\" type=\"button\" aria-label=\"close\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CloseIcon\"><path d=\"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></h2><div class=\"MuiDialogContent-root MuiDialogContent-dividers css-lr0y9w\"><div class=\"MuiBox-root css-6k7egd\"><div class=\"MuiBox-root css-12dwxp0\"><div class=\"MuiStepper-root MuiStepper-horizontal MuiStepper-alternativeLabel css-1187icl\"><div class=\"MuiStep-root MuiStep-horizontal MuiStep-alternativeLabel Mui-completed css-166ciyp\"><span class=\"MuiStepLabel-root MuiStepLabel-horizontal MuiStepLabel-alternativeLabel css-1abj2s5\"><span class=\"MuiStepLabel-iconContainer Mui-completed MuiStepLabel-alternativeLabel css-a5nipc\"><div class=\"css-2aqpme\">01</div></span><span class=\"MuiStepLabel-labelContainer MuiStepLabel-alternativeLabel css-nb9o6e\"><span class=\"MuiStepLabel-label Mui-completed MuiStepLabel-alternativeLabel css-rfwukw\"><p class=\"MuiTypography-root MuiTypography-body1 css-1czs0mq\">Add Staff</p></span></span></span></div><div class=\"MuiStep-root MuiStep-horizontal MuiStep-alternativeLabel Mui-completed css-166ciyp\"><div class=\"MuiStepConnector-root MuiStepConnector-horizontal MuiStepConnector-alternativeLabel Mui-completed css-amd3j2\"><span class=\"MuiStepConnector-line MuiStepConnector-lineHorizontal css-95m0ql\"></span></div><span class=\"MuiStepLabel-root MuiStepLabel-horizontal MuiStepLabel-alternativeLabel css-1abj2s5\"><span class=\"MuiStepLabel-iconContainer Mui-completed MuiStepLabel-alternativeLabel css-a5nipc\"><div class=\"css-2aqpme\">02</div></span><span class=\"MuiStepLabel-labelContainer MuiStepLabel-alternativeLabel css-nb9o6e\"><span class=\"MuiStepLabel-label Mui-completed MuiStepLabel-alternativeLabel css-rfwukw\"><p class=\"MuiTypography-root MuiTypography-body1 css-1czs0mq\">Assign Pin</p></span></span></span></div><div class=\"MuiStep-root MuiStep-horizontal MuiStep-alternativeLabel css-166ciyp\"><div class=\"MuiStepConnector-root MuiStepConnector-horizontal MuiStepConnector-alternativeLabel Mui-active css-amd3j2\"><span class=\"MuiStepConnector-line MuiStepConnector-lineHorizontal css-95m0ql\"></span></div><span class=\"MuiStepLabel-root MuiStepLabel-horizontal MuiStepLabel-alternativeLabel css-1abj2s5\"><span class=\"MuiStepLabel-iconContainer Mui-active MuiStepLabel-alternativeLabel css-a5nipc\"><div class=\"css-2aqpme\">03</div></span><span class=\"MuiStepLabel-labelContainer MuiStepLabel-alternativeLabel css-nb9o6e\"><span class=\"MuiStepLabel-label Mui-active MuiStepLabel-alternativeLabel css-rfwukw\"><p class=\"MuiTypography-root MuiTypography-body1 css-1czs0mq\">User Permissions</p></span></span></span></div></div></div></div><div class=\"MuiBox-root css-ks7924\"><div class=\"MuiBox-root css-8atqhb\"><div class=\"MuiBox-root css-1ypacm5\"><span style=\"font-size: 14px;\">Select All Permissions</span><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-3gvlky\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div><div class=\"MuiTableContainer-root css-kge0eu\"><div class=\"table-width MuiBox-root css-0\"><table class=\"MuiTable-root css-1jxfa9z\"><thead class=\"MuiTableHead-root css-1wbz3t9\"><tr class=\"MuiTableRow-root MuiTableRow-head css-1ne7edj\"><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xysdhk\" scope=\"col\">Permissions</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1y39d7h\" scope=\"col\">View</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1y39d7h\" scope=\"col\">Edit</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1y39d7h\" scope=\"col\">Add</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1y39d7h\" scope=\"col\">Delete</th></tr></thead><tbody class=\"MuiTableBody-root css-1xnox0e\"><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">PharmacyComponent</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Manufacturer</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Category</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Medicine Formula</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Sales History</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Non Medical Product</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Daily Expense</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Sales Return History</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Audit Batch</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"></td></tr><tr class=\"MuiTableRow-root css-1ne7edj\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-siarnb\">Expense Category</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-mb6f6h\"><div class=\"MuiBox-root css-1l4w6pd\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-irjsxh\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg ",
+  "text": "​\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\n\nAmir\n\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\n\nhaseeb\n\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\n\niqbal\n\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\n\nYasir\n\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\n\nYasir\n\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\n\nShehzad Ali\n\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\n\nytdtdty\n\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\n\ndr bilal\n\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\n\nMansoor\n\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\n\nSherry\n\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\n\nStaff M\n\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\n\nmateen\n\tManager\t03210001111\t-\tmateen@gmail.com\t\n\n\nMaham Fatima\n\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\n\n\ngghjh\n\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\n\n\nHaris\n\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\n\n\nWaleed\n\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd Staff\n01\n\nAdd Staff\n\n02\n\nAssign Pin\n\n03\n\nUser Permissions\n\nSelect All Permissions\nPermissions\tView\tEdit\tAdd\tDelete\nPharmacyComponent\t\n\t\t\n\t\n\nManufacturer\t\n\t\t\n\t\nCategory\t\n\t\t\n\t\nMedicine Formula\t\n\t\t\n\t\nSales History\t\n\t\t\t\nNon Medical Product\t\n\t\n\t\n\t\nDaily Expense\t\n\t\n\t\n\t\n\nSales Return History\t\n\t\t\t\nAudit Batch\t\t\t\n\t\nExpense Category\t\n\t\n\t\n\t\nMedical Product\t\n\t\n\t\n\t\nPharmacy Dashboard\t\n\t\t\t\nDemand/Order\t\n\t\n\t\n\t\n\nSupplier\t\n\t\n\t\n\t\nBatch\t\n\t\n\t\n\t\nNew Sale\t\n\t\t\n\t\nSales Return\t\t\t\n\t\nBack\nDone"
+}

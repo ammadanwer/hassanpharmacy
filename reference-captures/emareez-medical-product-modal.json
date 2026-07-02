@@ -1,0 +1,155 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/medicines",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Add Medical Product"
+  ],
+  "buttons": [
+    "Add New Medicine",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "NEXT >",
+    "Add New Sale",
+    "show more",
+    "close",
+    "+ Add as New",
+    "Open",
+    "Clear",
+    "Open",
+    "Open",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "active",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "reported",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter barcode.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Medicine Formula",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Category",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Dose",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Sel. Unit",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Generic Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Manufacturer",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Formula",
+      "Dose",
+      "Total Quantity",
+      "Remaining Quantity",
+      "Generic Name",
+      "Category",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "html": "<div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthLg MuiDialog-paperFullWidth css-mqs373\" role=\"dialog\" aria-labelledby=\":r1:\"><h2 class=\"MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-l32dt7\" id=\"customized-dialog-title\">Add Medical Product<button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1hpaes8\" tabindex=\"0\" type=\"button\" aria-label=\"close\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CloseIcon\"><path d=\"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></h2><div class=\"MuiDialogContent-root MuiDialogContent-dividers css-lr0y9w\"><form action=\"#\"><div class=\"MuiBox-root css-1fhgjcy\"><div class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-isbt42\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Bar Code</h6><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1bdb0ix\"><input aria-invalid=\"false\" id=\":r5d:\" placeholder=\"Enter barcode.\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"padding: 10px 12px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Name</h6><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1bdb0ix\"><input aria-invalid=\"false\" id=\":r5e:\" placeholder=\"Enter Name\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"padding: 10px 12px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><div style=\"color: red; font-size: 14px; margin-top: 5px;\"></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Medical Formula</h6><div style=\"position: relative; z-index: 10;\"><div class=\"dropdown-container\" style=\"position: relative; z-index: 10;\"><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-jg1vk4\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1bdb0ix\"><input aria-invalid=\"false\" id=\":r5f:\" placeholder=\"Select Medicine Formula\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"padding: 10px 12px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><button type=\"button\" style=\"position: absolute; top: 6px; right: 16px; height: 75%; border-radius: 0px; background: white; color: rgb(10, 141, 208); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 0px; cursor: pointer; outline: inherit; font-size: 14px; font-weight: 400;\">+ Add as New</button></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Category</h6><div class=\"MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-f7t77y\"><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hhh09s\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-e76etm\"><input aria-invalid=\"false\" autocomplete=\"off\" id=\"combo-box-demo\" placeholder=\"Select Category\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-hup1k7\" aria-autocomplete=\"list\" aria-expanded=\"false\" autocapitalize=\"none\" spellcheck=\"false\" role=\"combobox\" value=\"\"><div class=\"MuiAutocomplete-endAdornment css-mxlkbn\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-1cmnjjk\" tabindex=\"-1\" type=\"button\" aria-label=\"Open\" title=\"Open\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowDropDownIcon\"><path d=\"M7 10l5 5 5-5z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Dose</h6><div class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-3nargb\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-nygtje\"><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1bdb0ix\"><input aria-invalid=\"false\" id=\":r5i:\" name=\"dose\" placeholder=\"Enter Dose\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"padding: 10px 12px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 css-o533f2\"><div class=\"MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-f7t77y\"><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hhh09s\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-e76etm\"><input aria-invalid=\"false\" autocomplete=\"off\" id=\"combo-box-demo\" placeholder=\"Sel. Unit\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-hup1k7\" aria-autocomplete=\"list\" aria-expanded=\"false\" autocapitalize=\"none\" spellcheck=\"false\" role=\"combobox\" value=\"\"><div class=\"MuiAutocomplete-endAdornment css-mxlkbn\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-iq2nuk\" tabindex=\"-1\" type=\"button\" aria-label=\"Clear\" title=\"Clear\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1k33q06\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CloseIcon\"><path d=\"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-1cmnjjk\" tabindex=\"-1\" type=\"button\" aria-label=\"Open\" title=\"Open\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowDropDownIcon\"><path d=\"M7 10l5 5 5-5z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Generic Name</h6><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1bdb0ix\"><input aria-invalid=\"false\" id=\":r5l:\" placeholder=\"Enter Generic Name\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"padding: 10px 12px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1s5ifb0\"><h6 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-lfbjwy\">Manufacturer Name</h6><div class=\"MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-f7t77y\"><div class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hhh09s\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-e76etm\"><input aria-invalid=\"false\" autocomplete=\"off\" id=\"manufacturer-autocomplete\" placeholder=\"Select Manufacturer\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-hup1k7\" aria-autocomplete=\"list\" aria-expanded=\"false\" autocapitalize=\"none\" spellcheck=\"false\" role=\"combobox\" value=\"\"><div class=\"MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-15cms3y\"><p class=\"MuiTypography-root MuiTypography-body1 css-1mrydhs\">+ Add as New</p></div><div class=\"MuiAutocomplete-endAdornment css-mxlkbn\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-1cmnjjk\" tabindex=\"-1\" type=\"button\" aria-label=\"Open\" title=\"Open\"><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-12nqbl7\"><label class=\"MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-t58jz6\"><span class=\"MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-16qsnjq\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" type=\"checkbox\" data-indeterminate=\"false\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span><span class=\"MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1czs0mq\">Prescription needed for this medicine</span></label></div></div></div><div class=\"MuiBox-root css-1hw29i9\"><button class=\"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-llpkqp\" tabindex=\"0\" type=\"button\">Add<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div></form></div></div>",
+  "text": ""
+}

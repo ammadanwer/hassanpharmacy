@@ -1,0 +1,35 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/shift-management",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Add Shift 0 No Data Found Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search Name",
+      "label": "",
+      "text": "",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add Shift",
+    "0",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [],
+  "cards": [
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

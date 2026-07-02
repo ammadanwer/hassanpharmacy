@@ -1,0 +1,150 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/shift-management",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Add Shift 0 No Data Found Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "controls": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "text": "",
+      "placeholder": "Search Name",
+      "type": "text",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje"
+    },
+    {
+      "i": 1,
+      "tag": "BUTTON",
+      "text": "Add Shift",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-contai"
+    },
+    {
+      "i": 2,
+      "tag": "BUTTON",
+      "text": "0",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-7hs5rr"
+    },
+    {
+      "i": 4,
+      "tag": "BUTTON",
+      "text": "Add New Sale",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 6,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 7,
+      "tag": "DIV",
+      "text": "Sales",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 8,
+      "tag": "DIV",
+      "text": "Inventory",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 9,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 10,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 11,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 12,
+      "tag": "DIV",
+      "text": "Settings",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 13,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    }
+  ],
+  "fields": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "label": "",
+      "options": ""
+    }
+  ],
+  "tables": []
+}

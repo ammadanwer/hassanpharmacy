@@ -1,0 +1,21 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/customer-history",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [],
+  "html": "",
+  "text": "​\nAdd New Sale\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help"
+}

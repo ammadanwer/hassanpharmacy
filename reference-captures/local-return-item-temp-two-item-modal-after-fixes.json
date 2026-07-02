@@ -1,0 +1,136 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Return Invoice Details",
+    "Hassan Pharmacy"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Clear return quantity",
+    "Clear return quantity",
+    "Generate Invoice",
+    "Print Return Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "INV-20260701175130587627-1",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "02-07-2026",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "1",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "1",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch no.",
+      "Name",
+      "Quantity Sold",
+      "Quantity Returned",
+      "Rate/Sell Price",
+      "Amount",
+      "Action"
+    ],
+    [
+      "Item(s)",
+      "Returned",
+      "Rate",
+      "Amt"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nReference Invoice #\nReturn Invoice Date\nPurchased Items List\nBatch no.\tName\tQuantity Sold\tQuantity Returned\tRate/Sell Price\tAmount\tAction\n6c035\tAVSAR 80/5MG TAB\t2\t\t33\t0.00\t\n\nH26952\tADORA TAB\t2\t\t30.62\t0.00\t\nGenerate Invoice\nReturn Invoice Details\nHassan Pharmacy\n\nPharmacy Management System\n\nPhone # 03324122333\n\nLicense No. 1\n\nReturn Inv. No: RET-20260702035157267\nOriginal Inv. No: INV-20260701175130587627-1\n01/07/2026 10:20:00 AM\nItem(s)\tReturned\tRate\tAmt\nAVSAR 80/5MG TAB\t1\t33.00\t33.00\nADORA TAB\t1\t30.62\t30.62\nTotal Items: 2\nTotal Return:\nRs. 63.62\n\nSoftware By Hassan Pharmacy, Phone# 03324122333\n\nPrint Return Invoice",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Batch no.",
+          "Name",
+          "Quantity Sold",
+          "Quantity Returned",
+          "Rate/Sell Price",
+          "Amount",
+          "Action"
+        ],
+        "rows": [
+          [
+            "6c035",
+            "AVSAR 80/5MG TAB",
+            "2",
+            "",
+            "33",
+            "0.00",
+            ""
+          ],
+          [
+            "H26952",
+            "ADORA TAB",
+            "2",
+            "",
+            "30.62",
+            "0.00",
+            ""
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Item(s)",
+          "Returned",
+          "Rate",
+          "Amt"
+        ],
+        "rows": [
+          [
+            "AVSAR 80/5MG TAB",
+            "1",
+            "33.00",
+            "33.00"
+          ],
+          [
+            "ADORA TAB",
+            "1",
+            "30.62",
+            "30.62"
+          ]
+        ]
+      }
+    ]
+  ]
+}

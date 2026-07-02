@@ -1,0 +1,103 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/customer-history",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00 < BACK 1 NEXT > Rows per page 50 \u200b 1-14 of 14 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search...",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "50",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Name",
+        "Phone#",
+        "Due Amount",
+        "Actions",
+        "abdulmanan",
+        "03114893102",
+        "30.00",
+        ""
+      ],
+      "rows": [
+        [
+          "abdulmanan",
+          "03114893102",
+          "30.00",
+          ""
+        ],
+        [
+          "AHMAD",
+          "03059220011",
+          "200.00",
+          ""
+        ],
+        [
+          "ali",
+          "03967787777",
+          "365.00",
+          ""
+        ],
+        [
+          "Gf",
+          "03061546446",
+          "5.00",
+          ""
+        ],
+        [
+          "irfan",
+          "03450118704",
+          "80.00",
+          ""
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00",
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

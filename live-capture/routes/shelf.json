@@ -1,0 +1,96 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/shelf",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "\u200b Add New Shelf Name Total Batches Actions ac preminous 2 cream rack 3 Shelf 1 11 SAMI 2 Ali 1 14 2 Y 1 1 B 2 < BACK 1 NEXT > Rows per page 50 \u200b 1-8 of 8 Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search Medicine",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "50",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "50",
+      "text": "50",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add New Shelf",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Name",
+        "Total Batches",
+        "Actions",
+        "ac preminous",
+        "2",
+        ""
+      ],
+      "rows": [
+        [
+          "ac preminous",
+          "2",
+          ""
+        ],
+        [
+          "cream rack",
+          "3",
+          ""
+        ],
+        [
+          "Shelf 1",
+          "11",
+          ""
+        ],
+        [
+          "SAMI",
+          "2",
+          ""
+        ],
+        [
+          "Ali",
+          "1",
+          ""
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

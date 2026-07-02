@@ -1,0 +1,265 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Payment History"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Edit Customer",
+    "View Payment History",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "close",
+    "View",
+    "Print Invoice",
+    "Clear Dues"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "abdulmanan",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Payment",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Phone#",
+      "Due Amount",
+      "Actions"
+    ],
+    [
+      "Invoice No.",
+      "Date",
+      "Total Amt",
+      "Dis(%)",
+      "Dis Amt",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nName\tPhone#\tDue Amount\tActions\nabdulmanan\t03114893102\t30.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1\nPayment History\nInvoice No.\tDate\tTotal Amt\tDis(%)\tDis Amt\tTotal Payable\tPaid\tDue(s)\tActions\n175746\t13-03-2026\t1,031.823\t0.19\t2\t1,029.823\t1,000\t30\t\n\nInvoice(s)\tTill Today\t1,031.823\t0.19\t2\t1,029.823\t1,000\t30\t-\nTotal: Rs 1,031.823\nReceived: Rs 1,000\nSelect Payment Method\nVISA\ne\nJazzCash\nCard\nCash\nDue Payment\nRs. 30\nPaid Amount: Rs 1,000\nReceive Now:\nReturned Cash: RS. 0\nClear Dues",
+  "evalResults": {
+    "beforeClick": {
+      "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+      "headings": [
+        "Payment History"
+      ],
+      "buttons": [
+        "Dashboard",
+        "Sales",
+        "New Sale",
+        "Return Item",
+        "Sales History",
+        "Return History",
+        "Product Sales History",
+        "Customer History",
+        "Inventory",
+        "Staff Management",
+        "Shift Management",
+        "Daily Expense",
+        "Settings",
+        "Get Technical Help",
+        "Collapse sidebar",
+        "Add New Sale",
+        "Renew",
+        "Open account menu",
+        "Edit Customer",
+        "View Payment History",
+        "< BACK",
+        "1",
+        "NEXT >",
+        "close",
+        "View",
+        "Print Invoice",
+        "Clear Dues"
+      ],
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Search...",
+          "value": "abdulmanan",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "50",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "placeholder": "",
+          "value": "on",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "placeholder": "",
+          "value": "on",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "placeholder": "",
+          "value": "on",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "placeholder": "",
+          "value": "on",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "placeholder": "",
+          "value": "on",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "placeholder": "Payment",
+          "value": "",
+          "text": ""
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "Name",
+            "Phone#",
+            "Due Amount",
+            "Actions"
+          ],
+          "rows": [
+            [
+              "abdulmanan",
+              "03114893102",
+              "30.00",
+              ""
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Invoice No.",
+            "Date",
+            "Total Amt",
+            "Dis(%)",
+            "Dis Amt",
+            "Total Payable",
+            "Paid",
+            "Due(s)",
+            "Actions"
+          ],
+          "rows": [
+            [
+              "175746",
+              "13-03-2026",
+              "1,031.823",
+              "0.19",
+              "2",
+              "1,029.823",
+              "1,000",
+              "30",
+              ""
+            ],
+            [
+              "Invoice(s)",
+              "Till Today",
+              "1,031.823",
+              "0.19",
+              "2",
+              "1,029.823",
+              "1,000",
+              "30",
+              "-"
+            ]
+          ]
+        }
+      ],
+      "bodyText": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 < BACK 1 NEXT > Rows per page 1-1 of 1 Payment History Invoice No. Date Total Amt Dis(%) Dis Amt Total Payable Paid Due(s) Actions 175746 13-03-2026 1,031.823 0.19 2 1,029.823 1,000 30 Invoice(s) Till Today 1,031.823 0.19 2 1,029.823 1,000 30 - Total: Rs 1,031.823 Received: Rs 1,000 Select Payment Method VISA e JazzCash Card Cash Due Payment Rs. 30 Paid Amount: Rs 1,000 Receive Now: Returned Cash: RS. 0 Clear Dues"
+    }
+  }
+}

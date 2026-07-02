@@ -1,0 +1,78 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/returnhistory",
+  "body": "Select Date Select Date Range \u200b All \u200b \u200b Gross Sales Rs. 0 Total Return Rs. 0 Net Sale Rs. 0 No data found. Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "single",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "range",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "date",
+      "placeholder": "",
+      "label": "",
+      "text": "2026-06-29",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "All",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search by Invoice ID...",
+      "label": "",
+      "text": "",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": []
+}

@@ -1,0 +1,321 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard",
+  "body": "Rs. 0 Today's Net Sale Rs. 4,828.673 Monthly Revenue Pending: 0 VIEW DETAILS 35,62,256 All Products Medical: 35,61,286 Non-Medical: 970 12,72,85,27,380.207 Total Cost 10 Medicine Shortage Resolve Now List of Expired Medicine Batch View Expired Batches 74hh 12365po 7378m gh899 kk8999 1245 896547 2856 423654 622 41256 47858 954788 18887 8989 123456 11227p 11227 133y 12557p 02 7575 45poo 87451 10235 88888kkk pppcvx 152578 4555 121 457iiuu ghh111 47856 1111 1 gh899 45kikhgjj 45kik 1122 23655 34789 1222 47856 bb123 bb123 12345 25-12-11 (1) 897456 45kik 147poutt 123365 56 14kkkk 47147lll 12544 W LEVO 250MG TABS TERBISIL B BRAUN 22G R PRO TAB 30'S WEBBOX BEAF DOG FOOD 2KG B ACTIVE DROP 20ML Actifed P Lotion Disprin 10CC SYRINGE Loprot Actrac Betaderm Lofexidine Siniry Gripe water T DAY 5MG TAB 30S T DAY 5MG TAB PANADOL Baby Lotion X CORELEX 4MG Calpol O CID 20MG TAB Dopamine Caflam Sulphur Panadol Transamin flygel Gripe water PANADOL EXTRA 0.9% SODIUM CHLORIDE 25ML Flagyl Omeprazole risek 20 Pandol m R PRO TAB 30'S AIREEZ 5MG TAB EFLOGEN CREAM 15GM 7.5 GLOVES Fair and Lovely Acneez CRAN BEE SACH Flagyl BBA BBA Gripe water Panadol CF TERBIDERM 125MG TAB N A DROP 10ML EFLOGEN CREAM 15GM BBA Panadol Disprin 212 MEN NYC BODY SPRAY aerofen 100 JACK 3D PRE WORK OUT Toot Siah 24/05/2026 31/01/2026 04/02/2025 04/02/2026 05/02/2025 17/06/2026 28/09/2025 24/11/2025 01/07/2025 09/01/2026 10/06/2024 01/10/2024 01/07/2025 01/02/2025 21/12/2024 30/09/2025 23/07/2025 23/05/2026 23/06/2025 23/08/2025 27/12/2025 28/12/2025 10/05/2026 08/05/2026 19/11/2025 08/08/2025 01/11/2025 01/12/2025 14/03/2026 30/09/2025 24/06/2026 26/12/2025 09/06/2026 01/09/2025 24/09/2025 06/03/2026 31/12/2025 28/02/2026 21/09/2025 23/10/2025 26/09/2025 26/09/2025 09/06/2026 02/12/2025 02/12/2025 12/12/2025 22/01/2025 21/01/2026 11/03/2026 28/02/2026 02/12/2025 16/05/2026 12/03/2026 21/04/2026 21/05/2026 30/05/2026 19/05/2026 Quick Monthly Report January 2026 February 2026 March 2026 April 2026 May 2026 June 2026 755 Qty of Products Sold 38 Invoices Generated Medicine Batches Overview Go To Batch Management 160 Batches in Stock 42 Batches out of Stock 59 Expired Batches Panadol CF, selanz, Adalat Frequently bought Item(s) Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes Get Technical Help",
+  "sidebar": [
+    {
+      "i": 0,
+      "tag": "BUTTON",
+      "text": "VIEW DETAILS",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1sigw8p"
+    },
+    {
+      "i": 1,
+      "tag": "BUTTON",
+      "text": "View Expired Batches",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1sigw8p"
+    },
+    {
+      "i": 2,
+      "tag": "BUTTON",
+      "text": "January 2026 February 2026 March 2026 April 2026 May 2026 June 2026",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1sigw8p"
+    },
+    {
+      "i": 3,
+      "tag": "BUTTON",
+      "text": "Go To Batch Management",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1sigw8p"
+    },
+    {
+      "i": 5,
+      "tag": "BUTTON",
+      "text": "Add New Sale",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1a46aqf"
+    },
+    {
+      "i": 7,
+      "tag": "DIV",
+      "text": "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes Get Technical Help",
+      "href": "",
+      "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-gj5gzy"
+    },
+    {
+      "i": 8,
+      "tag": "DIV",
+      "text": "Pharmacy Management System",
+      "href": "",
+      "cls": "css-1pvtgcu"
+    },
+    {
+      "i": 10,
+      "tag": "P",
+      "text": "Pharmacy Management System",
+      "href": "",
+      "cls": ""
+    },
+    {
+      "i": 11,
+      "tag": "DIV",
+      "text": "Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes Get Technical Help",
+      "href": "",
+      "cls": "MuiBox-root css-lb61rc"
+    },
+    {
+      "i": 12,
+      "tag": "DIV",
+      "text": "Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes Get Technical Help",
+      "href": "",
+      "cls": "MuiBox-root css-1ok5e57"
+    },
+    {
+      "i": 13,
+      "tag": "UL",
+      "text": "Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes",
+      "href": "",
+      "cls": "MuiList-root MuiList-padding css-1ontqvh"
+    },
+    {
+      "i": 14,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-gk4gkd"
+    },
+    {
+      "i": 18,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 19,
+      "tag": "SPAN",
+      "text": "Dashboard",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 22,
+      "tag": "DIV",
+      "text": "Sales",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 26,
+      "tag": "DIV",
+      "text": "Sales",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 27,
+      "tag": "SPAN",
+      "text": "Sales",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 32,
+      "tag": "DIV",
+      "text": "Inventory",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 38,
+      "tag": "DIV",
+      "text": "Inventory",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 39,
+      "tag": "SPAN",
+      "text": "Inventory",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 44,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 48,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 49,
+      "tag": "SPAN",
+      "text": "Staff Management",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 52,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 56,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 57,
+      "tag": "SPAN",
+      "text": "Shift Management",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 60,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 67,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 68,
+      "tag": "SPAN",
+      "text": "Daily Expense",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 73,
+      "tag": "DIV",
+      "text": "Settings",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 77,
+      "tag": "DIV",
+      "text": "Settings",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 78,
+      "tag": "SPAN",
+      "text": "Settings",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 83,
+      "tag": "DIV",
+      "text": "Change Password Return Policy/Notes",
+      "href": "",
+      "cls": "MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-c4sutr"
+    },
+    {
+      "i": 84,
+      "tag": "DIV",
+      "text": "Change Password Return Policy/Notes",
+      "href": "",
+      "cls": "MuiCollapse-wrapper MuiCollapse-vertical css-hboir5"
+    },
+    {
+      "i": 85,
+      "tag": "DIV",
+      "text": "Change Password Return Policy/Notes",
+      "href": "",
+      "cls": "MuiCollapse-wrapperInner MuiCollapse-vertical css-8atqhb"
+    },
+    {
+      "i": 86,
+      "tag": "DIV",
+      "text": "Change Password",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16wnul2"
+    },
+    {
+      "i": 90,
+      "tag": "DIV",
+      "text": "Change Password",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 91,
+      "tag": "SPAN",
+      "text": "Change Password",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 93,
+      "tag": "DIV",
+      "text": "Return Policy/Notes",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16wnul2"
+    },
+    {
+      "i": 97,
+      "tag": "DIV",
+      "text": "Return Policy/Notes",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 98,
+      "tag": "SPAN",
+      "text": "Return Policy/Notes",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    },
+    {
+      "i": 100,
+      "tag": "UL",
+      "text": "Get Technical Help",
+      "href": "",
+      "cls": "MuiList-root MuiList-padding css-1ontqvh"
+    },
+    {
+      "i": 101,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "href": "",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-15tbvq9"
+    },
+    {
+      "i": 105,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "href": "",
+      "cls": "MuiListItemText-root css-1nmt8ps"
+    },
+    {
+      "i": 106,
+      "tag": "SPAN",
+      "text": "Get Technical Help",
+      "href": "",
+      "cls": "MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1ai0jw4"
+    }
+  ]
+}

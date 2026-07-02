@@ -1,0 +1,90 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/daily-expense",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Add Expense"
+  ],
+  "buttons": [
+    "Add Expense",
+    "close",
+    "Choose date, selected date is Jul 1, 2026",
+    "Add",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "2026-07-01",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Expense Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "yyyy-mm-dd",
+      "value": "2026/07/01",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "e.g. 1500",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "placeholder": "Enter Description...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "placeholder": "",
+      "value": "x",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Date",
+      "Name",
+      "Expense Category",
+      "Expense Amount",
+      "Actions"
+    ]
+  ],
+  "text": "Date\nDate Range\nDownload Expense PDF\n​\nAdd Expense\nAdd Expense\n\nExpense Name\n\n​\n\nDate\n\n​\n\nExpense Category *\n\nSelect Expense\n​\n\nAmount\n\n​\n\nDescription\n\n​\nAdd\nDate\tName\tExpense Category\tExpense Amount\tActions\n\nNo Data found!\n\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help"
+}

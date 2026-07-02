@@ -1,0 +1,203 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/saleshistory",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Sales History Details",
+    "Invoice Number : 113449"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Print Sales History",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "< BACK",
+    "1",
+    "5",
+    "6",
+    "7",
+    "15",
+    "NEXT >",
+    "Close"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ],
+    [
+      "Date",
+      "Time",
+      "Total Amount",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned"
+    ],
+    [
+      "Date",
+      "Returned Amount",
+      "Returned Discount Amt(%)",
+      "Returned Discount Amt(RS)"
+    ],
+    [
+      "Total Amount",
+      "Net Paid"
+    ],
+    [
+      "Batch no.",
+      "Product Name",
+      "QTY Sold",
+      "QTY Returned",
+      "Rate/Sell Price",
+      "Amount"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nFrom Date\nTo Date\nTime\n \nPrint Sales History\nGross Sales\nRs. 3,023,165.65\nTotal Discount\nRs. 200,090.05\nNet Sales\nRs. 2,823,083.71\nTotal Cost\nRs. 2,409,824.95\nNet Revenue\nRs. 413,258.76\nPending\nRs. 1,975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n125103\t2025-12-13\t01:56:42 AM\t1,000\t0.00\t0.00\t1,000.00\t1,500.00\t0.00\t500.00\t\n\n124536\t2025-12-13\t02:26:27 PM\t200\t2.00\t4.00\t196.00\t196.00\t0.00\t0.00\t\n\n120811\t2025-12-05\t03:06:16 AM\t24\t0.00\t0.00\t24.00\t24.00\t0.00\t0.00\t\n\n120752\t2025-12-05\t12:17:00 AM\t125\t5.00\t6.25\t119.00\t500.00\t0.00\t381.00\t\n\n120277\t2025-12-04\t10:46:49 PM\t1,015\t0.00\t0.00\t1,015.00\t1,200.00\t0.00\t185.00\t\n\n120267\t2025-12-04\t10:37:59 PM\t1,525\t1.64\t25.00\t1,500.00\t1,500.00\t0.00\t0.00\t\n\n119891\t2025-12-03\t01:38:10 AM\t524\t0.00\t0.00\t524.00\t524.00\t0.00\t0.00\t\n\n119890\t2025-12-03\t01:36:15 AM\t15,600\t3.86\t602.00\t14,998.00\t15,000.00\t0.00\t2.00\t\n\n119811\t2025-12-03\t11:56:21 PM\t2,500\t0.00\t0.00\t2,500.00\t2,500.00\t0.00\t0.00\t\n\n119808\t2025-12-03\t11:52:52 PM\t4,560\t2.96\t135.00\t4,425.00\t4,425.00\t0.00\t0.00\t\n\n119482\t2025-12-03\t07:12:33 PM\t12,000\t0.00\t0.00\t12,000.00\t12,000.00\t0.00\t0.00\t\n\n119476\t2025-12-03\t06:49:20 PM\t7,000\t0.00\t0.00\t7,000.00\t7,000.00\t0.00\t0.00\t\n\n119475\t2025-12-03\t06:48:23 PM\t300\t5.00\t15.00\t285.00\t300.00\t0.00\t15.00\t\n\n119474\t2025-12-03\t06:47:35 PM\t6,000\t0.00\t0.00\t6,000.00\t6,000.00\t0.00\t0.00\t\n\n119473\t2025-12-03\t06:46:54 PM\t24\t0.00\t0.00\t24.00\t24.00\t0.00\t0.00\t\n\n118790\t2025-12-01\t01:19:31 AM\t18,000\t0.00\t0.00\t18,000.00\t18,000.00\t0.00\t0.00\t\n\n118788\t2025-12-01\t01:15:48 AM\t2,520\t0.00\t0.00\t2,520.00\t2,600.00\t0.00\t80.00\t\n\n118554\t2025-12-01\t09:40:11 PM\t80,000\t0.00\t0.00\t80,000.00\t80,000.00\t0.00\t0.00\t\n\n117074\t2025-11-28\t06:06:39 PM\t240\t5.00\t12.00\t228.00\t0.00\t228.00\t0.00\t\n\n116152\t2025-11-26\t07:23:36 PM\t5\t100.00\t5.00\t0.00\t0.00\t0.00\t0.00\t\n\n116151\t2025-11-26\t07:22:22 PM\t5\t100.00\t5.00\t0.00\t0.00\t0.00\t0.00\t\n\n116143\t2025-11-26\t07:09:07 PM\t30\t100.00\t30.00\t0.00\t0.00\t0.00\t0.00\t\n\n115556\t2025-11-25\t06:12:15 PM\t400\t1.25\t5.00\t395.00\t395.00\t0.00\t0.00\t\n\n115163\t2025-11-24\t09:06:41 PM\t1,200\t100.00\t1,200.00\t0.00\t0.00\t0.00\t0.00\t\n\n114286\t2025-11-22\t09:29:09 PM\t5,600\t0.00\t0.00\t5,600.00\t5,600.00\t0.00\t0.00\t\n\n113449\t2025-11-20\t10:44:28 PM\t472\t0.00\t0.00\t472.00\t472.00\t0.00\t0.00\t\n\n112952\t2025-11-19\t10:11:21 PM\t24,168\t0.00\t0.00\t24,168.00\t25,000.00\t0.00\t832.00\t\n\n112799\t2025-11-19\t06:55:51 PM\t6,000\t8.00\t480.00\t5,520.00\t5,520.00\t0.00\t0.00\t\n\n112797\t2025-11-19\t06:53:51 PM\t12,000\t8.00\t960.00\t11,040.00\t11,040.00\t0.00\t0.00\t\n\n112751\t2025-11-19\t04:53:20 PM\t36,045\t0.00\t0.00\t36,045.00\t37,000.00\t0.00\t955.00\t\n\n112345\t2025-11-18\t07:07:33 PM\t448\t0.00\t0.00\t448.00\t448.00\t0.00\t0.00\t\n\n112344\t2025-11-18\t07:06:26 PM\t18,000\t6.00\t1,080.00\t16,920.00\t16,920.00\t0.00\t0.00\t\n\n112342\t2025-11-18\t07:05:23 PM\t72\t0.00\t0.00\t72.00\t72.00\t0.00\t0.00\t\n\n112320\t2025-11-18\t06:26:50 PM\t12,000\t5.00\t600.00\t11,400.00\t11,400.00\t0.00\t0.00\t\n\n111986\t2025-11-17\t10:16:32 PM\t3,060\t1.96\t60.00\t3,000.00\t3,500.00\t0.00\t500.00\t\n\n111186\t2025-11-15\t11:42:15 PM\t30,120\t0.00\t0.00\t30,120.00\t30,120.00\t0.00\t0.00\t\n\n111180\t2025-11-15\t11:38:56 PM\t50\t0.00\t0.00\t50.00\t50.00\t0.00\t0.00\t\n\n111178\t2025-11-15\t11:37:13 PM\t300,000\t0.00\t0.00\t300,000.00\t300,000.00\t0.00\t0.00\t\n\n111054\t2025-11-15\t09:13:20 PM\t397.788\t0.50\t1.99\t396.00\t400.00\t0.00\t4.00\t\n\n111051\t2025-11-15\t09:10:48 PM\t79.558\t0.00\t0.00\t80.00\t80.00\t0.00\t0.00\t\n\n110998\t2025-11-15\t08:04:44 PM\t61,350\t2.20\t1,350.00\t60,000.00\t60,000.00\t0.00\t0.00\t\n\n110986\t2025-11-15\t07:47:31 PM\t600,000\t1.67\t10,000.00\t590,000.00\t590,000.00\t0.00\t10,000.00\t\n\n110980\t2025-11-15\t07:36:35 PM\t40\t10.00\t4.00\t36.00\t36.00\t0.00\t64.00\t\n\n110766\t2025-11-14\t01:23:18 AM\t150\t0.00\t0.00\t150.00\t150.00\t0.00\t0.00\t\n\n110734\t2025-11-14\t12:32:57 AM\t150,000\t0.00\t0.00\t150,000.00\t155,000.00\t0.00\t5,000.00\t\n\n110495\t2025-11-14\t06:18:58 PM\t2,560\t0.00\t0.00\t2,560.00\t3,000.00\t0.00\t440.00\t\n\n110493\t2025-11-14\t06:15:46 PM\t44,050\t0.00\t0.00\t44,050.00\t50,000.00\t0.00\t5,950.00\t\n\n109910\t2025-11-12\t02:40:21 AM\t13,500\t0.00\t0.00\t13,500.00\t15,000.00\t0.00\t1,500.00\t\n\n109665\t2025-11-12\t10:00:30 PM\t9,000\t0.00\t0.00\t9,000.00\t10,000.00\t0.00\t1,000.00\t\n\n109644\t2025-11-12\t09:38:39 PM\t7,350\t5.00\t367.50\t6,983.00\t7,875.00\t0.00\t892.00\t\n< BACK\n1\n...\n5\n6\n7\n...\n15\nNEXT >\nRows per page\n251-300 of 702\nSales History Details\nInvoice Number : 113449\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2025-11-20\t10:44:28 PM\t752\t0\t752\t752\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2025-11-20\t280.00\t0.00\t0.00\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n472.00\t472.00\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\n55gg\tPIOZER G 30/2MG TAB\t8\t-\t24\t192.00\nbb123\tBBA\t10\t5\t56\t280.00\nClose",
+  "evalResults": {
+    "beforeClick": {
+      "clicked": true,
+      "first": "125103",
+      "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nFrom Date\nTo Date\nTime\n \nPrint Sales History\nGross Sales\nRs. 3,023,165.65\nTotal Discount\nRs. 200,090.05\nNet Sales\nRs. 2,823,083.71\nTotal Cost\nRs. 2,409,824.95\nNet Revenue\nRs. 413,258.76\nPending\nRs. 1,975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n125103\t2025-12-13\t01:56:42 AM\t1,000\t0.00\t0.00\t1,000.00\t1,500.00\t0.00\t500.00\t\n\n124536\t2025-12-13\t02:26:27 PM\t200\t2.00\t4.00\t196.00\t196.00\t0.00\t0.00\t\n\n120811\t2025-12-05\t03:06:16 AM\t24\t0.00\t0.00\t24.00\t24.00\t0.00\t0.00\t\n\n120752\t2025-12-05\t12:17:00 AM\t125\t5.00\t6.25\t119.00\t500.00\t0.00\t381.00\t\n\n120277\t2025-12-04\t10:46:49 PM\t1,015\t0.00\t0.00\t1,015.00\t1,200.00\t0.00\t185.00\t\n\n120267\t2025-12-04\t10:37:59 PM\t1,525\t1.64\t25.00\t1,500.00\t1,500.00\t0.00\t0.00\t\n\n119891\t2025-12-03\t01:38:10 AM\t524\t0.00\t0.00\t524.00\t524.00\t0.00\t0.00\t\n\n119890\t2025-12-03\t01:36:15 AM\t15,600\t3.86\t602.00\t14,998.00\t15,000.00\t0.00\t2.00\t\n\n119811\t2025-12-03\t11:56:21 PM\t2,500\t0.00\t0.00\t2,500.00\t2,500.00\t0.00\t0.00\t\n\n119808\t2025-12-03\t11:52:52 PM\t4,560\t2.96\t135.00\t4,425.00\t4,425.00\t0.00\t0.00\t\n\n119482\t2025-12-03\t07:12:33 PM\t12,000\t0.00\t0.00\t12,000.00\t12,000.00\t0.00\t0.00\t\n\n119476\t2025-12-03\t06:49:20 PM\t7,000\t0.00\t0.00\t7,000.00\t7,000.00\t0.00\t0.00\t\n\n119475\t2025-12-03\t06:48:23 PM\t300\t5.00\t15.00\t285.00\t300.00\t0.00\t15.00\t\n\n119474\t2025-12-03\t06:47:35 PM\t6,000\t0.00\t0.00\t6,000.00\t6,000.00\t0.00\t0.00\t\n\n119473\t2025-12-03\t06:46:54 PM\t24\t0.00\t0.00\t24.00\t24.00\t0.00\t0.00\t\n\n118790\t2025-12-01\t01:19:31 AM\t18,000\t0.00\t0.00\t18,000.00\t18,000.00\t0.00\t0.00\t\n\n118788\t2025-12-01\t01:15:48 AM\t2,520\t0.00\t0.00\t2,520.00\t2,600.00\t0.00\t80.00\t\n\n118554\t2025-12-01\t09:40:11 PM\t80,000\t0.00\t0.00\t80,000.00\t80,000.00\t0.00\t0.00\t\n\n117074\t2025-11-28\t06:06:39 PM\t240\t5.00\t12.00\t228.00\t0.00\t228.00\t0.00\t\n\n116152\t2025-11-26\t07:23:36 PM\t5\t100.00\t5.00\t0.00\t0.00\t0.00\t0.00\t\n\n116151\t2025-11-26\t07:22:22 PM\t5\t100.00\t5.00\t0.00\t0.00\t0.00\t0.00\t\n\n116143\t2025-11-26\t07:09:07 PM\t30\t100.00\t30.00\t0.00\t0.00\t0.00\t0.00\t\n\n115556\t2025-11-25\t06:12:15 PM\t400\t1.25\t5.00\t395.00\t395.00\t0.00\t0.00\t\n\n115163\t2025-11-24\t09:06:41 PM\t1,200\t100.00\t1,200.00\t0.00\t0.00\t0.00\t0.00\t\n\n114286\t2025-11-22\t09:29:09 PM\t5,600\t0.00\t0.00\t5,600.00\t5,600.00\t0.00\t0.00\t\n\n113449\t2025-11-20\t10:44:28 PM\t472\t0.00\t0.00\t472.00\t472.00\t0.00\t0.00\t\n\n112952\t2025-11-19\t10:11:21 PM\t24,168\t0.00\t0.00\t24,168.00\t25,000.00\t0.00\t832.00\t\n\n112799\t2025-11-19\t06:55:51 PM\t6,000\t8.00\t480.00\t5,520.00\t5,520.00\t0.00\t0.00\t\n\n112797\t2025-11-19\t06:53:51 PM\t12,000\t8.00\t960.00\t11,040.00\t11,040.00\t0.00\t0.00\t\n\n112751\t2025-11-19\t04:53:20 PM\t36,045\t0.00\t0.00\t36,045.00\t37,000.00\t0.00\t955.00\t\n\n112345\t2025-11-18\t07:07:33 PM\t448\t0.00\t0.00\t448.00\t448.00\t0.00\t0.00\t\n\n112344\t2025-11-18\t07:06:26 PM\t18,000\t6.00\t1,080.00\t16,920.00\t16,920.00\t0.00\t0.00\t\n\n112342\t2025-11-18\t07:05:23 PM\t72\t0.00\t0.00\t72.00\t72.00\t0.00\t0.00\t\n\n112320\t2025-11-18\t06:26:50 PM\t12,000\t5.00\t600.00\t11,400.00\t11,400.00\t0.00\t0.00\t\n\n111986\t2025-11-17\t10:16:32 PM\t3,060\t1.96\t60.00\t3,000.00\t3,500.00\t0.00\t500.00\t\n\n111186\t2025-11-15\t11:42:15 PM\t30,120\t0.00\t0.00\t30,120.00\t30,120.00\t0.00\t0.00\t\n\n111180\t2025-11-15\t11:38:56 PM\t50\t0.00\t0.00\t50.00\t50.00\t0.00\t0.00\t\n\n111178\t2025-11-15\t11:37:13 PM\t300,000\t0.00\t0.00\t300,000.00\t300,000.00\t0.00\t0.00\t\n\n111054\t2025-11-15\t09:13:20 PM\t397.788\t0.50\t1.99\t396.00\t400.00\t0.00\t4.00\t\n\n111051\t2025-11-15\t09:10:48 PM\t79.558\t0.00\t0.00\t80.00\t80.00\t0.00\t0.00\t\n\n110998\t2025-11-15\t08:04:44 PM\t61,350\t2.20\t1,350.00\t60,000.00\t60,000.00\t0.00\t0.00\t\n\n110986\t2025-11-15\t07:47:31 PM\t600,000\t1.67\t10,000.00\t590,000.00\t590,000.00\t0.00\t10,000.00\t\n\n110980\t2025-11-15\t07:36:35 PM\t40\t10.00\t4.00\t36.00\t36.00\t0.00\t64.00\t\n\n110766\t2025-11-14\t01:23:18 AM\t150\t0.00\t0.00\t150.00\t150.00\t0.00\t0.00\t\n\n110734\t2025-11-14\t12:32:57 AM\t150,000\t0.00\t0.00\t150,000.00\t155,000.00\t0.00\t5,000.00\t\n\n110495\t2025-11-14\t06:18:58 PM\t2,560\t0.00\t0.00\t2,560.00\t3,000.00\t0.00\t440.00\t\n\n110493\t2025-11-14\t06:15:46 PM\t44,050\t0.00\t0.00\t44,050.00\t50,000.00\t0.00\t5,950.00\t\n\n109910\t2025-11-12\t02:40:21 AM\t13,500\t0.00\t0.00\t13,500.00\t15,000.00\t0.00\t1,500.00\t\n\n109665\t2025-11-12\t10:00:30 PM\t9,000\t0.00\t0.00\t9,000.00\t10,000.00\t0.00\t1,000.00\t\n\n109644\t2025-11-12\t09:38:39 PM\t7,350\t5.00\t367.50\t6,983.00\t7,875.00\t0.00\t892.00\t\n< BACK\n1\n...\n5\n6\n7\n...\n15\nNEXT >\nRows per page\n251-300 of 702\nSales History Details\nInvoice Number : 113449\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2025-11-20\t10:44:28 PM\t752\t0\t752\t752\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2025-11-20\t280.00\t0.00\t0.00\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n472.00\t472.00\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\n55gg\tPIOZER G 30/2MG TAB\t8\t-\t24\t192.00\nbb123\tBBA\t10\t5\t56\t280.00\nClose"
+    }
+  }
+}

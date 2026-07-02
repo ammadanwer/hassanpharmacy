@@ -1,0 +1,1615 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Choose time, selected time is 12:00 AM",
+    "Choose time, selected time is 11:59 PM",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "text": "Date\nDate Range\n​\n​\n\nTime\n\n​\n​\nPrint Sales History\nAll\n​\n​\nGross Sales\nRs. 3023165.65\nTotal Discount\nRs. 200090.05\nNet Sales\nRs. 2823083.71\nTotal Cost\nRs. 2409824.95\nNet Revenue\nRs. 413258.76\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n252\t2024-08-25\t03:46:15 PM\t3000\t500.00\t15000.00\t-12000.00\t\n12000.00\n\t0.00\t24000.00\t\n\n240\t2024-08-22\t12:37:44 AM\t4000\t3.00\t120.00\t3880.00\t\n4000.00\n\t0.00\t120.00\t\n\n237\t2024-08-22\t07:52:42 PM\t1003\t5.00\t50.15\t953.00\t\n953.00\n\t0.00\t0.15\t\n\n227\t2024-08-21\t11:45:44 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n225\t2024-08-21\t08:13:32 PM\t660\t5.00\t33.00\t627.00\t\n627.00\n\t0.00\t0.00\t\n\n215\t2024-08-20\t07:47:28 PM\t800\t5.00\t40.00\t760.00\t\n1000.00\n\t0.00\t240.00\t\n\n158\t2024-08-16\t06:06:08 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n142\t2024-08-15\t03:37:27 PM\t430\t5.00\t21.50\t409.00\t\n500.00\n\t0.00\t91.50\t\n\n124\t2024-08-11\t05:39:48 PM\t1000\t2.00\t20.00\t980.00\t\n1000.00\n\t0.00\t20.00\t\n\n117\t2024-08-08\t09:40:11 PM\t1260\t5.00\t63.00\t1197.00\t\n1500.00\n\t0.00\t303.00\t\n\n116\t2024-08-08\t07:52:57 PM\t4000\t5.00\t200.00\t3800.00\t\n4000.00\n\t0.00\t200.00\t\n\n115\t2024-08-08\t05:58:30 PM\t360\t5.00\t18.00\t342.00\t\n500.00\n\t0.00\t158.00\t\n\n111\t2024-08-07\t05:26:18 PM\t1000\t2.00\t20.00\t980.00\t\n1000.00\n\t0.00\t20.00\t\n\n110\t2024-08-06\t08:37:06 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n109\t2024-08-06\t08:33:01 PM\t1000\t5.00\t50.00\t950.00\t\n1000.00\n\t0.00\t50.00\t\n\n102\t2024-08-04\t07:09:37 PM\t4000\t2.00\t80.00\t3920.00\t\n4000.00\n\t0.00\t80.00\t\n\n101\t2024-07-31\t04:17:35 PM\t180\t5.00\t9.00\t171.00\t\n500.00\n\t0.00\t329.00\t\n\n100\t2024-07-29\t11:46:24 PM\t1500\t2.00\t30.00\t1470.00\t\n2000.00\n\t0.00\t530.00\t\n\n97\t2024-07-26\t05:09:17 PM\t1000\t5.00\t50.00\t950.00\t\n1000.00\n\t0.00\t50.00\t\n\n91\t2024-07-19\t08:19:06 PM\t1000\t5.00\t50.00\t950.00\t\n1000.00\n\t0.00\t50.00\t\n\n87\t2024-07-11\t11:20:05 PM\t1500\t2.00\t30.00\t1470.00\t\n5000.00\n\t0.00\t3530.00\t\n\n86\t2024-07-11\t04:58:25 PM\t160\t5.00\t8.00\t152.00\t\n200.00\n\t0.00\t48.00\t\n\n85\t2024-07-10\t08:07:04 PM\t180\t5.00\t9.00\t171.00\t\n20",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+      "page": 14,
+      "offset": 0,
+      "limit": 20,
+      "captured": 20,
+      "captures": [
+        {
+          "invoiceNumber": "252",
+          "index": 0,
+          "row": [
+            "252",
+            "2024-08-25",
+            "03:46:15 PM",
+            "3000",
+            "500.00",
+            "15000.00",
+            "-12000.00",
+            "12000.00",
+            "0.00",
+            "24000.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 252 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-25 03:46:15 PM 3,000 15,000 -12,000 12,000 24,000 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 6 - 500 3,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-25",
+                  "03:46:15 PM",
+                  "3,000",
+                  "15,000",
+                  "-12,000",
+                  "12,000",
+                  "",
+                  "24,000"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "6",
+                  "-",
+                  "500",
+                  "3,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "240",
+          "index": 1,
+          "row": [
+            "240",
+            "2024-08-22",
+            "12:37:44 AM",
+            "4000",
+            "3.00",
+            "120.00",
+            "3880.00",
+            "4000.00",
+            "0.00",
+            "120.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 240 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-22 12:37:44 AM 4,000 120 3,880 4,000 120 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 8 - 500 4,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-22",
+                  "12:37:44 AM",
+                  "4,000",
+                  "120",
+                  "3,880",
+                  "4,000",
+                  "",
+                  "120"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "8",
+                  "-",
+                  "500",
+                  "4,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "237",
+          "index": 2,
+          "row": [
+            "237",
+            "2024-08-22",
+            "07:52:42 PM",
+            "1003",
+            "5.00",
+            "50.15",
+            "953.00",
+            "953.00",
+            "0.00",
+            "0.15",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 237 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-22 07:52:42 PM 1,003 50.15 952.85 953 0.15 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 34789 Acneez 5 - 120 600.00 34780 Gyno-Travogen Vag 5 - 80.6 403.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-22",
+                  "07:52:42 PM",
+                  "1,003",
+                  "50.15",
+                  "952.85",
+                  "953",
+                  "",
+                  "0.15"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "34789",
+                  "Acneez",
+                  "5",
+                  "-",
+                  "120",
+                  "600.00"
+                ],
+                [
+                  "34780",
+                  "Gyno-Travogen Vag",
+                  "5",
+                  "-",
+                  "80.6",
+                  "403.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "227",
+          "index": 3,
+          "row": [
+            "227",
+            "2024-08-21",
+            "11:45:44 PM",
+            "4000",
+            "2.00",
+            "80.00",
+            "3920.00",
+            "4000.00",
+            "0.00",
+            "80.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 227 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-21 11:45:44 PM 4,000 80 3,920 4,000 80 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 8 - 500 4,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-21",
+                  "11:45:44 PM",
+                  "4,000",
+                  "80",
+                  "3,920",
+                  "4,000",
+                  "",
+                  "80"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "8",
+                  "-",
+                  "500",
+                  "4,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "225",
+          "index": 4,
+          "row": [
+            "225",
+            "2024-08-21",
+            "08:13:32 PM",
+            "660",
+            "5.00",
+            "33.00",
+            "627.00",
+            "627.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 225 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-21 08:13:32 PM 660 33 627 627 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 34789 Acneez 4 - 120 480.00 954788 Betaderm 2 - 90 180.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-21",
+                  "08:13:32 PM",
+                  "660",
+                  "33",
+                  "627",
+                  "627",
+                  "",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "34789",
+                  "Acneez",
+                  "4",
+                  "-",
+                  "120",
+                  "480.00"
+                ],
+                [
+                  "954788",
+                  "Betaderm",
+                  "2",
+                  "-",
+                  "90",
+                  "180.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "215",
+          "index": 5,
+          "row": [
+            "215",
+            "2024-08-20",
+            "07:47:28 PM",
+            "800",
+            "5.00",
+            "40.00",
+            "760.00",
+            "1000.00",
+            "0.00",
+            "240.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 215 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-20 07:47:28 PM 800 40 760 1,000 240 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 34789 Acneez 5 - 120 600.00 423654 Disprin 2 - 100 200.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-20",
+                  "07:47:28 PM",
+                  "800",
+                  "40",
+                  "760",
+                  "1,000",
+                  "",
+                  "240"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "34789",
+                  "Acneez",
+                  "5",
+                  "-",
+                  "120",
+                  "600.00"
+                ],
+                [
+                  "423654",
+                  "Disprin",
+                  "2",
+                  "-",
+                  "100",
+                  "200.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "158",
+          "index": 6,
+          "row": [
+            "158",
+            "2024-08-16",
+            "06:06:08 PM",
+            "4000",
+            "2.00",
+            "80.00",
+            "3920.00",
+            "4000.00",
+            "0.00",
+            "80.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 158 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-16 06:06:08 PM 4,000 80 3,920 4,000 80 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 8 - 500 4,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-16",
+                  "06:06:08 PM",
+                  "4,000",
+                  "80",
+                  "3,920",
+                  "4,000",
+                  "",
+                  "80"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "8",
+                  "-",
+                  "500",
+                  "4,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "142",
+          "index": 7,
+          "row": [
+            "142",
+            "2024-08-15",
+            "03:37:27 PM",
+            "430",
+            "5.00",
+            "21.50",
+            "409.00",
+            "500.00",
+            "0.00",
+            "91.50",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 142 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-15 03:37:27 PM 430 21.5 408.5 500 91.5 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 88888kkk Sulphur 5 - 70 350.00 47858 Actrac 4 - 20 80.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-15",
+                  "03:37:27 PM",
+                  "430",
+                  "21.5",
+                  "408.5",
+                  "500",
+                  "",
+                  "91.5"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "88888kkk",
+                  "Sulphur",
+                  "5",
+                  "-",
+                  "70",
+                  "350.00"
+                ],
+                [
+                  "47858",
+                  "Actrac",
+                  "4",
+                  "-",
+                  "20",
+                  "80.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "124",
+          "index": 8,
+          "row": [
+            "124",
+            "2024-08-11",
+            "05:39:48 PM",
+            "1000",
+            "2.00",
+            "20.00",
+            "980.00",
+            "1000.00",
+            "0.00",
+            "20.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 124 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-11 05:39:48 PM 1,000 20 980 1,000 20 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-11",
+                  "05:39:48 PM",
+                  "1,000",
+                  "20",
+                  "980",
+                  "1,000",
+                  "",
+                  "20"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "117",
+          "index": 9,
+          "row": [
+            "117",
+            "2024-08-08",
+            "09:40:11 PM",
+            "1260",
+            "5.00",
+            "63.00",
+            "1197.00",
+            "1500.00",
+            "0.00",
+            "303.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 117 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-08 09:40:11 PM 1,260 63 1,197 1,500 303 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 954788 Betaderm 2 - 90 180.00 87451 Dopamine 1 - 80 80.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-08",
+                  "09:40:11 PM",
+                  "1,260",
+                  "63",
+                  "1,197",
+                  "1,500",
+                  "",
+                  "303"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ],
+                [
+                  "954788",
+                  "Betaderm",
+                  "2",
+                  "-",
+                  "90",
+                  "180.00"
+                ],
+                [
+                  "87451",
+                  "Dopamine",
+                  "1",
+                  "-",
+                  "80",
+                  "80.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "116",
+          "index": 10,
+          "row": [
+            "116",
+            "2024-08-08",
+            "07:52:57 PM",
+            "4000",
+            "5.00",
+            "200.00",
+            "3800.00",
+            "4000.00",
+            "0.00",
+            "200.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 116 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-08 07:52:57 PM 4,000 200 3,800 4,000 200 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 89456 Hydrogen 5 - 600 3,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-08",
+                  "07:52:57 PM",
+                  "4,000",
+                  "200",
+                  "3,800",
+                  "4,000",
+                  "",
+                  "200"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ],
+                [
+                  "89456",
+                  "Hydrogen",
+                  "5",
+                  "-",
+                  "600",
+                  "3,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "115",
+          "index": 11,
+          "row": [
+            "115",
+            "2024-08-08",
+            "05:58:30 PM",
+            "360",
+            "5.00",
+            "18.00",
+            "342.00",
+            "500.00",
+            "0.00",
+            "158.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 115 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-08 05:58:30 PM 360 18 342 500 158 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 954788 Betaderm 4 - 90 360.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-08",
+                  "05:58:30 PM",
+                  "360",
+                  "18",
+                  "342",
+                  "500",
+                  "",
+                  "158"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "954788",
+                  "Betaderm",
+                  "4",
+                  "-",
+                  "90",
+                  "360.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "111",
+          "index": 12,
+          "row": [
+            "111",
+            "2024-08-07",
+            "05:26:18 PM",
+            "1000",
+            "2.00",
+            "20.00",
+            "980.00",
+            "1000.00",
+            "0.00",
+            "20.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 111 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-07 05:26:18 PM 1,000 20 980 1,000 20 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-07",
+                  "05:26:18 PM",
+                  "1,000",
+                  "20",
+                  "980",
+                  "1,000",
+                  "",
+                  "20"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "110",
+          "index": 13,
+          "row": [
+            "110",
+            "2024-08-06",
+            "08:37:06 PM",
+            "4000",
+            "2.00",
+            "80.00",
+            "3920.00",
+            "4000.00",
+            "0.00",
+            "80.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 110 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-06 08:37:06 PM 4,000 80 3,920 4,000 80 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 8 - 500 4,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-06",
+                  "08:37:06 PM",
+                  "4,000",
+                  "80",
+                  "3,920",
+                  "4,000",
+                  "",
+                  "80"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "8",
+                  "-",
+                  "500",
+                  "4,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "109",
+          "index": 14,
+          "row": [
+            "109",
+            "2024-08-06",
+            "08:33:01 PM",
+            "1000",
+            "5.00",
+            "50.00",
+            "950.00",
+            "1000.00",
+            "0.00",
+            "50.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 109 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-06 08:33:01 PM 1,000 50 950 1,000 50 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-06",
+                  "08:33:01 PM",
+                  "1,000",
+                  "50",
+                  "950",
+                  "1,000",
+                  "",
+                  "50"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "102",
+          "index": 15,
+          "row": [
+            "102",
+            "2024-08-04",
+            "07:09:37 PM",
+            "4000",
+            "2.00",
+            "80.00",
+            "3920.00",
+            "4000.00",
+            "0.00",
+            "80.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 102 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-08-04 07:09:37 PM 4,000 80 3,920 4,000 80 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 7 - 500 3,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-08-04",
+                  "07:09:37 PM",
+                  "4,000",
+                  "80",
+                  "3,920",
+                  "4,000",
+                  "",
+                  "80"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "7",
+                  "-",
+                  "500",
+                  "3,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "101",
+          "index": 16,
+          "row": [
+            "101",
+            "2024-07-31",
+            "04:17:35 PM",
+            "180",
+            "5.00",
+            "9.00",
+            "171.00",
+            "500.00",
+            "0.00",
+            "329.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 101 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-31 04:17:35 PM 180 9 171 500 329 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 954788 Betaderm 2 - 90 180.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-31",
+                  "04:17:35 PM",
+                  "180",
+                  "9",
+                  "171",
+                  "500",
+                  "",
+                  "329"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "954788",
+                  "Betaderm",
+                  "2",
+                  "-",
+                  "90",
+                  "180.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "100",
+          "index": 17,
+          "row": [
+            "100",
+            "2024-07-29",
+            "11:46:24 PM",
+            "1500",
+            "2.00",
+            "30.00",
+            "1470.00",
+            "2000.00",
+            "0.00",
+            "530.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 100 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-29 11:46:24 PM 1,500 30 1,470 2,000 530 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 3 - 500 1,500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-29",
+                  "11:46:24 PM",
+                  "1,500",
+                  "30",
+                  "1,470",
+                  "2,000",
+                  "",
+                  "530"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "3",
+                  "-",
+                  "500",
+                  "1,500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "97",
+          "index": 18,
+          "row": [
+            "97",
+            "2024-07-26",
+            "05:09:17 PM",
+            "1000",
+            "5.00",
+            "50.00",
+            "950.00",
+            "1000.00",
+            "0.00",
+            "50.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 97 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-26 05:09:17 PM 1,000 50 950 1,000 50 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 2 Actrapid HM Penfi| 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-26",
+                  "05:09:17 PM",
+                  "1,000",
+                  "50",
+                  "950",
+                  "1,000",
+                  "",
+                  "50"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "Actrapid HM Penfi|",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "91",
+          "index": 19,
+          "row": [
+            "91",
+            "2024-07-19",
+            "08:19:06 PM",
+            "1000",
+            "5.00",
+            "50.00",
+            "950.00",
+            "1000.00",
+            "0.00",
+            "50.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 91 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2024-07-19 08:19:06 PM 1,000 50 950 1,000 50 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1 Adalat 2 - 500 1,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2024-07-19",
+                  "08:19:06 PM",
+                  "1,000",
+                  "50",
+                  "950",
+                  "1,000",
+                  "",
+                  "50"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Adalat",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

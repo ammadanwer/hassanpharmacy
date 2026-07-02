@@ -1,0 +1,62 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/category",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Add New Category"
+  ],
+  "buttons": [
+    "Add New Category",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "NEXT >",
+    "Add New Sale",
+    "show more",
+    "close",
+    "Clear",
+    "Open",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Type",
+      "value": "Medical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Category Name",
+      "Type",
+      "Actions"
+    ]
+  ],
+  "text": "​\nAdd New Category\nCategory Name\tType\tActions\nACNE FACE WASH\tNon Medical\t\n\nAlcohal Pad\tMedical\t\n\nAmpules\tMedical\t\n\nAnalgesics\tMedical\t\n\nAntacids\tMedical\t\n\nAnti Allergic\tMedical\t\n\nAnti Ameobic (inflamation)\tMedical\t\n\nAnti Asthmatic Agent\tMedical\t\n\nAntibiotics\tMedical\t\n\nAnticonvulsants\tMedical\t\n\nAnti Cough\tMedical\t\n\nAntidepressants\tMedical\t\n\nAnti deressant\tMedical\t\n\nAnti Fungal\tMedical\t\n\nAntihistamines\tMedical\t\n\nAnti hyperglycemic Agent\tMedical\t\n\nAnti-hypertensive\tMedical\t\n\nAntihypertensives Drug\tMedical\t\n\nAnti Inflammatory\tMedical\t\n\nAnti Malaruial\tMedical\t\n\nAnti Melasma\tMedical\t\n\nAntiparkinson\tMedical\t\n\nAntipsychotics\tMedical\t\n\nAnti Scar Gel\tMedical\t\n\nAntithyroid agents\tMedical\t\n\nAntiviral Drug\tMedical\t\n\nAnxiolytics\tMedical\t\n\nBABY LINER\tNon Medical\t\n\nbag\tNon Medical\t\n\nBANDAGE\tMedical\t\n\nBANDGE\tNon Medical\t\n\nblade\tNon Medical\t\n\nBLADE\tMedical\t\n\nBLEACH CREAM\tNon Medical\t\n\nBLOOD KIT\tMedical\t\n\nBLOOD KIT\tNon Medical\t\n\nBLOOD LANCING DEVICE\tMedical\t\n\nBODY RAZER\tNon Medical\t\n\nBODY SPRAY\tNon Medical\t\n\nBody wash\tMedical\t\n\nBowls\tNon Medical\t\n\nBP OPERATUS\tMedical\t\n\nBRACE SUPPORT\tNon Medical\t\n\nBREAST PUMP\tMedical\t\n\nBrightning Cream\tMedical\t\n\nBRUSH\tNon Medical\t\n\nCake\tNon Medical\t\n\nCalendula Oil (N)\tMedical\t\n\nCanula\tMedical\t\n\nCANULA\tMedical\t\n< BACK\n1\n2\n3\n4\n5\n...\n7\nNEXT >\nRows per page\n50\n​\n1-50 of 331\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Category\nType\n​\nCategory Name\n​\nAdd"
+}

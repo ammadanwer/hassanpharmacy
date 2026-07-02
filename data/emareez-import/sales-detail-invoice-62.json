@@ -1,0 +1,69 @@
+{
+  "invoiceNumber": "62",
+  "date": "2024-06-27",
+  "time": "11:42:54 PM",
+  "summary": {
+    "totalAmount": "12,000",
+    "discountAmount": "360",
+    "totalPayable": "11,640",
+    "paid": "12,000",
+    "due": "",
+    "changeReturned": "360"
+  },
+  "items": [
+    {
+      "batchNo": "7895",
+      "productName": "Adalat",
+      "receiptName": "Adalat 30mg",
+      "qtySold": "78",
+      "qtyReturned": "-",
+      "rate": "60",
+      "amount": "4,680.00"
+    },
+    {
+      "batchNo": "2456",
+      "productName": "Ketasol",
+      "receiptName": "Ketasol 100mg",
+      "qtySold": "10",
+      "qtyReturned": "-",
+      "rate": "40",
+      "amount": "400.00"
+    },
+    {
+      "batchNo": "87451",
+      "productName": "Dopamine",
+      "receiptName": "Dopamine 200mg/5ml",
+      "qtySold": "10",
+      "qtyReturned": "-",
+      "rate": "80",
+      "amount": "800.00"
+    },
+    {
+      "batchNo": "8974",
+      "productName": "Furoxone",
+      "receiptName": "Furoxone 100mg",
+      "qtySold": "10",
+      "qtyReturned": "-",
+      "rate": "40",
+      "amount": "400.00"
+    },
+    {
+      "batchNo": "47856",
+      "productName": "Flagyl",
+      "receiptName": "Flagyl90ml",
+      "qtySold": "12",
+      "qtyReturned": "-",
+      "rate": "60",
+      "amount": "720.00"
+    },
+    {
+      "batchNo": "2",
+      "productName": "Actrapid HM Penfi|",
+      "receiptName": "Actrapid HM Penfi|100IU",
+      "qtySold": "10",
+      "qtyReturned": "-",
+      "rate": "500",
+      "amount": "5,000.00"
+    }
+  ]
+}

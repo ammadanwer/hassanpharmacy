@@ -1,0 +1,267 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/newsale",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "2",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Draft ID",
+      "Date",
+      "Total Items",
+      "Total Amount",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Action"
+    ]
+  ],
+  "text": "New Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\n345\t2025-11-08\t2\t126\t19.52\t24.60\t101.40\t\n\n25\t2025-11-04\t1\t50\t0.00\t0.00\t0.00\t\n\n1\t2025-11-04\t3\t1210\t0.00\t0.00\t0.00\t\n\n456\t2025-10-31\t3\t740\t0.00\t0.00\t0.00\t\n\n123456\t2025-10-13\t2\t380\t0.00\t0.00\t0.00\t\n\n123\t2025-10-12\t2\t1050\t0.00\t0.00\t0.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n10\n​\n11-16 of 16\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClick": {
+      "clicked": true
+    }
+  },
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Draft ID",
+          "Date",
+          "Total Items",
+          "Total Amount",
+          "Discount(%)",
+          "Discount Amt",
+          "Total Payable",
+          "Action"
+        ],
+        "rows": [
+          [
+            "115",
+            "2025-11-19",
+            "2",
+            "24168",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "1234567",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "5678",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "11687",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "116",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "6811",
+            "2025-11-19",
+            "2",
+            "37800",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "798",
+            "2025-11-19",
+            "2",
+            "3048",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "678",
+            "2025-11-17",
+            "2",
+            "3060",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "876",
+            "2025-11-14",
+            "2",
+            "2560",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "789",
+            "2025-11-09",
+            "2",
+            "440",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "headers": [
+          "Draft ID",
+          "Date",
+          "Total Items",
+          "Total Amount",
+          "Discount(%)",
+          "Discount Amt",
+          "Total Payable",
+          "Action"
+        ],
+        "rows": [
+          [
+            "345",
+            "2025-11-08",
+            "2",
+            "126",
+            "19.52",
+            "24.60",
+            "101.40",
+            ""
+          ],
+          [
+            "25",
+            "2025-11-04",
+            "1",
+            "50",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "1",
+            "2025-11-04",
+            "3",
+            "1210",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "456",
+            "2025-10-31",
+            "3",
+            "740",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "123456",
+            "2025-10-13",
+            "2",
+            "380",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "123",
+            "2025-10-12",
+            "2",
+            "1050",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

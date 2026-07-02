@@ -1,0 +1,80 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/shift-management",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Assign Shift"
+  ],
+  "buttons": [
+    "Add Shift",
+    "0",
+    "Add New Sale",
+    "show more",
+    "close",
+    "Clear",
+    "Open",
+    "Clear",
+    "Open",
+    "Open",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Staff Member",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Shift Type",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Off Days",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Start Time",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "End Time",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "AM",
+      "text": ""
+    }
+  ],
+  "headers": [],
+  "text": "​\nAdd Shift\n0\n\n\nNo Data Found\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAssign Shift\nSelect Staff Member\n\n*Required\n\n​\nSelect Shift Type\n\n*Required\n\n​\nSelect Off Days\n​\nStart Time\n\n*Required\n\n​\nAM\n​\nEnd Time\n\n*Required\n\n​\nAM\n​\nAdd"
+}

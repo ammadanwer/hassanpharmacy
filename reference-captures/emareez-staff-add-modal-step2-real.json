@@ -1,0 +1,77 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/staff-management",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Add Staff"
+  ],
+  "buttons": [
+    "Add Staff",
+    "Add New Sale",
+    "show more",
+    "close",
+    "Next"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Role",
+      "Phone #",
+      "Address",
+      "Email",
+      "Actions"
+    ]
+  ],
+  "html": "<div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth css-1kfr6u2\" role=\"dialog\" aria-labelledby=\":r7:\"><h2 class=\"MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-l32dt7\" id=\"customized-dialog-title\">Add Staff<button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1hpaes8\" tabindex=\"0\" type=\"button\" aria-label=\"close\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CloseIcon\"><path d=\"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></h2><div class=\"MuiDialogContent-root MuiDialogContent-dividers css-lr0y9w\"><div class=\"MuiBox-root css-6k7egd\"><div class=\"MuiBox-root css-12dwxp0\"><div class=\"MuiStepper-root MuiStepper-horizontal MuiStepper-alternativeLabel css-1187icl\"><div class=\"MuiStep-root MuiStep-horizontal MuiStep-alternativeLabel Mui-completed css-166ciyp\"><span class=\"MuiStepLabel-root MuiStepLabel-horizontal MuiStepLabel-alternativeLabel css-1abj2s5\"><span class=\"MuiStepLabel-iconContainer Mui-completed MuiStepLabel-alternativeLabel css-a5nipc\"><div class=\"css-2aqpme\">01</div></span><span class=\"MuiStepLabel-labelContainer MuiStepLabel-alternativeLabel css-nb9o6e\"><span class=\"MuiStepLabel-label Mui-completed MuiStepLabel-alternativeLabel css-rfwukw\"><p class=\"MuiTypography-root MuiTypography-body1 css-1czs0mq\">Add Staff</p></span></span></span></div><div class=\"MuiStep-root MuiStep-horizontal MuiStep-alternativeLabel css-166ciyp\"><div class=\"MuiStepConnector-root MuiStepConnector-horizontal MuiStepConnector-alternativeLabel Mui-active css-amd3j2\"><span class=\"MuiStepConnector-line MuiStepConnector-lineHorizontal css-95m0ql\"></span></div><span class=\"MuiStepLabel-root MuiStepLabel-horizontal MuiStepLabel-alternativeLabel css-1abj2s5\"><span class=\"MuiStepLabel-iconContainer Mui-active MuiStepLabel-alternativeLabel css-a5nipc\"><div class=\"css-2aqpme\">02</div></span><span class=\"MuiStepLabel-labelContainer MuiStepLabel-alternativeLabel css-nb9o6e\"><span class=\"MuiStepLabel-label Mui-active MuiStepLabel-alternativeLabel css-rfwukw\"><p class=\"MuiTypography-root MuiTypography-body1 css-1czs0mq\">Assign Pin</p></span></span></span></div><div class=\"MuiStep-root MuiStep-horizontal MuiStep-alternativeLabel css-166ciyp\"><div class=\"MuiStepConnector-root MuiStepConnector-horizontal MuiStepConnector-alternativeLabel Mui-disabled css-amd3j2\"><span class=\"MuiStepConnector-line MuiStepConnector-lineHorizontal css-95m0ql\"></span></div><span class=\"MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled MuiStepLabel-alternativeLabel css-1abj2s5\"><span class=\"MuiStepLabel-iconContainer Mui-disabled MuiStepLabel-alternativeLabel css-a5nipc\"><div class=\"css-1x4u3lt\">03</div></span><span class=\"MuiStepLabel-labelContainer MuiStepLabel-alternativeLabel css-nb9o6e\"><span class=\"MuiStepLabel-label Mui-disabled MuiStepLabel-alternativeLabel css-rfwukw\"><p class=\"MuiTypography-root MuiTypography-body1 css-1czs0mq\">User Permissions</p></span></span></span></div></div></div></div><div class=\"MuiBox-root css-ks7924\"><div class=\"MuiBox-root css-8atqhb\"><form action=\"#\"><div class=\"MuiBox-root css-17mutsp\"><p class=\"MuiTypography-root MuiTypography-body1 css-g5kzcs\"> Create 6 Digit Pin for your staff member</p><div class=\"MuiBox-root css-1574njk\"><div class=\"MuiFormControl-root MuiTextField-root css-vtt2dp\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-12mjuhi\"><input aria-invalid=\"false\" id=\":r4v:\" name=\"pin[0]\" type=\"text\" maxlength=\"1\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"width: 40px; text-align: center; font-size: 18px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><div class=\"MuiFormControl-root MuiTextField-root css-vtt2dp\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-12mjuhi\"><input aria-invalid=\"false\" id=\":r50:\" name=\"pin[1]\" type=\"text\" maxlength=\"1\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"width: 40px; text-align: center; font-size: 18px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><div class=\"MuiFormControl-root MuiTextField-root css-vtt2dp\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-12mjuhi\"><input aria-invalid=\"false\" id=\":r51:\" name=\"pin[2]\" type=\"text\" maxlength=\"1\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"width: 40px; text-align: center; font-size: 18px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><div class=\"MuiFormControl-root MuiTextField-root css-vtt2dp\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-12mjuhi\"><input aria-invalid=\"false\" id=\":r52:\" name=\"pin[3]\" type=\"text\" maxlength=\"1\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"width: 40px; text-align: center; font-size: 18px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><div class=\"MuiFormControl-root MuiTextField-root css-vtt2dp\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-12mjuhi\"><input aria-invalid=\"false\" id=\":r53:\" name=\"pin[4]\" type=\"text\" maxlength=\"1\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"width: 40px; text-align: center; font-size: 18px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><div class=\"MuiFormControl-root MuiTextField-root css-vtt2dp\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-12mjuhi\"><input aria-invalid=\"false\" id=\":r54:\" name=\"pin[5]\" type=\"text\" maxlength=\"1\" class=\"MuiInputBase-input MuiOutlinedInput-input css-y8b1jb\" value=\"\" style=\"width: 40px; text-align: center; font-size: 18px;\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div></div></form></div><div class=\"MuiBox-root css-17ea04y\"><div class=\"MuiBox-root css-10egq61\"><button class=\"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-llpkqp\" tabindex=\"0\" type=\"submit\">Next<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div></div></div></div></div>",
+  "text": "​\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\n\nAmir\n\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\n\nhaseeb\n\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\n\niqbal\n\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\n\nYasir\n\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\n\nYasir\n\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\n\nShehzad Ali\n\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\n\nytdtdty\n\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\n\ndr bilal\n\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\n\nMansoor\n\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\n\nSherry\n\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\n\nStaff M\n\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\n\nmateen\n\tManager\t03210001111\t-\tmateen@gmail.com\t\n\n\nMaham Fatima\n\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\n\n\ngghjh\n\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\n\n\nHaris\n\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\n\n\nWaleed\n\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd Staff\n01\n\nAdd Staff\n\n02\n\nAssign Pin\n\n03\n\nUser Permissions\n\nCreate 6 Digit Pin for your staff member\n\n​\n​\n​\n​\n​\n​\nNext"
+}

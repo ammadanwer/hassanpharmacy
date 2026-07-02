@@ -1,0 +1,206 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/newsale",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "New Sales Recent Sales Draft Sales Product Name Bar Code Sale Type Quantity Action \u200b \u200b \u200b \u200b Add to List Purchased Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions panadol 30 0.03 5 5 3.00 \u200b Update Globally 25.00 \u200b \u200b 25.00 Payable Amt. Rs. 25 Save as a Draft Proceed to Checkout Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "new",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "recent",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "role": "",
+      "type": "radio",
+      "placeholder": "",
+      "label": "",
+      "text": "draft",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "INPUT",
+      "role": "combobox",
+      "type": "text",
+      "placeholder": "Enter Product Name",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Enter Barcode",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "role": "combobox",
+      "type": "text",
+      "placeholder": "Select Sale Type",
+      "label": "",
+      "text": "Unit",
+      "options": ""
+    },
+    {
+      "i": 6,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Enter quantity",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 7,
+      "tag": "INPUT",
+      "role": "",
+      "type": "number",
+      "placeholder": "Sell Price",
+      "label": "",
+      "text": "5",
+      "options": ""
+    },
+    {
+      "i": 8,
+      "tag": "INPUT",
+      "role": "",
+      "type": "checkbox",
+      "placeholder": "",
+      "label": "",
+      "text": "on",
+      "options": ""
+    },
+    {
+      "i": 9,
+      "tag": "INPUT",
+      "role": "",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 10,
+      "tag": "INPUT",
+      "role": "",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "label": "",
+      "text": "",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add to List",
+    "Save as a Draft",
+    "Proceed to Checkout",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Product Name",
+        "Bar Code",
+        "Sale Type",
+        "Quantity",
+        "Action",
+        "\u200b",
+        "\u200b",
+        "\u200b",
+        "\u200b",
+        "Add to List"
+      ],
+      "rows": [
+        [
+          "\u200b",
+          "\u200b",
+          "\u200b",
+          "\u200b",
+          "Add to List"
+        ]
+      ]
+    },
+    {
+      "i": 1,
+      "heads": [
+        "Product Name",
+        "Batch no.",
+        "Qt in Box",
+        "Qt in Units",
+        "Total Quantity",
+        "Cost Price",
+        "Rate/Sell Price",
+        "Amount",
+        "Discount(%)",
+        "Discount(Amt)",
+        "Payable Amt",
+        "Actions",
+        "panadol",
+        "30",
+        "0.03",
+        "5",
+        "5",
+        "3.00",
+        "\u200b Update Globally",
+        "25.00",
+        "\u200b",
+        "\u200b",
+        "25.00",
+        ""
+      ],
+      "rows": [
+        [
+          "panadol",
+          "30",
+          "0.03",
+          "5",
+          "5",
+          "3.00",
+          "\u200b Update Globally",
+          "25.00",
+          "\u200b",
+          "\u200b",
+          "25.00",
+          ""
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

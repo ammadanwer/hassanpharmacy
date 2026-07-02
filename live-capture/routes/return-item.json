@@ -1,0 +1,63 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/return-item",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Reference Invoice # \u200b Return Invoice Date \u200b Purchased Items List Batch no. Name Quantity Sold Quantity Returned Rate/Sell Price Amount Action No Data Found! Generate Invoice Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "label": "",
+      "text": "29-06-2026",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Generate Invoice",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Batch no.",
+        "Name",
+        "Quantity Sold",
+        "Quantity Returned",
+        "Rate/Sell Price",
+        "Amount",
+        "Action",
+        "No Data Found!"
+      ],
+      "rows": [
+        [
+          "No Data Found!"
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    "Add New Sale Renew",
+    "Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+  ]
+}

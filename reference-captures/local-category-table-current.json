@@ -1,0 +1,326 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/category",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Category",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    }
+  ],
+  "headers": [
+    [
+      "Category Name",
+      "Type",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd New Category\nCategory Name\tType\tActions\nACNE FACE WASH\tNon Medical\t\nAlcohal Pad\tMedical\t\nAmpules\tMedical\t\nAnalgesics\tMedical\t\nAntacids\tMedical\t\nAnti Allergic\tMedical\t\nAnti Ameobic (inflamation)\tMedical\t\nAnti Asthmatic Agent\tMedical\t\nAntibiotics\tMedical\t\nAnticonvulsants\tMedical\t\nAnti Cough\tMedical\t\nAntidepressants\tMedical\t\nAnti deressant\tMedical\t\nAnti Fungal\tMedical\t\nAntihistamines\tMedical\t\nAnti hyperglycemic Agent\tMedical\t\nAnti-hypertensive\tMedical\t\nAntihypertensives Drug\tMedical\t\nAnti Inflammatory\tMedical\t\nAnti Malaruial\tMedical\t\nAnti Melasma\tMedical\t\nAntiparkinson\tMedical\t\nAntipsychotics\tMedical\t\nAnti Scar Gel\tMedical\t\nAntithyroid agents\tMedical\t\nAntiviral Drug\tMedical\t\nAnxiolytics\tMedical\t\nBABY LINER\tNon Medical\t\nbag\tNon Medical\t\nBANDAGE\tMedical\t\nBANDGE\tNon Medical\t\nblade\tNon Medical\t\nBLADE\tMedical\t\nBLEACH CREAM\tNon Medical\t\nBLOOD KIT\tMedical\t\nBLOOD KIT\tNon Medical\t\nBLOOD LANCING DEVICE\tMedical\t\nBODY RAZER\tNon Medical\t\nBODY SPRAY\tNon Medical\t\nBody wash\tMedical\t\nBowls\tNon Medical\t\nBP OPERATUS\tMedical\t\nBRACE SUPPORT\tNon Medical\t\nBREAST PUMP\tMedical\t\nBrightning Cream\tMedical\t\nBRUSH\tNon Medical\t\nCake\tNon Medical\t\nCalendula Oil (N)\tMedical\t\nCanula\tMedical\t\nCANULA\tMedical\t\n< BACK\n1\n2\n3\n4\n5\n...\n7\nNEXT >\nRows per page\n50\n100\n1-50 of 331",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Category Name",
+          "Type",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "ACNE FACE WASH",
+            "Non Medical",
+            ""
+          ],
+          [
+            "Alcohal Pad",
+            "Medical",
+            ""
+          ],
+          [
+            "Ampules",
+            "Medical",
+            ""
+          ],
+          [
+            "Analgesics",
+            "Medical",
+            ""
+          ],
+          [
+            "Antacids",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Allergic",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Ameobic (inflamation)",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Asthmatic Agent",
+            "Medical",
+            ""
+          ],
+          [
+            "Antibiotics",
+            "Medical",
+            ""
+          ],
+          [
+            "Anticonvulsants",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Cough",
+            "Medical",
+            ""
+          ],
+          [
+            "Antidepressants",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti deressant",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Fungal",
+            "Medical",
+            ""
+          ],
+          [
+            "Antihistamines",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti hyperglycemic Agent",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti-hypertensive",
+            "Medical",
+            ""
+          ],
+          [
+            "Antihypertensives Drug",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Inflammatory",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Malaruial",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Melasma",
+            "Medical",
+            ""
+          ],
+          [
+            "Antiparkinson",
+            "Medical",
+            ""
+          ],
+          [
+            "Antipsychotics",
+            "Medical",
+            ""
+          ],
+          [
+            "Anti Scar Gel",
+            "Medical",
+            ""
+          ],
+          [
+            "Antithyroid agents",
+            "Medical",
+            ""
+          ],
+          [
+            "Antiviral Drug",
+            "Medical",
+            ""
+          ],
+          [
+            "Anxiolytics",
+            "Medical",
+            ""
+          ],
+          [
+            "BABY LINER",
+            "Non Medical",
+            ""
+          ],
+          [
+            "bag",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BANDAGE",
+            "Medical",
+            ""
+          ],
+          [
+            "BANDGE",
+            "Non Medical",
+            ""
+          ],
+          [
+            "blade",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BLADE",
+            "Medical",
+            ""
+          ],
+          [
+            "BLEACH CREAM",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BLOOD KIT",
+            "Medical",
+            ""
+          ],
+          [
+            "BLOOD KIT",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BLOOD LANCING DEVICE",
+            "Medical",
+            ""
+          ],
+          [
+            "BODY RAZER",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BODY SPRAY",
+            "Non Medical",
+            ""
+          ],
+          [
+            "Body wash",
+            "Medical",
+            ""
+          ],
+          [
+            "Bowls",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BP OPERATUS",
+            "Medical",
+            ""
+          ],
+          [
+            "BRACE SUPPORT",
+            "Non Medical",
+            ""
+          ],
+          [
+            "BREAST PUMP",
+            "Medical",
+            ""
+          ],
+          [
+            "Brightning Cream",
+            "Medical",
+            ""
+          ],
+          [
+            "BRUSH",
+            "Non Medical",
+            ""
+          ],
+          [
+            "Cake",
+            "Non Medical",
+            ""
+          ],
+          [
+            "Calendula Oil (N)",
+            "Medical",
+            ""
+          ],
+          [
+            "Canula",
+            "Medical",
+            ""
+          ],
+          [
+            "CANULA",
+            "Medical",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

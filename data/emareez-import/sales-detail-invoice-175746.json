@@ -1,0 +1,32 @@
+{
+  "invoiceNumber": "175746",
+  "salesInvoice": {
+    "date": "2026-03-13",
+    "time": "02:46:41 AM",
+    "totalAmount": "1,031.823",
+    "discountAmount": "2",
+    "totalPayable": "1,030",
+    "paid": "1,000",
+    "due": "30",
+    "changeReturned": "0"
+  },
+  "items": [
+    {
+      "batchNo": "34550",
+      "productName": "omeprazole",
+      "qtySold": "2",
+      "qtyReturned": "-",
+      "rate": "500",
+      "amount": "1,000.00"
+    },
+    {
+      "batchNo": "8748",
+      "productName": "bbextrin",
+      "receiptName": "bbextrin20 Milligram (mg)",
+      "qtySold": "2",
+      "qtyReturned": "-",
+      "rate": "15.912",
+      "amount": "31.82"
+    }
+  ]
+}

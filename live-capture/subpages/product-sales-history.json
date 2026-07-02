@@ -1,0 +1,112 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/return-policy",
+  "body": "Products Return Policy Add New Policy Policy Description Actions Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable Additional Notes/Instructions Add New Instructions Title Description Actions helping to petients help to petients and olders nnn warranty Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Change Password Return Policy/Notes Get Technical Help",
+  "inputs": [],
+  "buttons": [
+    {
+      "i": 0,
+      "text": "Add New Policy",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+    },
+    {
+      "i": 1,
+      "text": "Add New Instructions",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+    },
+    {
+      "i": 3,
+      "text": "Add New Sale",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton"
+    },
+    {
+      "i": 5,
+      "text": "Dashboard",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 6,
+      "text": "Sales",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 7,
+      "text": "Inventory",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 8,
+      "text": "Staff Management",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 9,
+      "text": "Shift Management",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 10,
+      "text": "Daily Expense",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 11,
+      "text": "Settings",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 12,
+      "text": "Change Password",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 13,
+      "text": "Return Policy/Notes",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 14,
+      "text": "Get Technical Help",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    }
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Policy Description",
+        "Actions",
+        "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+        ""
+      ],
+      "rows": [
+        [
+          "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable",
+          ""
+        ]
+      ]
+    },
+    {
+      "i": 1,
+      "heads": [
+        "Title",
+        "Description",
+        "Actions",
+        "helping to petients",
+        "help to petients and olders",
+        ""
+      ],
+      "rows": [
+        [
+          "helping to petients",
+          "help to petients and olders",
+          ""
+        ],
+        [
+          "nnn",
+          "warranty",
+          ""
+        ]
+      ]
+    }
+  ]
+}

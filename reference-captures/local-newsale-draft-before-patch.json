@@ -1,0 +1,78 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Draft ID",
+      "Date",
+      "Total Items",
+      "Total Amount",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\nNo Data Found\n< BACK\n1\nNEXT >\nRows per page\n0-0 of 0",
+  "evalResults": {
+    "beforeClick": {
+      "clicked": true,
+      "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+      "labelText": "Draft Sales"
+    }
+  }
+}

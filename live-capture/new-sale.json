@@ -1,0 +1,174 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/newsale",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Add New Sale Renew Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "controls": [
+    {
+      "i": 1,
+      "tag": "BUTTON",
+      "text": "Add New Sale",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 3,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 4,
+      "tag": "DIV",
+      "text": "Sales",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 5,
+      "tag": "DIV",
+      "text": "New Sale",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 6,
+      "tag": "DIV",
+      "text": "Return Item",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 7,
+      "tag": "DIV",
+      "text": "Sales History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 8,
+      "tag": "DIV",
+      "text": "Return History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 9,
+      "tag": "DIV",
+      "text": "Product Sales History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 10,
+      "tag": "DIV",
+      "text": "Customer History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 11,
+      "tag": "DIV",
+      "text": "Inventory",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 12,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 13,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 14,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 15,
+      "tag": "DIV",
+      "text": "Settings",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 16,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    }
+  ],
+  "fields": [],
+  "tables": []
+}

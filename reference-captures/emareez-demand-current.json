@@ -1,0 +1,64 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/demand",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add To List",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Supplier Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Medicine Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "0",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Supplier Name",
+      "Product Name",
+      "Type",
+      "Quantity",
+      "Action"
+    ],
+    [
+      "Supplier Name",
+      "Product Name",
+      "Type",
+      "Quantity",
+      "Actions"
+    ]
+  ],
+  "text": "Supplier Name\tProduct Name\tType\tQuantity\tAction\n\n​\n+ Add New\n\t\n​\n+ Add New\n\t\nUnit\n​\n\t\n​\n\tAdd To List\n​\nPrint Demand List\n\nDemand Items List\n\nSupplier Name\tProduct Name\tType\tQuantity\tActions\nNo Demand Found\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help"
+}

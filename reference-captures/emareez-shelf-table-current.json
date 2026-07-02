@@ -1,0 +1,90 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/shelf",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add New Shelf",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Medicine",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Total Batches",
+      "Actions"
+    ]
+  ],
+  "text": "​\nAdd New Shelf\nName\tTotal Batches\tActions\nac preminous\t\n2\n\t\n\ncream rack\t\n3\n\t\n\nShelf 1\t\n11\n\t\n\nSAMI\t\n2\n\t\n\nAli\t\n1\n\t\n\n14\t\n2\n\t\n\nY\t\n1\n\t\n\n1 B\t\n2\n\t\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-8 of 8\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Name",
+          "Total Batches",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "ac preminous",
+            "2",
+            ""
+          ],
+          [
+            "cream rack",
+            "3",
+            ""
+          ],
+          [
+            "Shelf 1",
+            "11",
+            ""
+          ],
+          [
+            "SAMI",
+            "2",
+            ""
+          ],
+          [
+            "Ali",
+            "1",
+            ""
+          ],
+          [
+            "14",
+            "2",
+            ""
+          ],
+          [
+            "Y",
+            "1",
+            ""
+          ],
+          [
+            "1 B",
+            "2",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

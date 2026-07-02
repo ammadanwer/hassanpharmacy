@@ -1,0 +1,75 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/shift-management",
+  "body": "\u200b Add Shift 0 No Data Found Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search Name",
+      "aria": "",
+      "label": "\u200b",
+      "text": "",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    {
+      "i": 0,
+      "text": "Add Shift",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSeconda"
+    },
+    {
+      "i": 1,
+      "text": "0",
+      "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-7hs5rr"
+    },
+    {
+      "i": 3,
+      "text": "Add New Sale",
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton"
+    },
+    {
+      "i": 5,
+      "text": "Dashboard",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 6,
+      "text": "Sales",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 7,
+      "text": "Inventory",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 8,
+      "text": "Staff Management",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 9,
+      "text": "Shift Management",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 10,
+      "text": "Daily Expense",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 11,
+      "text": "Settings",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    },
+    {
+      "i": 12,
+      "text": "Get Technical Help",
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemB"
+    }
+  ],
+  "tables": []
+}

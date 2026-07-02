@@ -1,0 +1,458 @@
+{
+  "Sales": {
+    "url": "https://e-mareez.com/pms/dashboard/return-policy",
+    "title": "E-Mareez Pharmacy Management System",
+    "items": [
+      {
+        "text": "Dashboard",
+        "x": 0,
+        "y": 105,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Sales",
+        "x": 0,
+        "y": 153,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "New Sale",
+        "x": 0,
+        "y": 201,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Return Item",
+        "x": 0,
+        "y": 249,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Sales History",
+        "x": 0,
+        "y": 297,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Return History",
+        "x": 0,
+        "y": 345,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Product Sales History",
+        "x": 0,
+        "y": 393,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Customer History",
+        "x": 0,
+        "y": 441,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Inventory",
+        "x": 0,
+        "y": 489,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Staff Management",
+        "x": 0,
+        "y": 537,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Shift Management",
+        "x": 0,
+        "y": 585,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Daily Expense",
+        "x": 0,
+        "y": 633,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Settings",
+        "x": 0,
+        "y": 681,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Get Technical Help",
+        "x": 0,
+        "y": 745,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      }
+    ]
+  },
+  "Inventory": {
+    "url": "https://e-mareez.com/pms/dashboard/return-policy",
+    "title": "E-Mareez Pharmacy Management System",
+    "items": [
+      {
+        "text": "Dashboard",
+        "x": 0,
+        "y": 105,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Sales",
+        "x": 0,
+        "y": 153,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Inventory",
+        "x": 0,
+        "y": 201,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Batch",
+        "x": 0,
+        "y": 249,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Demand/Order",
+        "x": 0,
+        "y": 297,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Stock Audit",
+        "x": 0,
+        "y": 345,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Order Purchase",
+        "x": 0,
+        "y": 393,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Medical Products",
+        "x": 0,
+        "y": 441,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Non Medical Products",
+        "x": 0,
+        "y": 489,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Supplier",
+        "x": 0,
+        "y": 537,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Category",
+        "x": 0,
+        "y": 585,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Medicine Formula",
+        "x": 0,
+        "y": 633,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Manufacturer",
+        "x": 0,
+        "y": 681,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Stock Purchase",
+        "x": 0,
+        "y": 729,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Shelf",
+        "x": 0,
+        "y": 777,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Staff Management",
+        "x": 0,
+        "y": 825,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Shift Management",
+        "x": 0,
+        "y": 873,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Daily Expense",
+        "x": 0,
+        "y": 921,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Settings",
+        "x": 0,
+        "y": 969,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Get Technical Help",
+        "x": 0,
+        "y": 1033,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      }
+    ]
+  },
+  "Daily Expense": {
+    "url": "https://e-mareez.com/pms/dashboard/return-policy",
+    "title": "E-Mareez Pharmacy Management System",
+    "items": [
+      {
+        "text": "Dashboard",
+        "x": 0,
+        "y": 105,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Sales",
+        "x": 0,
+        "y": 153,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Inventory",
+        "x": 0,
+        "y": 201,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Staff Management",
+        "x": 0,
+        "y": 249,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Shift Management",
+        "x": 0,
+        "y": 297,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Daily Expense",
+        "x": 0,
+        "y": 345,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Expense",
+        "x": 0,
+        "y": 393,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Expense Category",
+        "x": 0,
+        "y": 441,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Settings",
+        "x": 0,
+        "y": 489,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Get Technical Help",
+        "x": 0,
+        "y": 675,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      }
+    ]
+  },
+  "Settings": {
+    "url": "https://e-mareez.com/pms/dashboard/return-policy",
+    "title": "E-Mareez Pharmacy Management System",
+    "items": [
+      {
+        "text": "Dashboard",
+        "x": 0,
+        "y": 105,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Sales",
+        "x": 0,
+        "y": 153,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Inventory",
+        "x": 0,
+        "y": 201,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Staff Management",
+        "x": 0,
+        "y": 249,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Shift Management",
+        "x": 0,
+        "y": 297,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Daily Expense",
+        "x": 0,
+        "y": 345,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Settings",
+        "x": 0,
+        "y": 393,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Change Password",
+        "x": 0,
+        "y": 441,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Return Policy/Notes",
+        "x": 0,
+        "y": 489,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      },
+      {
+        "text": "Get Technical Help",
+        "x": 0,
+        "y": 675,
+        "w": 255,
+        "h": 48,
+        "visible": true
+      }
+    ]
+  }
+}

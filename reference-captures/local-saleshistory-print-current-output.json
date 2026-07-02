@@ -1,0 +1,110 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/saleshistory",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Print Sales History",
+    "view",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "all",
+      "text": "All\nPaid\nPartial\nDraft\nReturned"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "232723",
+      "text": ""
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "50",
+      "text": "50\n100"
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nFrom Date\nTo Date\nTime\n \nPrint Sales History\nAll\nPaid\nPartial\nDraft\nReturned\nGross Sales\nRs. 150.00\nTotal Discount\nRs. 0.00\nNet Sales\nRs. 150.00\nTotal Cost\nRs. 100.00\nNet Revenue\nRs. 50.00\nPending\nRs. 0.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n232723\t2026-06-30\t05:04:22 PM\t150\t0.00\t0.00\t150.00\t150.00\t0.00\t350.00\t\n< BACK\n1\nNEXT >\nRows per page\n50\n100\n1-1 of 1\nCODEX_PRINT_CAPTURE_START\n[\n  {\n    \"kind\": \"window\",\n    \"text\": \"Sales History body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 24px; } h1 { font-size: 22px; margin: 0 0 4px; } .meta { color: #5f6873; font-size: 12px; margin-bottom: 18px; } .summary { border: 1px solid #cfd5dc; display: grid; grid-template-columns: repeat(6, 1fr); margin-bottom: 18px; } .summary div { border-right: 1px solid #cfd5dc; display: grid; gap: 4px; padding: 8px; } .summary div:last-child { border-right: 0; } .summary span { color: #5f6873; font-size: 10px; font-weight: 700; } .summary strong { font-size: 11px; } table { border-collapse: collapse; font-size: 10px; width: 100%; } th, td { border: 1px solid #cfd5dc; padding: 6px; text-align: left; vertical-align: top; } th { background: #edf2f6; font-weight: 700; } @media print { body { margin: 10mm; } table { font-size: 8px; } .summary { grid-template-columns: repeat(3, 1fr); } } Hassan Pharmacy Sales History - 02/07/2026, 00:29:17 Invoice Number Date Time Total Amount(RS.) Discount(%) Discount Amount Total Payable Paid Due(s) Change Returned 232723 2026-06-30 05:04:22 PM 150 0.00 0.00 150.00 150.00 0.00 350.00\",\n    \"html\": \"<!doctype html>\\n    <html>\\n      <head>\\n        <title>Sales History</title>\\n        <style>\\n          body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 24px; }\\n          h1 { font-size: 22px; margin: 0 0 4px; }\\n          .meta { color: #5f6873; font-size: 12px; margin-bottom: 18px; }\\n          .summary { border: 1px solid #cfd5dc; display: grid; grid-template-columns: repeat(6, 1fr); margin-bottom: 18px; }\\n          .summary div { border-right: 1px solid #cfd5dc; display: grid; gap: 4px; padding: 8px; }\\n          .summary div:last-child { border-right: 0; }\\n          .summary span { color: #5f6873; font-size: 10px; font-weight: 700; }\\n          .summary strong { font-size: 11px; }\\n          table { border-collapse: collapse; font-size: 10px; width: 100%; }\\n          th, td { border: 1px solid #cfd5dc; padding: 6px; text-align: left; vertical-align: top; }\\n          th { background: #edf2f6; font-weight: 700; }\\n          @media print { body { margin: 10mm; } table { font-size: 8px; } .summary { grid-template-columns: repeat(3, 1fr); } }\\n        </style>\\n      </head>\\n      <body>\\n        <h1>Hassan Pharmacy</h1>\\n        <div class=\\\"meta\\\">Sales History - 02/07/2026, 00:29:17</div>\\n        \\n        <table><thead><tr><th>Invoice Number</th><th>Date</th><th>Time</th><th>Total Amount(RS.)</th><th>Discount(%)</th><th>Discount Amount</th><th>Total Payable</th><th>Paid</th><th>Due(s)</th><th>Change Returned</th></tr></thead><tbody><tr><td>232723</td><td>2026-06-30</td><td>05:04:22 PM</td><td>150</td><td>0.00</td><td>0.00</td><td>150.00</td><td>150.00</td><td>0.00</td><td>350.00</td></tr></tbody></table>\\n      </body>\\n    </html>\"\n  },\n  {\n    \"kind\": \"window.print\",\n    \"text\": \"Sales History body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 24px; } h1 { font-size: 22px; margin: 0 0 4px; } .meta { color: #5f6873; font-size: 12px; margin-bottom: 18px; } .summary { border: 1px solid #cfd5dc; display: grid; grid-template-columns: repeat(6, 1fr); margin-bottom: 18px; } .summary div { border-right: 1px solid #cfd5dc; display: grid; gap: 4px; padding: 8px; } .summary div:last-child { border-right: 0; } .summary span { color: #5f6873; font-size: 10px; font-weight: 700; } .summary strong { font-size: 11px; } table { border-collapse: collapse; font-size: 10px; width: 100%; } th, td { border: 1px solid #cfd5dc; padding: 6px; text-align: left; vertical-align: top; } th { background: #edf2f6; font-weight: 700; } @media print { body { margin: 10mm; } table { font-size: 8px; } .summary { grid-template-columns: repeat(3, 1fr); } } Hassan Pharmacy Sales History - 02/07/2026, 00:29:17 Invoice Number Date Time Total Amount(RS.) Discount(%) Discount Amount Total Payable Paid Due(s) Change Returned 232723 2026-06-30 05:04:22 PM 150 0.00 0.00 150.00 150.00 0.00 350.00\",\n    \"html\": \"<!doctype html>\\n    <html>\\n      <head>\\n        <title>Sales History</title>\\n        <style>\\n          body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 24px; }\\n          h1 { font-size: 22px; margin: 0 0 4px; }\\n          .meta { color: #5f6873; font-size: 12px; margin-bottom: 18px; }\\n          .summary { border: 1px solid #cfd5dc; display: grid; grid-template-columns: repeat(6, 1fr); margin-bottom: 18px; }\\n          .summary div { border-right: 1px solid #cfd5dc; display: grid; gap: 4px; padding: 8px; }\\n          .summary div:last-child { border-right: 0; }\\n          .summary span { color: #5f6873; font-size: 10px; font-weight: 700; }\\n          .summary strong { font-size: 11px; }\\n          table { border-collapse: collapse; font-size: 10px; width: 100%; }\\n          th, td { border: 1px solid #cfd5dc; padding: 6px; text-align: left; vertical-align: top; }\\n          th { background: #edf2f6; font-weight: 700; }\\n          @media print { body { margin: 10mm; } table { font-size: 8px; } .summary { grid-template-columns: repeat(3, 1fr); } }\\n        </style>\\n      </head>\\n      <body>\\n        <h1>Hassan Pharmacy</h1>\\n        <div class=\\\"meta\\\">Sales History - 02/07/2026, 00:29:17</div>\\n        \\n        <table><thead><tr><th>Invoice Number</th><th>Date</th><th>Time</th><th>Total Amount(RS.)</th><th>Discount(%)</th><th>Discount Amount</th><th>Total Payable</th><th>Paid</th><th>Due(s)</th><th>Change Returned</th></tr></thead><tbody><tr><td>232723</td><td>2026-06-30</td><td>05:04:22 PM</td><td>150</td><td>0.00</td><td>0.00</td><td>150.00</td><td>150.00</td><td>0.00</td><td>350.00</td></tr></tbody></table>\\n      </body>\\n    </html>\"\n  }\n]\nCODEX_PRINT_CAPTURE_END"
+}

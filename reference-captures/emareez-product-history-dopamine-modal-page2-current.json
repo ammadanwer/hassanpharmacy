@@ -1,0 +1,663 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/productsaleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "View Product History"
+  ],
+  "buttons": [
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "View Product History",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "NEXT >",
+    "Add New Sale",
+    "show more",
+    "close",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "View",
+    "Print Invoice",
+    "< BACK",
+    "1"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "Dopamine",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Dose",
+      "Generic Name",
+      "Sold Quantity",
+      "Action"
+    ],
+    [
+      "Invoice Number",
+      "Date",
+      "Total Amount (RS)",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Returned",
+      "Actions"
+    ]
+  ],
+  "text": "Select Date\nSelect Date Range\n​\n​\n​\nProduct Name\tDose\tGeneric Name\tSold Quantity\tAction\nActrapid HM Penfi|\t100IU\t-\t164\t\n\nAdalat\t30mg\t-\t1077\t\n\nAdalat\t30mg\t-\t4\t\n\nAerolin Evohaler Inhaler\t0ml\t-\t43\t\n\nBetaderm\t15g\t-\t19\t\n\nDopamine\t200mg/5ml\t-\t451\t\n\nFlagyl\t90ml\t-\t188\t\n\nFlagyl\t60ml\t-\t25\t\n\nFuroxone\t100mg\t-\t30\t\n\nGripe water\t120ml\t-\t8\t\n\nGyno-Travogen Vag\t5g\t-\t5\t\n\nKetasol\t100mg\t-\t77\t\n\nPanadol\t500mg\t-\t190\t\n\nPanadol Extra\t500mg\t-\t1000\t\n\nSalazopyrin\t500mg\t-\t50\t\n\nActrac\t20mg\tgelatin\t4\t\n\npanadol\t3mg\tpain killer\t253\t\n\nAcneez\t60ml\tbar\t27\t\n\nPanadol CF\t500mg\t-\t1225\t\n\nDisprin\t20mg\t-\t75\t\n\nHydrogen\t25mg\t-\t52\t\n\nActifed P\tmg\t-\t6\t\n\nSulphur\t30ml\t-\t436\t\n\nCalpol\t100ml\t-\t13\t\n\n10CC SYRINGE\t10 mg\t-\t80\t\n\nLofexidine\t30ml\t-\t1\t\n\nflygel\t100mg\t-\t38\t\n\nseptran\t80/400mg\t-\t22\t\n\n10 cc s\t00mg\tsurgical\t194\t\n\nCaflam\t50mg\t-\t43\t\n\nTransamin\t250mg\t-\t18\t\n\nFair and Lovely\t100mg\t-\t17\t\n\nPANADOL EXTRA\t500+65mg\t-\t237\t\n\nLotion\t500mg\t-\t17\t\n\nenliten whitening bar\t20ml\t-\t5\t\n\nPD-CEF IM\t500mg\t-\t31\t\n\nBARILOL\t5mg\t-\t62\t\n\nRisek\t40mg\t-\t282\t\n\n0PZOL\t150 mg\tfafa\t121\t\n\nTERBISIL\t15gram\t-\t9\t\n\nGetryal\t50 Milligram (mg)\t-\t51\t\n\n0.9% SODIUM CHLORIDE 25ML\t-\t-\t50\t\n\nZYTO 250MG TAB\t-\t-\t148\t\n\nPANADOL\t100 Kilogram (kg)\t-\t63\t\n\nPanadol\t500 Milligram (mg)\t-\t102\t\n\n4 POSITION CARRIER CA005\t-\t-\t4\t\n\nGAIN FAST 5.1LB.\t-\t-\t5\t\n\nH & S ANTI HAIRFALL 360ML\t-\t-\t21\t\n\nJACK 3D PRE WORK OUT\t-\t-\t18\t\n\nN G TUBE SILICON ALL SIZE & COMPANY\t-\t-\t2\t\n< BACK\n1\n2\n3\nNEXT >\nRows per page\n50\n​\n1-50 of 145\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nView Product History\nInvoice Number\tDate\tTotal Amount (RS)\tDiscount(%)\tDiscount Amt\tTotal Payable\tPaid\tDue(s)\tReturned\tActions\n73468\t2025-08-20\t200\t0.00\t18.00\t182.00\t190.00\t0.00\t8.00\t\n\n74876\t2025-08-22\t80\t0.00\t0.00\t80.00\t80.00\t0.00\t0.00\t\n\n82624\t2025-09-09\t0\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n84769\t2025-09-13\t820\t0.00\t0.00\t820.00\t900.00\t0.00\t80.00\t\n\n86280\t2025-09-17\t560\t0.00\t0.00\t560.00\t560.00\t0.00\t0.00\t\n\n88738\t2025-09-23\t290\t6.90\t20.01\t269.99\t500.00\t0.00\t230.01\t\n\n88742\t2025-09-23\t130\t3.85\t5.00\t125.00\t500.00\t0.00\t375.00\t\n\n94392\t2025-10-07\t5600\t0.00\t0.00\t5600.00\t5600.00\t0.00\t400.00\t\n\n94492\t2025-10-08\t80\t0.00\t0.00\t80.00\t80.00\t80.00\t0.00\t\n\n96041\t2025-10-12\t1050\t4.76\t50.00\t1000.00\t5000.00\t0.00\t4000.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n50\n​\n51-60 of 60",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Product Name",
+          "Dose",
+          "Generic Name",
+          "Sold Quantity",
+          "Action"
+        ],
+        "rows": [
+          [
+            "Actrapid HM Penfi|",
+            "100IU",
+            "-",
+            "164",
+            ""
+          ],
+          [
+            "Adalat",
+            "30mg",
+            "-",
+            "1077",
+            ""
+          ],
+          [
+            "Adalat",
+            "30mg",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "Aerolin Evohaler Inhaler",
+            "0ml",
+            "-",
+            "43",
+            ""
+          ],
+          [
+            "Betaderm",
+            "15g",
+            "-",
+            "19",
+            ""
+          ],
+          [
+            "Dopamine",
+            "200mg/5ml",
+            "-",
+            "451",
+            ""
+          ],
+          [
+            "Flagyl",
+            "90ml",
+            "-",
+            "188",
+            ""
+          ],
+          [
+            "Flagyl",
+            "60ml",
+            "-",
+            "25",
+            ""
+          ],
+          [
+            "Furoxone",
+            "100mg",
+            "-",
+            "30",
+            ""
+          ],
+          [
+            "Gripe water",
+            "120ml",
+            "-",
+            "8",
+            ""
+          ],
+          [
+            "Gyno-Travogen Vag",
+            "5g",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "Ketasol",
+            "100mg",
+            "-",
+            "77",
+            ""
+          ],
+          [
+            "Panadol",
+            "500mg",
+            "-",
+            "190",
+            ""
+          ],
+          [
+            "Panadol Extra",
+            "500mg",
+            "-",
+            "1000",
+            ""
+          ],
+          [
+            "Salazopyrin",
+            "500mg",
+            "-",
+            "50",
+            ""
+          ],
+          [
+            "Actrac",
+            "20mg",
+            "gelatin",
+            "4",
+            ""
+          ],
+          [
+            "panadol",
+            "3mg",
+            "pain killer",
+            "253",
+            ""
+          ],
+          [
+            "Acneez",
+            "60ml",
+            "bar",
+            "27",
+            ""
+          ],
+          [
+            "Panadol CF",
+            "500mg",
+            "-",
+            "1225",
+            ""
+          ],
+          [
+            "Disprin",
+            "20mg",
+            "-",
+            "75",
+            ""
+          ],
+          [
+            "Hydrogen",
+            "25mg",
+            "-",
+            "52",
+            ""
+          ],
+          [
+            "Actifed P",
+            "mg",
+            "-",
+            "6",
+            ""
+          ],
+          [
+            "Sulphur",
+            "30ml",
+            "-",
+            "436",
+            ""
+          ],
+          [
+            "Calpol",
+            "100ml",
+            "-",
+            "13",
+            ""
+          ],
+          [
+            "10CC SYRINGE",
+            "10 mg",
+            "-",
+            "80",
+            ""
+          ],
+          [
+            "Lofexidine",
+            "30ml",
+            "-",
+            "1",
+            ""
+          ],
+          [
+            "flygel",
+            "100mg",
+            "-",
+            "38",
+            ""
+          ],
+          [
+            "septran",
+            "80/400mg",
+            "-",
+            "22",
+            ""
+          ],
+          [
+            "10 cc s",
+            "00mg",
+            "surgical",
+            "194",
+            ""
+          ],
+          [
+            "Caflam",
+            "50mg",
+            "-",
+            "43",
+            ""
+          ],
+          [
+            "Transamin",
+            "250mg",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "Fair and Lovely",
+            "100mg",
+            "-",
+            "17",
+            ""
+          ],
+          [
+            "PANADOL EXTRA",
+            "500+65mg",
+            "-",
+            "237",
+            ""
+          ],
+          [
+            "Lotion",
+            "500mg",
+            "-",
+            "17",
+            ""
+          ],
+          [
+            "enliten whitening bar",
+            "20ml",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "PD-CEF IM",
+            "500mg",
+            "-",
+            "31",
+            ""
+          ],
+          [
+            "BARILOL",
+            "5mg",
+            "-",
+            "62",
+            ""
+          ],
+          [
+            "Risek",
+            "40mg",
+            "-",
+            "282",
+            ""
+          ],
+          [
+            "0PZOL",
+            "150 mg",
+            "fafa",
+            "121",
+            ""
+          ],
+          [
+            "TERBISIL",
+            "15gram",
+            "-",
+            "9",
+            ""
+          ],
+          [
+            "Getryal",
+            "50 Milligram (mg)",
+            "-",
+            "51",
+            ""
+          ],
+          [
+            "0.9% SODIUM CHLORIDE 25ML",
+            "-",
+            "-",
+            "50",
+            ""
+          ],
+          [
+            "ZYTO 250MG TAB",
+            "-",
+            "-",
+            "148",
+            ""
+          ],
+          [
+            "PANADOL",
+            "100 Kilogram (kg)",
+            "-",
+            "63",
+            ""
+          ],
+          [
+            "Panadol",
+            "500 Milligram (mg)",
+            "-",
+            "102",
+            ""
+          ],
+          [
+            "4 POSITION CARRIER CA005",
+            "-",
+            "-",
+            "4",
+            ""
+          ],
+          [
+            "GAIN FAST 5.1LB.",
+            "-",
+            "-",
+            "5",
+            ""
+          ],
+          [
+            "H & S ANTI HAIRFALL 360ML",
+            "-",
+            "-",
+            "21",
+            ""
+          ],
+          [
+            "JACK 3D PRE WORK OUT",
+            "-",
+            "-",
+            "18",
+            ""
+          ],
+          [
+            "N G TUBE SILICON ALL SIZE & COMPANY",
+            "-",
+            "-",
+            "2",
+            ""
+          ]
+        ]
+      },
+      {
+        "headers": [
+          "Invoice Number",
+          "Date",
+          "Total Amount (RS)",
+          "Discount(%)",
+          "Discount Amt",
+          "Total Payable",
+          "Paid",
+          "Due(s)",
+          "Returned",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "73468",
+            "2025-08-20",
+            "200",
+            "0.00",
+            "18.00",
+            "182.00",
+            "190.00",
+            "0.00",
+            "8.00",
+            ""
+          ],
+          [
+            "74876",
+            "2025-08-22",
+            "80",
+            "0.00",
+            "0.00",
+            "80.00",
+            "80.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "82624",
+            "2025-09-09",
+            "0",
+            "0.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "84769",
+            "2025-09-13",
+            "820",
+            "0.00",
+            "0.00",
+            "820.00",
+            "900.00",
+            "0.00",
+            "80.00",
+            ""
+          ],
+          [
+            "86280",
+            "2025-09-17",
+            "560",
+            "0.00",
+            "0.00",
+            "560.00",
+            "560.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          [
+            "88738",
+            "2025-09-23",
+            "290",
+            "6.90",
+            "20.01",
+            "269.99",
+            "500.00",
+            "0.00",
+            "230.01",
+            ""
+          ],
+          [
+            "88742",
+            "2025-09-23",
+            "130",
+            "3.85",
+            "5.00",
+            "125.00",
+            "500.00",
+            "0.00",
+            "375.00",
+            ""
+          ],
+          [
+            "94392",
+            "2025-10-07",
+            "5600",
+            "0.00",
+            "0.00",
+            "5600.00",
+            "5600.00",
+            "0.00",
+            "400.00",
+            ""
+          ],
+          [
+            "94492",
+            "2025-10-08",
+            "80",
+            "0.00",
+            "0.00",
+            "80.00",
+            "80.00",
+            "80.00",
+            "0.00",
+            ""
+          ],
+          [
+            "96041",
+            "2025-10-12",
+            "1050",
+            "4.76",
+            "50.00",
+            "1000.00",
+            "5000.00",
+            "0.00",
+            "4000.00",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

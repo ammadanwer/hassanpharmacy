@@ -1,0 +1,120 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/demand",
+  "body": "Supplier Name Product Name Type Quantity Action \u200b + Add New \u200b + Add New Unit \u200b \u200b Add To List \u200b Print Demand List Demand Items List Supplier Name Product Name Type Quantity Actions No Demand Found Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "inputs": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Supplier Name",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Medicine Name",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "DIV",
+      "role": "combobox",
+      "type": "",
+      "placeholder": "",
+      "label": "",
+      "text": "Unit",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "",
+      "label": "",
+      "text": "0",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "role": "",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "label": "",
+      "text": "",
+      "options": ""
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "role": "",
+      "type": "text",
+      "placeholder": "Search...",
+      "label": "",
+      "text": "",
+      "options": ""
+    }
+  ],
+  "buttons": [
+    "Add To List",
+    "Add New Sale",
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help"
+  ],
+  "tables": [
+    {
+      "i": 0,
+      "heads": [
+        "Supplier Name",
+        "Product Name",
+        "Type",
+        "Quantity",
+        "Action",
+        "\u200b + Add New",
+        "\u200b + Add New",
+        "Unit \u200b",
+        "\u200b",
+        "Add To List"
+      ],
+      "rows": [
+        [
+          "\u200b + Add New",
+          "\u200b + Add New",
+          "Unit \u200b",
+          "\u200b",
+          "Add To List"
+        ]
+      ]
+    },
+    {
+      "i": 1,
+      "heads": [
+        "Supplier Name",
+        "Product Name",
+        "Type",
+        "Quantity",
+        "Actions",
+        "No Demand Found"
+      ],
+      "rows": [
+        [
+          "No Demand Found"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/stock-audit",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add To List",
+    "SAVE",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by medicine name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "0",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "0",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Batch",
+      "Type",
+      "Quantity",
+      "Select Adjustment"
+    ],
+    [
+      "Product Name",
+      "Batch No.",
+      "Quantity Type",
+      "Quantity Before",
+      "Quantity Adjusted",
+      "Quantity After",
+      "Adjustment Type",
+      "Amount",
+      "Actions"
+    ]
+  ],
+  "text": "Product Name\tBatch\tType\tQuantity\tSelect Adjustment\t\n\n​\n\t\nSelect Batch\n​\n\t\nUnit\n​\n\t\n​\n\t\nIncrease\n​\n\tAdd To List\n\nStock Audit List\n\nProduct Name\tBatch No.\tQuantity Type\tQuantity Before\tQuantity Adjusted\tQuantity After\tAdjustment Type\tAmount\tActions\nNo Data Found\n\nTotal Amount\n\nRs. 0\n\nSAVE\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help"
+}

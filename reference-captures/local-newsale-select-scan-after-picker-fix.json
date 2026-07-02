@@ -1,0 +1,100 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add to List"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Product Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Barcode",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter quantity",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Bar Code",
+      "Sale Type",
+      "Quantity",
+      "Action"
+    ],
+    [
+      "Product Name",
+      "Batch no.",
+      "Qt in Box",
+      "Qt in Units",
+      "Total Quantity",
+      "Cost Price",
+      "Rate/Sell Price",
+      "Amount",
+      "Discount(%)",
+      "Discount(Amt)",
+      "Payable Amt",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nProduct Name\tBar Code\tSale Type\tQuantity\tAction\n\t\t\n\t\tAdd to List\nPurchased Items List\nProduct Name\tBatch no.\tQt in Box\tQt in Units\tTotal Quantity\tCost Price\tRate/Sell Price\tAmount\tDiscount(%)\tDiscount(Amt)\tPayable Amt\tActions\nNo Data Found"
+}

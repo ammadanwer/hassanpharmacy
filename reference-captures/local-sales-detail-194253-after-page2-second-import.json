@@ -1,0 +1,203 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/saleshistory",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Sales History Details",
+    "Invoice Number : 194253"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Print Sales History",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "15",
+    "NEXT >",
+    "Close"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ],
+    [
+      "Date",
+      "Time",
+      "Total Amount",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned"
+    ],
+    [
+      "Date",
+      "Returned Amount",
+      "Returned Discount Amt(%)",
+      "Returned Discount Amt(RS)"
+    ],
+    [
+      "Total Amount",
+      "Net Paid"
+    ],
+    [
+      "Batch no.",
+      "Product Name",
+      "QTY Sold",
+      "QTY Returned",
+      "Rate/Sell Price",
+      "Amount"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nFrom Date\nTo Date\nTime\n \nPrint Sales History\nGross Sales\nRs. 3,023,165.65\nTotal Discount\nRs. 200,090.05\nNet Sales\nRs. 2,823,083.71\nTotal Cost\nRs. 2,409,824.95\nNet Revenue\nRs. 413,258.76\nPending\nRs. 1,975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n213005\t2026-05-21\t10:17:31 PM\t475\t1.11\t5.25\t470.00\t500.00\t0.00\t30.00\t\n\n212992\t2026-05-21\t10:03:44 PM\t70\t0.00\t0.00\t70.00\t100.00\t0.00\t30.00\t\n\n212975\t2026-05-21\t09:37:26 PM\t141.66\t1.00\t1.42\t140.00\t200.00\t0.00\t60.00\t\n\n212916\t2026-05-21\t08:38:52 PM\t1,440\t9.03\t130.00\t1,310.00\t1,500.00\t0.00\t190.00\t\n\n212905\t2026-05-21\t08:32:44 PM\t580\t0.00\t0.00\t580.00\t1,000.00\t0.00\t420.00\t\n\n212875\t2026-05-21\t08:08:31 PM\t505\t0.00\t0.00\t505.00\t1,490.00\t0.00\t985.00\t\n\n212873\t2026-05-21\t08:03:31 PM\t2,430\t0.00\t0.00\t2,430.00\t5,000.00\t0.00\t2,570.00\t\n\n212812\t2026-05-21\t06:49:18 PM\t375\t2.67\t10.00\t365.00\t0.00\t365.00\t0.00\t\n\n212721\t2026-05-21\t04:46:35 PM\t200\t0.00\t0.00\t200.00\t500.00\t0.00\t300.00\t\n\n212684\t2026-05-21\t03:56:48 PM\t150\t0.00\t0.00\t150.00\t170.00\t0.00\t20.00\t\n\n212678\t2026-05-21\t03:49:14 PM\t940.8\t2.00\t18.82\t922.00\t1,000.00\t0.00\t78.00\t\n\n212672\t2026-05-21\t03:40:17 PM\t392\t2.00\t7.84\t384.00\t1,000.00\t0.00\t616.00\t\n\n212657\t2026-05-21\t02:42:02 PM\t750\t2.00\t15.00\t735.00\t1,000.00\t0.00\t265.00\t\n\n212402\t2026-05-20\t10:44:58 PM\t4,440\t0.00\t0.00\t4,440.00\t5,000.00\t0.00\t560.00\t\n\n212393\t2026-05-20\t10:35:07 PM\t525\t0.00\t0.00\t525.00\t1,000.00\t0.00\t475.00\t\n\n212389\t2026-05-20\t10:32:40 PM\t100\t2.00\t2.00\t98.00\t400.00\t0.00\t302.00\t\n\n212379\t2026-05-20\t10:21:11 PM\t770\t0.00\t0.00\t770.00\t1,000.00\t0.00\t230.00\t\n\n212369\t2026-05-20\t10:09:14 PM\t150\t5.00\t7.50\t143.00\t500.00\t0.00\t357.00\t\n\n211158\t2026-05-18\t09:58:49 PM\t708.35\t13.23\t93.75\t615.00\t700.00\t0.00\t85.00\t\n\n210873\t2026-05-18\t03:26:55 PM\t200\t0.00\t0.00\t200.00\t200.00\t0.00\t0.00\t\n\n209492\t2026-05-15\t08:45:43 PM\t90\t0.00\t0.00\t90.00\t100.00\t0.00\t10.00\t\n\n209215\t2026-05-14\t02:18:30 AM\t120\t10.00\t12.00\t108.00\t150.00\t0.00\t42.00\t\n\n207510\t2026-05-12\t03:27:23 PM\t475\t10.53\t50.00\t425.00\t425.00\t0.00\t0.00\t\n\n206917\t2026-05-11\t04:19:49 PM\t225\t22.22\t50.00\t175.00\t180.00\t0.00\t5.00\t\n\n206914\t2026-05-11\t04:15:08 PM\t100\t0.00\t0.00\t100.00\t100.00\t0.00\t0.00\t\n\n203595\t2026-05-05\t05:21:18 PM\t110\t0.00\t0.00\t110.00\t110.00\t0.00\t0.00\t\n\n203592\t2026-05-05\t05:20:12 PM\t110\t0.00\t0.00\t110.00\t500.00\t0.00\t390.00\t\n\n203414\t2026-05-04\t12:42:39 AM\t50\t0.00\t0.00\t50.00\t100.00\t0.00\t50.00\t\n\n203241\t2026-05-04\t09:00:43 PM\t178\t0.00\t0.00\t178.00\t178.00\t0.00\t0.00\t\n\n203233\t2026-05-04\t08:47:10 PM\t307.5\t0.00\t0.00\t308.00\t308.00\t0.00\t0.00\t\n\n203065\t2026-05-04\t06:38:01 PM\t73,000\t0.00\t0.00\t73,000.00\t73,000.00\t0.00\t0.00\t\n\n203044\t2026-05-04\t06:18:42 PM\t300\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n202825\t2026-05-03\t01:43:52 AM\t300\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n196870\t2026-04-23\t11:20:49 PM\t200\t10.00\t20.00\t180.00\t1,000.00\t0.00\t820.00\t\n\n196868\t2026-04-23\t11:19:07 PM\t60\t10.00\t6.00\t54.00\t500.00\t0.00\t446.00\t\n\n196852\t2026-04-23\t11:00:34 PM\t350\t10.00\t35.00\t315.00\t1,000.00\t0.00\t685.00\t\n\n195354\t2026-04-21\t06:51:18 PM\t66.5\t8.42\t5.60\t61.00\t61.00\t0.00\t0.00\t\n\n195331\t2026-04-21\t06:26:04 PM\t82\t24.39\t20.00\t62.00\t62.00\t0.00\t0.00\t\n\n195328\t2026-04-21\t06:23:15 PM\t7\t0.00\t0.00\t7.00\t7.00\t0.00\t0.00\t\n\n195012\t2026-04-20\t01:18:10 AM\t300\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n194863\t2026-04-20\t11:11:34 PM\t17\t0.00\t0.00\t17.00\t17.00\t0.00\t0.00\t\n\n194253\t2026-04-19\t10:38:47 PM\t672\t0.00\t0.00\t672.00\t672.00\t0.00\t0.00\t\n\n194197\t2026-04-19\t09:43:06 PM\t0.6\t100.00\t0.60\t0.00\t0.00\t0.00\t0.00\t\n\n194194\t2026-04-19\t09:42:18 PM\t0.6\t0.00\t0.00\t1.00\t1.00\t0.00\t0.00\t\n\n192957\t2026-04-17\t08:41:32 PM\t410\t0.00\t0.00\t410.00\t410.00\t0.00\t0.00\t\n\n192832\t2026-04-17\t05:02:22 PM\t900\t0.00\t50.00\t850.00\t850.00\t0.00\t50.00\t\n\n192315\t2026-04-16\t06:04:00 PM\t1,080\t11.90\t128.60\t951.00\t951.00\t0.00\t0.00\t\n\n191497\t2026-04-14\t11:42:06 PM\t0\t5.00\t0.00\t0.00\t15.00\t0.00\t15.00\t\n\n191489\t2026-04-14\t11:37:35 PM\t50\t0.00\t0.00\t50.00\t100.00\t0.00\t50.00\t\n\n190560\t2026-04-13\t05:50:42 PM\t460\t10.00\t46.00\t414.00\t415.00\t0.00\t1.00\t\n< BACK\n1\n2\n3\n4\n5\n...\n15\nNEXT >\nRows per page\n51-100 of 702\nSales History Details\nInvoice Number : 194253\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2026-04-19\t10:38:47 PM\t780\t0\t780\t780\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2026-04-19\t108.00\t0.00\t0.00\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n672.00\t672.00\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\nghv123\tGolden pearl\t2\t-\t300\t600.00\n123321\tcarlov\t5\t3\t36\t72.00\nClose",
+  "evalResults": {
+    "beforeClick": {
+      "clicked": true,
+      "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nFrom Date\nTo Date\nTime\n \nPrint Sales History\nGross Sales\nRs. 3,023,165.65\nTotal Discount\nRs. 200,090.05\nNet Sales\nRs. 2,823,083.71\nTotal Cost\nRs. 2,409,824.95\nNet Revenue\nRs. 413,258.76\nPending\nRs. 1,975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n213005\t2026-05-21\t10:17:31 PM\t475\t1.11\t5.25\t470.00\t500.00\t0.00\t30.00\t\n\n212992\t2026-05-21\t10:03:44 PM\t70\t0.00\t0.00\t70.00\t100.00\t0.00\t30.00\t\n\n212975\t2026-05-21\t09:37:26 PM\t141.66\t1.00\t1.42\t140.00\t200.00\t0.00\t60.00\t\n\n212916\t2026-05-21\t08:38:52 PM\t1,440\t9.03\t130.00\t1,310.00\t1,500.00\t0.00\t190.00\t\n\n212905\t2026-05-21\t08:32:44 PM\t580\t0.00\t0.00\t580.00\t1,000.00\t0.00\t420.00\t\n\n212875\t2026-05-21\t08:08:31 PM\t505\t0.00\t0.00\t505.00\t1,490.00\t0.00\t985.00\t\n\n212873\t2026-05-21\t08:03:31 PM\t2,430\t0.00\t0.00\t2,430.00\t5,000.00\t0.00\t2,570.00\t\n\n212812\t2026-05-21\t06:49:18 PM\t375\t2.67\t10.00\t365.00\t0.00\t365.00\t0.00\t\n\n212721\t2026-05-21\t04:46:35 PM\t200\t0.00\t0.00\t200.00\t500.00\t0.00\t300.00\t\n\n212684\t2026-05-21\t03:56:48 PM\t150\t0.00\t0.00\t150.00\t170.00\t0.00\t20.00\t\n\n212678\t2026-05-21\t03:49:14 PM\t940.8\t2.00\t18.82\t922.00\t1,000.00\t0.00\t78.00\t\n\n212672\t2026-05-21\t03:40:17 PM\t392\t2.00\t7.84\t384.00\t1,000.00\t0.00\t616.00\t\n\n212657\t2026-05-21\t02:42:02 PM\t750\t2.00\t15.00\t735.00\t1,000.00\t0.00\t265.00\t\n\n212402\t2026-05-20\t10:44:58 PM\t4,440\t0.00\t0.00\t4,440.00\t5,000.00\t0.00\t560.00\t\n\n212393\t2026-05-20\t10:35:07 PM\t525\t0.00\t0.00\t525.00\t1,000.00\t0.00\t475.00\t\n\n212389\t2026-05-20\t10:32:40 PM\t100\t2.00\t2.00\t98.00\t400.00\t0.00\t302.00\t\n\n212379\t2026-05-20\t10:21:11 PM\t770\t0.00\t0.00\t770.00\t1,000.00\t0.00\t230.00\t\n\n212369\t2026-05-20\t10:09:14 PM\t150\t5.00\t7.50\t143.00\t500.00\t0.00\t357.00\t\n\n211158\t2026-05-18\t09:58:49 PM\t708.35\t13.23\t93.75\t615.00\t700.00\t0.00\t85.00\t\n\n210873\t2026-05-18\t03:26:55 PM\t200\t0.00\t0.00\t200.00\t200.00\t0.00\t0.00\t\n\n209492\t2026-05-15\t08:45:43 PM\t90\t0.00\t0.00\t90.00\t100.00\t0.00\t10.00\t\n\n209215\t2026-05-14\t02:18:30 AM\t120\t10.00\t12.00\t108.00\t150.00\t0.00\t42.00\t\n\n207510\t2026-05-12\t03:27:23 PM\t475\t10.53\t50.00\t425.00\t425.00\t0.00\t0.00\t\n\n206917\t2026-05-11\t04:19:49 PM\t225\t22.22\t50.00\t175.00\t180.00\t0.00\t5.00\t\n\n206914\t2026-05-11\t04:15:08 PM\t100\t0.00\t0.00\t100.00\t100.00\t0.00\t0.00\t\n\n203595\t2026-05-05\t05:21:18 PM\t110\t0.00\t0.00\t110.00\t110.00\t0.00\t0.00\t\n\n203592\t2026-05-05\t05:20:12 PM\t110\t0.00\t0.00\t110.00\t500.00\t0.00\t390.00\t\n\n203414\t2026-05-04\t12:42:39 AM\t50\t0.00\t0.00\t50.00\t100.00\t0.00\t50.00\t\n\n203241\t2026-05-04\t09:00:43 PM\t178\t0.00\t0.00\t178.00\t178.00\t0.00\t0.00\t\n\n203233\t2026-05-04\t08:47:10 PM\t307.5\t0.00\t0.00\t308.00\t308.00\t0.00\t0.00\t\n\n203065\t2026-05-04\t06:38:01 PM\t73,000\t0.00\t0.00\t73,000.00\t73,000.00\t0.00\t0.00\t\n\n203044\t2026-05-04\t06:18:42 PM\t300\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n202825\t2026-05-03\t01:43:52 AM\t300\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n196870\t2026-04-23\t11:20:49 PM\t200\t10.00\t20.00\t180.00\t1,000.00\t0.00\t820.00\t\n\n196868\t2026-04-23\t11:19:07 PM\t60\t10.00\t6.00\t54.00\t500.00\t0.00\t446.00\t\n\n196852\t2026-04-23\t11:00:34 PM\t350\t10.00\t35.00\t315.00\t1,000.00\t0.00\t685.00\t\n\n195354\t2026-04-21\t06:51:18 PM\t66.5\t8.42\t5.60\t61.00\t61.00\t0.00\t0.00\t\n\n195331\t2026-04-21\t06:26:04 PM\t82\t24.39\t20.00\t62.00\t62.00\t0.00\t0.00\t\n\n195328\t2026-04-21\t06:23:15 PM\t7\t0.00\t0.00\t7.00\t7.00\t0.00\t0.00\t\n\n195012\t2026-04-20\t01:18:10 AM\t300\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n194863\t2026-04-20\t11:11:34 PM\t17\t0.00\t0.00\t17.00\t17.00\t0.00\t0.00\t\n\n194253\t2026-04-19\t10:38:47 PM\t672\t0.00\t0.00\t672.00\t672.00\t0.00\t0.00\t\n\n194197\t2026-04-19\t09:43:06 PM\t0.6\t100.00\t0.60\t0.00\t0.00\t0.00\t0.00\t\n\n194194\t2026-04-19\t09:42:18 PM\t0.6\t0.00\t0.00\t1.00\t1.00\t0.00\t0.00\t\n\n192957\t2026-04-17\t08:41:32 PM\t410\t0.00\t0.00\t410.00\t410.00\t0.00\t0.00\t\n\n192832\t2026-04-17\t05:02:22 PM\t900\t0.00\t50.00\t850.00\t850.00\t0.00\t50.00\t\n\n192315\t2026-04-16\t06:04:00 PM\t1,080\t11.90\t128.60\t951.00\t951.00\t0.00\t0.00\t\n\n191497\t2026-04-14\t11:42:06 PM\t0\t5.00\t0.00\t0.00\t15.00\t0.00\t15.00\t\n\n191489\t2026-04-14\t11:37:35 PM\t50\t0.00\t0.00\t50.00\t100.00\t0.00\t50.00\t\n\n190560\t2026-04-13\t05:50:42 PM\t460\t10.00\t46.00\t414.00\t415.00\t0.00\t1.00\t\n< BACK\n1\n2\n3\n4\n5\n...\n15\nNEXT >\nRows per page\n51-100 of 702\nSales History Details\nInvoice Number : 194253\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2026-04-19\t10:38:47 PM\t780\t0\t780\t780\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2026-04-19\t108.00\t0.00\t0.00\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n672.00\t672.00\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\nghv123\tGolden pearl\t2\t-\t300\t600.00\n123321\tcarlov\t5\t3\t36\t72.00\nClose"
+    }
+  }
+}

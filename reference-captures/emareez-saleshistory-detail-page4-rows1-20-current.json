@@ -1,0 +1,1655 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Choose time, selected time is 12:00 AM",
+    "Choose time, selected time is 11:59 PM",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "text": "Date\nDate Range\n​\n​\n\nTime\n\n​\n​\nPrint Sales History\nAll\n​\n​\nGross Sales\nRs. 3023165.65\nTotal Discount\nRs. 200090.05\nNet Sales\nRs. 2823083.71\nTotal Cost\nRs. 2409824.95\nNet Revenue\nRs. 413258.76\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n172097\t2026-03-06\t06:34:45 PM\t1360\t1.28\t17.40\t1343.00\t\n1343.00\n\t0.00\t0.00\t\n\n172078\t2026-03-06\t06:15:39 PM\t322.5\t4.79\t15.45\t307.00\t\n107.00\n\t200.00\t0.00\t\n\n172071\t2026-03-06\t06:04:24 PM\t1142.79\t0.00\t0.00\t1143.00\t\n1143.00\n\t0.00\t0.00\t\n\n172067\t2026-03-06\t05:54:48 PM\t250\t2.00\t5.00\t245.00\t\n245.00\n\t0.00\t0.00\t\n\n170858\t2026-03-03\t06:13:50 AM\t56\t0.00\t0.00\t56.00\t\n56.00\n\t0.00\t0.00\t\n\n170857\t2026-03-03\t06:09:30 AM\t28\t0.00\t0.00\t28.00\t\n28.00\n\t0.00\t0.00\t\n\n170328\t2026-03-03\t04:28:34 PM\t515\t0.00\t0.00\t515.00\t\n515.00\n\t0.00\t0.00\t\n\n168421\t2026-02-27\t08:02:07 PM\t3000\t0.00\t0.00\t3000.00\t\n3000.00\n\t0.00\t0.00\t\n\n168420\t2026-02-27\t07:58:41 PM\t1440\t0.00\t0.00\t1440.00\t\n1440.00\n\t0.00\t0.00\t\n\n168419\t2026-02-27\t07:56:56 PM\t450\t0.44\t2.00\t448.00\t\n1000.00\n\t0.00\t552.00\t\n\n168313\t2026-02-27\t03:59:26 PM\t500\t0.00\t0.00\t500.00\t\n500.00\n\t0.00\t0.00\t\n\n167822\t2026-02-26\t05:00:26 PM\t225\t0.00\t0.00\t225.00\t\n225.00\n\t0.00\t0.00\t\n\n167817\t2026-02-26\t04:45:27 PM\t10\t0.00\t0.00\t10.00\t\n10.00\n\t0.00\t0.00\t\n\n167803\t2026-02-26\t04:21:35 PM\t20\t0.00\t0.00\t20.00\t\n20.00\n\t0.00\t0.00\t\n\n167802\t2026-02-26\t04:20:45 PM\t800\t0.00\t0.00\t800.00\t\n800.00\n\t0.00\t0.00\t\n\n167476\t2026-02-25\t09:18:51 PM\t4000\t0.00\t0.00\t4000.00\t\n5000.00\n\t0.00\t1000.00\t\n\n167402\t2026-02-25\t07:56:11 PM\t2135\t0.00\t0.00\t2135.00\t\n2200.00\n\t0.00\t65.00\t\n\n167391\t2026-02-25\t07:38:34 PM\t15010\t0.00\t0.00\t15010.00\t\n15010.00\n\t0.00\t0.00\t\n\n167320\t2026-02-25\t07:02:39 PM\t450\t0.00\t0.00\t450.00\t\n450.00\n\t0.00\t0.00\t\n\n167316\t2026-02-25\t07:00:28 PM\t450\t0.00\t0.00\t450.00\t\n450.00\n\t0.00\t0.00\t\n\n167258\t2026-02-25\t06:02:53 PM\t380\t0.00\t0.00\t380.00\t\n380.00\n\t0.00\t0.00\t\n\n167247\t2026-02-25\t05:43:42 PM\t20\t0.00\t0.00\t20.00\t\n20.00\n\t0.00\t0.00\t\n\n166178\t2026-02-23\t05:07:11 PM\t4805\t0.52\t25.00\t4780.00\t\n5700",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+      "page": 4,
+      "offset": 0,
+      "limit": 20,
+      "captured": 20,
+      "captures": [
+        {
+          "invoiceNumber": "172097",
+          "index": 0,
+          "row": [
+            "172097",
+            "2026-03-06",
+            "06:34:45 PM",
+            "1360",
+            "1.28",
+            "17.40",
+            "1343.00",
+            "1343.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 172097 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-06 06:34:45 PM 1,360 17.4 1,343 1,343 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 4578kl AMINOLEBAN DRIP 1 - 100 100.00 1234 GLU LEAN 2 - 70 140.00 001 Omeprazole risek 20 2 - 560 1,120.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-06",
+                  "06:34:45 PM",
+                  "1,360",
+                  "17.4",
+                  "1,343",
+                  "1,343",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "4578kl",
+                  "AMINOLEBAN DRIP",
+                  "1",
+                  "-",
+                  "100",
+                  "100.00"
+                ],
+                [
+                  "1234",
+                  "GLU LEAN",
+                  "2",
+                  "-",
+                  "70",
+                  "140.00"
+                ],
+                [
+                  "001",
+                  "Omeprazole risek 20",
+                  "2",
+                  "-",
+                  "560",
+                  "1,120.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "172078",
+          "index": 1,
+          "row": [
+            "172078",
+            "2026-03-06",
+            "06:15:39 PM",
+            "322.5",
+            "4.79",
+            "15.45",
+            "307.00",
+            "107.00",
+            "200.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 172078 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-06 06:15:39 PM 322.5 15.45 307 107 200 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 123 Nebulization Char 2 - 150 300.00 123 PLATRID AP 75/75 1 - 22.5 22.50 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-06",
+                  "06:15:39 PM",
+                  "322.5",
+                  "15.45",
+                  "307",
+                  "107",
+                  "200",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "123",
+                  "Nebulization Char",
+                  "2",
+                  "-",
+                  "150",
+                  "300.00"
+                ],
+                [
+                  "123",
+                  "PLATRID AP 75/75",
+                  "1",
+                  "-",
+                  "22.5",
+                  "22.50"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "172071",
+          "index": 2,
+          "row": [
+            "172071",
+            "2026-03-06",
+            "06:04:24 PM",
+            "1142.79",
+            "0.00",
+            "0.00",
+            "1143.00",
+            "1143.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 172071 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-06 06:04:24 PM 1,142.79 0 1,143 1,143 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount JV0468 Betaderm 1 - 147.79 147.79 457iiuu PANADOL EXTRA 5 - 25 125.00 029n003 cap brino 250MG 2 - 35 70.00 3654p PANADOL 2 - 400 800.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-06",
+                  "06:04:24 PM",
+                  "1,142.79",
+                  "0",
+                  "1,143",
+                  "1,143",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "JV0468",
+                  "Betaderm",
+                  "1",
+                  "-",
+                  "147.79",
+                  "147.79"
+                ],
+                [
+                  "457iiuu",
+                  "PANADOL EXTRA",
+                  "5",
+                  "-",
+                  "25",
+                  "125.00"
+                ],
+                [
+                  "029n003",
+                  "cap brino 250MG",
+                  "2",
+                  "-",
+                  "35",
+                  "70.00"
+                ],
+                [
+                  "3654p",
+                  "PANADOL",
+                  "2",
+                  "-",
+                  "400",
+                  "800.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "172067",
+          "index": 3,
+          "row": [
+            "172067",
+            "2026-03-06",
+            "05:54:48 PM",
+            "250",
+            "2.00",
+            "5.00",
+            "245.00",
+            "245.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 172067 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-06 05:54:48 PM 250 5 245 245 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 47856 Flagyl 5 - 50 250.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-06",
+                  "05:54:48 PM",
+                  "250",
+                  "5",
+                  "245",
+                  "245",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "47856",
+                  "Flagyl",
+                  "5",
+                  "-",
+                  "50",
+                  "250.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "170858",
+          "index": 4,
+          "row": [
+            "170858",
+            "2026-03-03",
+            "06:13:50 AM",
+            "56",
+            "0.00",
+            "0.00",
+            "56.00",
+            "56.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 170858 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-03 06:13:50 AM 56 0 56 56 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 14dd Hicartif 100mg inj 4 - 14 56.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-03",
+                  "06:13:50 AM",
+                  "56",
+                  "0",
+                  "56",
+                  "56",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "14dd",
+                  "Hicartif 100mg inj",
+                  "4",
+                  "-",
+                  "14",
+                  "56.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "170857",
+          "index": 5,
+          "row": [
+            "170857",
+            "2026-03-03",
+            "06:09:30 AM",
+            "28",
+            "0.00",
+            "0.00",
+            "28.00",
+            "28.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 170857 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-03 06:09:30 AM 28 0 28 28 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 14dd Hicartif 100mg inj 2 - 14 28.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-03",
+                  "06:09:30 AM",
+                  "28",
+                  "0",
+                  "28",
+                  "28",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "14dd",
+                  "Hicartif 100mg inj",
+                  "2",
+                  "-",
+                  "14",
+                  "28.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "170328",
+          "index": 6,
+          "row": [
+            "170328",
+            "2026-03-03",
+            "04:28:34 PM",
+            "515",
+            "0.00",
+            "0.00",
+            "515.00",
+            "515.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 170328 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-03 04:28:34 PM 515 0 515 515 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 4578kl AMINOLEBAN DRIP 2 - 100 200.00 1234 GLU LEAN 3 - 70 210.00 029n003 cap brino 250MG 3 - 35 105.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-03",
+                  "04:28:34 PM",
+                  "515",
+                  "0",
+                  "515",
+                  "515",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "4578kl",
+                  "AMINOLEBAN DRIP",
+                  "2",
+                  "-",
+                  "100",
+                  "200.00"
+                ],
+                [
+                  "1234",
+                  "GLU LEAN",
+                  "3",
+                  "-",
+                  "70",
+                  "210.00"
+                ],
+                [
+                  "029n003",
+                  "cap brino 250MG",
+                  "3",
+                  "-",
+                  "35",
+                  "105.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "168421",
+          "index": 7,
+          "row": [
+            "168421",
+            "2026-02-27",
+            "08:02:07 PM",
+            "3000",
+            "0.00",
+            "0.00",
+            "3000.00",
+            "3000.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 168421 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-27 08:02:07 PM 3,000 0 3,000 3,000 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 1234 GLU LEAN 3 - 1,000 3,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-27",
+                  "08:02:07 PM",
+                  "3,000",
+                  "0",
+                  "3,000",
+                  "3,000",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "1234",
+                  "GLU LEAN",
+                  "3",
+                  "-",
+                  "1,000",
+                  "3,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "168420",
+          "index": 8,
+          "row": [
+            "168420",
+            "2026-02-27",
+            "07:58:41 PM",
+            "1440",
+            "0.00",
+            "0.00",
+            "1440.00",
+            "1440.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 168420 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-27 07:58:41 PM 1,440 0 1,440 1,440 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 029n003 cap brino 250MG 3 - 480 1,440.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-27",
+                  "07:58:41 PM",
+                  "1,440",
+                  "0",
+                  "1,440",
+                  "1,440",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "029n003",
+                  "cap brino 250MG",
+                  "3",
+                  "-",
+                  "480",
+                  "1,440.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "168419",
+          "index": 9,
+          "row": [
+            "168419",
+            "2026-02-27",
+            "07:56:56 PM",
+            "450",
+            "0.44",
+            "2.00",
+            "448.00",
+            "1000.00",
+            "0.00",
+            "552.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 168419 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-27 07:56:56 PM 450 2 448 1,000 0 552 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount GN-38 Omgel Podina 10 - 45 450.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-27",
+                  "07:56:56 PM",
+                  "450",
+                  "2",
+                  "448",
+                  "1,000",
+                  "0",
+                  "552"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "GN-38",
+                  "Omgel Podina",
+                  "10",
+                  "-",
+                  "45",
+                  "450.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "168313",
+          "index": 10,
+          "row": [
+            "168313",
+            "2026-02-27",
+            "03:59:26 PM",
+            "500",
+            "0.00",
+            "0.00",
+            "500.00",
+            "500.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 168313 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-27 03:59:26 PM 500 0 500 500 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 444zzz panadol 50 - 10 500.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-27",
+                  "03:59:26 PM",
+                  "500",
+                  "0",
+                  "500",
+                  "500",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "444zzz",
+                  "panadol",
+                  "50",
+                  "-",
+                  "10",
+                  "500.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167822",
+          "index": 11,
+          "row": [
+            "167822",
+            "2026-02-26",
+            "05:00:26 PM",
+            "225",
+            "0.00",
+            "0.00",
+            "225.00",
+            "225.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167822 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-26 05:00:26 PM 225 0 225 225 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount GN-38 Omgel Podina 5 - 45 225.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-26",
+                  "05:00:26 PM",
+                  "225",
+                  "0",
+                  "225",
+                  "225",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "GN-38",
+                  "Omgel Podina",
+                  "5",
+                  "-",
+                  "45",
+                  "225.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167817",
+          "index": 12,
+          "row": [
+            "167817",
+            "2026-02-26",
+            "04:45:27 PM",
+            "10",
+            "0.00",
+            "0.00",
+            "10.00",
+            "10.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167817 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-26 04:45:27 PM 10 0 10 10 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 132mm J TONE SERUM 20ML 2 - 5 10.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-26",
+                  "04:45:27 PM",
+                  "10",
+                  "0",
+                  "10",
+                  "10",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "132mm",
+                  "J TONE SERUM 20ML",
+                  "2",
+                  "-",
+                  "5",
+                  "10.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167803",
+          "index": 13,
+          "row": [
+            "167803",
+            "2026-02-26",
+            "04:21:35 PM",
+            "20",
+            "0.00",
+            "0.00",
+            "20.00",
+            "20.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167803 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-26 04:21:35 PM 20 0 20 20 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 14po V CLEAN WASH 120ML 5 - 4 20.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-26",
+                  "04:21:35 PM",
+                  "20",
+                  "0",
+                  "20",
+                  "20",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "14po",
+                  "V CLEAN WASH 120ML",
+                  "5",
+                  "-",
+                  "4",
+                  "20.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167802",
+          "index": 14,
+          "row": [
+            "167802",
+            "2026-02-26",
+            "04:20:45 PM",
+            "800",
+            "0.00",
+            "0.00",
+            "800.00",
+            "800.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167802 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-26 04:20:45 PM 800 0 800 800 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 3654p PANADOL 2 - 400 800.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-26",
+                  "04:20:45 PM",
+                  "800",
+                  "0",
+                  "800",
+                  "800",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "3654p",
+                  "PANADOL",
+                  "2",
+                  "-",
+                  "400",
+                  "800.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167476",
+          "index": 15,
+          "row": [
+            "167476",
+            "2026-02-25",
+            "09:18:51 PM",
+            "4000",
+            "0.00",
+            "0.00",
+            "4000.00",
+            "5000.00",
+            "0.00",
+            "1000.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167476 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-25 09:18:51 PM 4,000 0 4,000 5,000 0 1,000 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 3654p PANADOL 10 - 400 4,000.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-25",
+                  "09:18:51 PM",
+                  "4,000",
+                  "0",
+                  "4,000",
+                  "5,000",
+                  "0",
+                  "1,000"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "3654p",
+                  "PANADOL",
+                  "10",
+                  "-",
+                  "400",
+                  "4,000.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167402",
+          "index": 16,
+          "row": [
+            "167402",
+            "2026-02-25",
+            "07:56:11 PM",
+            "2135",
+            "0.00",
+            "0.00",
+            "2135.00",
+            "2200.00",
+            "0.00",
+            "65.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167402 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-25 07:56:11 PM 2,135 0 2,135 2,200 0 65 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 3654p PANADOL 2 - 400 800.00 3654p PANADOL 3 - 400 1,200.00 GN-38 Omgel Podina 3 - 45 135.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-25",
+                  "07:56:11 PM",
+                  "2,135",
+                  "0",
+                  "2,135",
+                  "2,200",
+                  "0",
+                  "65"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "3654p",
+                  "PANADOL",
+                  "2",
+                  "-",
+                  "400",
+                  "800.00"
+                ],
+                [
+                  "3654p",
+                  "PANADOL",
+                  "3",
+                  "-",
+                  "400",
+                  "1,200.00"
+                ],
+                [
+                  "GN-38",
+                  "Omgel Podina",
+                  "3",
+                  "-",
+                  "45",
+                  "135.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167391",
+          "index": 17,
+          "row": [
+            "167391",
+            "2026-02-25",
+            "07:38:34 PM",
+            "15010",
+            "0.00",
+            "0.00",
+            "15010.00",
+            "15010.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167391 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-25 07:38:34 PM 15,010 0 15,010 15,010 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 001 Omeprazole risek 20 14 - 560 7,840.00 029n003 cap brino 250MG 14 - 480 6,720.00 GN-38 Omgel Podina 10 - 45 450.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-25",
+                  "07:38:34 PM",
+                  "15,010",
+                  "0",
+                  "15,010",
+                  "15,010",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "001",
+                  "Omeprazole risek 20",
+                  "14",
+                  "-",
+                  "560",
+                  "7,840.00"
+                ],
+                [
+                  "029n003",
+                  "cap brino 250MG",
+                  "14",
+                  "-",
+                  "480",
+                  "6,720.00"
+                ],
+                [
+                  "GN-38",
+                  "Omgel Podina",
+                  "10",
+                  "-",
+                  "45",
+                  "450.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167320",
+          "index": 18,
+          "row": [
+            "167320",
+            "2026-02-25",
+            "07:02:39 PM",
+            "450",
+            "0.00",
+            "0.00",
+            "450.00",
+            "450.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167320 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-25 07:02:39 PM 450 0 450 450 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount GN-38 Omgel Podina 10 - 45 450.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-25",
+                  "07:02:39 PM",
+                  "450",
+                  "0",
+                  "450",
+                  "450",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "GN-38",
+                  "Omgel Podina",
+                  "10",
+                  "-",
+                  "45",
+                  "450.00"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "invoiceNumber": "167316",
+          "index": 19,
+          "row": [
+            "167316",
+            "2026-02-25",
+            "07:00:28 PM",
+            "450",
+            "0.00",
+            "0.00",
+            "450.00",
+            "450.00",
+            "0.00",
+            "0.00",
+            ""
+          ],
+          "headingText": "Sales History Details",
+          "detailText": "Sales History Details Invoice Number : 167316 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-02-25 07:00:28 PM 450 0 450 450 0 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount GN-38 Omgel Podina 10 - 45 450.00 Close",
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-02-25",
+                  "07:00:28 PM",
+                  "450",
+                  "0",
+                  "450",
+                  "450",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [],
+              "rows": []
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "GN-38",
+                  "Omgel Podina",
+                  "10",
+                  "-",
+                  "45",
+                  "450.00"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

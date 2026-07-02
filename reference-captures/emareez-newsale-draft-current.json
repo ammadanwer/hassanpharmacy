@@ -1,0 +1,83 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/newsale",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "2",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Draft ID",
+      "Date",
+      "Total Items",
+      "Total Amount",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Action"
+    ]
+  ],
+  "text": "New Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\n115\t2025-11-19\t2\t24168\t0.00\t0.00\t0.00\t\n\n1234567\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n5678\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n11687\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n116\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n6811\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n798\t2025-11-19\t2\t3048\t0.00\t0.00\t0.00\t\n\n678\t2025-11-17\t2\t3060\t0.00\t0.00\t0.00\t\n\n876\t2025-11-14\t2\t2560\t0.00\t0.00\t0.00\t\n\n789\t2025-11-09\t2\t440\t0.00\t0.00\t0.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n10\n​\n1-10 of 16\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClick": {
+      "clicked": true,
+      "url": "https://e-mareez.com/pms/dashboard/newsale",
+      "labelText": "Draft Sales"
+    }
+  }
+}

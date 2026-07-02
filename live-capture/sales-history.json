@@ -1,0 +1,308 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "body": "Date Date Range \u200b Time \u200b \u200b Print Sales History All \u200b \u200b Gross Sales Rs. 0.00 Total Discount Rs. 0.00 Net Sales Rs. 0.00 Total Cost Rs. 0.00 Net Revenue Rs. 0.00 Pending Rs. 0.00 No data found. Add New Sale Renew Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+  "controls": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "text": "single",
+      "placeholder": "",
+      "type": "radio",
+      "label": "Date",
+      "href": "",
+      "disabled": false,
+      "cls": "PrivateSwitchBase-input css-1m9pwf3"
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "text": "range",
+      "placeholder": "",
+      "type": "radio",
+      "label": "Date Range",
+      "href": "",
+      "disabled": false,
+      "cls": "PrivateSwitchBase-input css-1m9pwf3"
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "text": "2026-06-29",
+      "placeholder": "",
+      "type": "date",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-ncslgb"
+    },
+    {
+      "i": 3,
+      "tag": "INPUT",
+      "text": "12:00 AM",
+      "placeholder": "hh:mm (a|p)m",
+      "type": "tel",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje"
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "text": "11:59 PM",
+      "placeholder": "hh:mm (a|p)m",
+      "type": "tel",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje"
+    },
+    {
+      "i": 7,
+      "tag": "INPUT",
+      "text": "",
+      "placeholder": "",
+      "type": "text",
+      "label": "All",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiSelect-nativeInput css-1k3x8v3"
+    },
+    {
+      "i": 8,
+      "tag": "INPUT",
+      "text": "",
+      "placeholder": "Search by Invoice ID...",
+      "type": "text",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje"
+    },
+    {
+      "i": 10,
+      "tag": "BUTTON",
+      "text": "Add New Sale",
+      "placeholder": "",
+      "type": "button",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui"
+    },
+    {
+      "i": 12,
+      "tag": "DIV",
+      "text": "Dashboard",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 13,
+      "tag": "DIV",
+      "text": "Sales",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 14,
+      "tag": "DIV",
+      "text": "New Sale",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 15,
+      "tag": "DIV",
+      "text": "Return Item",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 16,
+      "tag": "DIV",
+      "text": "Sales History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 17,
+      "tag": "DIV",
+      "text": "Return History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 18,
+      "tag": "DIV",
+      "text": "Product Sales History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 19,
+      "tag": "DIV",
+      "text": "Customer History",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 20,
+      "tag": "DIV",
+      "text": "Inventory",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 21,
+      "tag": "DIV",
+      "text": "Staff Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 22,
+      "tag": "DIV",
+      "text": "Shift Management",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 23,
+      "tag": "DIV",
+      "text": "Daily Expense",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 24,
+      "tag": "DIV",
+      "text": "Settings",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    },
+    {
+      "i": 25,
+      "tag": "DIV",
+      "text": "Get Technical Help",
+      "placeholder": "",
+      "type": "",
+      "label": "",
+      "href": "",
+      "disabled": false,
+      "cls": "MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css"
+    }
+  ],
+  "fields": [
+    {
+      "i": 0,
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "label": "Date",
+      "options": ""
+    },
+    {
+      "i": 1,
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "label": "Date Range",
+      "options": ""
+    },
+    {
+      "i": 2,
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "label": "",
+      "options": ""
+    },
+    {
+      "i": 3,
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "label": "",
+      "options": ""
+    },
+    {
+      "i": 4,
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "label": "",
+      "options": ""
+    },
+    {
+      "i": 5,
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "label": "All",
+      "options": ""
+    },
+    {
+      "i": 6,
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID...",
+      "label": "",
+      "options": ""
+    }
+  ],
+  "tables": []
+}

@@ -1,0 +1,278 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/medicineformula",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Add New Formula Name"
+  ],
+  "buttons": [
+    "Add New Formula Name",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "72",
+    "NEXT >",
+    "Add New Sale",
+    "show more",
+    "close",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "placeholder": "",
+      "value": "x",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Medicine Formula Name",
+      "Description"
+    ]
+  ],
+  "text": "​\nAdd New Formula Name\nMedicine Formula Name\tDescription\n-\t\n..\t\n0.1%\t\n0.2%\t\n0.5%\t\n0.5MG\t\n0.5 ML\t\n0.8MG\tOK\n1%\t\n+1.00\t\n1.00\t\n100gm\t\n100MG\t\n100MG/5ML\t\n100ML\tOK\n10/160\t\n10/160/12.5mg\t10mg = Amlodipine 160mg = Valsartan 12.5mg = Hydrochlorothiazide\n10/160mg\t\n10CC SYRINGE\t\n10gm\t\n10MG\t\n10mg/ml\t\n10 ml\t\n10ML\tOK\n10 STICK SACHETS\t\n110ML\t\n120mg\t\n120ml\t\n120ML\t\n1.25\t\n125mg\t\n125MG/5ML\t\n125MG 90 ML\t\n125ml\t\n135GM\tSOAP\n135MG\t\n140gm\tispaghol jar\n140ml\t\n15\tML\n+1.50\t\n150 g\t\n150mg\t\n150ML\t\n156.25\t\n15gm\t\n15mg\t\n15ML\t\n180ML\t\n19GM\t\n1cc\tsyring zindagi\n< BACK\n1\n2\n3\n4\n5\n...\n72\nNEXT >\nRows per page\n50\n​\n1-50 of 3572\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Formula Name\nName\n​\nDescription\n​\nAdd",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Medicine Formula Name",
+          "Description"
+        ],
+        "rows": [
+          [
+            "-",
+            ""
+          ],
+          [
+            "..",
+            ""
+          ],
+          [
+            "0.1%",
+            ""
+          ],
+          [
+            "0.2%",
+            ""
+          ],
+          [
+            "0.5%",
+            ""
+          ],
+          [
+            "0.5MG",
+            ""
+          ],
+          [
+            "0.5 ML",
+            ""
+          ],
+          [
+            "0.8MG",
+            "OK"
+          ],
+          [
+            "1%",
+            ""
+          ],
+          [
+            "+1.00",
+            ""
+          ],
+          [
+            "1.00",
+            ""
+          ],
+          [
+            "100gm",
+            ""
+          ],
+          [
+            "100MG",
+            ""
+          ],
+          [
+            "100MG/5ML",
+            ""
+          ],
+          [
+            "100ML",
+            "OK"
+          ],
+          [
+            "10/160",
+            ""
+          ],
+          [
+            "10/160/12.5mg",
+            "10mg = Amlodipine 160mg = Valsartan 12.5mg = Hydrochlorothiazide"
+          ],
+          [
+            "10/160mg",
+            ""
+          ],
+          [
+            "10CC SYRINGE",
+            ""
+          ],
+          [
+            "10gm",
+            ""
+          ],
+          [
+            "10MG",
+            ""
+          ],
+          [
+            "10mg/ml",
+            ""
+          ],
+          [
+            "10 ml",
+            ""
+          ],
+          [
+            "10ML",
+            "OK"
+          ],
+          [
+            "10 STICK SACHETS",
+            ""
+          ],
+          [
+            "110ML",
+            ""
+          ],
+          [
+            "120mg",
+            ""
+          ],
+          [
+            "120ml",
+            ""
+          ],
+          [
+            "120ML",
+            ""
+          ],
+          [
+            "1.25",
+            ""
+          ],
+          [
+            "125mg",
+            ""
+          ],
+          [
+            "125MG/5ML",
+            ""
+          ],
+          [
+            "125MG 90 ML",
+            ""
+          ],
+          [
+            "125ml",
+            ""
+          ],
+          [
+            "135GM",
+            "SOAP"
+          ],
+          [
+            "135MG",
+            ""
+          ],
+          [
+            "140gm",
+            "ispaghol jar"
+          ],
+          [
+            "140ml",
+            ""
+          ],
+          [
+            "15",
+            "ML"
+          ],
+          [
+            "+1.50",
+            ""
+          ],
+          [
+            "150 g",
+            ""
+          ],
+          [
+            "150mg",
+            ""
+          ],
+          [
+            "150ML",
+            ""
+          ],
+          [
+            "156.25",
+            ""
+          ],
+          [
+            "15gm",
+            ""
+          ],
+          [
+            "15mg",
+            ""
+          ],
+          [
+            "15ML",
+            ""
+          ],
+          [
+            "180ML",
+            ""
+          ],
+          [
+            "19GM",
+            ""
+          ],
+          [
+            "1cc",
+            "syring zindagi"
+          ]
+        ]
+      }
+    ]
+  ]
+}

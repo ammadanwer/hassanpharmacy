@@ -1,0 +1,56 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "List of Expired Medicine Batch",
+    "Quick Monthly Report",
+    "Medicine Batches Overview",
+    "Pharmacy Profile",
+    "Pharmacy Name: Hassan Pharmacy"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "VIEW DETAILS",
+    "Resolve Now »",
+    "View Expired Batches »",
+    "Go To Batch Management »",
+    "close",
+    "Edit pharmacy profile"
+  ],
+  "inputs": [
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "placeholder": "",
+      "value": "2026-07",
+      "text": "July 2026\nJune 2026\nMay 2026\nApril 2026\nMarch 2026\nFebruary 2026\nJanuary 2026"
+    }
+  ],
+  "headers": [],
+  "html": "<section class=\"simple-modal profile-modal\"><div class=\"modal-head\"><h2>Pharmacy Profile</h2><button type=\"button\" aria-label=\"close\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg></button></div><div class=\"profile-body\"><div class=\"profile-avatar\" aria-hidden=\"true\">HP</div><div class=\"profile-main\"><h3>Pharmacy Name: <strong>Hassan Pharmacy</strong></h3><div class=\"profile-detail-list\"><p>City: <strong>Karachi</strong></p><p>Address: <strong>DHA phase 2 extension</strong></p><p>Email: <strong>haseebkiani44@gmail.com</strong></p><p>Customer Service #: <strong>03324122333</strong></p><p>Reg Number: <strong>121122</strong></p><p>License Number: <strong>1</strong></p><p>License Expiry: <strong>30/11/2028</strong></p><p>Operating Hours: <strong>10am-6pm</strong></p><p>PIN Required For Sales: <strong>Disabled</strong></p></div></div><button class=\"profile-edit-button\" type=\"button\" aria-label=\"Edit pharmacy profile\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-pencil\"><path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\"></path><path d=\"m15 5 4 4\"></path></svg></button></div></section>",
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nRs. 0\nToday's Net Sale\nRs. 0\nMonthly Revenue\nPending: 0\nVIEW DETAILS\n35,63,879\nAll Products\nMedical: 35,62,909 | Non-Medical: 970\n12,72,86,39,583.027\nTotal Cost\n10\nMedicine Shortage\nResolve Now »\nList of Expired Medicine Batch\nView Expired Batches »\n74hh\tW LEVO 250MG TABS\t24/05/2026\n12365po\tTERBISIL\t31/01/2026\n7378m\tB BRAUN 22G\t04/02/2025\ngh899\tR PRO TAB 30'S\t04/02/2026\nkk8999\tWEBBOX BEAF DOG FOOD 2KG\t05/02/2025\n1245\tB ACTIVE DROP 20ML\t17/06/2026\n896547\tActifed P\t28/09/2025\n2856\tLotion\t24/11/2025\n423654\tDisprin\t01/07/2025\n622\t10CC SYRINGE\t09/01/2026\n41256\tLoprot\t10/06/2024\n47858\tActrac\t01/10/2024\n954788\tBetaderm\t01/07/2025\n18887\tLofexidine\t01/02/2025\n8989\tSiniry\t21/12/2024\n123456\tGripe water\t30/09/2025\n11227p\tT DAY 5MG TAB 30S\t23/07/2025\n11227\tT DAY 5MG TAB\t23/05/2026\n133y\tPANADOL\t23/06/2025\n12557p\tBaby Lotion X\t23/08/2025\n02\tCORELEX 4MG\t27/12/2025\n7575\tCalpol\t28/12/2025\n45poo\tO CID 20MG TAB\t10/05/2026\n87451\tDopamine\t08/05/2026\n10235\tCaflam\t19/11/2025\n88888kkk\tSulphur\t08/08/2025\npppcvx\tPanadol\t01/11/2025\n152578\tTransamin\t01/12/2025\n4555\tflygel\t14/03/2026\n457iiuu\tPANADOL EXTRA\t24/06/2026\n121\tGripe water\t30/09/2025\n47856\tFlagyl\t09/06/2026\nghh111\t0.9% SODIUM CHLORIDE 25ML\t26/12/2025\n1111\tOmeprazole risek 20\t01/09/2025\n1\tPandol m\t24/09/2025\n45kikhgjj\tAIREEZ 5MG TAB\t31/12/2025\n45kik\tEFLOGEN CREAM 15GM\t28/02/2026\ngh899\tR PRO TAB 30'S\t06/03/2026\n34789\tAcneez\t26/09/2025\n1122\t7.5 GLOVES\t21/09/2025\n23655\tFair and Lovely\t23/10/2025\n1222\tCRAN BEE SACH\t26/09/2025\n47856\tFlagyl\t09/06/2026\nbb123\tBBA\t02/12/2025\n12345\tGripe water\t12/12/2025\nbb123\tBBA\t02/12/2025\n25-12-11 (1)\tPanadol CF\t22/01/2025\n897456\tTERBIDERM 125MG TAB N\t21/01/2026\n\tA DROP 10ML\t11/03/2026\n45kik\tEFLOGEN CREAM 15GM\t28/02/2026\n\tBBA\t02/12/2025\n147poutt\tPanadol\t16/05/2026\n123365\tDisprin\t12/03/2026\n56\t212 MEN NYC BODY SPRAY\t21/04/2026\n14kkkk\taerofen 100\t21/05/2026\n47147lll\tJACK 3D PRE WORK OUT\t30/05/2026\n12544\tToot Siah\t19/05/2026\nQuick Monthly Report\nJuly 2026\nJune 2026\nMay 2026\nApril 2026\nMarch 2026\nFebruary 2026\nJanuary 2026\n0\nQty of Products Sold\n0\nInvoices Generated\nMedicine Batches Overview\nGo To Batch Management »\n166\nBatches in Stock\n42\nBatches out of Stock\n59\nExpired Batches\nPanadol CF, selanz, Adalat\nFrequently bought Item(s)\nPharmacy Profile\nHP\nPharmacy Name: Hassan Pharmacy\n\nCity: Karachi\n\nAddress: DHA phase 2 extension\n\nEmail: haseebkiani44@gmail.com\n\nCustomer Service #: 03324122333\n\nReg Number: 121122\n\nLicense Number: 1\n\nLicense Expiry: 30/11/2028\n\nOperating Hours: 10am-6pm\n\nPIN Required For Sales: Disabled",
+  "evalResults": {
+    "afterClick": {
+      "text": "Pharmacy Profile\nHP\nPharmacy Name: Hassan Pharmacy\n\nCity: Karachi\n\nAddress: DHA phase 2 extension\n\nEmail: haseebkiani44@gmail.com\n\nCustomer Service #: 03324122333\n\nReg Number: 121122\n\nLicense Number: 1\n\nLicense Expiry: 30/11/2028\n\nOperating Hours: 10am-6pm\n\nPIN Required For Sales: Disabled",
+      "width": 900,
+      "avatar": "HP",
+      "editButton": true,
+      "detailColumns": "274px 274px",
+      "buttons": [
+        "close",
+        "Edit pharmacy profile"
+      ]
+    }
+  }
+}

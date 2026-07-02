@@ -1,0 +1,89 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/productsaleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "View Product History",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "Dopamine",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Dose",
+      "Generic Name",
+      "Sold Quantity",
+      "Action"
+    ]
+  ],
+  "text": "Select Date\nSelect Date Range\n​\n​\n​\nProduct Name\tDose\tGeneric Name\tSold Quantity\tAction\nDopamine\t200mg/5ml\t-\t451\t\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-1 of 1\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Product Name",
+          "Dose",
+          "Generic Name",
+          "Sold Quantity",
+          "Action"
+        ],
+        "rows": [
+          [
+            "Dopamine",
+            "200mg/5ml",
+            "-",
+            "451",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}

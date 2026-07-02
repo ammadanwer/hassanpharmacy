@@ -1,0 +1,649 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/staff-management",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Staff"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add Staff",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block",
+    "Edit Pin",
+    "Edit Permissions",
+    "View",
+    "Edit",
+    "Block"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Role",
+      "Phone #",
+      "Address",
+      "Email",
+      "Actions"
+    ],
+    [
+      "Permissions",
+      "View",
+      "Edit",
+      "Add",
+      "Delete"
+    ]
+  ],
+  "html": "<form class=\"simple-modal\"><div class=\"modal-head\"><h2>Add Staff</h2><button type=\"button\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg></button></div><div class=\"stepper\"><span class=\"\">01 Add Staff</span><span class=\"\">02 Assign Pin</span><span class=\"active\">03 User Permissions</span></div><div class=\"staff-permissions-panel\"><label class=\"select-all-permissions\"><span>Select All Permissions</span><input type=\"checkbox\"></label><div class=\"staff-permissions-table-wrap\"><table class=\"staff-permissions-table\"><thead><tr><th>Permissions</th><th>View</th><th>Edit</th><th>Add</th><th>Delete</th></tr></thead><tbody><tr><td>PharmacyComponent</td><td><input type=\"checkbox\"></td><td></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td></tr><tr><td>Manufacturer</td><td><input type=\"checkbox\"></td><td></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Category</td><td><input type=\"checkbox\"></td><td></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Medicine Formula</td><td><input type=\"checkbox\"></td><td></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Sales History</td><td><input type=\"checkbox\"></td><td></td><td></td><td></td></tr><tr><td>Non Medical Product</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Daily Expense</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td></tr><tr><td>Sales Return History</td><td><input type=\"checkbox\"></td><td></td><td></td><td></td></tr><tr><td>Audit Batch</td><td></td><td></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Expense Category</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Medical Product</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Pharmacy Dashboard</td><td><input type=\"checkbox\"></td><td></td><td></td><td></td></tr><tr><td>Demand/Order</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td></tr><tr><td>Supplier</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Batch</td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>New Sale</td><td><input type=\"checkbox\"></td><td></td><td><input type=\"checkbox\"></td><td></td></tr><tr><td>Sales Return</td><td></td><td></td><td><input type=\"checkbox\"></td><td></td></tr></tbody></table></div></div><div class=\"modal-actions\"><button class=\"outline\" type=\"button\">Back</button><button class=\"primary\">Done</button></div></form>",
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\n\nAmir\n\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\n\nhaseeb\n\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\n\niqbal\n\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\n\nYasir\n\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\n\nYasir\n\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\n\nShehzad Ali\n\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\n\nytdtdty\n\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\n\ndr bilal\n\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\n\nMansoor\n\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\n\nSherry\n\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\n\nStaff M\n\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\n\nmateen\n\tManager\t03210001111\t-\tmateen@gmail.com\t\n\n\nMaham Fatima\n\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\n\n\ngghjh\n\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\n\n\nHaris\n\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\n\n\nWaleed\n\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nAdd Staff\n01 Add Staff\n02 Assign Pin\n03 User Permissions\nSelect All Permissions\nPermissions\tView\tEdit\tAdd\tDelete\nPharmacyComponent\t\t\t\t\nManufacturer\t\t\t\t\nCategory\t\t\t\t\nMedicine Formula\t\t\t\t\nSales History\t\t\t\t\nNon Medical Product\t\t\t\t\nDaily Expense\t\t\t\t\nSales Return History\t\t\t\t\nAudit Batch\t\t\t\t\nExpense Category\t\t\t\t\nMedical Product\t\t\t\t\nPharmacy Dashboard\t\t\t\t\nDemand/Order\t\t\t\t\nSupplier\t\t\t\t\nBatch\t\t\t\t\nNew Sale\t\t\t\t\nSales Return\t\t\t\t\nBack\nDone",
+  "evalResults": {
+    "afterClick": {
+      "text": "Add Staff\n01 Add Staff\n02 Assign Pin\n03 User Permissions\nSelect All Permissions\nPermissions\tView\tEdit\tAdd\tDelete\nPharmacyComponent\t\t\t\t\nManufacturer\t\t\t\t\nCategory\t\t\t\t\nMedicine Formula\t\t\t\t\nSales History\t\t\t\t\nNon Medical Product\t\t\t\t\nDaily Expense\t\t\t\t\nSales Return History\t\t\t\t\nAudit Batch\t\t\t\t\nExpense Category\t\t\t\t\nMedical Product\t\t\t\t\nPharmacy Dashboard\t\t\t\t\nDemand/Order\t\t\t\t\nSupplier\t\t\t\t\nBatch\t\t\t\t\nNew Sale\t\t\t\t\nSales Return\t\t\t\t\nBack\nDone",
+      "buttons": [
+        "Back",
+        "Done"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "checked": false,
+          "value": "on"
+        }
+      ],
+      "checkboxCount": 40
+    }
+  }
+}

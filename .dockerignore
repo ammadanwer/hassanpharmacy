@@ -1,0 +1,10 @@
+.venv
+__pycache__
+*.pyc
+.env
+.DS_Store
+reference-captures
+live-capture
+node_modules
+frontend/node_modules
+frontend/dist

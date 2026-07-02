@@ -1,0 +1,199 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/saleshistory",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Choose Print Option"
+  ],
+  "buttons": [
+    "Choose time, selected time is 12:00 AM",
+    "Choose time, selected time is 11:59 PM",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view",
+    "view"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "current",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "entire",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "current_summary",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "entire_summary",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ]
+  ],
+  "html": "<body style=\"overflow: hidden;\"><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\" aria-hidden=\"true\"><div class=\"MuiBox-root css-0\" style=\"display: flex; flex: 1 1 auto; flex-direction: column; width: 100%; padding-top: 66px; padding-left: 256px;\"><div class=\"MuiBox-root css-16wup1z\"><div class=\"MuiBox-root css-1limykq\"><div class=\"MuiBox-root css-128maw8\"><div class=\"MuiFormGroup-root MuiFormGroup-row MuiRadioGroup-root MuiRadioGroup-row css-p58oka\" role=\"radiogroup\" aria-label=\"date-filter-type\"><label class=\"MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-t58jz6\"><span class=\"MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall css-1gja5kk\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" name=\"date-filter-type\" type=\"radio\" value=\"single\" checked=\"\"><span class=\"css-hyxlzm\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-cpa9t9\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"RadioButtonUncheckedIcon\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"></path></svg><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1exsolk\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"RadioButtonCheckedIcon\"><path d=\"M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z\"></path></svg></span><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span><span class=\"MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1czs0mq\">Date</span></label><label class=\"MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-t58jz6\"><span class=\"MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall Mui-checked MuiRadio-root MuiRadio-colorPrimary MuiRadio-sizeSmall css-1gja5kk\"><input class=\"PrivateSwitchBase-input css-1m9pwf3\" name=\"date-filter-type\" type=\"radio\" value=\"range\"><span class=\"css-hyxlzm\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-cpa9t9\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"RadioButtonUncheckedIcon\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"></path></svg><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-vrv9vb\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"RadioButtonCheckedIcon\"><path d=\"M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z\"></path></svg></span><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></span><span class=\"MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1czs0mq\">Date Range</span></label></div><div class=\"MuiBox-root css-0\"><div class=\"MuiFormControl-root MuiTextField-root css-7gujl3\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-12mjuhi\"><input aria-invalid=\"false\" id=\":r1:\" type=\"date\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-ncslgb\" value=\"\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><svg width=\"32\" height=\"36\" viewBox=\"0 0 32 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><mask id=\"path-1-inside-1_2017_1650\" fill=\"white\"><path d=\"M0 0H32V36H0V0Z\"></path></mask><path d=\"M0 0H32V36H0V0Z\" fill=\"#F0F1F5\"></path><path d=\"M0 1H32V-1H0V1ZM32 35H0V37H32V35Z\" fill=\"#C4C4C4\" mask=\"url(#path-1-inside-1_2017_1650)\"></path><rect x=\"12\" y=\"17\" width=\"2\" height=\"2\" rx=\"0.3\" fill=\"black\"></rect><rect x=\"15\" y=\"17\" width=\"2\" height=\"2\" rx=\"0.3\" fill=\"black\"></rect><rect x=\"18\" y=\"17\" width=\"2\" height=\"2\" rx=\"0.3\" fill=\"black\"></rect></svg><div class=\"MuiFormControl-root MuiTextField-root css-1vxyejm\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-12mjuhi\"><input aria-invalid=\"false\" id=\":rf:\" type=\"date\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-ncslgb\" value=\"\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div><p class=\"MuiTypography-root MuiTypography-body1 css-b6xfsb\">Time</p><div class=\"MuiBox-root css-0\"><div class=\"MuiFormControl-root MuiTextField-root css-7gujl3\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-ntsz5f\"><input aria-invalid=\"false\" id=\":r2:\" placeholder=\"hh:mm (a|p)m\" type=\"tel\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje\" value=\"12:00 AM\"><div class=\"MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-15cms3y\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1lwp7th\" tabindex=\"0\" type=\"button\" aria-label=\"Choose time, selected time is 12:00 AM\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ClockIcon\"><path d=\"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"></path><path d=\"M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><svg width=\"32\" height=\"36\" viewBox=\"0 0 32 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><mask id=\"path-1-inside-1_2017_1650\" fill=\"white\"><path d=\"M0 0H32V36H0V0Z\"></path></mask><path d=\"M0 0H32V36H0V0Z\" fill=\"#F0F1F5\"></path><path d=\"M0 1H32V-1H0V1ZM32 35H0V37H32V35Z\" fill=\"#C4C4C4\" mask=\"url(#path-1-inside-1_2017_1650)\"></path><rect x=\"12\" y=\"17\" width=\"2\" height=\"2\" rx=\"0.3\" fill=\"black\"></rect><rect x=\"15\" y=\"17\" width=\"2\" height=\"2\" rx=\"0.3\" fill=\"black\"></rect><rect x=\"18\" y=\"17\" width=\"2\" height=\"2\" rx=\"0.3\" fill=\"black\"></rect></svg><div class=\"MuiFormControl-root MuiTextField-root css-1vxyejm\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-ntsz5f\"><input aria-invalid=\"false\" id=\":r3:\" placeholder=\"hh:mm (a|p)m\" type=\"tel\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje\" value=\"11:59 PM\"><div class=\"MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-15cms3y\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1lwp7th\" tabindex=\"0\" type=\"button\" aria-label=\"Choose time, selected time is 11:59 PM\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ClockIcon\"><path d=\"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"></path><path d=\"M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div></div><div class=\"MuiBox-root css-1gbc9il\"><div class=\"MuiBox-root css-12z0wuy\">Print Sales History</div><svg width=\"29\" height=\"24\" viewBox=\"0 0 29 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6.21429 3C6.21429 2.20435 6.54164 1.44129 7.12435 0.87868C7.70705 0.316071 8.49736 0 9.32143 0H19.6786C20.5026 0 21.293 0.316071 21.8757 0.87868C22.4584 1.44129 22.7857 2.20435 22.7857 3V4H24.8571C25.9559 4 27.0096 4.42143 27.7866 5.17157C28.5635 5.92172 29 6.93913 29 8V17C29 17.7956 28.6726 18.5587 28.0899 19.1213C27.5072 19.6839 26.7169 20 25.8929 20H22.7857V21C22.7857 21.7956 22.4584 22.5587 21.8757 23.1213C21.293 23.6839 20.5026 24 19.6786 24H9.32143C8.49736 24 7.70705 23.6839 7.12435 23.1213C6.54164 22.5587 6.21429 21.7956 6.21429 21V20H3.10714C2.28308 20 1.49276 19.6839 0.910061 19.1213C0.327359 18.5587 0 17.7956 0 17V8C0 6.93913 0.436478 5.92172 1.21341 5.17157C1.99035 4.42143 3.0441 4 4.14286 4H6.21429V3ZM20.7143 3C20.7143 2.73478 20.6052 2.48043 20.4109 2.29289C20.2167 2.10536 19.9533 2 19.6786 2H9.32143C9.04674 2 8.7833 2.10536 8.58907 2.29289C8.39483 2.48043 8.28571 2.73478 8.28571 3V4H20.7143V3ZM8.28571 17V21C8.28571 21.2652 8.39483 21.5196 8.58907 21.7071C8.7833 21.8946 9.04674 22 9.32143 22H19.6786C19.9533 22 20.2167 21.8946 20.4109 21.7071C20.6052 21.5196 20.7143 21.2652 20.7143 21V17C20.7143 16.7348 20.6052 16.4804 20.4109 16.2929C20.2167 16.1054 19.9533 16 19.6786 16H9.32143C9.04674 16 8.7833 16.1054 8.58907 16.2929C8.39483 16.4804 8.28571 16.7348 8.28571 17Z\" fill=\"#526484\"></path></svg></div></div><div class=\"MuiBox-root css-14xiy5l\"><div class=\"MuiBox-root css-n21hak\"><div class=\"MuiFormControl-root MuiFormControl-fullWidth css-tzsjye\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-mbyp4l\"><div tabindex=\"0\" role=\"combobox\" aria-controls=\":r4:\" aria-expanded=\"false\" aria-haspopup=\"listbox\" class=\"MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-18fhp38\">All</div><input aria-invalid=\"false\" aria-hidden=\"true\" tabindex=\"-1\" class=\"MuiSelect-nativeInput css-1k3x8v3\" value=\"\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1cdths\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowDropDownIcon\"><path d=\"M7 10l5 5 5-5z\"></path></svg><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div><div class=\"MuiFormControl-root MuiTextField-root css-1tfbvct\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-ntsz5f\"><input aria-invalid=\"false\" id=\":r5:\" placeholder=\"Search by Invoice ID/Medicine Name...\" type=\"text\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1k6zyje\" value=\"\"><div class=\"MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-15cms3y\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.2656 9.02847H9.61682L9.38688 8.80687C10.3723 7.65786 10.8815 6.09028 10.6023 4.42421C10.2163 2.1426 8.3111 0.320596 6.01173 0.0415496C2.53804 -0.385226 -0.385452 2.53655 0.041574 6.00821C0.320784 8.30623 2.14386 10.2103 4.42681 10.5961C6.09385 10.8751 7.66235 10.3662 8.81204 9.38138L9.03376 9.61118V10.2596L12.5239 13.7476C12.8606 14.0841 13.4108 14.0841 13.7475 13.7476C14.0842 13.4111 14.0842 12.8612 13.7475 12.5248L10.2656 9.02847ZM5.33834 9.02847C3.29354 9.02847 1.64292 7.37882 1.64292 5.33521C1.64292 3.29161 3.29354 1.64196 5.33834 1.64196C7.38314 1.64196 9.03376 3.29161 9.03376 5.33521C9.03376 7.37882 7.38314 9.02847 5.33834 9.02847Z\" fill=\"#1D242E\"></path></svg></div><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-igs3ac\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div></div><div class=\"MuiBox-root css-164r41r\"><div class=\"MuiBox-root css-i9gxme\"><div class=\"MuiBox-root css-16eswxc\"><div class=\"MuiBox-root css-no04s3\"><div class=\"MuiBox-root css-zbzvka\">Gross Sales</div><div class=\"MuiBox-root css-zbzvka\">Rs. 3023165.65</div></div><div class=\"MuiBox-root css-1ohevl1\"><div class=\"MuiBox-root css-zbzvka\">Total Discount</div><div class=\"MuiBox-root css-zbzvka\">Rs. 200090.05</div></div><div class=\"MuiBox-root css-1nnywu8\"><div class=\"MuiBox-root css-zbzvka\">Net Sales</div><div class=\"MuiBox-root css-zbzvka\">Rs. 2823083.71</div></div><div class=\"MuiBox-root css-ri21sq\"><div class=\"MuiBox-root css-zbzvka\">Total Cost</div><div class=\"MuiBox-root css-zbzvka\">Rs. 2409824.95</div></div><div class=\"MuiBox-root css-o646wn\"><div class=\"MuiBox-root css-zbzvka\">Net Revenue</div><div class=\"MuiBox-root css-zbzvka\">Rs. 413258.76</div></div><div class=\"MuiBox-root css-ri21sq\"><div class=\"MuiBox-root css-zbzvka\">Pending</div><div class=\"MuiBox-root css-zbzvka\">Rs. 1975.00</div></div></div></div></div><div class=\"MuiBox-root css-kf8hx\"><div class=\"MuiBox-root css-1ytub8b\"></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-1fm4rq6\"><table class=\"MuiTable-root MuiTable-stickyHeader css-1s9coxt\" aria-label=\"simple table\"><thead class=\"MuiTableHead-root css-5crxrz\"><tr class=\"MuiTableRow-root MuiTableRow-head css-1ne7edj\"><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Invoice Number</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-op9v8u\" scope=\"col\">Date</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Time</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Total Amount(RS.)</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Discount(%)</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Discount Amount</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Total Payable</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Paid</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Due(s)</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Change Returned</th><th class=\"MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-1dcwym7\" scope=\"col\">Action</th></tr></thead><tbody class=\"MuiTableBody-root css-1xnox0e\"><tr class=\"MuiTableRow-root css-96wuft\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">232938</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">2026-06-30</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">10:31:19 PM</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">474.03999999999996</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">0.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">0.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">474.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\"><div class=\"MuiBox-root css-axw7ok\">474.00<span aria-label=\"Cash\" class=\"\"><img src=\"/pms/static/media/cashIcon.79ad48379f146a024768974a1568b8c3.svg\" alt=\"Cash\" width=\"20\"></span></div></td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">0.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">0.40</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\"><div class=\"MuiBox-root css-1lahxui\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-7hs5rr\" tabindex=\"0\" type=\"button\" aria-label=\"view\"><svg width=\"15\" height=\"10\" viewBox=\"0 0 15 10\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14.5005 5.00055L14.9475 4.77295V4.77076L14.9442 4.76748L14.9378 4.75435L14.9152 4.71058L14.829 4.55301C14.7238 4.36875 14.6121 4.18845 14.494 4.01247C14.0999 3.42483 13.6469 2.88028 13.1423 2.38757C11.9295 1.20582 10.0629 0 7.49946 0C4.93817 0 3.07051 1.20473 1.85772 2.38757C1.35307 2.88028 0.900068 3.42483 0.505988 4.01247C0.346083 4.25216 0.197982 4.49975 0.0622317 4.75435L0.0557692 4.76748L0.0536151 4.77076V4.77186C0.0536151 4.77186 0.052538 4.77295 0.499526 5.00055L0.0525379 4.77186C0.0179792 4.84278 0 4.92086 0 5C0 5.07914 0.0179792 5.15722 0.0525379 5.22814L0.0514609 5.23033L0.0546922 5.23361L0.0611546 5.24674C0.0947399 5.31511 0.130664 5.38226 0.168863 5.44808C0.632651 6.24402 1.2 6.97277 1.85557 7.61462C3.06944 8.79637 4.93601 10 7.49946 10C10.0618 10 11.9295 8.79637 13.1434 7.61352C13.6471 7.12022 14.0997 6.57574 14.494 5.98862C14.645 5.76272 14.7856 5.52976 14.9152 5.29051L14.9378 5.24674L14.9442 5.23361L14.9464 5.23033V5.22924C14.9464 5.22924 14.9475 5.22814 14.5005 5.00055ZM14.5005 5.00055L14.9475 5.22924C14.982 5.15831 15 5.08024 15 5.00109C15 4.92195 14.982 4.84388 14.9475 4.77295L14.5005 5.00055ZM7.43484 3.31984C6.99606 3.31984 6.57526 3.49691 6.265 3.81211C5.95475 4.1273 5.78044 4.55479 5.78044 5.00055C5.78044 5.4463 5.95475 5.87379 6.265 6.18899C6.57526 6.50418 6.99606 6.68126 7.43484 6.68126C7.87361 6.68126 8.29441 6.50418 8.60467 6.18899C8.91493 5.87379 9.08923 5.4463 9.08923 5.00055C9.08923 4.55479 8.91493 4.1273 8.60467 3.81211C8.29441 3.49691 7.87361 3.31984 7.43484 3.31984ZM4.78307 5.00055C4.78307 4.28549 5.06268 3.59971 5.56038 3.09409C6.05809 2.58847 6.73313 2.30441 7.43699 2.30441C8.14085 2.30441 8.81589 2.58847 9.3136 3.09409C9.8113 3.59971 10.0909 4.28549 10.0909 5.00055C10.0909 5.71561 9.8113 6.40138 9.3136 6.907C8.81589 7.41263 8.14085 7.69668 7.43699 7.69668C6.73313 7.69668 6.05809 7.41263 5.56038 6.907C5.06268 6.40138 4.78307 5.71561 4.78307 5.00055Z\" fill=\"#565C63\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-pak7xz\" tabindex=\"0\" type=\"button\" aria-label=\"view\"><svg width=\"17\" height=\"16\" viewBox=\"0 0 17 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2.1842 2.94727H14.8158V4.21042H2.1842V2.94727Z\" fill=\"#424242\"></path><path d=\"M0.0789795 8.84203H16.9211V5.89466C16.9211 4.96834 16.1632 4.21045 15.2369 4.21045H1.76319C0.836874 4.21045 0.0789795 4.96834 0.0789795 5.89466V8.84203Z\" fill=\"#616161\"></path><path d=\"M1.76319 13.4738H15.2369C16.1632 13.4738 16.9211 12.7159 16.9211 11.7896V8.42114H0.0789795V11.7896C0.0789795 12.7159 0.836874 13.4738 1.76319 13.4738Z\" fill=\"#424242\"></path><path d=\"M15.2368 6.31574C15.4694 6.31574 15.6579 6.12723 15.6579 5.89469C15.6579 5.66214 15.4694 5.47363 15.2368 5.47363C15.0043 5.47363 14.8158 5.66214 14.8158 5.89469C14.8158 6.12723 15.0043 6.31574 15.2368 6.31574Z\" fill=\"#00E676\"></path><path d=\"M3.02637 0H13.9737V4.21053H3.02637V0Z\" fill=\"#90CAF9\"></path><path d=\"M14.1842 11.3684H2.81578C2.47894 11.3684 2.1842 11.0736 2.1842 10.7368C2.1842 10.4 2.47894 10.1052 2.81578 10.1052H14.1842C14.521 10.1052 14.8158 10.4 14.8158 10.7368C14.8158 11.0736 14.521 11.3684 14.1842 11.3684Z\" fill=\"#242424\"></path><path d=\"M3.02637 11.3684H13.9737V16H3.02637V11.3684Z\" fill=\"#90CAF9\"></path><path d=\"M3.02637 10.5264H13.9737V11.3685H3.02637V10.5264Z\" fill=\"#42A5F5\"></path><path d=\"M5.13159 12.2104H12.2895V13.0526H5.13159V12.2104ZM5.13159 13.8947H10.6053V14.7368H5.13159V13.8947Z\" fill=\"#1976D2\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div></td></tr><tr class=\"MuiTableRow-root css-96wuft\"><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">232723</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">2026-06-30</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">05:04:22 PM</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">150</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">0.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">0.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\">150.00</td><td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-3ya0bu\"><div class=\"MuiBox-root css-axw7ok\">150.00<span aria-label=\"Easy Paisa\" class=\"\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 19 19\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><rect width=\"19\" height=\"19\" fill=\"url(#pattern0_4004_3712)\"></rect><defs><pattern id=\"pattern0_4004_3712\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#image0_4004_3712\" transform=\"scale(0.00195312)\"></use></pattern><image id=\"image0_4004_3712\" width=\"512\" height=\"512\" xlink:href=\"data:image/png;base64,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",
+  "text": "Date\nDate Range\n​\n​\n\nTime\n\n​\n​\nPrint Sales History\nAll\n​\n​\nGross Sales\nRs. 3023165.65\nTotal Discount\nRs. 200090.05\nNet Sales\nRs. 2823083.71\nTotal Cost\nRs. 2409824.95\nNet Revenue\nRs. 413258.76\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n232938\t2026-06-30\t10:31:19 PM\t474.03999999999996\t0.00\t0.00\t474.00\t\n474.00\n\t0.00\t0.40\t\n\n232723\t2026-06-30\t05:04:22 PM\t150\t0.00\t0.00\t150.00\t\n150.00\n\t0.00\t350.00\t\n\n232206\t2026-06-29\t09:18:33 PM\t70\t0.00\t0.00\t70.00\t\n70.00\n\t0.00\t0.00\t\n\n232204\t2026-06-29\t09:16:07 PM\t162\t0.00\t0.00\t162.00\t\n200.00\n\t0.00\t38.00\t\n\n231647\t2026-06-28\t08:49:05 PM\t2550\t0.00\t0.00\t2550.00\t\n2550.00\n\t0.00\t0.00\t\n\n231646\t2026-06-28\t08:48:38 PM\t1500\t0.00\t0.00\t1500.00\t\n1500.00\n\t0.00\t0.00\t\n\n231645\t2026-06-28\t08:47:54 PM\t99\t2.00\t1.98\t97.00\t\n97.00\n\t0.00\t0.00\t\n\n230911\t2026-06-27\t03:23:47 PM\t12\t0.00\t0.00\t12.00\t\n50.00\n\t0.00\t38.00\t\n\n229368\t2026-06-23\t08:17:11 PM\t12\t0.00\t0.00\t12.00\t\n50.00\n\t0.00\t38.00\t\n\n\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t489.99999999999994\t21.88\t107.18\t383.00\t\n383.00\n\t0.00\t0.00\t\n\n229237\t2026-06-23\t05:25:35 PM\t10\t10.00\t1.00\t9.00\t\n9.00\n\t0.00\t91.00\t\n\n229009\t2026-06-22\t01:29:43 AM\t360\t0.00\t0.00\t360.00\t\n400.00\n\t0.00\t40.00\t\n\n228957\t2026-06-22\t12:29:59 AM\t25\t0.00\t0.00\t25.00\t\n50.00\n\t0.00\t25.00\t\n\n228952\t2026-06-22\t12:27:51 AM\t30\t0.00\t0.00\t30.00\t\n50.00\n\t0.00\t20.00\t\n\n228950\t2026-06-22\t12:27:03 AM\t150\t0.00\t0.00\t150.00\t\n180.00\n\t0.00\t30.00\t\n\n228847\t2026-06-22\t11:00:12 PM\t125\t0.00\t0.00\t125.00\t\n200.00\n\t0.00\t75.00\t\n\n228523\t2026-06-22\t04:34:53 PM\t200\t0.00\t0.00\t200.00\t\n200.00\n\t0.00\t0.00\t\n\n228435\t2026-06-22\t01:24:33 PM\t25\t0.00\t0.00\t25.00\t\n25.00\n\t0.00\t0.00\t\n\n228408\t2026-06-21\t02:10:11 AM\t360\t5.00\t18.00\t342.00\t\n1000.00\n\t0.00\t658.00\t\n\n228407\t2026-06-21\t02:07:18 AM\t300\t0.00\t0.00\t300.00\t\n500.00\n\t0.00\t200.00\t\n\n228257\t2026-06-21\t09:52:22 PM\t1200\t10.00\t120.00\t1080.00\t\n1080.00\n\t0.00\t420.00\t\n\n228252\t2026-06-21\t09:49:53 PM\t360\t3.00\t10.80\t349.00\t\n500.00\n\t0.00\t151.00\t\n\n228251\t2026-06-21\t09:46:54 PM\t36\t10.00\t3.60\t32.00\t\n36.00\n\t0.00\t4.00\t\n\n228248\t2026-06-21\t09:44:01 PM\t360\t2.78\t10.00\t350.00\t\n350.00\n\t0.00\t150.00\t\n\n228247\t2026-06-21\t09:41:18 PM\t2400\t5.00\t120.00\t2280.00\t\n2400.00\n\t0.00\t120.00\t\n\n228246\t2026-06-21\t09:39:46 PM\t150\t1.00\t1.50\t149.00\t\n149.00\n\t0.00\t0.00\t\n\n228245\t2026-06-21\t09:38:42 PM\t40\t1.00\t0.40\t40.00\t\n40.00\n\t0.00\t0.00\t\n\n228186\t2026-06-21\t07:47:25 PM\t100\t0.00\t0.00\t100.00\t\n500.00\n\t0.00\t400.00\t\n\n227025\t2026-06-19\t05:34:25 PM\t60\t0.00\t0.00\t60.00\t\n60.00\n\t0.00\t0.00\t\n\n226501\t2026-06-18\t05:26:03 PM\t675\t8.89\t60.00\t615.00\t\n700.00\n\t0.00\t85.00\t\n\n224752\t2026-06-15\t04:37:13 PM\t140\t5.00\t7.00\t133.00\t\n133.00\n\t0.00\t0.00\t\n\n224751\t2026-06-15\t04:35:52 PM\t72\t10.00\t7.20\t65.00\t\n65.00\n\t0.00\t0.00\t\n\n223067\t2026-06-11\t08:11:09 PM\t25\t0.00\t0.00\t25.00\t\n30.00\n\t0.00\t5.00\t\n\n223063\t2026-06-11\t08:08:16 PM\t62.5\t0.00\t0.00\t63.00\t\n63.00\n\t0.00\t0.00\t\n\n220947\t2026-06-07\t09:15:01 PM\t849.96\t1.17\t9.96\t840.00\t\n1000.00\n\t0.00\t160.00\t\n\n220791\t2026-06-07\t03:33:07 PM\t270\t5.00\t13.50\t257.00\t\n257.00\n\t0.00\t0.00\t\n\n220337\t2026-06-06\t07:41:30 PM\t375\t0.00\t0.00\t375.00\t\n500.00\n\t0.00\t125.00\t\n\n220333\t2026-06-06\t07:29:07 PM\t534.15\t0.00\t0.00\t534.00\t\n1000.00\n\t0.00\t466.00\t\n\n220115\t2026-06-06\t04:00:46 PM\t180\t0.00\t0.00\t180.00\t\n200.00\n\t0.00\t20.00\t\n\n219642\t2026-06-05\t03:49:13 PM\t1900.3\t0.00\t0.00\t1900.00\t\n1900.00\n\t0.00\t0.00\t\n\n219103\t2026-06-03\t04:27:30 AM\t108\t7.41\t8.00\t100.00\t\n100.00\n\t0.00\t0.00\t\n\n217526\t2026-06-01\t07:18:42 PM\t3398.15\t0.00\t0.00\t3398.00\t\n4000.00\n\t0.00\t602.00\t\n\n217296\t2026-05-31\t04:07:16 AM\t360\t0.00\t0.00\t360.00\t\n500.00\n\t0.00\t140.00\t\n\n215491\t2026-05-26\t05:22:04 PM\t144\t0.00\t0.00\t144.00\t\n144.00\n\t0.00\t0.00\t\n\n215488\t2026-05-26\t05:14:28 PM\t3187.35\t5.00\t159.37\t3028.00\t\n4500.00\n\t0.00\t1472.00\t\n\n214487\t2026-05-24\t05:16:16 PM\t360\t0.00\t0.00\t360.00\t\n1000.00\n\t0.00\t640.00\t\n\n213731\t2026-05-22\t03:40:11 AM\t900\t0.00\t0.00\t900.00\t\n1000.00\n\t0.00\t100.00\t\n\n213005\t2026-05-21\t10:17:31 PM\t475\t1.11\t5.25\t470.00\t\n500.00\n\t0.00\t30.00\t\n\n212992\t2026-05-21\t10:03:44 PM\t70\t0.00\t0.00\t70.00\t\n100.00\n\t0.00\t30.00\t\n\n212975\t2026-05-21\t09:37:26 PM\t141.66\t1.00\t1.42\t140.00\t\n200.00\n\t0.00\t60.00\t\n< BACK\n1\n2\n3\n4\n5\n...\n14\nNEXT >\nRows per page\n50\n​\n1-50 of 699\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\n\nChoose Print Option\n\nPlease choose what you want to print\n\nCurrent Page Only\nEntire Sales History\nCurrent Page Summary\nEntire Sales History Summary\nCancel\nPrint"
+}
