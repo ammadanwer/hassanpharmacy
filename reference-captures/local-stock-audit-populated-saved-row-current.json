@@ -1,0 +1,169 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/stock-audit",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Stock Audit List"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add To List",
+    "Edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "SAVE"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by medicine name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Batch",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Increase",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "Increase",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Batch",
+      "Type",
+      "Quantity",
+      "Select Adjustment"
+    ],
+    [
+      "Product Name",
+      "Batch No.",
+      "Quantity Type",
+      "Quantity Before",
+      "Quantity Adjusted",
+      "Quantity After",
+      "Adjustment Type",
+      "Amount",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nProduct Name\tBatch\tType\tQuantity\tSelect Adjustment\t\n\n\t\n\t\n\t\n\t\n\tAdd To List\nStock Audit List\nProduct Name\tBatch No.\tQuantity Type\tQuantity Before\tQuantity Adjusted\tQuantity After\tAdjustment Type\tAmount\tActions\nAVSAR 80/5MG TAB\t6c035\tUnit\t56\t1\t55\tDecrease\t28.21\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1\nTotal Amount\nRs. 28.21\nSAVE",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "http://127.0.0.1:5173/pms/dashboard/stock-audit",
+      "hasSavedRow": true,
+      "savedTableHeaders": [
+        "Product Name",
+        "Batch No.",
+        "Quantity Type",
+        "Quantity Before",
+        "Quantity Adjusted",
+        "Quantity After",
+        "Adjustment Type",
+        "Amount",
+        "Actions"
+      ],
+      "savedRow": [
+        "AVSAR 80/5MG TAB",
+        "6c035",
+        "Unit",
+        "56",
+        "1",
+        "55",
+        "Decrease",
+        "28.21",
+        ""
+      ],
+      "actionCellText": "",
+      "actionSvgCount": 2,
+      "actionButtonLabels": [
+        "Edit",
+        "Delete"
+      ],
+      "totalAmountVisible": true,
+      "bodyExcerpt": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nProduct Name\tBatch\tType\tQuantity\tSelect Adjustment\t\n\n\t\n\t\n\t\n\t\n\tAdd To List\nStock Audit List\nProduct Name\tBatch No.\tQuantity Type\tQuantity Before\tQuantity Adjusted\tQuantity After\tAdjustment Type\tAmount\tActions\nAVSAR 80/5MG TAB\t6c035\tUnit\t56\t1\t55\tDecrease\t28.21\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1\nTotal Amount\nRs. 28.21\nSAVE"
+    }
+  }
+}
