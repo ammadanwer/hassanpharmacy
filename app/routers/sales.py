@@ -571,7 +571,7 @@ def product_sale_invoice_history(
             sales = (
                 db.query(Sale)
                 .join(sale_ids, Sale.id == sale_ids.c.sale_id)
-                .order_by(invoice_order_expression().desc(), Sale.date.desc(), Sale.id.desc())
+                .order_by(invoice_order_expression().asc(), Sale.date.asc(), Sale.id.asc())
                 .offset(skip)
                 .limit(limit)
                 .all()

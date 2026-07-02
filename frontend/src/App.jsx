@@ -4491,7 +4491,7 @@ function ProductSalesHistoryPage({ data, apiCall, onError }) {
         totalRows={totalRows}
         onFiltersChange={loadProductSales}
         profile={data.pharmacyProfile}
-        render={(row, key, filters) => key === "actions" ? <button className="text-button" type="button" onClick={() => openProductHistory(row, filters)}>View Product History</button> : formatCell(row[key])}
+        render={(row, key, filters) => key === "actions" ? <button className="icon-action" type="button" title="View Product History" aria-label="View Product History" onClick={() => openProductHistory(row, filters)}><Eye size={18} /></button> : formatCell(row[key])}
       />
       {historyProduct ? <ProductHistoryModal product={historyProduct} filters={historyFilters} apiCall={apiCall} onError={onError} close={() => setHistoryProduct(null)} onView={openSaleDetails} onPrint={printSale} /> : null}
       {detailSale ? <SalesHistoryDetailsModal sale={detailSale} data={data} close={() => setDetailSale(null)} /> : null}
