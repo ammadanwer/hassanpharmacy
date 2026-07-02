@@ -9,6 +9,7 @@ from app.core.security import CurrentUser
 from app.db.session import get_db
 from app.models.expense import Expense
 from app.models.expense_category import ExpenseCategory
+from app.models.pharmacy_profile import PharmacyProfile
 from app.schemas.expense import ExpenseCreate, ExpenseResponse, ExpenseUpdate, PagedExpenseResponse
 
 router = APIRouter()
@@ -21,6 +22,19 @@ def _pdf_escape(value: object) -> str:
 def _truncate(value: object, length: int) -> str:
     text = " ".join(str(value or "-").split())
     return text if len(text) <= length else f"{text[:max(0, length - 1)]}..."
+
+
+def _profile_pdf_lines(db: Session) -> list[str]:
+    profile = db.query(PharmacyProfile).order_by(PharmacyProfile.id.asc()).first()
+    address = profile.address if profile and profile.address else "DHA phase 2 extension"
+    phone = profile.customer_service if profile and profile.customer_service else "03324122333"
+    license_number = profile.license_number if profile and profile.license_number else "1"
+    return [
+        "Hassan Pharmacy",
+        address,
+        f"Phone # {phone}",
+        f"License No. {license_number}",
+    ]
 
 
 def _text_pdf(lines: list[str]) -> bytes:
@@ -73,6 +87,7 @@ def _expense_report_pdf(
     date_to: date | None,
     q: str | None,
     category_name: str | None,
+    profile_lines: list[str],
 ) -> bytes:
     total = sum(float(expense.expense_amount or 0) for expense in expenses)
     table_header = f"{'Date':<12} {'Name':<28} {'Expense Category':<24} {'Expense Amount':>14}"
@@ -86,7 +101,7 @@ def _expense_report_pdf(
     pages = []
     for page_index, chunk in enumerate(chunks, start=1):
         pages.append([
-            "Hassan Pharmacy",
+            *profile_lines,
             "Daily Expense Report",
             f"Date From: {date_from or '-'}    Date To: {date_to or '-'}",
             f"Search: {q or '-'}    Expense Category: {category_name or '-'}",
@@ -99,9 +114,9 @@ def _expense_report_pdf(
     return _text_pages_pdf(pages)
 
 
-def _expense_pdf(expense: Expense) -> bytes:
+def _expense_pdf(expense: Expense, profile_lines: list[str]) -> bytes:
     return _text_pdf([
-        "Hassan Pharmacy",
+        *profile_lines,
         "Daily Expense",
         f"Date: {expense.date}",
         f"Name: {expense.name}",
@@ -163,7 +178,7 @@ def download_expenses_pdf(
         category_name = category.name if category else str(category_id)
     filename = "expenses.pdf"
     return Response(
-        content=_expense_report_pdf(rows, date_from, date_to, q, category_name),
+        content=_expense_report_pdf(rows, date_from, date_to, q, category_name, _profile_pdf_lines(db)),
         media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
@@ -215,7 +230,7 @@ def download_expense_pdf(expense_id: int, db: Annotated[Session, Depends(get_db)
         raise HTTPException(status_code=404, detail="Expense not found")
     filename = f"expense-{expense.id}.pdf"
     return Response(
-        content=_expense_pdf(expense),
+        content=_expense_pdf(expense, _profile_pdf_lines(db)),
         media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
