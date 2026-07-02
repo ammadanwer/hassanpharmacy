@@ -1884,6 +1884,28 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   const nearExpiryDate = addDays(todayDate, 180);
   const expiredCount = referenceBatchAlertCounts.expired;
   const nearExpiryCount = referenceBatchAlertCounts.nearExpiry;
+  function batchQueryParams(overrides = {}) {
+    const dataPageSize = overrides.limit ?? pageSize;
+    const params = new URLSearchParams({
+      status: statusTab === "active" ? "active" : "reported",
+      skip: String(overrides.skip ?? (page - 1) * dataPageSize),
+      limit: String(dataPageSize),
+      paged: "true",
+      date_field: dateField,
+    });
+    if (dateMode === "range") {
+      if (dateFrom) params.set("date_from", dateFrom);
+      if (dateTo) params.set("date_to", dateTo);
+    } else if (date) {
+      params.set("date_from", date);
+      params.set("date_to", date);
+    }
+    if (stockFilter) params.set("stock_filter", stockFilter);
+    if (search.trim()) params.set("q", search.trim());
+    if (actorId && filterAddedBy) params.set("added_by", actorId);
+    if (actorId && filterUpdatedBy) params.set("updated_by", actorId);
+    return params;
+  }
   useEffect(() => {
     if (initialAlertFilter === "expired") {
       setAlertFilter("expired");
@@ -1919,27 +1941,8 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   }, [data.batches, statusTab]);
   useEffect(() => {
     const timer = setTimeout(async () => {
-      const dataPageSize = pageSize;
-      const params = new URLSearchParams({
-        status: statusTab === "active" ? "active" : "reported",
-        skip: String((page - 1) * dataPageSize),
-        limit: String(dataPageSize),
-        paged: "true",
-        date_field: dateField,
-      });
-      if (dateMode === "range") {
-        if (dateFrom) params.set("date_from", dateFrom);
-        if (dateTo) params.set("date_to", dateTo);
-      } else if (date) {
-        params.set("date_from", date);
-        params.set("date_to", date);
-      }
-      if (stockFilter) params.set("stock_filter", stockFilter);
-      if (search.trim()) params.set("q", search.trim());
-      if (actorId && filterAddedBy) params.set("added_by", actorId);
-      if (actorId && filterUpdatedBy) params.set("updated_by", actorId);
       try {
-        const pageData = unpackPaged(await apiCall(`/api/batches?${params.toString()}`));
+        const pageData = unpackPaged(await apiCall(`/api/batches?${batchQueryParams().toString()}`));
         setRows(pageData.items);
         setTotalRows(pageData.total);
       } catch (error) {
@@ -2046,6 +2049,22 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
     if (["production_date", "expire_date"].includes(key)) return row[key] ? formatTableDate(row[key]) : "-";
     return formatCell(row[key]);
   }
+  function formatBatchPrintCell(row, key) {
+    const value = formatBatchCell(row, key);
+    if (key === "sell_price") return row.reference_sell_price_display || formatCell(row[key]);
+    if (key === "cost_price") return row.reference_cost_price_display || formatCell(row[key]);
+    return typeof value === "string" || typeof value === "number" ? value : formatCell(row[key]);
+  }
+  async function printBatchHistory() {
+    try {
+      const limit = Math.max(totalRows, rows.length, pageSize, 1);
+      const pageData = unpackPaged(await apiCall(`/api/batches?${batchQueryParams({ skip: 0, limit }).toString()}`));
+      const printRows = pageData.items.length ? [...pageData.items, makeBatchSummaryRow(pageData.items)] : [];
+      printTable("Batch History", printRows, columns, { formatValue: formatBatchPrintCell });
+    } catch (error) {
+      onError(error);
+    }
+  }
   const batchSummaryRow = useMemo(() => makeBatchSummaryRow(rows), [rows]);
   const tableRows = useMemo(() => rows.length ? [...rows, batchSummaryRow] : rows, [rows, batchSummaryRow]);
   return (
@@ -2109,7 +2128,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
           />
         </label>
         <label><Search size={18} /><input placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /></label>
-        <button className="text-button" onClick={() => printTable("Batch History", tableRows, columns, { formatValue: formatBatchCell })}>Print Batch History</button>
+        <button className="text-button" onClick={printBatchHistory}>Print Batch History</button>
       </div>
       <DataTable columns={columns} rows={tableRows} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
       <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={tableRows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
@@ -2192,13 +2211,28 @@ function ExpiredBatchesPage({ apiCall, onError, setRoute }) {
     if (["production_date", "expire_date"].includes(key)) return formatTableDate(row[key]);
     return formatCell(row[key]);
   }
+  async function printExpiredBatchHistory() {
+    const params = new URLSearchParams({
+      skip: "0",
+      limit: String(Math.max(totalRows, rows.length, pageSize, 1)),
+      paged: "true",
+    });
+    if (search.trim()) params.set("q", search.trim());
+    try {
+      const pageData = unpackPaged(await apiCall(`/api/batches/expired?${params.toString()}`));
+      const printRows = pageData.items.length ? [...pageData.items, makeBatchSummaryRow(pageData.items)] : [];
+      printTable("Expired Batch History", printRows, columns, { formatValue: formatBatchCell });
+    } catch (error) {
+      onError(error);
+    }
+  }
   const tableRows = useMemo(() => rows.length ? [...rows, makeBatchSummaryRow(rows)] : rows, [rows]);
   return (
     <section className="batch-page">
       <div className="list-head">
         <button className="outline" type="button" onClick={() => setRoute("batch")}>Go To Batch Management &raquo;</button>
         <label><Search size={18} /><input placeholder="Search expired batch..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /></label>
-        <button className="text-button" type="button" onClick={() => printTable("Expired Batch History", tableRows, columns, { formatValue: formatBatchCell })}>Print Expired Batches</button>
+        <button className="text-button" type="button" onClick={printExpiredBatchHistory}>Print Expired Batches</button>
       </div>
       <Panel title="Expired Medicine Batches">
         <DataTable columns={columns} rows={tableRows} render={formatBatchCell} />
