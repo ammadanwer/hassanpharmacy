@@ -1,0 +1,762 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/daily-expense",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Expense"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Expense",
+    "Expense Category",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Download Expense PDF",
+    "Add Expense",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "Download",
+    "Edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Expense Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "yyyy-mm-dd",
+      "value": "2026/07/02",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "e.g. 1500",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "placeholder": "Enter Description...",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Date",
+      "Name",
+      "Expense Category",
+      "Expense Amount",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nExpense\nExpense Category\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nDate\nDate Range\nFrom Date\nTo Date\nDownload Expense PDF\nAdd Expense\nDate\tName\tExpense Category\tExpense Amount\tActions\n02/07/2026\tbill elect\tClinic Grocery Items\t500 PKR\t\n\n15/05/2026\tfawaz\tbill\t500 PKR\t\n\n16/04/2026\tstationatry\ttest\t1,500 PKR\t\n\n30/03/2026\ttest\tDaily Wages\t12 PKR\t\n\n15/03/2026\tpancil\tPrinting & Stationery\t200 PKR\t\n\n15/03/2026\tpetrol\tPetrol\t509 PKR\t\n\n10/03/2026\tnet\tSALARY\t10,000 PKR\t\n\n09/03/2026\tElectricity\tPharmacy Bill\t200 PKR\t\n\n23/02/2026\tfood\tfood\t250 PKR\t\n\n04/11/2025\tsalary\t.\t500 PKR\t\n\n14/10/2025\tPay Rent\t.\t50,000 PKR\t\n\n08/10/2025\tnew system purchase\t.\t15,000 PKR\t\n\n07/10/2025\tabc\t.\t15,000 PKR\t\n\n05/10/2025\tMedicine\t.\t5,000 PKR\t\n\n09/09/2025\tNAJAF\t.\t150 PKR\t\n\n31/07/2025\tcoffee\t.\t1,000 PKR\t\n\n21/07/2025\tabc\t.\t50,000 PKR\t\n< BACK\n1\nNEXT >\nRows per page\n1-17 of 17\nAdd Expense\nExpense Name\nDate\nExpense Category *\nAmount\nDescription\nAdd",
+  "evalResults": {
+    "beforeClickFile": {
+      "page": "expense",
+      "states": [
+        {
+          "label": "initial",
+          "url": "http://127.0.0.1:5173/pms/dashboard/daily-expense",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Expense",
+            "Expense Category",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Download Expense PDF",
+            "Add Expense",
+            "Download",
+            "Edit",
+            "Delete",
+            "< BACK",
+            "1",
+            "NEXT >"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "single",
+              "checked": true,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "range",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "date",
+              "placeholder": "",
+              "value": "2026-07-02",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Name",
+                "Expense Category",
+                "Expense Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "02/07/2026",
+                  "bill elect",
+                  "Clinic Grocery Items",
+                  "500 PKR",
+                  ""
+                ]
+              ]
+            }
+          ],
+          "modal": null,
+          "footerText": "1-1 of 1",
+          "emptyText": ""
+        },
+        {
+          "label": "range-selected",
+          "url": "http://127.0.0.1:5173/pms/dashboard/daily-expense",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Expense",
+            "Expense Category",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Download Expense PDF",
+            "Add Expense",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "< BACK",
+            "1",
+            "NEXT >"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "single",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "range",
+              "checked": true,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "date",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "date",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Name",
+                "Expense Category",
+                "Expense Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "02/07/2026",
+                  "bill elect",
+                  "Clinic Grocery Items",
+                  "500 PKR",
+                  ""
+                ],
+                [
+                  "15/05/2026",
+                  "fawaz",
+                  "bill",
+                  "500 PKR",
+                  ""
+                ],
+                [
+                  "16/04/2026",
+                  "stationatry",
+                  "test",
+                  "1,500 PKR",
+                  ""
+                ],
+                [
+                  "30/03/2026",
+                  "test",
+                  "Daily Wages",
+                  "12 PKR",
+                  ""
+                ],
+                [
+                  "15/03/2026",
+                  "pancil",
+                  "Printing & Stationery",
+                  "200 PKR",
+                  ""
+                ],
+                [
+                  "15/03/2026",
+                  "petrol",
+                  "Petrol",
+                  "509 PKR",
+                  ""
+                ],
+                [
+                  "10/03/2026",
+                  "net",
+                  "SALARY",
+                  "10,000 PKR",
+                  ""
+                ],
+                [
+                  "09/03/2026",
+                  "Electricity",
+                  "Pharmacy Bill",
+                  "200 PKR",
+                  ""
+                ]
+              ]
+            }
+          ],
+          "modal": null,
+          "footerText": "1-17 of 17",
+          "emptyText": ""
+        },
+        {
+          "label": "add-modal",
+          "url": "http://127.0.0.1:5173/pms/dashboard/daily-expense",
+          "title": "Hassan Pharmacy",
+          "headings": [
+            "Add Expense"
+          ],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Expense",
+            "Expense Category",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Download Expense PDF",
+            "Add Expense",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "Download",
+            "Edit",
+            "Delete",
+            "< BACK",
+            "1",
+            "NEXT >",
+            "Add"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "single",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "range",
+              "checked": true,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "date",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "date",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "Enter Expense Name",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "tel",
+              "placeholder": "yyyy-mm-dd",
+              "value": "2026/07/02",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "hidden",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "e.g. 1500",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "TEXTAREA",
+              "type": "textarea",
+              "placeholder": "Enter Description...",
+              "value": "",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Name",
+                "Expense Category",
+                "Expense Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "02/07/2026",
+                  "bill elect",
+                  "Clinic Grocery Items",
+                  "500 PKR",
+                  ""
+                ],
+                [
+                  "15/05/2026",
+                  "fawaz",
+                  "bill",
+                  "500 PKR",
+                  ""
+                ],
+                [
+                  "16/04/2026",
+                  "stationatry",
+                  "test",
+                  "1,500 PKR",
+                  ""
+                ],
+                [
+                  "30/03/2026",
+                  "test",
+                  "Daily Wages",
+                  "12 PKR",
+                  ""
+                ],
+                [
+                  "15/03/2026",
+                  "pancil",
+                  "Printing & Stationery",
+                  "200 PKR",
+                  ""
+                ],
+                [
+                  "15/03/2026",
+                  "petrol",
+                  "Petrol",
+                  "509 PKR",
+                  ""
+                ],
+                [
+                  "10/03/2026",
+                  "net",
+                  "SALARY",
+                  "10,000 PKR",
+                  ""
+                ],
+                [
+                  "09/03/2026",
+                  "Electricity",
+                  "Pharmacy Bill",
+                  "200 PKR",
+                  ""
+                ]
+              ]
+            }
+          ],
+          "modal": {
+            "headings": [
+              "Add Expense"
+            ],
+            "labels": [
+              "Expense Name",
+              "Date",
+              "Expense Category *",
+              "Amount",
+              "Description"
+            ],
+            "buttons": [
+              "Add"
+            ],
+            "inputs": [
+              {
+                "tag": "INPUT",
+                "type": "text",
+                "placeholder": "Enter Expense Name",
+                "value": "",
+                "checked": false,
+                "text": ""
+              },
+              {
+                "tag": "INPUT",
+                "type": "tel",
+                "placeholder": "yyyy-mm-dd",
+                "value": "2026/07/02",
+                "checked": false,
+                "text": ""
+              },
+              {
+                "tag": "INPUT",
+                "type": "text",
+                "placeholder": "",
+                "value": "",
+                "checked": false,
+                "text": ""
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "placeholder": "",
+                "value": "",
+                "checked": false,
+                "text": ""
+              },
+              {
+                "tag": "INPUT",
+                "type": "text",
+                "placeholder": "e.g. 1500",
+                "value": "",
+                "checked": false,
+                "text": ""
+              },
+              {
+                "tag": "TEXTAREA",
+                "type": "textarea",
+                "placeholder": "Enter Description...",
+                "value": "",
+                "checked": false,
+                "text": ""
+              }
+            ]
+          },
+          "footerText": "1-17 of 17",
+          "emptyText": ""
+        }
+      ]
+    }
+  }
+}

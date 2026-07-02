@@ -156,7 +156,7 @@ def list_expenses(
 ):
     query = apply_expense_filters(db.query(Expense), date_from, date_to, q, category_id)
     total = query.count() if paged else 0
-    items = query.order_by(Expense.date.desc(), Expense.id.desc()).offset(skip).limit(limit).all()
+    items = query.order_by(Expense.date.desc(), Expense.id.asc()).offset(skip).limit(limit).all()
     if paged:
         return PagedExpenseResponse(items=items, total=total, skip=skip, limit=limit)
     return items
@@ -171,7 +171,7 @@ def download_expenses_pdf(
     q: str | None = Query(default=None),
     category_id: int | None = Query(default=None),
 ):
-    rows = apply_expense_filters(db.query(Expense), date_from, date_to, q, category_id).order_by(Expense.date.desc(), Expense.id.desc()).all()
+    rows = apply_expense_filters(db.query(Expense), date_from, date_to, q, category_id).order_by(Expense.date.desc(), Expense.id.asc()).all()
     category_name = None
     if category_id:
         category = db.get(ExpenseCategory, category_id)

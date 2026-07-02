@@ -11,6 +11,7 @@ from app.db.schema_sync import sync_batch_columns
 from app.models.batch import Batch, BatchStatus
 from app.models.category import Category, CategoryType
 from app.models.customer import Customer
+from app.models.expense import Expense
 from app.models.expense_category import ExpenseCategory
 from app.models.manufacturer import Manufacturer
 from app.models.medicine_formula import MedicineFormula
@@ -26,6 +27,7 @@ RAW_PATH = Path("data/emareez-import/raw-tables.json")
 CUSTOMER_HISTORY_PATH = Path("live-capture/routes/customer-history.json")
 STAFF_CAPTURE_PATH = Path("live-capture/routes/staff-management.json")
 EXPENSE_CATEGORIES_CAPTURE_PATH = Path("data/emareez-import/expense-categories-live.json")
+EXPENSES_CAPTURE_PATH = Path("data/emareez-import/expenses-live.json")
 MEDICAL_PRODUCTS_CAPTURE_PATH = Path("data/emareez-import/products-medical-live.json")
 NONMEDICAL_PRODUCTS_CAPTURE_PATH = Path("data/emareez-import/products-nonmedical-live.json")
 STOCK_PURCHASES_CAPTURE_PATH = Path("data/emareez-import/stock-purchases-live.json")
@@ -414,6 +416,86 @@ def import_expense_categories(db):
     return len(rows)
 
 
+def parse_display_date(value):
+    value = clean(value)
+    if not value:
+        return None
+    for fmt in ("%d/%m/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(value, fmt).date()
+        except ValueError:
+            continue
+    return None
+
+
+def parse_money(value):
+    value = norm(value).replace("PKR", "").replace(",", "").strip()
+    if not value:
+        return 0
+    return float(value)
+
+
+def import_expenses(db):
+    if not EXPENSES_CAPTURE_PATH.exists():
+        return 0
+    capture = json.loads(EXPENSES_CAPTURE_PATH.read_text())
+    rows = []
+    for page in capture.get("scrapedTables", []):
+        table = page[0] if page else {}
+        for row in table.get("rows", []):
+            if len(row) < 4:
+                continue
+            expense_date = parse_display_date(row[0])
+            name = clip_raw(row[1], 255)
+            category_name = raw_cell(row[2])
+            amount = parse_money(row[3])
+            if not expense_date or not name or not category_name:
+                continue
+            rows.append((expense_date, name, category_name, amount))
+    if not rows:
+        return 0
+    categories = db.query(ExpenseCategory).order_by(ExpenseCategory.reference_sort_order.is_(None), ExpenseCategory.reference_sort_order.asc(), ExpenseCategory.id.asc()).all()
+    category_by_exact_name = {norm(category.name): category for category in categories}
+    category_by_lower_name = {}
+    for category in categories:
+        category_by_lower_name.setdefault(norm(category.name).lower(), category)
+    created_by_row = db.query(User.id).order_by(User.id.asc()).first()
+    created_by = created_by_row[0] if created_by_row else None
+    if not created_by:
+        password_hash = get_password_hash(DEFAULT_IMPORTED_PASSWORD)
+        admin = User(
+            name="Hassan Pharmacy",
+            email="admin@hassanpharmacy.test.com",
+            role=UserRole.admin,
+            hashed_password=password_hash,
+            is_active=True,
+        )
+        db.add(admin)
+        db.flush()
+        created_by = admin.id
+    existing = {}
+    for expense in db.query(Expense).all():
+        existing.setdefault((expense.date, norm(expense.name).lower(), float(expense.expense_amount or 0)), []).append(expense)
+    imported = 0
+    for expense_date, name, category_name, amount in rows:
+        category = category_by_exact_name.get(norm(category_name)) or category_by_lower_name.get(norm(category_name).lower())
+        if not category:
+            category = ExpenseCategory(name=category_name)
+            db.add(category)
+            db.flush()
+            category_by_exact_name[norm(category.name)] = category
+            category_by_lower_name.setdefault(norm(category.name).lower(), category)
+        signature = (expense_date, norm(name).lower(), float(amount))
+        existing_expense = next((expense for expense in existing.get(signature, []) if norm(expense.expense_category_name).lower() == norm(category_name).lower()), None)
+        if existing_expense:
+            existing_expense.expense_category_id = category.id
+            continue
+        db.add(Expense(date=expense_date, name=name, expense_category_id=category.id, expense_amount=amount, created_by=created_by))
+        existing.setdefault(signature, [])
+        imported += 1
+    return len(rows)
+
+
 def captured_table_rows(path, min_columns):
     if path.exists():
         capture = json.loads(path.read_text())
@@ -723,6 +805,7 @@ def main():
             "staff": ("staff", import_staff),
             "suppliers": ("suppliers", lambda db: import_suppliers(db, raw)),
             "expense-categories": ("expenseCategories", import_expense_categories),
+            "expenses": ("expenses", import_expenses),
             "reference-products": ("referenceProducts", import_reference_products),
             "stock-purchases": ("stockPurchases", import_stock_purchases),
             "batches": ("batches", lambda db: import_batches(db, raw)),
@@ -759,6 +842,7 @@ def main():
             "customers": import_customers(db),
             "staff": import_staff(db),
             "expenseCategories": import_expense_categories(db),
+            "expenses": import_expenses(db),
             "referenceProducts": import_reference_products(db),
             "stockPurchases": import_stock_purchases(db),
             "medicalProducts": import_medical_products(db, raw),

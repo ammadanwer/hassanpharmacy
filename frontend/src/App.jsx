@@ -261,6 +261,7 @@ const plainMoney = (value) => Number(value || 0).toFixed(2);
 const fixedMoney = (value) => Number(value || 0).toFixed(2);
 const referenceMoney = (value) => Number(value || 0).toLocaleString(undefined, { maximumFractionDigits: 3 });
 const formatCompactNumber = (value) => Number(value || 0).toLocaleString(undefined, { maximumFractionDigits: 2 });
+const expenseMoney = (value) => `${Number(value || 0).toLocaleString(undefined, { maximumFractionDigits: 2 })}\nPKR`;
 const referenceOrderPurchaseKey = (row) => [row.name, row.dose || "", row.total_quantity, row.remaining_quantity, row.manufacturer_name || ""].map((value) => String(value ?? "").trim().toLowerCase()).join("|");
 const referenceOrderPurchaseIndex = (row) => referenceMedicalOrderPurchaseOrder.get(referenceOrderPurchaseKey(row));
 const roundMoney = (value) => Math.round(Number(value || 0) * 100) / 100;
@@ -4130,7 +4131,7 @@ function ExpensePage({ data, apiCall, reload, onError }) {
         <label><span className="field-title">From Date</span><input type="date" value={dateFrom} onChange={(event) => { setDateFrom(event.target.value); setPage(1); }} /></label>
         <label><span className="field-title">To Date</span><input type="date" value={dateTo} onChange={(event) => { setDateTo(event.target.value); setPage(1); }} /></label>
       </> : <label><span className="field-title">Date</span><input type="date" value={date} onChange={(event) => { setDate(event.target.value); setPage(1); }} /></label>}<button className="outline" type="button" onClick={downloadExpenseReport}>Download Expense PDF</button><button className="primary" onClick={() => setModal({ row: null })}>Add Expense</button></div>
-      <DataTable columns={[["date", "Date"], ["name", "Name"], ["expense_category_id", "Expense Category"], ["expense_amount", "Expense Amount"], ["actions", "Actions"]]} rows={rows} emptyText="No Data found!" render={(row, key) => key === "date" ? formatTableDate(row[key]) : key === "expense_category_id" ? (row.expense_category_name || nameById(data.expenseCategories, row[key])) : key === "expense_amount" ? money(row[key]) : key === "actions" ? <ActionButtons onDownload={() => downloadExpense(row)} onEdit={() => setModal({ row })} onDelete={() => deleteExpense(row)} /> : formatCell(row[key])} />
+      <DataTable columns={[["date", "Date"], ["name", "Name"], ["expense_category_id", "Expense Category"], ["expense_amount", "Expense Amount"], ["actions", "Actions"]]} rows={rows} emptyText="No Data found!" render={(row, key) => key === "date" ? formatTableDate(row[key]) : key === "expense_category_id" ? (row.expense_category_name || nameById(data.expenseCategories, row[key])) : key === "expense_amount" ? expenseMoney(row[key]) : key === "actions" ? <ActionButtons onDownload={() => downloadExpense(row)} onEdit={() => setModal({ row })} onDelete={() => deleteExpense(row)} /> : formatCell(row[key])} />
       {totalRows ? <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} /> : null}
       {modal ? <ExpenseModal row={modal.row} data={data} close={() => setModal(null)} apiCall={apiCall} reload={reload} onError={onError} /> : null}
     </section>
@@ -4170,7 +4171,7 @@ function ExpenseModal({ row, data, close, apiCall, reload, onError }) {
         <div className="simple-modal-body">
           <Field label="Expense Name" required value={form.name || ""} onChange={(v) => set("name", v)} placeholder="Enter Expense Name" />
           <Field label="Date" type="tel" value={formatSlashDate(form.date || today())} onChange={(v) => set("date", v)} placeholder="yyyy-mm-dd" />
-          <LookupField label="Expense Category *" required value={form.expense_category_id || ""} query={categoryQuery} onQueryChange={(value) => { setCategoryQuery(value); set("expense_category_id", ""); }} onSelect={selectExpenseCategory} options={data.expenseCategories} placeholder="Select Expense" />
+          <LookupField label="Expense Category *" required value={form.expense_category_id || ""} query={categoryQuery} onQueryChange={(value) => { setCategoryQuery(value); set("expense_category_id", ""); }} onSelect={selectExpenseCategory} options={data.expenseCategories} placeholder="" />
           <Field label="Amount" required value={form.expense_amount || ""} onChange={(v) => set("expense_amount", v)} placeholder="e.g. 1500" />
           <TextareaField label="Description" value={form.notes || ""} onChange={(v) => set("notes", v)} placeholder="Enter Description..." />
         </div>

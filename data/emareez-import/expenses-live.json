@@ -1,0 +1,197 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/daily-expense",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add Expense",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Date",
+      "Name",
+      "Expense Category",
+      "Expense Amount",
+      "Actions"
+    ]
+  ],
+  "text": "Date\nDate Range\nDownload Expense PDF\n​\n​\nAdd Expense\nDate\tName\tExpense Category\tExpense Amount\tActions\n02/07/2026\tbill elect\tClinic Grocery Items\t\n500\nPKR\n\t\n\n15/05/2026\tfawaz\tbill\t\n500\nPKR\n\t\n\n16/04/2026\tstationatry\ttest\t\n1,500\nPKR\n\t\n\n30/03/2026\ttest\tDaily Wages\t\n12\nPKR\n\t\n\n15/03/2026\tpancil\tPrinting & Stationery\t\n200\nPKR\n\t\n\n15/03/2026\tpetrol\tPetrol\t\n509\nPKR\n\t\n\n10/03/2026\tnet\tSALARY\t\n10,000\nPKR\n\t\n\n09/03/2026\tElectricity\tPharmacy Bill\t\n200\nPKR\n\t\n\n23/02/2026\tfood\tfood\t\n250\nPKR\n\t\n\n04/11/2025\tsalary\t.\t\n500\nPKR\n\t\n\n14/10/2025\tPay Rent\t.\t\n50,000\nPKR\n\t\n\n08/10/2025\tnew system purchase\t.\t\n15,000\nPKR\n\t\n\n07/10/2025\tabc\t.\t\n15,000\nPKR\n\t\n\n05/10/2025\tMedicine\t.\t\n5,000\nPKR\n\t\n\n09/09/2025\tNAJAF\t.\t\n150\nPKR\n\t\n\n31/07/2025\tcoffee\t.\t\n1,000\nPKR\n\t\n\n21/07/2025\tabc\t.\t\n50,000\nPKR\n\t\n\n\nTotal Expense: 150,321 PKR\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-17 of 17\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClick": true
+  },
+  "scrapedTables": [
+    [
+      {
+        "headers": [
+          "Date",
+          "Name",
+          "Expense Category",
+          "Expense Amount",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "02/07/2026",
+            "bill elect",
+            "Clinic Grocery Items",
+            "500\nPKR",
+            ""
+          ],
+          [
+            "15/05/2026",
+            "fawaz",
+            "bill",
+            "500\nPKR",
+            ""
+          ],
+          [
+            "16/04/2026",
+            "stationatry",
+            "test",
+            "1,500\nPKR",
+            ""
+          ],
+          [
+            "30/03/2026",
+            "test",
+            "Daily Wages",
+            "12\nPKR",
+            ""
+          ],
+          [
+            "15/03/2026",
+            "pancil",
+            "Printing & Stationery",
+            "200\nPKR",
+            ""
+          ],
+          [
+            "15/03/2026",
+            "petrol",
+            "Petrol",
+            "509\nPKR",
+            ""
+          ],
+          [
+            "10/03/2026",
+            "net",
+            "SALARY",
+            "10,000\nPKR",
+            ""
+          ],
+          [
+            "09/03/2026",
+            "Electricity",
+            "Pharmacy Bill",
+            "200\nPKR",
+            ""
+          ],
+          [
+            "23/02/2026",
+            "food",
+            "food",
+            "250\nPKR",
+            ""
+          ],
+          [
+            "04/11/2025",
+            "salary",
+            ".",
+            "500\nPKR",
+            ""
+          ],
+          [
+            "14/10/2025",
+            "Pay Rent",
+            ".",
+            "50,000\nPKR",
+            ""
+          ],
+          [
+            "08/10/2025",
+            "new system purchase",
+            ".",
+            "15,000\nPKR",
+            ""
+          ],
+          [
+            "07/10/2025",
+            "abc",
+            ".",
+            "15,000\nPKR",
+            ""
+          ],
+          [
+            "05/10/2025",
+            "Medicine",
+            ".",
+            "5,000\nPKR",
+            ""
+          ],
+          [
+            "09/09/2025",
+            "NAJAF",
+            ".",
+            "150\nPKR",
+            ""
+          ],
+          [
+            "31/07/2025",
+            "coffee",
+            ".",
+            "1,000\nPKR",
+            ""
+          ],
+          [
+            "21/07/2025",
+            "abc",
+            ".",
+            "50,000\nPKR",
+            ""
+          ]
+        ]
+      }
+    ]
+  ]
+}
