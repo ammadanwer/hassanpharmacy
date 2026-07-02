@@ -1129,12 +1129,26 @@ main {
   width: 18px;
 }
 
+.alert-icon::before {
+  content: "!";
+}
+
 .alert-icon.danger {
   background: #f0483e;
 }
 
 .alert-icon.warning {
   background: #eec122;
+}
+
+.alert-icon.info {
+  background: #1d7eea;
+}
+
+.product-stock-marker {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
 }
 
 .list-head {
@@ -1613,6 +1627,10 @@ main {
 
 .danger-icon {
   color: var(--danger);
+}
+
+.muted-icon {
+  color: #6b7280;
 }
 
 .invoice-backdrop {

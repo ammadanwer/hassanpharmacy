@@ -1,6 +1,8 @@
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowLeft,
+  Ban,
+  Bell,
   Boxes,
   Calendar,
   ChevronLeft,
@@ -2614,12 +2616,11 @@ function ProductsPage({ type, initialStockFilter = "", data, apiCall, reload, on
   }
   return (
     <section className="list-page">
-      <div className="tabs"><label><input type="radio" checked={statusTab === "active"} onChange={() => changeStatus("active")} /> {medical ? "Active Medicines" : "Active Non-Medicine"}</label><label><input type="radio" checked={statusTab === "reported"} onChange={() => changeStatus("reported")} /> {medical ? "Reported Medicines" : "Reported Non-Medicine"}</label></div>
+      <div className="tabs"><label><input type="radio" value="active" checked={statusTab === "active"} onChange={() => changeStatus("active")} /> {medical ? "Active Medicines" : "Active Non-Medicine"}</label><label><input type="radio" value="reported" checked={statusTab === "reported"} onChange={() => changeStatus("reported")} /> {medical ? "Reported Medicines" : "Reported Non-Medicine"}</label></div>
       {statusTab === "active" ? <div className="batch-alerts product-alerts">
         <div className="batch-alert-messages">
-          <span><span className="alert-icon danger">!</span>Some {medical ? "medicines" : "products"} are <strong>out of stock.</strong></span>
-          <span><span className="alert-icon warning">!</span>Some {medical ? "medicines" : "products"} are <strong className="warning-text">low in stock.</strong></span>
-          <span><span className="alert-icon warning">!</span>Some {medical ? "medicines" : "products"} have been added but are awaiting stock entry.</span>
+          <span><span className="alert-icon danger" aria-hidden="true" />Some {medical ? "medicines" : "products"} are <strong>out of stock.</strong></span>
+          <span><span className="alert-icon info" aria-hidden="true" />Some {medical ? "medicines" : "products"} have been added but are awaiting stock entry.</span>
         </div>
         <div className="batch-alert-filter">
           <label><input type="checkbox" checked={stockFilter === "without_stock"} onChange={() => changeStockFilter("without_stock")} /> Products Without Stock ({displayedStockCounts.without_stock})</label>
@@ -2633,6 +2634,8 @@ function ProductsPage({ type, initialStockFilter = "", data, apiCall, reload, on
       </div>
       <DataTable columns={columns} rows={rows} render={(row, key) => {
         if (key === "actions") return <LifecycleActions row={row} onEdit={() => setModal({ row })} onReport={() => deleteProduct(row)} onRestore={() => restoreProduct(row)} />;
+        if (key === "category_name" && (row[key] == null || row[key] === "")) return "";
+        if (key === "remaining_quantity" && Number(row[key] || 0) <= 0) return <ProductRemainingQuantity row={row} />;
         if (["total_quantity", "remaining_quantity"].includes(key)) return formatIndianInteger(row[key]);
         return formatCell(row[key]);
       }} />
@@ -2646,11 +2649,24 @@ function LifecycleActions({ row, onEdit, onReport, onRestore }) {
   const reported = row.status === "reported";
   return (
     <div className="icon-actions">
-      <button className="icon-action" type="button" title="Edit" aria-label="Edit" onClick={onEdit}><Pencil size={18} /></button>
       {reported
         ? <button className="icon-action" type="button" title="Restore" aria-label="Restore" onClick={onRestore}><RotateCcw size={18} /></button>
         : <button className="icon-action danger-icon" type="button" title="Report" aria-label="Report" onClick={onReport}><Trash2 size={18} /></button>}
+      <button className="icon-action" type="button" title="Edit" aria-label="Edit" onClick={onEdit}><Pencil size={18} /></button>
+      {!reported && Number(row.total_quantity || 0) > 0 && Number(row.remaining_quantity || 0) <= 0 ? <button className="icon-action muted-icon" type="button" title="Out of Stock" aria-label="Out of Stock"><Ban size={18} /></button> : null}
+      <button className="icon-action muted-icon" type="button" title="Notify" aria-label="Notify"><Bell size={18} /></button>
     </div>
+  );
+}
+
+function ProductRemainingQuantity({ row }) {
+  const remaining = Number(row.remaining_quantity || 0);
+  const total = Number(row.total_quantity || 0);
+  return (
+    <span className="product-stock-marker">
+      <span className={`alert-icon ${total > 0 ? "danger" : "info"}`} aria-hidden="true" />
+      {formatIndianInteger(remaining)}
+    </span>
   );
 }
 

@@ -1,0 +1,228 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/nonmedicines",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add New",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "active",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "reported",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Brand Name",
+      "Category",
+      "Total Quantity",
+      "Remaining Quantity",
+      "Actions"
+    ]
+  ],
+  "text": "Active Non-Medicine\nReported Non-Medicine\nAdd New\n​\nSome products are out of stock.\nSome medicines have been added but areawaiting stock entry.\nProducts Without Stock (5)\nOut of Stock (1)\nLow in Stock (0)\nName\tBrand Name\tCategory\tTotal Quantity\tRemaining Quantity\tActions\n212 MEN NYC BODY SPRAY\tOther\t\t12\t\n12\n\t\n\n4 POSITION CARRIER CA005\tOther\t\t200\t\n196\n\t\n\nBaby Lotion X\t26/A,VIA PALERMO-PARMA-ITALY\tBABY LINER\t50\t\n48\n\t\n\nBio check strip\tAims pharmaceutical\tSugar Strip\t20\t\n8\n\t\n\nDettol 100ML\tabcd\tHygienic\t6\t\n3\n\t\n\nenliten whitening bar\tAbbott\tNIPPLES\t5\t\n0\n\t\n\nFair and Lovely\tAbbott\tNIPPLES\t500\t\n483\n\t\n\nFaiza Beauty Cream\tAbdullah brothers\tCream\t36\t\n36\n\t\n\nGolden pearl\tCREATIVE MARKETING\tCream\t42\t\n37\n\t\n\nLaboob Kabir\tQARSHI\tFood\t0\t\n0\n\t\n\nLotion\tNovartis\tNIPPLES\t25\t\n8\n\t\n\nLotions\tAKRON\tBABY LINER\t0\t\n0\n\t\n\nNAIL REMOWER POSEGHER\tRMMH\tservice charges\t100\t\n90\n\t\n\nNavia white\tAbdullah brothers\tCream\t18\t\n14\n\t\n\nPARLEY GOLD\tPARLEY GOLD CREAM\tCream\t36\t\n31\n\t\n\nsandal beauty cream\tAbdullah brothers\tCream\t5\t\n4\n\t\n\nxyzzz\tNovo Nordisk\tshampoooo\t0\t\n0\n\t\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-17 of 17\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/nonmedicines",
+      "headers": [
+        "Name",
+        "Brand Name",
+        "Category",
+        "Total Quantity",
+        "Remaining Quantity",
+        "Actions"
+      ],
+      "rowCount": 17,
+      "samples": [
+        {
+          "rowText": [
+            "212 MEN NYC BODY SPRAY",
+            "Other",
+            "",
+            "12",
+            "12",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "4 POSITION CARRIER CA005",
+            "Other",
+            "",
+            "200",
+            "196",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "Baby Lotion X",
+            "26/A,VIA PALERMO-PARMA-ITALY",
+            "BABY LINER",
+            "50",
+            "48",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "Bio check strip",
+            "Aims pharmaceutical",
+            "Sugar Strip",
+            "20",
+            "8",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "Dettol 100ML",
+            "abcd",
+            "Hygienic",
+            "6",
+            "3",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "enliten whitening bar",
+            "Abbott",
+            "NIPPLES",
+            "5",
+            "0",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"15\" height=\"15\" viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.3818 15L11.7",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "Fair and Lovely",
+            "Abbott",
+            "NIPPLES",
+            "500",
+            "483",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        },
+        {
+          "rowText": [
+            "Faiza Beauty Cream",
+            "Abdullah brothers",
+            "Cream",
+            "36",
+            "36",
+            ""
+          ],
+          "actionText": "",
+          "buttons": [],
+          "svgTestIds": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.204",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.696",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667"
+          ]
+        }
+      ]
+    }
+  }
+}

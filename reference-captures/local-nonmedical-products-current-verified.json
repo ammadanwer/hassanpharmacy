@@ -1,0 +1,671 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/nonmedicines",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Non Medical Product"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Out of Stock",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "active",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "reported",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter barcode.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Manufacturer",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Weight",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Unit",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Category",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Brand Name",
+      "Category",
+      "Total Quantity",
+      "Remaining Quantity",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nActive Non-Medicine\nReported Non-Medicine\nSome products are\nout of stock.\nSome products have been added but are awaiting stock entry.\nProducts Without Stock (5)\nOut of Stock (1)\nLow in Stock (0)\nAdd New\nName\tBrand Name\tCategory\tTotal Quantity\tRemaining Quantity\tActions\n212 MEN NYC BODY SPRAY\tOther\t\t12\t12\t\n\n4 POSITION CARRIER CA005\tOther\t\t200\t196\t\n\nBaby Lotion X\t26/A,VIA PALERMO-PARMA-ITALY\tBABY LINER\t50\t48\t\n\nBio check strip\tAims pharmaceutical\tSugar Strip\t20\t8\t\n\nDettol 100ML\tabcd\tHygienic\t6\t3\t\n\nenliten whitening bar\tAbbott\tNIPPLES\t5\t\n0\t\n\nFair and Lovely\tAbbott\tNIPPLES\t500\t483\t\n\nFaiza Beauty Cream\tAbdullah brothers\tCream\t36\t36\t\n\nGolden pearl\tCREATIVE MARKETING\tCream\t42\t37\t\n\nLaboob Kabir\tQARSHI\tFood\t0\t\n0\t\n\nLotion\tNovartis\tNIPPLES\t25\t8\t\n\nLotions\tAKRON\tBABY LINER\t0\t\n0\t\n\nNAIL REMOWER POSEGHER\tRMMH\tservice charges\t100\t90\t\n\nNavia white\tAbdullah brothers\tCream\t18\t14\t\n\nPARLEY GOLD\tPARLEY GOLD CREAM\tCream\t36\t31\t\n\nsandal beauty cream\tAbdullah brothers\tCream\t5\t4\t\n\nxyzzz\tNovo Nordisk\tshampoooo\t0\t\n0\t\n< BACK\n1\nNEXT >\nRows per page\n1-17 of 17\nAdd Non Medical Product\nBar Code\nName\nBrand/Manufacturer Name\nWeight\nCategory\nAdd",
+  "evalResults": {
+    "beforeClickFile": {
+      "tableState": {
+        "url": "http://127.0.0.1:5173/pms/dashboard/nonmedicines",
+        "title": "Hassan Pharmacy",
+        "radioInputs": [
+          {
+            "value": "active",
+            "checked": true,
+            "label": "Active Non-Medicine"
+          },
+          {
+            "value": "reported",
+            "checked": false,
+            "label": "Reported Non-Medicine"
+          }
+        ],
+        "checkboxInputs": [
+          {
+            "checked": false,
+            "label": "Products Without Stock (5)"
+          },
+          {
+            "checked": false,
+            "label": "Out of Stock (1)"
+          },
+          {
+            "checked": false,
+            "label": "Low in Stock (0)"
+          }
+        ],
+        "alertText": "Some products are\nout of stock.\nSome products have been added but are awaiting stock entry.\nProducts Without Stock (5)\nOut of Stock (1)\nLow in Stock (0)",
+        "buttonLabels": [
+          "Dashboard",
+          "Sales",
+          "Inventory",
+          "Batch",
+          "Demand/Order",
+          "Stock Audit",
+          "Order Purchase",
+          "Medical Products",
+          "Non Medical Products",
+          "Supplier",
+          "Category",
+          "Medicine Formula",
+          "Manufacturer",
+          "Stock Purchase",
+          "Shelf",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Add New Sale",
+          "Renew",
+          "Add New",
+          "< BACK",
+          "1",
+          "NEXT >"
+        ],
+        "headers": [
+          "Name",
+          "Brand Name",
+          "Category",
+          "Total Quantity",
+          "Remaining Quantity",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "212 MEN NYC BODY SPRAY",
+            "Other",
+            "",
+            "12",
+            "12",
+            ""
+          ],
+          [
+            "4 POSITION CARRIER CA005",
+            "Other",
+            "",
+            "200",
+            "196",
+            ""
+          ],
+          [
+            "Baby Lotion X",
+            "26/A,VIA PALERMO-PARMA-ITALY",
+            "BABY LINER",
+            "50",
+            "48",
+            ""
+          ],
+          [
+            "Bio check strip",
+            "Aims pharmaceutical",
+            "Sugar Strip",
+            "20",
+            "8",
+            ""
+          ],
+          [
+            "Dettol 100ML",
+            "abcd",
+            "Hygienic",
+            "6",
+            "3",
+            ""
+          ],
+          [
+            "enliten whitening bar",
+            "Abbott",
+            "NIPPLES",
+            "5",
+            "0",
+            ""
+          ],
+          [
+            "Fair and Lovely",
+            "Abbott",
+            "NIPPLES",
+            "500",
+            "483",
+            ""
+          ],
+          [
+            "Faiza Beauty Cream",
+            "Abdullah brothers",
+            "Cream",
+            "36",
+            "36",
+            ""
+          ],
+          [
+            "Golden pearl",
+            "CREATIVE MARKETING",
+            "Cream",
+            "42",
+            "37",
+            ""
+          ],
+          [
+            "Laboob Kabir",
+            "QARSHI",
+            "Food",
+            "0",
+            "0",
+            ""
+          ],
+          [
+            "Lotion",
+            "Novartis",
+            "NIPPLES",
+            "25",
+            "8",
+            ""
+          ],
+          [
+            "Lotions",
+            "AKRON",
+            "BABY LINER",
+            "0",
+            "0",
+            ""
+          ],
+          [
+            "NAIL REMOWER POSEGHER",
+            "RMMH",
+            "service charges",
+            "100",
+            "90",
+            ""
+          ],
+          [
+            "Navia white",
+            "Abdullah brothers",
+            "Cream",
+            "18",
+            "14",
+            ""
+          ],
+          [
+            "PARLEY GOLD",
+            "PARLEY GOLD CREAM",
+            "Cream",
+            "36",
+            "31",
+            ""
+          ],
+          [
+            "sandal beauty cream",
+            "Abdullah brothers",
+            "Cream",
+            "5",
+            "4",
+            ""
+          ],
+          [
+            "xyzzz",
+            "Novo Nordisk",
+            "shampoooo",
+            "0",
+            "0",
+            ""
+          ]
+        ],
+        "rowCount": 17,
+        "footerText": "1-17 of 17",
+        "searchPlaceholder": "Search...",
+        "actionCells": [
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 4,
+            "buttonCount": 4,
+            "labels": [
+              "Report",
+              "Edit",
+              "Out of Stock",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          }
+        ]
+      },
+      "modalState": {
+        "title": "Add Non Medical Product",
+        "width": 1200,
+        "labels": [
+          "Bar Code",
+          "Bar Code",
+          "Name",
+          "Name",
+          "Brand/Manufacturer Name",
+          "Brand/Manufacturer Name",
+          "Weight",
+          "Weight",
+          "Category",
+          "Category"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter barcode.",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter Name",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Select Manufacturer",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "hidden",
+            "placeholder": "",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter Weight",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Select Unit",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Select Category",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "hidden",
+            "placeholder": "",
+            "value": "",
+            "role": ""
+          }
+        ],
+        "buttons": [
+          "Add"
+        ],
+        "selectCount": 0,
+        "text": "Add Non Medical Product\nBar Code\nName\nBrand/Manufacturer Name\nWeight\nCategory\nAdd"
+      }
+    }
+  }
+}
