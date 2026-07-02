@@ -1047,8 +1047,8 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   const [draftTotal, setDraftTotal] = useState(0);
   const [recentDateMode, setRecentDateMode] = useState("single");
   const [recentDate, setRecentDate] = useState(today());
-  const [recentDateFrom, setRecentDateFrom] = useState(today());
-  const [recentDateTo, setRecentDateTo] = useState(today());
+  const [recentDateFrom, setRecentDateFrom] = useState("");
+  const [recentDateTo, setRecentDateTo] = useState("");
   const [recentSearch, setRecentSearch] = useState("");
   const suggestions = useMemo(() => {
     const q = query.toLowerCase();
@@ -1077,11 +1077,13 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
     if (saleTab === "recent") {
       params.set("paged", "true");
       if (recentDateMode === "single") {
-        params.set("date_from", recentDate);
-        params.set("date_to", recentDate);
+        if (recentDate) {
+          params.set("date_from", recentDate);
+          params.set("date_to", recentDate);
+        }
       } else {
-        params.set("date_from", recentDateFrom);
-        params.set("date_to", recentDateTo);
+        if (recentDateFrom) params.set("date_from", recentDateFrom);
+        if (recentDateTo) params.set("date_to", recentDateTo);
       }
       if (recentSearch.trim()) params.set("q", recentSearch.trim());
       const result = await apiCall(`/api/sales?${params.toString()}`);
@@ -1515,7 +1517,14 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
           dateFrom={recentDateFrom}
           dateTo={recentDateTo}
           search={recentSearch}
-          onDateModeChange={(value) => { setRecentDateMode(value); setSaleListPage(1); }}
+          onDateModeChange={(value) => {
+            setRecentDateMode(value);
+            if (value === "range") {
+              setRecentDateFrom("");
+              setRecentDateTo("");
+            }
+            setSaleListPage(1);
+          }}
           onDateChange={(value) => { setRecentDate(value); setSaleListPage(1); }}
           onDateFromChange={(value) => { setRecentDateFrom(value); setSaleListPage(1); }}
           onDateToChange={(value) => { setRecentDateTo(value); setSaleListPage(1); }}
