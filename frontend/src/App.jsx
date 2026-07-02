@@ -4400,8 +4400,7 @@ function SalesHistoryPage({ data, apiCall, onError }) {
     ["discount_amount", "Discount Amount"],
     ["total_payable", "Total Payable"],
     ["paid", "Paid"],
-    ["due", "Due(s)"],
-    ["change_returned", "Change Returned"],
+    ["profit", "Profit"],
     ["actions", "Action"],
   ];
   return (
@@ -4890,7 +4889,7 @@ function ReportPage({ title, radios, inputs, rows, columns, render, printFormatV
     const grossSales = displayRows.reduce((sum, row) => sum + Number(row.total_amount || 0), 0);
     const totalDiscount = displayRows.reduce((sum, row) => sum + Number(row.discount_amount || 0), 0);
     const netSales = displayRows.reduce((sum, row) => sum + Number(row.total_payable || 0), 0);
-    const totalCost = displayRows.reduce((sum, row) => sum + (row.items || []).reduce((itemSum, item) => itemSum + Number(item.cost_price || 0) * Number(item.total_qty || 0), 0), 0);
+    const totalCost = displayRows.reduce((sum, row) => sum + saleRowCost(row), 0);
     const pending = displayRows.reduce((sum, row) => sum + Number(row.due || 0), 0);
     return { grossSales, totalDiscount, netSales, totalCost, netRevenue: netSales - totalCost, pending };
   }, [displayRows]);
@@ -5305,6 +5304,15 @@ function formatCell(value) {
   return String(value);
 }
 
+function saleRowCost(row) {
+  if (row.reference_cost_amount != null) return Number(row.reference_cost_amount || 0);
+  return (row.items || []).reduce((sum, item) => sum + Number(item.cost_price || 0) * Number(item.total_qty || 0), 0);
+}
+
+function saleRowProfit(row) {
+  return Number(row.total_payable || 0) - saleRowCost(row);
+}
+
 function formatSalesHistoryCell(row, key) {
   const referenceDisplay = {
     total_amount: "reference_total_amount_display",
@@ -5317,6 +5325,7 @@ function formatSalesHistoryCell(row, key) {
   }[key];
   if (referenceDisplay && row[referenceDisplay] != null) return row[referenceDisplay];
   if (key === "total_amount") return formatHistoryCompactAmount(row[key]);
+  if (key === "profit") return formatHistoryFixedAmount(saleRowProfit(row));
   if (["discount_percent", "discount_amount", "total_payable", "paid", "due", "change_returned"].includes(key)) return formatHistoryFixedAmount(row[key]);
   return formatCell(row[key]);
 }
@@ -5660,7 +5669,7 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
       <td>${htmlEscape(rupeesDisplay(row.reference_discount_amount_display, row.discount_amount || 0))}</td>
       <td>${htmlEscape(rupeesDisplay(row.reference_total_payable_display, row.total_payable || 0))}</td>
       <td>${htmlEscape(rupeesDisplay(row.reference_paid_display, row.paid || 0))}</td>
-      <td>${htmlEscape(rupeesDisplay(row.reference_due_display, row.due || 0))}</td>
+      <td>${htmlEscape(rupees(saleRowProfit(row)))}</td>
     </tr>`).join("")
     : `<tr><td colspan="8">No Data Found</td></tr>`;
   printWindow.document.write(`<!doctype html>
@@ -5699,7 +5708,7 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
           <div></div>
         </div>
         <table>
-          <thead><tr><th>Invoice Number</th><th>Date</th><th>Total Amt</th><th>Discount (%)</th><th>Discount Amt</th><th>Total Payable</th><th>Paid</th><th>Due(s)</th></tr></thead>
+          <thead><tr><th>Invoice Number</th><th>Date</th><th>Total Amt</th><th>Discount (%)</th><th>Discount Amt</th><th>Total Payable</th><th>Paid</th><th>Profit</th></tr></thead>
           <tbody>${tableRows}</tbody>
         </table>
         <div class="totals">
