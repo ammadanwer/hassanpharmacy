@@ -562,6 +562,14 @@ export default function App() {
     }
   }
 
+  async function onForgotPassword(identifier) {
+    return api("/api/auth/forgot-password", { method: "POST", body: JSON.stringify({ identifier }) });
+  }
+
+  async function onResetPassword(payload) {
+    return api("/api/auth/reset-password", { method: "POST", body: JSON.stringify(payload) });
+  }
+
   function logout() {
     clearSession();
     setToken("");
@@ -572,7 +580,7 @@ export default function App() {
   }
 
   if (!token) {
-    return <AuthScreen notice={notice} onLogin={onLogin} onRegister={onRegister} />;
+    return <AuthScreen notice={notice} onLogin={onLogin} onRegister={onRegister} onForgotPassword={onForgotPassword} onResetPassword={onResetPassword} />;
   }
 
   if (route === "not-found") {
@@ -809,22 +817,62 @@ function Brand({ compact = false }) {
   );
 }
 
-function AuthScreen({ notice, onLogin, onRegister }) {
+function AuthScreen({ notice, onLogin, onRegister, onForgotPassword, onResetPassword }) {
   const [mode, setMode] = useState("login");
   const [login, setLogin] = useState({ username: "", password: "" });
   const [register, setRegister] = useState({ name: "", email: "", password: "", role: "owner" });
-  const [forgot, setForgot] = useState({ identifier: "", error: "", sent: false });
+  const [forgot, setForgot] = useState({ identifier: "", code: "", newPassword: "", verifyPassword: "", error: "", message: "", resetCode: "", step: "request", done: false, loading: false });
   function showMode(nextMode) {
     setMode(nextMode);
-    if (nextMode !== "forgot") setForgot({ identifier: "", error: "", sent: false });
+    if (nextMode !== "forgot") setForgot({ identifier: "", code: "", newPassword: "", verifyPassword: "", error: "", message: "", resetCode: "", step: "request", done: false, loading: false });
   }
-  function submitForgot(event) {
+  async function submitForgot(event) {
     event.preventDefault();
     if (!forgot.identifier.trim()) {
-      setForgot((current) => ({ ...current, error: "Email or Phone number is required", sent: false }));
+      setForgot((current) => ({ ...current, error: "Email or Phone number is required", message: "", resetCode: "" }));
       return;
     }
-    setForgot((current) => ({ ...current, error: "", sent: true }));
+    if (forgot.step === "request") {
+      setForgot((current) => ({ ...current, error: "", loading: true }));
+      try {
+        const response = await onForgotPassword(forgot.identifier.trim());
+        setForgot((current) => ({
+          ...current,
+          code: "",
+          error: "",
+          loading: false,
+          message: response.message || "If this account exists, a reset code has been generated.",
+          resetCode: response.reset_code || "",
+          step: "reset",
+        }));
+      } catch (error) {
+        setForgot((current) => ({ ...current, error: error.message, loading: false }));
+      }
+      return;
+    }
+    if (!forgot.code.trim()) {
+      setForgot((current) => ({ ...current, error: "Reset code is required" }));
+      return;
+    }
+    if (forgot.newPassword.length < 6) {
+      setForgot((current) => ({ ...current, error: "New password must be at least 6 characters" }));
+      return;
+    }
+    if (forgot.newPassword !== forgot.verifyPassword) {
+      setForgot((current) => ({ ...current, error: "New password and verification do not match" }));
+      return;
+    }
+    setForgot((current) => ({ ...current, error: "", loading: true }));
+    try {
+      await onResetPassword({
+        identifier: forgot.identifier.trim(),
+        code: forgot.code.trim(),
+        new_password: forgot.newPassword,
+      });
+      setForgot((current) => ({ ...current, done: true, error: "", loading: false, message: "Password has been reset. You can login now." }));
+    } catch (error) {
+      setForgot((current) => ({ ...current, error: error.message, loading: false }));
+    }
   }
   return (
     <div className="auth-screen">
@@ -859,14 +907,25 @@ function AuthScreen({ notice, onLogin, onRegister }) {
             <label className={`auth-floating-field ${forgot.error ? "has-error" : ""}`}>
               <span>Mobile Number or Email</span>
               <input
+                disabled={forgot.step !== "request" || forgot.loading || forgot.done}
                 aria-invalid={Boolean(forgot.error)}
                 value={forgot.identifier}
-                onChange={(event) => setForgot({ identifier: event.target.value, error: "", sent: false })}
+                onChange={(event) => setForgot((current) => ({ ...current, identifier: event.target.value, error: "", message: "", resetCode: "" }))}
               />
-              {forgot.error ? <small>{forgot.error}</small> : null}
+              {forgot.step === "request" && forgot.error ? <small>{forgot.error}</small> : null}
             </label>
-            {forgot.sent ? <div className="forgot-success">If this account exists, password reset instructions will be sent.</div> : <div className="forgot-spacer" />}
-            <button className="primary" type="submit">Continue</button>
+            {forgot.step === "reset" && !forgot.done ? <>
+              {forgot.resetCode ? <div className="forgot-success">Reset code: {forgot.resetCode}</div> : <div className="forgot-success">{forgot.message}</div>}
+              <label className={`auth-floating-field ${forgot.error ? "has-error" : ""}`}>
+                <span>Reset Code</span>
+                <input value={forgot.code} disabled={forgot.loading} onChange={(event) => setForgot((current) => ({ ...current, code: event.target.value, error: "" }))} />
+                {forgot.error ? <small>{forgot.error}</small> : null}
+              </label>
+              <AuthPasswordInput placeholder="New Password" value={forgot.newPassword} onChange={(value) => setForgot((current) => ({ ...current, newPassword: value, error: "" }))} />
+              <AuthPasswordInput placeholder="Verify Password" value={forgot.verifyPassword} onChange={(value) => setForgot((current) => ({ ...current, verifyPassword: value, error: "" }))} />
+            </> : null}
+            {forgot.done ? <div className="forgot-success">{forgot.message}</div> : forgot.step === "request" ? <div className="forgot-spacer" /> : null}
+            {forgot.done ? <button className="primary" type="button" onClick={() => showMode("login")}>Login</button> : <button className="primary" type="submit" disabled={forgot.loading}>{forgot.loading ? "Please wait..." : forgot.step === "request" ? "Continue" : "Reset Password"}</button>}
             <p>Don't have an account yet? <button className="link-button" type="button" onClick={() => showMode("register")}>Signup</button></p>
           </form>
         )}

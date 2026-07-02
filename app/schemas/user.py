@@ -63,3 +63,18 @@ class ChangePassword(BaseModel):
 class StaffPasswordChange(BaseModel):
     current_password: str
     new_password: str = Field(min_length=6)
+
+
+class ForgotPasswordRequest(BaseModel):
+    identifier: str
+
+
+class ForgotPasswordResponse(BaseModel):
+    message: str
+    reset_code: Optional[str] = None
+
+
+class ResetPasswordRequest(BaseModel):
+    identifier: str
+    code: str
+    new_password: str = Field(min_length=6)

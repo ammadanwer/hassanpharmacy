@@ -21,6 +21,7 @@ from app.models import (
     expense_category,
     manufacturer,
     medicine_formula,
+    password_reset,
     pharmacy_profile,
     product,
     purchase_order,

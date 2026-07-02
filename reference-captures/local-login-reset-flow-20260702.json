@@ -1,0 +1,181 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Login",
+    "Signup"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "admin@hassanpharmacy.test.com",
+      "text": ""
+    }
+  ],
+  "headers": [],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nForgot Password?\nPlease enter the number associated with your account\nMobile Number or Email\nPassword has been reset. You can login now.\nLogin\n\nDon't have an account yet? Signup",
+  "evalResults": {
+    "beforeClickFile": {
+      "codePresent": true,
+      "states": [
+        {
+          "label": "login",
+          "url": "http://127.0.0.1:5173/",
+          "headings": [],
+          "buttons": [
+            "Show password",
+            "Login",
+            "Forgot Password ?",
+            "Signup"
+          ],
+          "inputs": [
+            {
+              "type": "radio",
+              "placeholder": "",
+              "value": "on",
+              "disabled": false,
+              "invalid": ""
+            },
+            {
+              "type": "radio",
+              "placeholder": "",
+              "value": "on",
+              "disabled": false,
+              "invalid": ""
+            },
+            {
+              "type": "text",
+              "placeholder": "Mobile Number or Email",
+              "value": "",
+              "disabled": false,
+              "invalid": ""
+            },
+            {
+              "type": "password",
+              "placeholder": "Password",
+              "value": "********",
+              "disabled": false,
+              "invalid": ""
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Owner / Admin Staff Login Forgot Password ? Don't have an account yet? Signup"
+        },
+        {
+          "label": "forgot-empty",
+          "url": "http://127.0.0.1:5173/",
+          "headings": [
+            "Forgot Password?"
+          ],
+          "buttons": [
+            "Continue",
+            "Signup"
+          ],
+          "inputs": [
+            {
+              "type": "text",
+              "placeholder": "",
+              "value": "",
+              "disabled": false,
+              "invalid": "false"
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Forgot Password? Please enter the number associated with your account Mobile Number or Email Continue Don't have an account yet? Signup",
+          "forgotClicked": true
+        },
+        {
+          "label": "forgot-empty-validation",
+          "url": "http://127.0.0.1:5173/",
+          "headings": [
+            "Forgot Password?"
+          ],
+          "buttons": [
+            "Continue",
+            "Signup"
+          ],
+          "inputs": [
+            {
+              "type": "text",
+              "placeholder": "",
+              "value": "",
+              "disabled": false,
+              "invalid": "true"
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Forgot Password? Please enter the number associated with your account Mobile Number or Email Email or Phone number is required Continue Don't have an account yet? Signup",
+          "emptyContinue": true
+        },
+        {
+          "label": "reset-code",
+          "url": "http://127.0.0.1:5173/",
+          "headings": [
+            "Forgot Password?"
+          ],
+          "buttons": [
+            "Show password",
+            "Show password",
+            "Reset Password",
+            "Signup"
+          ],
+          "inputs": [
+            {
+              "type": "text",
+              "placeholder": "",
+              "value": "admin@hassanpharmacy.test.com",
+              "disabled": true,
+              "invalid": "false"
+            },
+            {
+              "type": "text",
+              "placeholder": "",
+              "value": "",
+              "disabled": false,
+              "invalid": ""
+            },
+            {
+              "type": "password",
+              "placeholder": "New Password",
+              "value": "********",
+              "disabled": false,
+              "invalid": ""
+            },
+            {
+              "type": "password",
+              "placeholder": "Verify Password",
+              "value": "********",
+              "disabled": false,
+              "invalid": ""
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Forgot Password? Please enter the number associated with your account Mobile Number or Email Reset code: 104248 Reset Code Reset Password Don't have an account yet? Signup",
+          "requestClicked": true,
+          "codePresent": true
+        },
+        {
+          "label": "reset-done",
+          "url": "http://127.0.0.1:5173/",
+          "headings": [
+            "Forgot Password?"
+          ],
+          "buttons": [
+            "Login",
+            "Signup"
+          ],
+          "inputs": [
+            {
+              "type": "text",
+              "placeholder": "",
+              "value": "admin@hassanpharmacy.test.com",
+              "disabled": true,
+              "invalid": "false"
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Forgot Password? Please enter the number associated with your account Mobile Number or Email Password has been reset. You can login now. Login Don't have an account yet? Signup",
+          "resetClicked": true
+        }
+      ]
+    }
+  }
+}
