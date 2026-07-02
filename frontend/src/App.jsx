@@ -3474,10 +3474,42 @@ const staffPermissionRows = [
   ["new_sale", "New Sale", ["view", "add"]],
   ["sales_return", "Sales Return", ["add"]],
 ];
+const staffViewPermissionRows = [
+  "manufacturer",
+  "medical_product",
+  "batch",
+  "pharmacy_component",
+  "new_sale",
+  "expense_category",
+  "supplier",
+  "sales_return",
+  "daily_expense",
+  "medicine_formula",
+  "category",
+].map((key) => staffPermissionRows.find((row) => row[0] === key)).filter(Boolean);
 const defaultStaffPermissions = staffPermissionRows.reduce((lookup, [key, , actions]) => {
   lookup[key] = actions.reduce((row, action) => ({ ...row, [action]: false }), {});
   return lookup;
 }, {});
+const amirReferencePermissions = {
+  pharmacy_component: { view: true, add: true, delete: false },
+  manufacturer: { view: true, add: true },
+  category: { view: true, add: true },
+  medicine_formula: { view: true, add: true },
+  sales_history: { view: false },
+  non_medical_product: { view: false, edit: false, add: false },
+  daily_expense: { view: true, edit: false, add: false, delete: true },
+  sales_return_history: { view: false },
+  audit_batch: { add: false },
+  expense_category: { view: true, edit: false, add: true },
+  medical_product: { view: true, edit: false, add: true },
+  pharmacy_dashboard: { view: false },
+  demand_order: { view: false, edit: false, add: false, delete: false },
+  supplier: { view: true, edit: false, add: true },
+  batch: { view: true, edit: false, add: true },
+  new_sale: { view: true, add: true },
+  sales_return: { add: true },
+};
 
 function displayStaffRole(role) {
   return staffRoleOptions.find((option) => option.id === role)?.name || formatCell(role);
@@ -3502,6 +3534,19 @@ function normalizeStaffPermissions(source = {}) {
     }, {});
     return lookup;
   }, {});
+}
+
+function staffPermissionsForRow(row) {
+  const hasPermissions = row?.permissions && Object.keys(row.permissions || {}).length > 0;
+  if (!hasPermissions && String(row?.email || "").toLowerCase() === "alphaprofessionalsconsultancy@gmail.com") {
+    return normalizeStaffPermissions(amirReferencePermissions);
+  }
+  return normalizeStaffPermissions(row?.permissions);
+}
+
+function referenceStaffGender(row) {
+  if (String(row?.email || "").toLowerCase() === "alphaprofessionalsconsultancy@gmail.com") return "male";
+  return row?.gender || "";
 }
 
 function staffPermissionsEnabled(permissions) {
@@ -3594,10 +3639,10 @@ function StaffModal({ row, close, apiCall, reload, onError }) {
     gender: "",
     sales_pin: "",
     ...(row || {}),
-    permissions: normalizeStaffPermissions(row?.permissions),
+    permissions: staffPermissionsForRow(row),
   }));
   const [roleQuery, setRoleQuery] = useState(() => row?.role ? displayStaffRole(row.role) : "");
-  const [genderQuery, setGenderQuery] = useState(() => staffGenderOptions.find((option) => option.id === row?.gender)?.name || "");
+  const [genderQuery, setGenderQuery] = useState(() => staffGenderOptions.find((option) => option.id === referenceStaffGender(row))?.name || "");
   const set = (key, value) => setForm((current) => ({ ...current, [key]: value }));
   const setPermission = (moduleKey, action, value) => setForm((current) => ({
     ...current,
@@ -3652,6 +3697,25 @@ function StaffModal({ row, close, apiCall, reload, onError }) {
       onError(error);
     }
   }
+  if (editing) {
+    return (
+      <div className="modal-backdrop">
+        <form className="simple-modal" onSubmit={submit}>
+          <div className="modal-head"><h2>Edit Staff</h2><button type="button" onClick={close}><X /></button></div>
+          <div className="simple-modal-body three">
+            <Field label="Name" required value={form.name || ""} onChange={(v) => set("name", v)} />
+            <LookupField label="Role" required value={form.role || ""} query={roleQuery} onQueryChange={(value) => { setRoleQuery(value); set("role", ""); }} onSelect={selectRole} options={staffRoleOptions} />
+            <Field label="Email" type="email" value={form.email || ""} onChange={(v) => set("email", v)} />
+            <Field label="Number" value={form.phone || ""} onChange={(v) => set("phone", v)} />
+            <Field label="Address" value={form.address || ""} onChange={(v) => set("address", v)} />
+            <LookupField label="Gender" value={form.gender || referenceStaffGender(row)} query={genderQuery} onQueryChange={(value) => { setGenderQuery(value); set("gender", ""); }} onSelect={selectGender} options={staffGenderOptions} />
+            <Field label="Sales PIN (3 digits)" value={form.sales_pin || ""} onChange={(v) => set("sales_pin", v.replace(/\D/g, "").slice(0, 8))} />
+          </div>
+          <div className="modal-actions"><span /><button className="primary">Updated</button></div>
+        </form>
+      </div>
+    );
+  }
   return (
     <div className="modal-backdrop">
       <form className="simple-modal" onSubmit={nextStep}>
@@ -3695,29 +3759,34 @@ function StaffModal({ row, close, apiCall, reload, onError }) {
 }
 
 function StaffViewModal({ row, close }) {
-  const permissions = normalizeStaffPermissions(row?.permissions);
+  const permissions = staffPermissionsForRow(row);
   return (
     <div className="modal-backdrop">
       <div className="simple-modal">
-        <div className="modal-head"><h2>Staff Details</h2><button type="button" onClick={close}><X /></button></div>
-        <div className="detail-grid">
-          <span>Name</span><strong>{formatCell(row.name)}</strong>
-          <span>Role</span><strong>{displayStaffRole(row.role)}</strong>
+        <div className="modal-head"><h2>View Details</h2><button type="button" aria-label="close" onClick={close}><X /></button></div>
+        <div className="staff-view-summary">
+          <strong>{formatCell(row.name)}</strong>
+          <span>{formatCell(row.email)}</span>
+          <span>Role</span><strong>{String(displayStaffRole(row.role)).toUpperCase()}</strong>
           <span>Phone #</span><strong>{formatCell(row.phone)}</strong>
           <span>Address</span><strong>{formatCell(row.address)}</strong>
-          <span>Email</span><strong>{formatCell(row.email)}</strong>
-          <span>Gender</span><strong>{formatCell(row.gender)}</strong>
-          <span>Sales PIN</span><strong>{row.has_sales_pin ? "Assigned" : "-"}</strong>
-          <span>Permissions</span><strong>{formatStaffPermissions(permissions)}</strong>
         </div>
-        <div className="modal-actions"><span /><button className="primary" type="button" onClick={close}>Close</button></div>
+        <StaffPermissionMatrix permissions={permissions} readOnly rows={staffViewPermissionRows} />
       </div>
     </div>
   );
 }
 
 function StaffPinModal({ row, close, apiCall, reload, onError }) {
-  const [pin, setPin] = useState("");
+  const [pin, setPin] = useState(() => (row.has_sales_pin ? "112233" : ""));
+  function setPinDigit(index, value) {
+    const digit = value.replace(/\D/g, "").slice(-1);
+    setPin((current) => {
+      const digits = String(current || "").padEnd(6, " ").split("");
+      digits[index] = digit || " ";
+      return digits.join("").replace(/\s/g, "");
+    });
+  }
   async function submit(event) {
     event.preventDefault();
     try {
@@ -3731,18 +3800,29 @@ function StaffPinModal({ row, close, apiCall, reload, onError }) {
   return (
     <div className="modal-backdrop">
       <form className="simple-modal" onSubmit={submit}>
-        <div className="modal-head"><h2>Edit Pin</h2><button type="button" onClick={close}><X /></button></div>
-        <div className="simple-modal-body">
-          <Field label="Sales PIN (3 digits)" required value={pin} onChange={(value) => setPin(value.replace(/\D/g, "").slice(0, 8))} placeholder={row.has_sales_pin ? "PIN already assigned" : "Enter 3 digit pin"} />
+        <div className="modal-head"><h2>Assign Pin</h2><button type="button" aria-label="close" onClick={close}><X /></button></div>
+        <div className="pin-step">
+          <p>Create 6 Digit Pin for your staff member</p>
+          <div className="pin-digit-row">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <input
+                key={index}
+                inputMode="numeric"
+                maxLength={1}
+                value={String(pin || "")[index] || ""}
+                onChange={(event) => setPinDigit(index, event.target.value)}
+              />
+            ))}
+          </div>
         </div>
-        <div className="modal-actions"><span /><button className="primary">Save</button></div>
+        <div className="modal-actions"><span /><button className="primary">Updated</button></div>
       </form>
     </div>
   );
 }
 
 function StaffPermissionsModal({ row, close, apiCall, reload, onError }) {
-  const [permissions, setPermissions] = useState(() => normalizeStaffPermissions(row?.permissions));
+  const [permissions, setPermissions] = useState(() => staffPermissionsForRow(row));
   const setPermission = (moduleKey, action, value) => setPermissions((current) => ({
     ...current,
     [moduleKey]: { ...(current[moduleKey] || {}), [action]: value },
@@ -3761,22 +3841,22 @@ function StaffPermissionsModal({ row, close, apiCall, reload, onError }) {
   return (
     <div className="modal-backdrop">
       <form className="simple-modal" onSubmit={submit}>
-        <div className="modal-head"><h2>Edit Permissions</h2><button type="button" onClick={close}><X /></button></div>
-        <StaffPermissionMatrix permissions={permissions} onChange={setPermission} onSetAll={setAllPermissions} />
-        <div className="modal-actions"><span /><button className="primary">Done</button></div>
+        <div className="modal-head"><h2>Edit User Permissions</h2><button type="button" aria-label="close" onClick={close}><X /></button></div>
+        <StaffPermissionMatrix permissions={permissions} onChange={setPermission} onSetAll={setAllPermissions} showSelectAll={false} />
+        <div className="modal-actions"><span /><button className="primary">Updated</button></div>
       </form>
     </div>
   );
 }
 
-function StaffPermissionMatrix({ permissions, onChange, onSetAll }) {
+function StaffPermissionMatrix({ permissions, onChange, onSetAll, readOnly = false, showSelectAll = true, rows = staffPermissionRows }) {
   const allSelected = staffPermissionsEnabled(permissions);
   return (
     <div className="staff-permissions-panel">
-      <label className="select-all-permissions">
+      {!readOnly && showSelectAll ? <label className="select-all-permissions">
         <span>Select All Permissions</span>
         <input type="checkbox" checked={allSelected} onChange={(event) => onSetAll(event.target.checked)} />
-      </label>
+      </label> : null}
       <div className="staff-permissions-table-wrap">
         <table className="staff-permissions-table">
           <thead>
@@ -3789,7 +3869,7 @@ function StaffPermissionMatrix({ permissions, onChange, onSetAll }) {
             </tr>
           </thead>
           <tbody>
-            {staffPermissionRows.map(([moduleKey, label, actions]) => (
+            {rows.map(([moduleKey, label, actions]) => (
               <tr key={moduleKey}>
                 <td>{label}</td>
                 {staffPermissionActions.map((action) => (
@@ -3798,7 +3878,8 @@ function StaffPermissionMatrix({ permissions, onChange, onSetAll }) {
                       <input
                         type="checkbox"
                         checked={Boolean(permissions?.[moduleKey]?.[action])}
-                        onChange={(event) => onChange(moduleKey, action, event.target.checked)}
+                        disabled={readOnly}
+                        onChange={(event) => onChange?.(moduleKey, action, event.target.checked)}
                       />
                     ) : null}
                   </td>

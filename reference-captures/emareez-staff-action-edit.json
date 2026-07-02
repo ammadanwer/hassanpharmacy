@@ -1,0 +1,334 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/staff-management",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [
+    "Edit Staff"
+  ],
+  "buttons": [
+    "Add Staff",
+    "Add New Sale",
+    "show more",
+    "close",
+    "Updated"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Amir",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "3",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "email",
+      "placeholder": "",
+      "value": "alphaprofessionalsconsultancy@gmail.com",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "05154945800",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "1",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Role",
+      "Phone #",
+      "Address",
+      "Email",
+      "Actions"
+    ]
+  ],
+  "text": "​\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\n\nAmir\n\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\n\nhaseeb\n\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\n\niqbal\n\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\n\nYasir\n\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\n\nYasir\n\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\n\nShehzad Ali\n\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\n\nytdtdty\n\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\n\ndr bilal\n\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\n\nMansoor\n\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\n\nSherry\n\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\n\nStaff M\n\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\n\nmat",
+  "evalResults": {
+    "beforeClickFile": {
+      "label": "Edit",
+      "clicked": true,
+      "before": {
+        "bodyText": "​\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\n\nAmir\n\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\n\nhaseeb\n\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\n\niqbal\n\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\n\nYasir\n\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\n\nYasir\n\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\n\nShehzad Ali\n\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\n\nytdtdty\n\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\n\ndr bilal\n\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\n\nMansoor\n\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\n\nSherry\n\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\n\nStaff M\n\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\n\nmateen\n\tManager\t03210001111\t-\tmateen@gmail.com\t\n\n\nMaham Fatima\n\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\n\n\ngghjh\n\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\n\n\nHaris\n\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\n\n\nWaleed\n\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+        "tables": [
+          {
+            "headers": [
+              "Name",
+              "Role",
+              "Phone #",
+              "Address",
+              "Email",
+              "Actions"
+            ],
+            "rows": [
+              [
+                "Amir",
+                "Manager",
+                "05154945800",
+                "-",
+                "alphaprofessionalsconsultancy@gmail.com",
+                ""
+              ],
+              [
+                "haseeb",
+                "Pharmacist",
+                "03211111111",
+                "-",
+                "hassanpharmacy344@gmail.com",
+                ""
+              ],
+              [
+                "iqbal",
+                "Stock_manager",
+                "03087940516",
+                "-",
+                "hassanpharmacy040@gmail.com",
+                ""
+              ],
+              [
+                "Yasir",
+                "Manager",
+                "03084452646",
+                "-",
+                "hackerbaby323@gmail.com",
+                ""
+              ],
+              [
+                "Yasir",
+                "Manager",
+                "03486100540",
+                "Moreminabad",
+                "ygoraya11@gmail.com",
+                ""
+              ],
+              [
+                "Shehzad Ali",
+                "Manager",
+                "03300119805",
+                "DHA phase 2 extension",
+                "shehzad.ali@madadd.pk",
+                ""
+              ],
+              [
+                "ytdtdty",
+                "Pharmacist",
+                "03545458547",
+                "yuhi",
+                "123@gmail.com",
+                ""
+              ],
+              [
+                "dr bilal",
+                "Technician",
+                "03042917850",
+                "hunaiz pharmacy jdw road sadiqabad ryk",
+                "ba6955593@gmail.com",
+                ""
+              ]
+            ]
+          }
+        ],
+        "actionCellHtml": "<td class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1fj6kt4\"><div class=\"MuiBox-root css-q2t03p\"><div class=\"MuiBox-root css-1picw6c\"><img width=\"18px\" height=\"18px\" src=\"/pms/static/media/ViewIcon.346556b38fc10c0a7d23d140daab060f.svg\" alt=\"View\" aria-label=\"View\" class=\"\" style=\"cursor: pointer; width: 16px; height: 16px;\"></div><div class=\"MuiBox-root css-1picw6c\"><img width=\"18px\" height=\"18px\" src=\"/pms/static/media/edit.93e1932745f2dfa83c173fbbc460fa18.svg\" alt=\"Edit\" aria-label=\"Edit\" class=\"\" style=\"cursor: pointer; width: 16px; height: 16px;\"></div><img width=\"18px\" height=\"18px\" src=\"/pms/static/media/RedIcon.892bac1dc64233d664ae5c32ff88f89b.svg\" alt=\"Block\" aria-label=\"Block\" class=\"\" style=\"cursor: pointer;\"><div class=\"MuiBox-root css-1picw6c\"><img width=\"18px\" height=\"18px\" src=\"/pms/static/media/pinicon.194bf3179767ccb33a122cad57647478.svg\" alt=\"Edit Pin\" aria-label=\"Edit Pin\" class=\"\" style=\"cursor: pointer; width: 16px; height: 16px;\"></div><div class=\"MuiBox-root css-1picw6c\"><img width=\"18px\" height=\"18px\" src=\"/pms/static/media/keyIcon.c1473ea91aea21b2109864f4e2a772f0.svg\" alt=\"Edit Permissions\" aria-label=\"Edit Permissions\" class=\"\" style=\"cursor: pointer; width: 16px; height: 16px;\"></div></div></td>"
+      },
+      "after": {
+        "bodyText": "​\nAdd Staff\nName\tRole\tPhone #\tAddress\tEmail\tActions\n\nAmir\n\tManager\t05154945800\t-\talphaprofessionalsconsultancy@gmail.com\t\n\n\nhaseeb\n\tPharmacist\t03211111111\t-\thassanpharmacy344@gmail.com\t\n\n\niqbal\n\tStock_manager\t03087940516\t-\thassanpharmacy040@gmail.com\t\n\n\nYasir\n\tManager\t03084452646\t-\thackerbaby323@gmail.com\t\n\n\nYasir\n\tManager\t03486100540\tMoreminabad\tygoraya11@gmail.com\t\n\n\nShehzad Ali\n\tManager\t03300119805\tDHA phase 2 extension\tshehzad.ali@madadd.pk\t\n\n\nytdtdty\n\tPharmacist\t03545458547\tyuhi\t123@gmail.com\t\n\n\ndr bilal\n\tTechnician\t03042917850\thunaiz pharmacy jdw road sadiqabad ryk\tba6955593@gmail.com\t\n\n\nMansoor\n\tPharmacist\t03346713888\tewwdw\tmansoorjutt5@gmail.com\t\n\n\nSherry\n\tStock_manager\t03200035336\tFaisalabad\tnigivig922@djkux.com\t\n\n\nStaff M\n\tPharmacist\t00006777777\t00\tshahidjaveed78@gmail.com\t\n\n\nmateen\n\tManager\t03210001111\t-\tmateen@gmail.com\t\n\n\nMaham Fatima\n\tPharmacist\t03217225937\tTariq Bin Zaid Colony Sahiwal Street 7 h\tmahamshahid1221@gmail.com\t\n\n\ngghjh\n\tPharmacist\t03331474147\t-\tgghhh@gmail.com\t\n\n\nHaris\n\tManager\t03025088035\tSafari valley , Bahria Town Phase 8\thaseebkiani511@gmail.com\t\n\n\nWaleed\n\tPharmacist\t03088088866\tD-12 Islamabad\tqdata815@gmail.com\t\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nEdit Staff\nName\n​\nRole\nManager\n​\nEmail\n​\nNumber\n​\nAddress\n​\nGender\nMale\n​\nSales PIN (3 digits)\n​\nUpdated",
+        "headings": [
+          "Edit Staff"
+        ],
+        "headingContexts": [
+          {
+            "heading": "Edit Staff",
+            "context": "​ Add Staff Name Role Phone # Address Email Actions Amir Manager 05154945800 - alphaprofessionalsconsultancy@gmail.com haseeb Pharmacist 03211111111 - hassanpharmacy344@gmail.com iqbal Stock_manager 03087940516 - hassanpharmacy040@gmail.com Yasir Manager 03084452646 - hackerbaby323@gmail.com Yasir Manager 03486100540 Moreminabad ygoraya11@gmail.com Shehzad Ali Manager 03300119805 DHA phase 2 extension shehzad.ali@madadd.pk ytdtdty Pharmacist 03545458547 yuhi 123@gmail.com dr bilal Technician 03042917850 hunaiz pharmacy jdw road sadiqabad ryk ba6955593@gmail.com Mansoor Pharmacist 03346713888 ewwdw mansoorjutt5@gmail.com Sherry Stock_manager 03200035336 Faisalabad nigivig922@djkux.com Staff M Pharmacist 00006777777 00 shahidjaveed78@gmail.com mateen Manager 03210001111 - mateen@gmail.com Maham Fatima Pharmacist 03217225937 Tariq Bin Zaid Colony Sahiwal Street 7 h mahamshahid1221@gmail.com gghjh Pharmacist 03331474147 - gghhh@gmail.com Haris Manager 03025088035 Safari valley , Bahria Town Phase 8 haseebkiani511@gmail.com Waleed Pharmacist 03088088866 D-12 Islamabad qdata815@gmail.com Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Edit Staff Name ​ Role Manager ​ Email ​ Number ​ Address ​ Gender Male ​ Sales PIN (3 digits) ​ Updated"
+          }
+        ],
+        "buttons": [
+          "Add Staff",
+          "Add New Sale",
+          "show more",
+          "Dashboard",
+          "Sales",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "close",
+          "Updated"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search Name",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "Amir",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "3",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "email",
+            "placeholder": "",
+            "value": "alphaprofessionalsconsultancy@gmail.com",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "05154945800",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "1",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          }
+        ],
+        "tables": [
+          {
+            "headers": [
+              "Name",
+              "Role",
+              "Phone #",
+              "Address",
+              "Email",
+              "Actions"
+            ],
+            "rows": [
+              [
+                "Amir",
+                "Manager",
+                "05154945800",
+                "-",
+                "alphaprofessionalsconsultancy@gmail.com",
+                ""
+              ],
+              [
+                "haseeb",
+                "Pharmacist",
+                "03211111111",
+                "-",
+                "hassanpharmacy344@gmail.com",
+                ""
+              ],
+              [
+                "iqbal",
+                "Stock_manager",
+                "03087940516",
+                "-",
+                "hassanpharmacy040@gmail.com",
+                ""
+              ],
+              [
+                "Yasir",
+                "Manager",
+                "03084452646",
+                "-",
+                "hackerbaby323@gmail.com",
+                ""
+              ],
+              [
+                "Yasir",
+                "Manager",
+                "03486100540",
+                "Moreminabad",
+                "ygoraya11@gmail.com",
+                ""
+              ],
+              [
+                "Shehzad Ali",
+                "Manager",
+                "03300119805",
+                "DHA phase 2 extension",
+                "shehzad.ali@madadd.pk",
+                ""
+              ],
+              [
+                "ytdtdty",
+                "Pharmacist",
+                "03545458547",
+                "yuhi",
+                "123@gmail.com",
+                ""
+              ],
+              [
+                "dr bilal",
+                "Technician",
+                "03042917850",
+                "hunaiz pharmacy jdw road sadiqabad ryk",
+                "ba6955593@gmail.com",
+                ""
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
