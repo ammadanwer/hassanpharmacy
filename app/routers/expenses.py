@@ -18,19 +18,39 @@ def _pdf_escape(value: object) -> str:
     return str(value or "").replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
 
 
+def _truncate(value: object, length: int) -> str:
+    text = " ".join(str(value or "-").split())
+    return text if len(text) <= length else f"{text[:max(0, length - 1)]}..."
+
+
 def _text_pdf(lines: list[str]) -> bytes:
-    content_lines = ["BT", "/F1 18 Tf", "72 760 Td", f"({_pdf_escape(lines[0])}) Tj", "/F1 12 Tf"]
-    for line in lines[1:34]:
-        content_lines.extend(["0 -28 Td", f"({_pdf_escape(line)}) Tj"])
-    content_lines.append("ET")
-    stream = "\n".join(content_lines).encode("latin-1", "replace")
+    return _text_pages_pdf([lines])
+
+
+def _text_pages_pdf(pages: list[list[str]]) -> bytes:
     objects = [
         b"<< /Type /Catalog /Pages 2 0 R >>",
-        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
-        b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>",
+        b"",
         b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
-        b"<< /Length " + str(len(stream)).encode() + b" >>\nstream\n" + stream + b"\nendstream",
+        b"<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>",
     ]
+    page_refs = []
+    for page in pages:
+        content_lines = ["BT", "/F1 16 Tf", "44 762 Td", f"({_pdf_escape(page[0] if page else '')}) Tj"]
+        if len(page) > 1:
+            content_lines.extend(["/F1 9 Tf"])
+        for line in page[1:]:
+            content_lines.extend(["0 -16 Td", f"({_pdf_escape(line)}) Tj"])
+        content_lines.append("ET")
+        stream = "\n".join(content_lines).encode("latin-1", "replace")
+        page_obj_number = len(objects) + 1
+        content_obj_number = page_obj_number + 1
+        page_refs.append(f"{page_obj_number} 0 R")
+        objects.append(
+            f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents {content_obj_number} 0 R >>".encode()
+        )
+        objects.append(b"<< /Length " + str(len(stream)).encode() + b" >>\nstream\n" + stream + b"\nendstream")
+    objects[1] = f"<< /Type /Pages /Kids [{' '.join(page_refs)}] /Count {len(page_refs)} >>".encode()
     pdf = bytearray(b"%PDF-1.4\n")
     offsets = [0]
     for index, obj in enumerate(objects, start=1):
@@ -45,6 +65,38 @@ def _text_pdf(lines: list[str]) -> bytes:
         pdf.extend(f"{offset:010d} 00000 n \n".encode())
     pdf.extend(f"trailer\n<< /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF\n".encode())
     return bytes(pdf)
+
+
+def _expense_report_pdf(
+    expenses: list[Expense],
+    date_from: date | None,
+    date_to: date | None,
+    q: str | None,
+    category_id: int | None,
+) -> bytes:
+    total = sum(float(expense.expense_amount or 0) for expense in expenses)
+    table_header = f"{'Date':<12} {'Name':<28} {'Expense Category':<24} {'Amount':>12}"
+    table_rule = "-" * len(table_header)
+    row_lines = [
+        f"{str(expense.date):<12} {_truncate(expense.name, 28):<28} {_truncate(expense.expense_category_name or '-', 24):<24} {float(expense.expense_amount or 0):>12,.2f}"
+        for expense in expenses
+    ]
+    rows_per_page = 35
+    chunks = [row_lines[index:index + rows_per_page] for index in range(0, len(row_lines), rows_per_page)] or [[]]
+    pages = []
+    for page_index, chunk in enumerate(chunks, start=1):
+        pages.append([
+            "Hassan Pharmacy",
+            "Daily Expense Report",
+            f"Date From: {date_from or '-'}    Date To: {date_to or '-'}",
+            f"Search: {q or '-'}    Category ID: {category_id or '-'}",
+            f"Total Expenses: {len(expenses)}    Total Amount: Rs. {total:,.2f}    Page {page_index} of {len(chunks)}",
+            "",
+            table_header,
+            table_rule,
+            *chunk,
+        ])
+    return _text_pages_pdf(pages)
 
 
 def _expense_pdf(expense: Expense) -> bytes:
@@ -105,25 +157,10 @@ def download_expenses_pdf(
     q: str | None = Query(default=None),
     category_id: int | None = Query(default=None),
 ):
-    rows = apply_expense_filters(db.query(Expense), date_from, date_to, q, category_id).order_by(Expense.date.desc(), Expense.id.desc()).limit(500).all()
-    total = sum(float(expense.expense_amount or 0) for expense in rows)
-    lines = [
-        "Hassan Pharmacy",
-        "Daily Expense Report",
-        f"Date From: {date_from or '-'}",
-        f"Date To: {date_to or '-'}",
-        f"Search: {q or '-'}",
-        f"Total Expenses: {len(rows)}",
-        f"Total Amount: Rs. {total:.2f}",
-        "",
-    ]
-    lines.extend(
-        f"{expense.date} | {expense.name} | {expense.expense_category_name or '-'} | Rs. {float(expense.expense_amount or 0):.2f}"
-        for expense in rows[:24]
-    )
+    rows = apply_expense_filters(db.query(Expense), date_from, date_to, q, category_id).order_by(Expense.date.desc(), Expense.id.desc()).all()
     filename = "expenses.pdf"
     return Response(
-        content=_text_pdf(lines),
+        content=_expense_report_pdf(rows, date_from, date_to, q, category_id),
         media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
