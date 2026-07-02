@@ -4699,29 +4699,6 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
     }
   }
 
-  async function createReturn(row, returnInvoiceNumber) {
-    const qty = Number(returnQty[row.batch_id] || 0);
-    if (!sale || qty <= 0 || qty > Number(row.returnable_qty || 0)) {
-      onError(new Error("Enter a valid return quantity."));
-      return null;
-    }
-    return apiCall("/api/returns", {
-      method: "POST",
-      body: JSON.stringify({
-        return_invoice_number: returnInvoiceNumber,
-        sale_id: sale.id,
-        batch_id: row.batch_id,
-        qty_sold: row.quantity_sold,
-        qty_returned: qty,
-        rate: Number(row.rate || 0),
-        amount: qty * Number(row.unit_refund_amount || row.rate || 0),
-        reason: "Customer return",
-        refund_method: "cash",
-        date: today(),
-      }),
-    });
-  }
-
   async function generateReturnInvoice() {
     if (!sale) {
       await lookupInvoice();
@@ -4732,12 +4709,27 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
       return;
     }
     try {
-      const createdReturns = [];
       const returnInvoiceNumber = localReturnInvoiceNumber();
-      for (const row of selectedReturnRows) {
-        const createdReturn = await createReturn(row, returnInvoiceNumber);
-        if (createdReturn) createdReturns.push(createdReturn);
-      }
+      const createdReturns = await apiCall("/api/returns/bulk", {
+        method: "POST",
+        body: JSON.stringify({
+          returns: selectedReturnRows.map((row) => {
+            const qty = Number(returnQty[row.batch_id] || 0);
+            return {
+              return_invoice_number: returnInvoiceNumber,
+              sale_id: sale.id,
+              batch_id: row.batch_id,
+              qty_sold: row.quantity_sold,
+              qty_returned: qty,
+              rate: Number(row.rate || 0),
+              amount: qty * Number(row.unit_refund_amount || row.rate || 0),
+              reason: "Customer return",
+              refund_method: "cash",
+              date: today(),
+            };
+          }),
+        }),
+      });
       await reload();
       const refreshed = await apiCall(`/api/sales/${sale.id}`);
       setSale(refreshed);

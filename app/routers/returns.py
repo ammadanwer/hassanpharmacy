@@ -19,6 +19,7 @@ return_schemas = importlib.import_module("app.schemas.return")
 
 router = APIRouter()
 Return = importlib.import_module("app.models.return").Return
+ReturnBulkCreate = return_schemas.ReturnBulkCreate
 ReturnCreate = return_schemas.ReturnCreate
 PagedReturnHistoryResponse = return_schemas.PagedReturnHistoryResponse
 PagedReturnsResponse = return_schemas.PagedReturnsResponse
@@ -404,39 +405,83 @@ def refundable_amount_for_batch(sale: Sale, batch_id: int, quantity: float) -> f
     return round(refund, 2)
 
 
+def create_return_rows(return_inputs: list[ReturnCreate], db: Session, current_user: CurrentUser) -> list[Return]:
+    if not return_inputs:
+        raise HTTPException(status_code=400, detail="No return items selected")
+
+    sale_ids = {row.sale_id for row in return_inputs}
+    batch_ids = {row.batch_id for row in return_inputs}
+    sales = {row.id: row for row in db.query(Sale).filter(Sale.id.in_(sale_ids)).all()}
+    batches = {row.id: row for row in db.query(Batch).filter(Batch.id.in_(batch_ids)).all()}
+    pending_by_sale_batch: dict[tuple[int, int], float] = {}
+    refund_by_sale: dict[int, float] = {}
+    validated = []
+    generated_invoice = return_invoice_number(current_user.id)
+
+    for return_in in return_inputs:
+        sale = sales.get(return_in.sale_id)
+        batch = batches.get(return_in.batch_id)
+        if not sale:
+            raise HTTPException(status_code=404, detail="Sale not found")
+        if not batch:
+            raise HTTPException(status_code=404, detail="Batch not found")
+
+        qty = float(return_in.qty_returned or 0)
+        sold_for_batch = sum(float(item.total_qty or 0) for item in sale.items if item.batch_id == return_in.batch_id)
+        already_returned = sum(float(row.qty_returned or 0) for row in sale.returns if row.batch_id == return_in.batch_id)
+        pending_key = (sale.id, return_in.batch_id)
+        pending_returned = pending_by_sale_batch.get(pending_key, 0.0)
+        available = sold_for_batch - already_returned - pending_returned
+        if qty <= 0 or qty > available:
+            raise HTTPException(status_code=400, detail="Invalid return quantity")
+
+        amount = refundable_amount_for_batch(sale, return_in.batch_id, qty)
+        pending_by_sale_batch[pending_key] = pending_returned + qty
+        refund_by_sale[sale.id] = refund_by_sale.get(sale.id, 0.0) + amount
+        validated.append((return_in, sale, batch, qty, amount))
+
+    created = []
+    for return_in, sale, batch, qty, amount in validated:
+        batch.stock_remaining = int((batch.stock_remaining or 0) + qty)
+        batch.stock_out = max(0, int((batch.stock_out or 0) - qty))
+        row_data = return_in.model_dump()
+        row_data["return_invoice_number"] = return_in.return_invoice_number or generated_invoice
+        row_data["amount"] = amount
+        row_data["rate"] = amount / qty if qty else return_in.rate
+        row = Return(**row_data)
+        db.add(row)
+        created.append(row)
+
+    for sale_id, sale in sales.items():
+        added_returned = sum(qty for (current_sale_id, _), qty in pending_by_sale_batch.items() if current_sale_id == sale_id)
+        if added_returned <= 0:
+            continue
+        total_sold = sum(float(item.total_qty or 0) for item in sale.items)
+        total_returned = sum(float(return_row.qty_returned or 0) for return_row in sale.returns) + added_returned
+        if total_returned >= total_sold:
+            sale.status = SaleStatus.returned
+        elif sale.status != SaleStatus.draft:
+            sale.status = SaleStatus.partial
+        refund_amount = refund_by_sale.get(sale_id, 0.0)
+        if sale.customer_id and sale.due:
+            sale.due = max(0, float(sale.due or 0) - refund_amount)
+            reduce_customer_due(db, sale, refund_amount)
+
+    db.commit()
+    for row in created:
+        db.refresh(row)
+    return created
+
+
 @router.post("/api/returns", response_model=ReturnResponse, status_code=201)
 def create_return(return_in: ReturnCreate, db: Annotated[Session, Depends(get_db)], current_user: CurrentUser):
-    sale = db.get(Sale, return_in.sale_id)
-    batch = db.get(Batch, return_in.batch_id)
-    if not sale:
-        raise HTTPException(status_code=404, detail="Sale not found")
-    if not batch:
-        raise HTTPException(status_code=404, detail="Batch not found")
-    sold_for_batch = sum(float(item.total_qty or 0) for item in sale.items if item.batch_id == return_in.batch_id)
-    already_returned = sum(float(row.qty_returned or 0) for row in sale.returns if row.batch_id == return_in.batch_id)
-    if return_in.qty_returned <= 0 or return_in.qty_returned > sold_for_batch - already_returned:
-        raise HTTPException(status_code=400, detail="Invalid return quantity")
-    batch.stock_remaining = int((batch.stock_remaining or 0) + return_in.qty_returned)
-    batch.stock_out = max(0, int((batch.stock_out or 0) - return_in.qty_returned))
-    amount = refundable_amount_for_batch(sale, return_in.batch_id, return_in.qty_returned)
-    row_data = return_in.model_dump()
-    row_data["return_invoice_number"] = return_in.return_invoice_number or return_invoice_number(current_user.id)
-    row_data["amount"] = amount
-    row_data["rate"] = amount / return_in.qty_returned if return_in.qty_returned else return_in.rate
-    row = Return(**row_data)
-    db.add(row)
-    total_sold = sum(float(item.total_qty or 0) for item in sale.items)
-    total_returned = sum(float(return_row.qty_returned or 0) for return_row in sale.returns) + return_in.qty_returned
-    if total_returned >= total_sold:
-        sale.status = SaleStatus.returned
-    elif sale.status != SaleStatus.draft:
-        sale.status = SaleStatus.partial
-    if sale.customer_id and sale.due:
-        sale.due = max(0, float(sale.due or 0) - amount)
-        reduce_customer_due(db, sale, amount)
-    db.commit()
-    db.refresh(row)
-    return row
+    return create_return_rows([return_in], db, current_user)[0]
+
+
+@router.post("/api/returns/bulk", response_model=list[ReturnResponse], status_code=201)
+def create_returns_bulk(return_in: ReturnBulkCreate, db: Annotated[Session, Depends(get_db)], current_user: CurrentUser):
+    return create_return_rows(return_in.returns, db, current_user)
+
 
 
 @router.post("/api/sales/{sale_id}/return-all")

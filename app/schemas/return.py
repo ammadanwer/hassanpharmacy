@@ -21,6 +21,10 @@ class ReturnCreate(ReturnBase):
     pass
 
 
+class ReturnBulkCreate(BaseModel):
+    returns: list[ReturnCreate]
+
+
 class ReturnResponse(ReturnBase):
     model_config = ConfigDict(from_attributes=True)
 
