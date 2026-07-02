@@ -1,0 +1,203 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "2",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Draft ID",
+      "Date",
+      "Total Items",
+      "Total Amount",
+      "Discount(%)",
+      "Discount Amt",
+      "Total Payable",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nDraft ID\tDate\tTotal Items\tTotal Amount\tDiscount(%)\tDiscount Amt\tTotal Payable\tAction\n115\t2025-11-19\t2\t24168\t0.00\t0.00\t0.00\t\n\n1234567\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n5678\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n11687\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n116\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n6811\t2025-11-19\t2\t37800\t0.00\t0.00\t0.00\t\n\n798\t2025-11-19\t2\t3048\t0.00\t0.00\t0.00\t\n\n678\t2025-11-17\t2\t3060\t0.00\t0.00\t0.00\t\n\n876\t2025-11-14\t2\t2560\t0.00\t0.00\t0.00\t\n\n789\t2025-11-09\t2\t440\t0.00\t0.00\t0.00\t\n< BACK\n1\n2\nNEXT >\nRows per page\n1-10 of 16",
+  "evalResults": {
+    "beforeClickFile": {
+      "states": [
+        {
+          "label": "new-sales",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "selectCount": 0,
+          "pagination": {
+            "exists": false,
+            "text": "",
+            "countText": "",
+            "rowsPerPageValue": "",
+            "hasBack": false,
+            "hasNext": false,
+            "activePage": "",
+            "pageButtons": []
+          },
+          "tableHeaders": [
+            [
+              "Product Name",
+              "Bar Code",
+              "Sale Type",
+              "Quantity",
+              "Action"
+            ],
+            [
+              "Product Name",
+              "Batch no.",
+              "Qt in Box",
+              "Qt in Units",
+              "Total Quantity",
+              "Cost Price",
+              "Rate/Sell Price",
+              "Amount",
+              "Discount(%)",
+              "Discount(Amt)",
+              "Payable Amt",
+              "Actions"
+            ]
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy New Sales Recent Sales Draft Sales Product Name Bar Code Sale Type Quantity Action Add to List Purchased Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions No Data Found"
+        },
+        {
+          "label": "recent-sales",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-5 of 5",
+            "countText": "1-5 of 5",
+            "rowsPerPageValue": "10",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tableHeaders": [
+            [
+              "Invoice Number",
+              "Date",
+              "Time",
+              "Total Amount(RS.)",
+              "Discount(%)",
+              "Discount Amount",
+              "Total Payable",
+              "Paid",
+              "Due(s)",
+              "Returned",
+              "Action"
+            ]
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy New Sales Recent Sales Draft Sales Select Date Select Date Range Invoice Number Date Time Total Amount(RS.) Discount(%) Discount Amount Total Payable Paid Due(s) Returned Action 233965 2026-07-02 04:35:25 PM 38.00 0.00 0.00 38.00 38.00 0.00 0.00 233964 2026-07-02 04:35:21 PM 228.00 0.00 0.00 228.00 228.00 0.00 0.00 233961 2026-07-02 04:32:40 PM 306.20 0.00 0.00 306.00 306.00 0.00 0.00 233960 2026-07-02 04:32:38 PM 758.00 7.39 56.00 702.00 702.00 0.00 0.00 233951 2026-07-02 04:26:04 PM 212.00 0.00 0.00 212.00 212.00 0.00 0.00 < BACK 1 NEXT > Rows per page 1-5 of 5",
+          "clicked": true
+        },
+        {
+          "label": "draft-sales",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 NEXT > Rows per page 1-10 of 16",
+            "countText": "1-10 of 16",
+            "rowsPerPageValue": "10",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2"
+            ]
+          },
+          "tableHeaders": [
+            [
+              "Draft ID",
+              "Date",
+              "Total Items",
+              "Total Amount",
+              "Discount(%)",
+              "Discount Amt",
+              "Total Payable",
+              "Action"
+            ]
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy New Sales Recent Sales Draft Sales Draft ID Date Total Items Total Amount Discount(%) Discount Amt Total Payable Action 115 2025-11-19 2 24168 0.00 0.00 0.00 1234567 2025-11-19 2 37800 0.00 0.00 0.00 5678 2025-11-19 2 37800 0.00 0.00 0.00 11687 2025-11-19 2 37800 0.00 0.00 0.00 116 2025-11-19 2 37800 0.00 0.00 0.00 6811 2025-11-19 2 37800 0.00 0.00 0.00 798 2025-11-19 2 3048 0.00 0.00 0.00 678 2025-11-17 2 3060 0.00 0.00 0.00 876 2025-11-14 2 2560 0.00 0.00 0.00 789 2025-11-09 2 440 0.00 0.00 0.00 < BACK 1 2 NEXT > Rows per page 1-10 of 16",
+          "clicked": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1340 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Expense",
+    "Expense Category",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Phone#",
+      "Due Amount",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nExpense\nExpense Category\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nName\tPhone#\tDue Amount\tActions\nabdulmanan\t03114893102\t30.00\t\n\nAHMAD\t03059220011\t200.00\t\n\nali\t03967787777\t365.00\t\n\nGf\t03061546446\t5.00\t\n\nirfan\t03450118704\t80.00\t\n\nkhalil\t03073532319\t44.00\t\n\nnoor mustafa\t03078600503\t228.00\t\n\nRameez\t03451234532\t63.00\t\n\nrauf\t03488666418\t540.00\t\n\nsaaw\t0342765\t300.00\t\n\nSana\t03014789654\t100.00\t\n\nuuuu\t03028745969\t500.00\t\n\nwaqas s\t03339999987\t100.00\t\n\nZain b\t03334141414\t1220.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-14 of 14",
+  "evalResults": {
+    "beforeClickFile": {
+      "results": [
+        {
+          "route": "/pms/dashboard/newsale",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": false,
+            "text": "",
+            "buttons": [],
+            "rowsPerPageValue": "",
+            "countText": "",
+            "hasBack": false,
+            "hasNext": false,
+            "activePage": "",
+            "pageButtons": []
+          },
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity",
+                "Action"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "",
+                "",
+                "",
+                "",
+                "Add to List"
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "No Data Found"
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy New Sales Recent Sales Draft Sales Product Name Bar Code Sale Type Quantity Action Add to List Purchased Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions No Data Found"
+        },
+        {
+          "route": "/pms/dashboard/batch",
+          "url": "http://127.0.0.1:5173/pms/dashboard/batch",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 3 4 NEXT > Rows per page 1-50 of 171",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "3",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "4",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 171",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Batch No.",
+                "Shelf No.",
+                "Name",
+                "Medicine Formula",
+                "Stock In",
+                "Stock Out",
+                "Stock Remaining",
+                "Stock Purchase Price",
+                "Stock Purchase Price Before Tax",
+                "Sell Price",
+                "Cost Price",
+                "Total Cost",
+                "Production Date",
+                "Expire Date",
+                "Created at",
+                "Supplier Name",
+                "Paid Amount",
+                "Supplier Outstanding",
+                "Supplier Invoice no.",
+                "Actions"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "6c035",
+                "-",
+                "AVSAR 80/5MG TAB",
+                "-",
+                "56.00",
+                "0",
+                "56",
+                "1580.04",
+                "1580.04",
+                "33.00/unit 462.00/Box",
+                "28.21/unit 395.01/Box",
+                "1580.04",
+                "-",
+                "01/02/2028",
+                "30/06/2026",
+                "Premier",
+                "-",
+                "1580.04",
+                "-",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Active Reported Added By Updated By Date Date Range Add New Batch ! Some batch medicines are expired. ! Some batch medicines are near expiration. Expired Medicines (74) Near Expiry Medicines (35) Date Stock Status Print Batch History Batch No. Shelf No. Name Medicine Formula Stock In Stock Out Stock Remaining Stock Purchase Price Stock Purchase Price Before Tax Sell Price Cost Price Total Cost Production Date Expire Date Created at Supplier Name Paid Amount Supplier Outstanding Supplier Invoice no. Actions 6c035 - AVSAR 80/5MG TAB - 56.00 0 56 1580.04 1580.04 33.00/unit 462.00/Box 28.21/unit 395.01/Box 1580.04 - 01/02/2028 30/06/2026 Premier - 1580.04 - H26952 - ADORA TAB - 60.00 0 60 1569.78 1569.78 30.62/unit 612.42/Box 26.16/unit 523.26/Box 1569.78 - 01/01/2028 30/06/2026 Dyson - 1569.78 - AA078 - EMPTIN OD 150MG 159 Milligram (mg) Itopride (150mg) 70.00 0 70 2261.00 2261.00 38.00/unit 380.00/Box 32.30/unit 323.00/Box 2261.00 - 01/03/2028 30/06/2026 Dyson - 2261.00 - 321456 - AVSAR 160/5MG TAB - 280.00 14 266 6400.00 6400.00 27.86/unit 780.00/Box 22.86/unit 640.00/Box 6080.00 - 22/08/2034 30/06/2026 Premier - 6400.00 - 23 - 0meprazole omeprazole 1000.00 1 999 100000.00 100000.00 150.00/unit 15000.00/Box 100.00/unit 10000.00/Box 99900.00 - 04/09/2027 30/06/2026 Qa - 100000.00 - 41aaa - +3.25 +3.25 +3.25ds 200.00 0 200 950.00 950.00 10.00/unit 200.00"
+        },
+        {
+          "route": "/pms/dashboard/demand",
+          "url": "http://127.0.0.1:5173/pms/dashboard/demand",
+          "title": "Hassan Pharmacy",
+          "headings": [
+            "Demand Items List"
+          ],
+          "selectCount": 0,
+          "pagination": {
+            "exists": false,
+            "text": "",
+            "buttons": [],
+            "rowsPerPageValue": "",
+            "countText": "",
+            "hasBack": false,
+            "hasNext": false,
+            "activePage": "",
+            "pageButtons": []
+          },
+          "tables": [
+            {
+              "headers": [
+                "Supplier Name",
+                "Product Name",
+                "Type",
+                "Quantity",
+                "Action"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "+ Add New",
+                "+ Add New",
+                "",
+                "",
+                "Add To List"
+              ]
+            },
+            {
+              "headers": [
+                "Supplier Name",
+                "Product Name",
+                "Type",
+                "Quantity",
+                "Actions"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "No Demand Found"
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Supplier Name Product Name Type Quantity Action + Add New + Add New Add To List Print Demand List Demand Items List Supplier Name Product Name Type Quantity Actions No Demand Found"
+        },
+        {
+          "route": "/pms/dashboard/stock-audit",
+          "url": "http://127.0.0.1:5173/pms/dashboard/stock-audit",
+          "title": "Hassan Pharmacy",
+          "headings": [
+            "Stock Audit List"
+          ],
+          "selectCount": 0,
+          "pagination": {
+            "exists": false,
+            "text": "",
+            "buttons": [],
+            "rowsPerPageValue": "",
+            "countText": "",
+            "hasBack": false,
+            "hasNext": false,
+            "activePage": "",
+            "pageButtons": []
+          },
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Batch",
+                "Type",
+                "Quantity",
+                "Select Adjustment"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Add To List"
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch No.",
+                "Quantity Type",
+                "Quantity Before",
+                "Quantity Adjusted",
+                "Quantity After",
+                "Adjustment Type",
+                "Amount",
+                "Actions"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "No Data Found"
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Product Name Batch Type Quantity Select Adjustment Add To List Stock Audit List Product Name Batch No. Quantity Type Quantity Before Quantity Adjusted Quantity After Adjustment Type Amount Actions No Data Found Total Amount Rs. 0 SAVE"
+        },
+        {
+          "route": "/pms/dashboard/order-purchase",
+          "url": "http://127.0.0.1:5173/pms/dashboard/order-purchase",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-34 of 34",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-34 of 34",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Medicine Name",
+                "Dose",
+                "Total Quantity",
+                "R. Quantity",
+                "Manufacturer Name",
+                "Actions"
+              ],
+              "rowCount": 34,
+              "firstRow": [
+                "10 cc s",
+                "00mg",
+                "200",
+                "10",
+                "Shifa",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Medical Non Medical Medicine Name Dose Total Quantity R. Quantity Manufacturer Name Actions 10 cc s 00mg 200 10 Shifa 10cc Syringe 10 Milliliter (mL) 48 0 Shifa 4OMG RISEK - 9 0 1 7.5 GLOVES - 4 1 Ameer Actrac 20mg 5 1 Serving health Adalat 30mg 960 -61 Bayer Adalat 30mg 4 0 Bayer Alprib 20mg 20mg 20 0 Rays pharma B ACTIVE SYP 120ML - 144 0 UNICORN bbextrin 20 Milligram (mg) 40 8 Sunshine Pharmaceuticals cefia 100 Milligram (mg) 20 6 Highnoon Dow D 5mg/ Milliliter (mL) 2 0 Martin dow FEFAN DS TAB - 20 0 amson Flagyl 60ml 25 0 Sanofi-aventis Furoxone 100mg 20 -10 GSK Gyno-Travogen Vag 5g 5 0 Bayer J FLEX TAB - 15 4 MIKSONS M & M 49.3 GG - 12 0 GENERAL ITEM omeprazole - 150 -3 2 Omgel Podina - 110 32 1 panadol 3mg 305 52 Novartis panadol - 400 -8 26/A,VIA PALERMO-PARMA-ITALY Panadol Extra 500mg 900 -100 GSK PANADOL TAB - 500 0 GSK PAN AMIN SG 500ML - 16 0 OTSUKA PD-CEF IM 500mg 31 0 PDH Pharma P DOXIME INJ 10ML - 1 0 Atco PLATRID AP 75/75 75MG Milligrams per deciliter (mg/dL) 1 0 SAMI Salazopyrin 500mg 10 -40 Pfizer SANI PLAST - 200 36 2 selanz 50mg 1200 0 3H HOFFMANN HUMAN HEALTH LHR. T DAY 5MG TAB - 525 50 GlaxoSmithKline Transamin 250mg 19 1 Bayer ZYTO 250MG TAB - 201 53 High Q < BACK 1 NEXT > Rows per page 1-34 of 34"
+        },
+        {
+          "route": "/pms/dashboard/medicines",
+          "url": "http://127.0.0.1:5173/pms/dashboard/medicines",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 3 4 5 NEXT > Rows per page 1-50 of 201",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "3",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "4",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "5",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 201",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Formula",
+                "Dose",
+                "Total Quantity",
+                "Remaining Quantity",
+                "Generic Name",
+                "Category",
+                "Manufacturer Name",
+                "Actions"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "0.9% SODIUM CHLORIDE 25ML",
+                "Sodium Chloride IV Soln",
+                "-",
+                "110",
+                "60",
+                "-",
+                "infusion",
+                "OTSUKA",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Active Medicines Reported Medicines Some medicines are out of stock. Some medicines are low in stock. Some medicines have been added but are awaiting stock entry. Products Without Stock (60) Out of Stock (23) Low in Stock (12) Add New Medicine Name Formula Dose Total Quantity Remaining Quantity Generic Name Category Manufacturer Name Actions 0.9% SODIUM CHLORIDE 25ML Sodium Chloride IV Soln - 110 60 - infusion OTSUKA 0meprazole omeprazole - 25,06,000 25,05,708 - Injection Ameer 0PZOL Chloramphenicol 150 mg 5,101 4,980 fafa Syrup OBS 10 cc s 10CC SYRINGE 00mg 200 10 surgical Syringes Shifa 10cc Syringe SYRINGE 10 CC 10 Milliliter (mL) 48 0 SYRINGE Syringes Shifa 10CC SYRINGE 10CC SYRINGE 10 mg 166 86 - Syringes SMD 2SUM 1GM INJ - 18 14 - Sami 2SUM 2GM INJ - 25 23 - Sami +3.25 +3.25ds +3.25 200 200 +3.25 Eye Glasses Madina Optical 4OMG RISEK tablet - 9 0 - Anti deressant 1 7.5 GLOVES DR TRUST - 4 1 - surgical Ameer abcdef Zoledronic Acid 200mg 0 0 - serum GSK Acneez Nifedipine 60ml 55 28 bar solution Abbott Actifed P Paracetamol pseudoephedrine Triprolidine mg 500 494 - Syrup GSK Actrac isotretinoin 20mg 5 1 gelatin Anticonvulsants Serving health Actrapid HM Penfi| Insulin Regular, Human 100IU 610 446 - Injection Novo Nordisk Acumeb inj. Mecobalamin (500mcg) - 20 8 - Injection core helth adalat Nifedipine 200mg 0 0 - serum Novo Nordisk adalat Zoledronic"
+        },
+        {
+          "route": "/pms/dashboard/nonmedicines",
+          "url": "http://127.0.0.1:5173/pms/dashboard/nonmedicines",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-17 of 17",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-17 of 17",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Brand Name",
+                "Category",
+                "Total Quantity",
+                "Remaining Quantity",
+                "Actions"
+              ],
+              "rowCount": 17,
+              "firstRow": [
+                "212 MEN NYC BODY SPRAY",
+                "Other",
+                "",
+                "12",
+                "12",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Active Non-Medicine Reported Non-Medicine Some products are out of stock. Some products have been added but are awaiting stock entry. Products Without Stock (5) Out of Stock (1) Low in Stock (0) Add New Name Brand Name Category Total Quantity Remaining Quantity Actions 212 MEN NYC BODY SPRAY Other 12 12 4 POSITION CARRIER CA005 Other 200 196 Baby Lotion X 26/A,VIA PALERMO-PARMA-ITALY BABY LINER 50 48 Bio check strip Aims pharmaceutical Sugar Strip 20 8 Dettol 100ML abcd Hygienic 6 3 enliten whitening bar Abbott NIPPLES 5 0 Fair and Lovely Abbott NIPPLES 500 483 Faiza Beauty Cream Abdullah brothers Cream 36 36 Golden pearl CREATIVE MARKETING Cream 42 37 Laboob Kabir QARSHI Food 0 0 Lotion Novartis NIPPLES 25 8 Lotions AKRON BABY LINER 0 0 NAIL REMOWER POSEGHER RMMH service charges 100 90 Navia white Abdullah brothers Cream 18 14 PARLEY GOLD PARLEY GOLD CREAM Cream 36 31 sandal beauty cream Abdullah brothers Cream 5 4 xyzzz Novo Nordisk shampoooo 0 0 < BACK 1 NEXT > Rows per page 1-17 of 17"
+        },
+        {
+          "route": "/pms/dashboard/supplier",
+          "url": "http://127.0.0.1:5173/pms/dashboard/supplier",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 NEXT > Rows per page 1-50 of 52",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 52",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Supplier Name/Company",
+                "Contact Person",
+                "Phone#",
+                "Email",
+                "Total Batches",
+                "Stock Purchase Price",
+                "Paid Amount",
+                "Supplier Outstanding",
+                "Status",
+                "Actions"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "abc",
+                "ali",
+                "03346713877",
+                "fsesfesfefvfescsc@gmail.com",
+                "1",
+                "1050.00",
+                "-",
+                "1050.00",
+                "Pending",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add New Supplier Supplier Name/Company Contact Person Phone# Email Total Batches Stock Purchase Price Paid Amount Supplier Outstanding Status Actions abc ali 03346713877 fsesfesfefvfescsc@gmail.com 1 1050.00 - 1050.00 Pending Abc pharma khalil 03073532319 Tay@gmail.com - - - - Paid abdullah brothers abdullah 03150082823 armanbutt468@gmail.com 4 12420.00 1200.00 11220.00 Partially Paid adv anza adv anza 03071771287 - 1 - - - Paid Ahmad pharmacy Ahmad 03425565456 - 5 8980.00 1200.00 7780.00 Partially Paid ahmad trader ghouri 03006962834 - - - - - Paid AL NAZEER NAZEER 03452073401 - 1 1000.00 1000.00 - Paid ali maham 03246763254 mahamshahid1212@gmail.com 1 525.00 525.00 - Paid arman company arman butt 03010060260 armanbutt468@gmail.com 4 20012.00 4032.00 15980.00 Partially Paid Asif Khan Zafar Awami 03006787266 acha@gmail.com - - - - Paid Atco Adeel 03025045698 - 23 114264.00 3000.00 31264.00 Partially Paid Atco pharma Shahid 03702301490 dr.shahidmedicalcentre@gmail.com - - - - Paid basit pharma hhhhhh 03025469874 - - - - - Paid Bazar abc 03110515288 sadia123@gmail.com 1 2000.00 - 2000.00 Pending Bukhari Nabeel 03078954127 psc6778@gmail.com 14 50247.00 - 41122.00 Pending dani tre 03123456788 - - - - - Paid Dyson Hafiz Arshad 03325646700 - 2 3830.78 - 3830.78 Pending Ehsan Ehsan 03006919175 - 5 16262.67 200.00 16062.67 Partially Paid farooq shah malak far"
+        },
+        {
+          "route": "/pms/dashboard/category",
+          "url": "http://127.0.0.1:5173/pms/dashboard/category",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 3 4 5 ... 7 NEXT > Rows per page 1-50 of 331",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "3",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "4",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "5",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "7",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 331",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "7"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Category Name",
+                "Type",
+                "Actions"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "ACNE FACE WASH",
+                "Non Medical",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add New Category Category Name Type Actions ACNE FACE WASH Non Medical Alcohal Pad Medical Ampules Medical Analgesics Medical Antacids Medical Anti Allergic Medical Anti Ameobic (inflamation) Medical Anti Asthmatic Agent Medical Antibiotics Medical Anticonvulsants Medical Anti Cough Medical Antidepressants Medical Anti deressant Medical Anti Fungal Medical Antihistamines Medical Anti hyperglycemic Agent Medical Anti-hypertensive Medical Antihypertensives Drug Medical Anti Inflammatory Medical Anti Malaruial Medical Anti Melasma Medical Antiparkinson Medical Antipsychotics Medical Anti Scar Gel Medical Antithyroid agents Medical Antiviral Drug Medical Anxiolytics Medical BABY LINER Non Medical bag Non Medical BANDAGE Medical BANDGE Non Medical blade Non Medical BLADE Medical BLEACH CREAM Non Medical BLOOD KIT Medical BLOOD KIT Non Medical BLOOD LANCING DEVICE Medical BODY RAZER Non Medical BODY SPRAY Non Medical Body wash Medical Bowls Non Medical BP OPERATUS Medical BRACE SUPPORT Non Medical BREAST PUMP Medical Brightning Cream Medical BRUSH Non Medical Cake Non Medical Calendula Oil (N) Medical Canula Medical CANULA Medical < BACK 1 2 3 4 5 ... 7 NEXT > Rows per page 1-50 of 331"
+        },
+        {
+          "route": "/pms/dashboard/medicineformula",
+          "url": "http://127.0.0.1:5173/pms/dashboard/medicineformula",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 3 4 5 ... 72 NEXT > Rows per page 1-50 of 3572",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "3",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "4",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "5",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "72",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 3572",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "72"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Medicine Formula Name",
+                "Description"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "-",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add New Formula Name Medicine Formula Name Description - .. 0.1% 0.2% 0.5% 0.5MG 0.5 ML 0.8MG OK 1% +1.00 1.00 100gm 100MG 100MG/5ML 100ML OK 10/160 10/160/12.5mg 10mg = Amlodipine 160mg = Valsartan 12.5mg = Hydrochlorothiazide 10/160mg 10CC SYRINGE 10gm 10MG 10mg/ml 10 ml 10ML OK 10 STICK SACHETS 110ML 120mg 120ml 120ML 1.25 125mg 125MG/5ML 125MG 90 ML 125ml 135GM SOAP 135MG 140gm ispaghol jar 140ml 15 ML +1.50 150 g 150mg 150ML 156.25 15gm 15mg 15ML 180ML 19GM 1cc syring zindagi < BACK 1 2 3 4 5 ... 72 NEXT > Rows per page 1-50 of 3572"
+        },
+        {
+          "route": "/pms/dashboard/manufacturer",
+          "url": "http://127.0.0.1:5173/pms/dashboard/manufacturer",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 3 4 5 ... 50 NEXT > Rows per page 1-50 of 2465",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "3",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "4",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "5",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "50",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 2465",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "50"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Manufacturer Name"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "1"
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add New Manufacturer Manufacturer Name 1 1% 11 2 26/A,VIA PALERMO-PARMA-ITALY -3.50 3A Pharma 3H HOFFMANN HUMAN HEALTH LHR. 3M USA 3 STAR PHARMA A A1 Aamir medicose AAS Fertility Care Pharmaceutical ab ABASEEN ENTERPRISES abbot Abbot Pharma abbott Abbott Abbott ABBOTT ABBOTT LABAORATORIES Abbott Laboratories Abbott Laboratories (Pakistan) Ltd Abbott Laboratories (Pakistan) Ltd. ABBUTT abbvie tablet abc abcd abcdef Abcdef abcdefg Abcdefg abcsd abcsef Abdullah brothers ABH PHARMA Abosset abros Pharma (Pvt.) Ltd ABS Pharma ACM dermatology labourtries ACME ACME PHARMA MARKEKETIN A COMBINE PAKISTAN LTD. ACON Acti-Med Acto pharma ACUMEN PHARMA Adamjee < BACK 1 2 3 4 5 ... 50 NEXT > Rows per page 1-50 of 2465"
+        },
+        {
+          "route": "/pms/dashboard/purchases",
+          "url": "http://127.0.0.1:5173/pms/dashboard/purchases",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 2 3 4 NEXT > Rows per page 1-50 of 193",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "2",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "3",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "4",
+                "disabled": false,
+                "className": "outline"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": false,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-50 of 193",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Batch No.",
+                "Medicine Name",
+                "Quantity",
+                "Rate",
+                "Total Amt",
+                "Extra Discount/Bonus",
+                "Purchase Date",
+                "Stock Cost Price",
+                "Sales Tax",
+                "Invoice ID",
+                "Expire Date",
+                "Supplier Name"
+              ],
+              "rowCount": 50,
+              "firstRow": [
+                "6c035",
+                "AVSAR 80/5MG TAB",
+                "56.00",
+                "28.215",
+                "1580.04",
+                "-",
+                "30/06/2026",
+                "1580.04",
+                "0.00",
+                "",
+                "01/02/2028",
+                "Premier"
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Purchase Date Print Stock History Batch No. Medicine Name Quantity Rate Total Amt Extra Discount/Bonus Purchase Date Stock Cost Price Sales Tax Invoice ID Expire Date Supplier Name 6c035 AVSAR 80/5MG TAB 56.00 28.215 1580.04 - 30/06/2026 1580.04 0.00 01/02/2028 Premier H26952 ADORA TAB 60.00 26.163 1569.78 - 30/06/2026 1569.78 0.00 01/01/2028 Dyson AA078 EMPTIN OD 150MG 159 Milligram (mg) 70.00 32.3 2261.00 - 30/06/2026 2261.00 0.00 01/03/2028 Dyson 321456 AVSAR 160/5MG TAB 280.00 22.857142857142858 6400.00 - 30/06/2026 6400.00 22/08/2034 Premier 23 0meprazole 1000.00 100 100000.00 - 30/06/2026 100000.00 0.00 05/09/2027 Qa 41aaa +3.25 +3.25 200.00 5 1000.00 50.00 29/06/2026 950.00 0.00 29/06/2027 khuram traders 1257mmm Risek 40mg 999.00 4 3996.00 - 23/06/2026 3996.00 0.00 23/06/2028 UDL 145yy ZYTO 250MG TAB 201.00 20 4020.00 - 18/06/2026 4020.00 17/12/2027 PREMEIER DABA 2GM SACHET 225.00 25 5625.00 - 18/06/2026 5625.00 0.00 18/06/2027 premiers 124kjhhhh RECALCIN DROPS 200.00 10 2000.00 - 11/06/2026 2000.00 11/06/2027 UDL 457klj Aedgi 150 Milligrams per deciliter (mg/dL) 150.00 20 3000.00 - 05/06/2026 3000.00 0.00 05/06/2027 Mansoor 12544 CAC 1000 10ML ING 1040.00 29.1 30264.00 - 23/05/2026 30264.00 0.00 01/06/2030 UDL Aerolin Evohaler Inhaler 0ml 425.00 16 6800.00 - - 6800.00 0.00 18/05/2027 Nourish & Flourish 64345 RIMONA SACHETS 108.00 64.0833333333"
+        },
+        {
+          "route": "/pms/dashboard/staff-management",
+          "url": "http://127.0.0.1:5173/pms/dashboard/staff-management",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": false,
+            "text": "",
+            "buttons": [],
+            "rowsPerPageValue": "",
+            "countText": "",
+            "hasBack": false,
+            "hasNext": false,
+            "activePage": "",
+            "pageButtons": []
+          },
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Role",
+                "Phone #",
+                "Address",
+                "Email",
+                "Actions"
+              ],
+              "rowCount": 16,
+              "firstRow": [
+                "Amir",
+                "Manager",
+                "05154945800",
+                "-",
+                "alphaprofessionalsconsultancy@gmail.com",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add Staff Name Role Phone # Address Email Actions Amir Manager 05154945800 - alphaprofessionalsconsultancy@gmail.com haseeb Pharmacist 03211111111 - hassanpharmacy344@gmail.com iqbal Stock_manager 03087940516 - hassanpharmacy040@gmail.com Yasir Manager 03084452646 - hackerbaby323@gmail.com Yasir Manager 03486100540 Moreminabad ygoraya11@gmail.com Shehzad Ali Manager 03300119805 DHA phase 2 extension shehzad.ali@madadd.pk ytdtdty Pharmacist 03545458547 yuhi 123@gmail.com dr bilal Technician 03042917850 hunaiz pharmacy jdw road sadiqabad ryk ba6955593@gmail.com Mansoor Pharmacist 03346713888 ewwdw mansoorjutt5@gmail.com Sherry Stock_manager 03200035336 Faisalabad nigivig922@djkux.com Staff M Pharmacist 00006777777 00 shahidjaveed78@gmail.com mateen Manager 03210001111 - mateen@gmail.com Maham Fatima Pharmacist 03217225937 Tariq Bin Zaid Colony Sahiwal Street 7 h mahamshahid1221@gmail.com gghjh Pharmacist 03331474147 - gghhh@gmail.com Haris Manager 03025088035 Safari valley , Bahria Town Phase 8 haseebkiani511@gmail.com Waleed Pharmacist 03088088866 D-12 Islamabad qdata815@gmail.com"
+        },
+        {
+          "route": "/pms/dashboard/shift-management",
+          "url": "http://127.0.0.1:5173/pms/dashboard/shift-management",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": false,
+            "text": "",
+            "buttons": [],
+            "rowsPerPageValue": "",
+            "countText": "",
+            "hasBack": false,
+            "hasNext": false,
+            "activePage": "",
+            "pageButtons": []
+          },
+          "tables": [],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add Shift 0 No Data Found"
+        },
+        {
+          "route": "/pms/dashboard/daily-expense",
+          "url": "http://127.0.0.1:5173/pms/dashboard/daily-expense",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-1 of 1",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-1 of 1",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Date",
+                "Name",
+                "Expense Category",
+                "Expense Amount",
+                "Actions"
+              ],
+              "rowCount": 1,
+              "firstRow": [
+                "02/07/2026",
+                "bill elect",
+                "Clinic Grocery Items",
+                "500 PKR",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Expense Expense Category Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Date Date Range Date Download Expense PDF Add Expense Date Name Expense Category Expense Amount Actions 02/07/2026 bill elect Clinic Grocery Items 500 PKR < BACK 1 NEXT > Rows per page 1-1 of 1"
+        },
+        {
+          "route": "/pms/dashboard/saleshistory",
+          "url": "http://127.0.0.1:5173/pms/dashboard/saleshistory",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-5 of 5",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-5 of 5",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Invoice Number",
+                "Date",
+                "Time",
+                "Total Amount(RS.)",
+                "Discount(%)",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned",
+                "Action"
+              ],
+              "rowCount": 5,
+              "firstRow": [
+                "233965 Return Invoice",
+                "2026-07-02",
+                "04:35:25 PM",
+                "38",
+                "0.00",
+                "0.00",
+                "38.00",
+                "38.00",
+                "0.00",
+                "0.00",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Expense Expense Category Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Date Date Range Date Time Print Sales History Gross Sales Rs. 1542.20 Total Discount Rs. 56.00 Net Sales Rs. 1486.00 Total Cost Rs. 2020.76 Net Revenue Rs. -534.76 Pending Rs. 0.00 Invoice Number Date Time Total Amount(RS.) Discount(%) Discount Amount Total Payable Paid Due(s) Change Returned Action 233965 Return Invoice 2026-07-02 04:35:25 PM 38 0.00 0.00 38.00 38.00 0.00 0.00 233964 2026-07-02 04:35:21 PM 228 0.00 0.00 228.00 228.00 0.00 0.00 233961 Return Invoice 2026-07-02 04:32:40 PM 306.2 0.00 0.00 306.00 306.00 0.00 0.00 233960 2026-07-02 04:32:38 PM 758 7.39 56.00 702.00 702.00 0.00 0.00 233951 2026-07-02 04:26:04 PM 212 0.00 0.00 212.00 212.00 0.00 0.00 < BACK 1 NEXT > Rows per page 1-5 of 5"
+        },
+        {
+          "route": "/pms/dashboard/returnhistory",
+          "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-2 of 2",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-2 of 2",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Invoice Number",
+                "Date",
+                "Time",
+                "Total Amount(RS.)",
+                "Discount(%)",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned",
+                "Action"
+              ],
+              "rowCount": 2,
+              "firstRow": [
+                "233965 Return Invoice",
+                "2026-07-02",
+                "04:35:25 PM",
+                "38.00",
+                "0.00",
+                "0.00",
+                "38.00",
+                "38.00",
+                "0.00",
+                "0.00",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Expense Expense Category Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Select Date Select Date Range Date Gross Sales Rs. 344.20 Total Return Rs. 292.00 Net Sale Rs. 344.00 Invoice Number Date Time Total Amount(RS.) Discount(%) Discount Amount Total Payable Paid Due(s) Change Returned Action 233965 Return Invoice 2026-07-02 04:35:25 PM 38.00 0.00 0.00 38.00 38.00 0.00 0.00 233961 Return Invoice 2026-07-02 04:32:40 PM 306.20 0.00 0.00 306.00 306.00 0.00 0.00 < BACK 1 NEXT > Rows per page 1-2 of 2"
+        },
+        {
+          "route": "/pms/dashboard/productsaleshistory",
+          "url": "http://127.0.0.1:5173/pms/dashboard/productsaleshistory",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-6 of 6",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-6 of 6",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Dose",
+                "Generic Name",
+                "Sold Quantity",
+                "Action"
+              ],
+              "rowCount": 6,
+              "firstRow": [
+                "ADORA TAB",
+                "-",
+                "-",
+                "20",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Expense Expense Category Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Select Date Select Date Range Date Product Name Dose Generic Name Sold Quantity Action ADORA TAB - - 20 AVSAR 80/5MG TAB - - 6 DABA 2GM SACHET - - 5 EMPTIN OD 150MG 159 Milligram (mg) - - 11 Risek 40mg - - 2 ZAVGET 10MG TAB - - 30 < BACK 1 NEXT > Rows per page 1-6 of 6"
+        },
+        {
+          "route": "/pms/dashboard/customer-history",
+          "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "selectCount": 0,
+          "pagination": {
+            "exists": true,
+            "text": "< BACK 1 NEXT > Rows per page 1-14 of 14",
+            "buttons": [
+              {
+                "text": "< BACK",
+                "disabled": true,
+                "className": "outline"
+              },
+              {
+                "text": "1",
+                "disabled": false,
+                "className": "primary"
+              },
+              {
+                "text": "NEXT >",
+                "disabled": true,
+                "className": "outline"
+              }
+            ],
+            "rowsPerPageValue": "50",
+            "countText": "1-14 of 14",
+            "hasBack": true,
+            "hasNext": true,
+            "activePage": "1",
+            "pageButtons": [
+              "1"
+            ]
+          },
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Phone#",
+                "Due Amount",
+                "Actions"
+              ],
+              "rowCount": 14,
+              "firstRow": [
+                "abdulmanan",
+                "03114893102",
+                "30.00",
+                ""
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Batch Demand/Order Stock Audit Order Purchase Medical Products Non Medical Products Supplier Category Medicine Formula Manufacturer Stock Purchase Shelf Staff Management Shift Management Daily Expense Expense Expense Category Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00 < BACK 1 NEXT > Rows per page 1-14 of 14"
+        }
+      ]
+    }
+  }
+}
