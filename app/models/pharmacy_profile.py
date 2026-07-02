@@ -11,7 +11,7 @@ class PharmacyProfile(Base, IdIntPK, TimestampMixin):
     __tablename__ = "pharmacy_profiles"
 
     name: Mapped[str] = mapped_column(String(255), nullable=False, default="Hassan Pharmacy")
-    customer_service: Mapped[Optional[str]] = mapped_column(String(100), nullable=True, default="03324122333")
+    customer_service: Mapped[Optional[str]] = mapped_column(String(100), nullable=True, default="0345 7427946")
     country: Mapped[Optional[str]] = mapped_column(String(100), nullable=True, default="Pakistan")
     city: Mapped[Optional[str]] = mapped_column(String(100), nullable=True, default="Karachi")
     address: Mapped[Optional[str]] = mapped_column(String(500), nullable=True, default="DHA phase 2 extension")

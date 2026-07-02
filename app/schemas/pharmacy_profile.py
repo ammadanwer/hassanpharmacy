@@ -6,7 +6,7 @@ from pydantic import BaseModel, ConfigDict
 
 class PharmacyProfileBase(BaseModel):
     name: str = "Hassan Pharmacy"
-    customer_service: Optional[str] = "03324122333"
+    customer_service: Optional[str] = "0345 7427946"
     country: Optional[str] = "Pakistan"
     city: Optional[str] = "Karachi"
     address: Optional[str] = "DHA phase 2 extension"

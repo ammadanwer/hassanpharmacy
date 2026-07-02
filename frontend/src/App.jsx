@@ -371,7 +371,7 @@ function filterRoutesForUser(user) {
 
 const defaultPharmacyProfile = {
   name: "Hassan Pharmacy",
-  customerService: "03324122333",
+  customerService: "0345 7427946",
   country: "Pakistan",
   city: "Karachi",
   address: "DHA phase 2 extension",
@@ -616,7 +616,6 @@ export default function App() {
           </div>
           <div className="header-right" ref={accountMenuRef}>
             <span className="renew-badge">HP</span>
-            <button className="renew-link" type="button" onClick={() => setProfileOpen(true)}>Renew</button>
             <span>{pharmacyProfile.name}</span>
             <button className="icon-button" type="button" aria-label="Open account menu" onClick={() => setAccountOpen((value) => !value)}><MoreVertical /></button>
             {accountOpen ? <div className="account-menu">
@@ -5192,7 +5191,7 @@ function TechnicalHelpPage({ setRoute }) {
   return (
     <section className="technical-help">
       <h1>For any Query Contact Hassan Pharmacy Care</h1>
-      <a className="technical-phone" href="tel:03324122333">03324122333</a>
+      <a className="technical-phone" href="tel:03457427946">0345 7427946</a>
       <a className="technical-email" href="mailto:hassanpharmacy344@gmail.com">hassanpharmacy344@gmail.com</a>
       <button className="technical-back-button" type="button" onClick={() => setRoute("dashboard")}><ArrowLeft size={22} /> GO BACK TO DASHBOARD</button>
     </section>

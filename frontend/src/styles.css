@@ -595,15 +595,6 @@ main {
   width: 38px;
 }
 
-.renew-link {
-  background: transparent;
-  border: 0;
-  color: var(--ink);
-  cursor: pointer;
-  font: inherit;
-  padding: 4px 0;
-}
-
 .account-menu {
   background: #fff;
   border: 1px solid var(--line);
