@@ -1630,13 +1630,13 @@ function RecentSalesList({ sales, page, pageSize, totalRows, dateMode, date, dat
                   <td>{sale.invoice_number}</td>
                   <td>{sale.date}</td>
                   <td>{formatHistoryTime(sale.time)}</td>
-                  <td>{money(sale.total_amount)}</td>
-                  <td>{money(sale.discount_percent || 0)}</td>
-                  <td>{money(sale.discount_amount || 0)}</td>
-                  <td>{money(sale.total_payable)}</td>
-                  <td>{money(sale.paid)}</td>
-                  <td>{money(sale.due)}</td>
-                  <td>{money(sale.change_returned || 0)}</td>
+                  <td>{formatPlainFixedAmount(sale.total_amount)}</td>
+                  <td>{formatPlainFixedAmount(sale.discount_percent || 0)}</td>
+                  <td>{formatPlainFixedAmount(sale.discount_amount || 0)}</td>
+                  <td>{formatPlainFixedAmount(sale.total_payable)}</td>
+                  <td>{formatPlainFixedAmount(sale.paid)}</td>
+                  <td>{formatPlainFixedAmount(sale.due)}</td>
+                  <td>{formatPlainFixedAmount(sale.change_returned || 0)}</td>
                   <td>
                     <SaleActionIcons>
                       <button className="icon-action" type="button" title="edit" aria-label="edit" onClick={() => onEdit(sale)}><Pencil size={18} /></button>
