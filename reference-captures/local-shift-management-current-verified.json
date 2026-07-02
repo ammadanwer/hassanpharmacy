@@ -1,0 +1,251 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/shift-management",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Assign Shift"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add Shift",
+    "0",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Staff Member",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Shift Type",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Off Days",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Start Time",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "End Time",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "AM",
+      "text": ""
+    }
+  ],
+  "headers": [],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd Shift\n0\n\nNo Data Found\n\nAssign Shift\nSelect Staff Member *Required\nSelect Shift Type *Required\nSelect Off Days\nStart Time *Required\nEnd Time *Required\nAdd",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "http://127.0.0.1:5173/pms/dashboard/shift-management",
+      "title": "Hassan Pharmacy",
+      "pageText": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Add Shift 0 No Data Found Assign Shift Select Staff Member *Required Select Shift Type *Required Select Off Days Start Time *Required End Time *Required Add",
+      "headings": [
+        "Assign Shift"
+      ],
+      "buttons": [
+        "Dashboard",
+        "Sales",
+        "Inventory",
+        "Staff Management",
+        "Shift Management",
+        "Daily Expense",
+        "Settings",
+        "Get Technical Help",
+        "Collapse sidebar",
+        "Add New Sale",
+        "Renew",
+        "Open account menu",
+        "Add Shift",
+        "0",
+        "Add"
+      ],
+      "visibleControls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Search Name",
+          "value": "",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Staff Member",
+          "value": "",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Shift Type",
+          "value": "",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Off Days",
+          "value": "",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Start Time",
+          "value": "",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "AM",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "End Time",
+          "value": "",
+          "text": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "AM",
+          "text": ""
+        }
+      ],
+      "tableCount": 0,
+      "shiftCards": [],
+      "modal": {
+        "title": "Assign Shift",
+        "width": 760,
+        "labels": [
+          "Select Staff Member *Required",
+          "Select Shift Type *Required",
+          "Select Off Days",
+          "Start Time *Required",
+          "End Time *Required"
+        ],
+        "visibleInputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Staff Member",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Shift Type",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Off Days",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Start Time",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "AM",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "End Time",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "AM",
+            "text": ""
+          }
+        ],
+        "selectCount": 0,
+        "buttons": [
+          "Add"
+        ]
+      }
+    }
+  }
+}
