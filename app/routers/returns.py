@@ -9,6 +9,7 @@ from sqlalchemy import Numeric, cast, func, or_
 from sqlalchemy.orm import Session
 import importlib
 
+from app.core.reference_stock import adjust_reference_product_stock
 from app.core.security import CurrentUser
 from app.db.session import get_db
 from app.models.batch import Batch
@@ -430,6 +431,7 @@ def create_return_rows(return_inputs: list[ReturnCreate], db: Session, current_u
         qty = float(return_in.qty_returned or 0)
         sold_for_batch = sum(float(item.total_qty or 0) for item in sale.items if item.batch_id == return_in.batch_id)
         already_returned = sum(float(row.qty_returned or 0) for row in sale.returns if row.batch_id == return_in.batch_id)
+        already_returned += sum(float(item.reference_qty_returned or 0) for item in sale.items if item.batch_id == return_in.batch_id)
         pending_key = (sale.id, return_in.batch_id)
         pending_returned = pending_by_sale_batch.get(pending_key, 0.0)
         available = sold_for_batch - already_returned - pending_returned
@@ -445,6 +447,7 @@ def create_return_rows(return_inputs: list[ReturnCreate], db: Session, current_u
     for return_in, sale, batch, qty, amount in validated:
         batch.stock_remaining = int((batch.stock_remaining or 0) + qty)
         batch.stock_out = max(0, int((batch.stock_out or 0) - qty))
+        adjust_reference_product_stock(db, batch.product_id, remaining_delta=qty)
         row_data = return_in.model_dump()
         row_data["return_invoice_number"] = return_in.return_invoice_number or generated_invoice
         row_data["amount"] = amount
@@ -458,7 +461,8 @@ def create_return_rows(return_inputs: list[ReturnCreate], db: Session, current_u
         if added_returned <= 0:
             continue
         total_sold = sum(float(item.total_qty or 0) for item in sale.items)
-        total_returned = sum(float(return_row.qty_returned or 0) for return_row in sale.returns) + added_returned
+        reference_returned = sum(float(item.reference_qty_returned or 0) for item in sale.items)
+        total_returned = reference_returned + sum(float(return_row.qty_returned or 0) for return_row in sale.returns) + added_returned
         if total_returned >= total_sold:
             sale.status = SaleStatus.returned
         elif sale.status != SaleStatus.draft:

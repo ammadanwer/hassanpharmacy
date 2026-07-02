@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import Numeric, and_, case, cast, func, or_
 from sqlalchemy.orm import Session
 
+from app.core.reference_stock import adjust_reference_product_stock
 from app.core.security import CurrentUser, verify_password
 from app.db.session import get_db
 from app.models.batch import Batch, BatchStatus
@@ -94,6 +95,7 @@ def add_sale_items(db: Session, sale: Sale, sale_in: SaleCreate, *, decrement_st
         if decrement_stock:
             batch.stock_remaining -= item_in.total_qty
             batch.stock_out += item_in.total_qty
+            adjust_reference_product_stock(db, batch.product_id, remaining_delta=-float(item_in.total_qty or 0))
         item_data = item_in.model_dump()
         item_data["sale_id"] = sale.id
         item_data["product_name"] = batch.product.name
@@ -112,6 +114,7 @@ def restore_sale_stock_and_items(db: Session, sale: Sale) -> None:
         if batch:
             batch.stock_remaining = float(batch.stock_remaining or 0) + float(item.total_qty or 0)
             batch.stock_out = max(0, float(batch.stock_out or 0) - float(item.total_qty or 0))
+            adjust_reference_product_stock(db, batch.product_id, remaining_delta=float(item.total_qty or 0))
         db.delete(item)
     db.flush()
 

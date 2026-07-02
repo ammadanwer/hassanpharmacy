@@ -127,16 +127,16 @@ const referenceBatchAlertCounts = {
 };
 
 const referenceDashboard = {
-  productTotal: "35,63,879",
-  medicalProducts: "35,62,909",
+  productTotal: "35,64,035",
+  medicalProducts: "35,63,065",
   nonMedicalProducts: "970",
-  totalCost: "12,72,86,39,583.027",
+  totalCost: "12,72,86,41,121.007",
   shortage: "10",
-  currentMonthRevenue: 0,
+  currentMonthRevenue: 236.18,
   currentMonthPending: 0,
   monthOptions: ["2026-07", "2026-06", "2026-05", "2026-04", "2026-03", "2026-02", "2026-01"],
   monthlyReports: {
-    "2026-07": { sold: 0, invoices: 0 },
+    "2026-07": { sold: 50, invoices: 5 },
     "2026-06": { sold: 798, invoices: 42 },
     "2026-05": { sold: 632, invoices: 38 },
     "2026-04": { sold: 793, invoices: 39 },
@@ -144,7 +144,7 @@ const referenceDashboard = {
     "2026-02": { sold: 557, invoices: 49 },
     "2026-01": { sold: 1151, invoices: 12 },
   },
-  batchesInStock: "166",
+  batchesInStock: "168",
   batchesOutOfStock: "42",
   expiredBatches: "59",
   frequentItems: "Panadol CF, selanz, Adalat",
@@ -5051,9 +5051,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
   const [returnQty, setReturnQty] = useState({});
   const [returnInvoice, setReturnInvoice] = useState(null);
   const returnRows = useMemo(() => (sale?.items || []).map((item) => {
-    const returned = data.returns
-      .filter((row) => Number(row.sale_id) === Number(sale.id) && Number(row.batch_id) === Number(item.batch_id))
-      .reduce((sum, row) => sum + Number(row.qty_returned || 0), 0);
+    const returned = Number(item.qty_returned || 0);
     const remaining = Math.max(0, Number(item.total_qty || 0) - returned);
     const originalLineAmount = Number(item.payable_amount ?? item.amount ?? 0);
     const unitPayable = Number(item.total_qty || 0) ? originalLineAmount / Number(item.total_qty || 1) : Number(item.rate || 0);

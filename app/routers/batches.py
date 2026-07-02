@@ -6,6 +6,7 @@ from sqlalchemy import desc, func, or_
 from sqlalchemy.orm import Session
 
 from app.core.security import CurrentUser
+from app.core.reference_stock import adjust_reference_product_stock
 from app.db.session import get_db
 from app.models.batch import Batch, BatchStatus
 from app.models.product import Product
@@ -165,6 +166,12 @@ def create_batch(batch_in: BatchCreate, db: Annotated[Session, Depends(get_db)],
     batch.added_by = current_user.id
     batch.updated_by = current_user.id
     db.add(batch)
+    adjust_reference_product_stock(
+        db,
+        batch.product_id,
+        total_delta=float(batch.stock_in or 0),
+        remaining_delta=float(batch.stock_remaining or 0),
+    )
     db.commit()
     db.refresh(batch)
     return batch
@@ -175,9 +182,22 @@ def update_batch(batch_id: int, batch_in: BatchUpdate, db: Annotated[Session, De
     batch = db.get(Batch, batch_id)
     if not batch:
         raise HTTPException(status_code=404, detail="Batch not found")
+    old_product_id = batch.product_id
+    old_stock_in = float(batch.stock_in or 0)
+    old_stock_remaining = float(batch.stock_remaining or 0)
     for field, value in batch_in.model_dump(exclude_unset=True).items():
         setattr(batch, field, value)
     batch.updated_by = current_user.id
+    if old_product_id != batch.product_id:
+        adjust_reference_product_stock(db, old_product_id, total_delta=-old_stock_in, remaining_delta=-old_stock_remaining)
+        adjust_reference_product_stock(db, batch.product_id, total_delta=float(batch.stock_in or 0), remaining_delta=float(batch.stock_remaining or 0))
+    else:
+        adjust_reference_product_stock(
+            db,
+            batch.product_id,
+            total_delta=float(batch.stock_in or 0) - old_stock_in,
+            remaining_delta=float(batch.stock_remaining or 0) - old_stock_remaining,
+        )
     db.commit()
     db.refresh(batch)
     return batch
@@ -188,6 +208,13 @@ def delete_batch(batch_id: int, db: Annotated[Session, Depends(get_db)], current
     batch = db.get(Batch, batch_id)
     if not batch:
         raise HTTPException(status_code=404, detail="Batch not found")
+    if batch.status != BatchStatus.reported:
+        adjust_reference_product_stock(
+            db,
+            batch.product_id,
+            total_delta=-float(batch.stock_in or 0),
+            remaining_delta=-float(batch.stock_remaining or 0),
+        )
     batch.status = BatchStatus.reported
     db.commit()
     return {"message": "Batch deleted (reported)"}

@@ -5,6 +5,7 @@ from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from app.core.security import CurrentUser
+from app.core.reference_stock import adjust_reference_product_stock
 from app.db.session import get_db
 from app.models.batch import Batch, BatchStatus
 from app.models.demand import DemandItem, DemandStatus
@@ -144,6 +145,7 @@ def receive_purchase_order(
         status=BatchStatus.active,
     )
     db.add(batch)
+    adjust_reference_product_stock(db, batch.product_id, total_delta=quantity, remaining_delta=quantity)
     order.status = PurchaseOrderStatus.received
     if order.demand:
         order.demand.status = DemandStatus.completed

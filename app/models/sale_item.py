@@ -34,11 +34,12 @@ class SaleItem(Base, IdIntPK):
 
     @property
     def qty_returned(self) -> float:
+        actual_returned = 0
+        if self.sale:
+            actual_returned = sum(float(row.qty_returned or 0) for row in self.sale.returns if row.batch_id == self.batch_id)
         if self.reference_qty_returned is not None:
-            return float(self.reference_qty_returned)
-        if not self.sale:
-            return 0
-        return sum(float(row.qty_returned or 0) for row in self.sale.returns if row.batch_id == self.batch_id)
+            return float(self.reference_qty_returned) + actual_returned
+        return actual_returned
 
     @property
     def product_weight(self) -> Optional[str]:

@@ -39,6 +39,8 @@ def api_permission_requirement(path: str, method: str, query: dict[str, str] | N
         return None
     if path.startswith("/api/auth/change-password"):
         return None
+    if path.startswith("/api/pharmacy-profile") and method == "GET":
+        return None
 
     action = method_action(method)
     query = query or {}
