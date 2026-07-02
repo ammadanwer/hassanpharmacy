@@ -1629,7 +1629,7 @@ function RecentSalesList({ sales, page, pageSize, totalRows, dateMode, date, dat
                 <tr>
                   <td>{sale.invoice_number}</td>
                   <td>{sale.date}</td>
-                  <td>{formatTimeDisplay(sale.time)}</td>
+                  <td>{formatHistoryTime(sale.time)}</td>
                   <td>{money(sale.total_amount)}</td>
                   <td>{money(sale.discount_percent || 0)}</td>
                   <td>{money(sale.discount_amount || 0)}</td>
