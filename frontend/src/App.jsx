@@ -2875,7 +2875,7 @@ function DemandPage({ data, apiCall, reload, onError }) {
           <tbody><tr>
             <td><LookupField hideLabel label="Supplier Name" required value={form.supplier_id} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={selectSupplier} options={data.suppliers} placeholder="Supplier Name" addLabel="+ Add New" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} /></td>
             <td><LookupField hideLabel label="Product Name" required value={form.product_id} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={selectProduct} options={data.products} placeholder="Medicine Name" addLabel="+ Add New" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} /></td>
-            <td><LookupField hideLabel label="Type" required value={form.quantity_type} query={quantityTypeQuery} onQueryChange={(value) => { setQuantityTypeQuery(value); set("quantity_type", ""); }} onSelect={selectDemandType} options={demandTypeOptions} placeholder="" addLabel="" /></td>
+            <td><LookupField hideLabel label="Type" required value={form.quantity_type} query={quantityTypeQuery} onQueryChange={(value) => { setQuantityTypeQuery(value); set("quantity_type", ""); }} onSelect={selectDemandType} options={demandTypeOptions} placeholder="" addLabel="" openOnFocus={false} /></td>
             <td><Field hideLabel label="Quantity" type="number" value={form.quantity} onChange={(v) => set("quantity", v)} placeholder="Enter Quantity" /></td>
             <td><button className="primary">{editing ? "Save" : "Add To List"}</button></td>
           </tr></tbody>
@@ -5782,14 +5782,14 @@ function SelectField({ label, optional, value, onChange, options, placeholder, a
   );
 }
 
-function LookupField({ label, optional, required, value, query, onQueryChange, onSelect, options, placeholder, addLabel = "+ Add as New", onAdd, hideLabel = false }) {
+function LookupField({ label, optional, required, value, query, onQueryChange, onSelect, options, placeholder, addLabel = "+ Add as New", onAdd, hideLabel = false, openOnFocus = true }) {
   const [open, setOpen] = useState(false);
   const filtered = options.filter((option) => option.name.toLowerCase().includes((query || "").toLowerCase())).slice(0, 8);
   return (
     <label className="lookup-field">
       {hideLabel ? null : <span className="field-title">{label} {optional ? <small>(Optional)</small> : null}</span>}
       <div className={`input-action lookup-action ${onAdd ? "" : "no-action"}`}>
-        <input aria-label={hideLabel ? label : undefined} required={required} value={query} placeholder={placeholder ?? label} onFocus={() => setOpen(true)} onChange={(event) => { onQueryChange(event.target.value); setOpen(true); }} onBlur={() => setTimeout(() => setOpen(false), 120)} />
+        <input aria-label={hideLabel ? label : undefined} required={required} value={query} placeholder={placeholder ?? label} onFocus={() => { if (openOnFocus) setOpen(true); }} onChange={(event) => { onQueryChange(event.target.value); setOpen(true); }} onBlur={() => setTimeout(() => setOpen(false), 120)} />
         {onAdd ? <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={onAdd}>{addLabel}</button> : null}
         {open && query ? <div className="lookup-menu">
           {filtered.length ? filtered.map((option) => <button type="button" key={option.id} onMouseDown={(event) => event.preventDefault()} onClick={() => { onSelect(option); setOpen(false); }}>{option.name}</button>) : <div className="empty-small">No matches found</div>}

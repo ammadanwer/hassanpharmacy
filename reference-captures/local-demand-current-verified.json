@@ -1,0 +1,303 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/demand",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Demand Items List"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "+ Add New",
+    "+ Add New",
+    "Add To List",
+    "Print Demand List",
+    "Ok"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Supplier Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Medicine Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Supplier Name",
+      "Product Name",
+      "Type",
+      "Quantity",
+      "Action"
+    ],
+    [
+      "Supplier Name",
+      "Product Name",
+      "Type",
+      "Quantity",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSupplier Name\tProduct Name\tType\tQuantity\tAction\n\n+ Add New\n\t\n+ Add New\n\t\n\t\n\tAdd To List\nPrint Demand List\nDemand Items List\nSupplier Name\tProduct Name\tType\tQuantity\tActions\nNo Demand Found\n\nPlease select supplier\n\nOk",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "http://127.0.0.1:5173/pms/dashboard/demand",
+      "title": "Hassan Pharmacy",
+      "beforeTables": [
+        {
+          "headers": [
+            "Supplier Name",
+            "Product Name",
+            "Type",
+            "Quantity",
+            "Action"
+          ],
+          "rows": [
+            [
+              "+ Add New",
+              "+ Add New",
+              "Unit",
+              "",
+              "Add To List"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Supplier Name",
+            "Product Name",
+            "Type",
+            "Quantity",
+            "Actions"
+          ],
+          "rows": [
+            [
+              "No Demand Found"
+            ]
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Supplier Name",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "placeholder": "",
+          "value": "",
+          "text": "",
+          "hidden": true
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Medicine Name",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "placeholder": "",
+          "value": "",
+          "text": "",
+          "hidden": true
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "Unit",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "placeholder": "",
+          "value": "Unit",
+          "text": "",
+          "hidden": true
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "placeholder": "Enter Quantity",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Search...",
+          "value": "",
+          "text": "",
+          "hidden": false
+        }
+      ],
+      "visibleControls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Supplier Name",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Medicine Name",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "Unit",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "placeholder": "Enter Quantity",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Search...",
+          "value": "",
+          "text": "",
+          "hidden": false
+        }
+      ],
+      "textChecks": {
+        "noDemandFound": true,
+        "printDemandList": true,
+        "demandItemsList": true,
+        "nativeSelectCount": 0
+      },
+      "clickedAdd": true,
+      "validationModalText": "Please select supplier Ok",
+      "validationButtons": [
+        "Ok"
+      ],
+      "buttons": [
+        "Dashboard",
+        "Sales",
+        "Inventory",
+        "Batch",
+        "Demand/Order",
+        "Stock Audit",
+        "Order Purchase",
+        "Medical Products",
+        "Non Medical Products",
+        "Supplier",
+        "Category",
+        "Medicine Formula",
+        "Manufacturer",
+        "Stock Purchase",
+        "Shelf",
+        "Staff Management",
+        "Shift Management",
+        "Daily Expense",
+        "Settings",
+        "Get Technical Help",
+        "Collapse sidebar",
+        "Add New Sale",
+        "Renew",
+        "Open account menu",
+        "+ Add New",
+        "+ Add New",
+        "Add To List",
+        "Print Demand List",
+        "Ok"
+      ]
+    }
+  }
+}
