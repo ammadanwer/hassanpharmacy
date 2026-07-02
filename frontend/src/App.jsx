@@ -618,7 +618,7 @@ export default function App() {
           {route === "category" && <CrudPage config={crudConfigs.category} rows={data.categories} openModal={(row = null) => setCrudModal({ type: "category", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "medicineformula" && <CrudPage config={crudConfigs.medicineformula} rows={data.formulas} openModal={(row = null) => setCrudModal({ type: "medicineformula", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "manufacturer" && <CrudPage config={crudConfigs.manufacturer} rows={data.manufacturers} openModal={(row = null) => setCrudModal({ type: "manufacturer", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "purchases" && <StockPurchasePage apiCall={apiCall} onError={handleApiError} />}
+          {route === "purchases" && <StockPurchasePage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "shelf" && <ShelfPage data={data} openModal={(row = null) => setCrudModal({ type: "shelf", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "staff-management" && <StaffPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "shift-management" && <ShiftPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
@@ -2083,7 +2083,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
       const limit = Math.max(totalRows, rows.length, pageSize, 1);
       const pageData = unpackPaged(await apiCall(`/api/batches?${batchQueryParams({ skip: 0, limit }).toString()}`));
       const printRows = pageData.items.length ? [...pageData.items, makeBatchSummaryRow(pageData.items)] : [];
-      printTable("Batch History", printRows, columns, { formatValue: formatBatchPrintCell });
+      printTable("Batch History", printRows, columns, { formatValue: formatBatchPrintCell, profile: data.pharmacyProfile });
     } catch (error) {
       onError(error);
     }
@@ -2835,6 +2835,7 @@ function DemandPage({ data, apiCall, reload, onError }) {
     try {
       const pageData = unpackPaged(await apiCall(`/api/demands?${demandParams(0, Math.max(totalRows, pageSize, 10000)).toString()}`));
       printTable("Demand List", pageData.items, columns, {
+        profile: data.pharmacyProfile,
         formatValue: (row, key) => {
           if (key === "supplier_name") return row.supplier_name || nameById(data.suppliers, row.supplier_id);
           if (key === "product_name") return row.product_name || nameById(data.products, row.product_id);
@@ -3107,7 +3108,7 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
   );
 }
 
-function StockPurchasePage({ apiCall, onError }) {
+function StockPurchasePage({ data, apiCall, onError }) {
   const [search, setSearch] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
   const [page, setPage] = useState(1);
@@ -3143,6 +3144,7 @@ function StockPurchasePage({ apiCall, onError }) {
       const params = stockPurchaseParams(0, Math.max(totalRows, pageSize, 10000));
       const pageData = unpackPaged(await apiCall(`/api/reports/stock-purchases?${params.toString()}`));
       printStockPurchaseHistory(pageData.items, columns, {
+        profile: data.pharmacyProfile,
         search: search.trim(),
         purchaseDate: purchaseDate ? formatDisplayDate(purchaseDate) : "",
       });
@@ -4177,6 +4179,7 @@ function SalesHistoryPage({ data, apiCall, onError }) {
         showTimeFilters
         onFiltersChange={loadSales}
         onPrintRows={loadPrintableSales}
+        profile={data.pharmacyProfile}
         printFormatValue={(row, key) => key === "time" ? formatHistoryTime(row[key]) : formatSalesHistoryCell(row, key)}
         render={(row, key) => key === "actions" ? (
           <div className="invoice-actions">
@@ -4255,6 +4258,7 @@ function ReturnHistoryPage({ data, apiCall, onError }) {
         summaryTotals={summary}
         totalRows={totalRows}
         onFiltersChange={loadReturns}
+        profile={data.pharmacyProfile}
         render={(row, key) => {
           if (key === "invoice_number") return <span>{row.invoice_number}<br /><small>Return Invoice</small></span>;
           if (key === "time") return formatHistoryTime(row[key]);
@@ -4323,6 +4327,7 @@ function ProductSalesHistoryPage({ data, apiCall, onError }) {
         columns={[["product_name", "Product Name"], ["dose", "Dose"], ["generic_name", "Generic Name"], ["sold_quantity", "Sold Quantity"], ["actions", "Action"]]}
         totalRows={totalRows}
         onFiltersChange={loadProductSales}
+        profile={data.pharmacyProfile}
         render={(row, key, filters) => key === "actions" ? <button className="text-button" type="button" onClick={() => openProductHistory(row, filters)}>View Product History</button> : formatCell(row[key])}
       />
       {historyProduct ? <ProductHistoryModal product={historyProduct} filters={historyFilters} apiCall={apiCall} onError={onError} close={() => setHistoryProduct(null)} onView={openSaleDetails} onPrint={printSale} /> : null}
@@ -4597,7 +4602,7 @@ function CustomerPaymentHistoryModal({ detail, apiCall, onError, onUpdated, clos
   );
 }
 
-function ReportPage({ title, radios, inputs, rows, columns, render, printFormatValue, salesSummary = false, returnSummary = false, summaryTotals, totalRows, showTimeFilters = false, onFiltersChange, onPrintRows }) {
+function ReportPage({ title, radios, inputs, rows, columns, render, printFormatValue, profile, salesSummary = false, returnSummary = false, summaryTotals, totalRows, showTimeFilters = false, onFiltersChange, onPrintRows }) {
   const initialMode = radios[0]?.toLowerCase().includes("range") ? "range" : "single";
   const [dateMode, setDateMode] = useState(initialMode);
   const [date, setDate] = useState(today());
@@ -4674,9 +4679,9 @@ function ReportPage({ title, radios, inputs, rows, columns, render, printFormatV
       const rowsToPrint = shouldPrintEntire && onPrintRows ? await onPrintRows({ dateMode, date, dateFrom, dateTo, timeFrom, timeTo, search, status, page, pageSize }) : displayRows;
       const summaryToPrint = shouldPrintSummary ? (shouldPrintEntire ? displayedSalesTotals : salesTotals) : null;
       if (title === "Sales History") {
-        printSalesHistoryReport(rowsToPrint, summaryToPrint, { dateMode, date, dateFrom, dateTo });
+        printSalesHistoryReport(rowsToPrint, summaryToPrint, { dateMode, date, dateFrom, dateTo, profile });
       } else {
-        printTable(title, rowsToPrint, columns, { summary: summaryToPrint, formatValue: printFormatValue });
+        printTable(title, rowsToPrint, columns, { summary: summaryToPrint, formatValue: printFormatValue, profile });
       }
       setPrintOptionsOpen(false);
     } finally {
@@ -5360,6 +5365,7 @@ function printReturnReceipt(detail, data = {}) {
 }
 
 function printSalesHistoryReport(rows, summary, filters = {}) {
+  const profile = receiptPharmacyProfile(filters.profile);
   const printWindow = window.open("", "_blank", "width=1200,height=800");
   if (!printWindow) return;
   const compact = (value) => {
@@ -5423,7 +5429,9 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
         <div class="report-head">
           <div class="brand">
             <h1>Hassan Pharmacy</h1>
-            <p>DHA phase 2 extension</p>
+            ${profile.address ? `<p>${htmlEscape(profile.address)}</p>` : ""}
+            ${profile.customerService ? `<p>Phone # ${htmlEscape(profile.customerService)}</p>` : ""}
+            ${profile.licenseNumber ? `<p>License No. ${htmlEscape(profile.licenseNumber)}</p>` : ""}
           </div>
           <div class="title">
             <h2>Sales History</h2>
@@ -5442,7 +5450,7 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
           <div><span>Net Revenue:</span><strong>${htmlEscape(rupees(netRevenue))}</strong></div>
           <div><span>Pending:</span><strong>${htmlEscape(rupees(totals.pending || 0))}</strong></div>
         </div>
-        <p class="software">Software By Hassan Pharmacy, Phone# 03324122333</p>
+        <p class="software">Software By Hassan Pharmacy${profile.customerService ? `, Phone# ${htmlEscape(profile.customerService)}` : ""}</p>
       </body>
     </html>`);
   printWindow.document.close();
@@ -5451,6 +5459,7 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
 }
 
 function printTable(title, rows, columns, options = {}) {
+  const profile = receiptPharmacyProfile(options.profile);
   const printableColumns = columns.filter(([key]) => key !== "actions");
   const tableHead = printableColumns.map(([, label]) => `<th>${htmlEscape(label)}</th>`).join("");
   const formatValue = options.formatValue || ((row, key) => formatCell(row[key]));
@@ -5475,6 +5484,7 @@ function printTable(title, rows, columns, options = {}) {
         <style>
           body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 24px; }
           h1 { font-size: 22px; margin: 0 0 4px; }
+          .brand p, .software { color: #5f6873; font-size: 12px; margin: 3px 0; }
           .meta { color: #5f6873; font-size: 12px; margin-bottom: 18px; }
           .summary { border: 1px solid #cfd5dc; display: grid; grid-template-columns: repeat(6, 1fr); margin-bottom: 18px; }
           .summary div { border-right: 1px solid #cfd5dc; display: grid; gap: 4px; padding: 8px; }
@@ -5488,10 +5498,16 @@ function printTable(title, rows, columns, options = {}) {
         </style>
       </head>
       <body>
-        <h1>Hassan Pharmacy</h1>
+        <div class="brand">
+          <h1>Hassan Pharmacy</h1>
+          ${profile.address ? `<p>${htmlEscape(profile.address)}</p>` : ""}
+          ${profile.customerService ? `<p>Phone # ${htmlEscape(profile.customerService)}</p>` : ""}
+          ${profile.licenseNumber ? `<p>License No. ${htmlEscape(profile.licenseNumber)}</p>` : ""}
+        </div>
         <div class="meta">${htmlEscape(title)} - ${htmlEscape(new Date().toLocaleString())}</div>
         ${summaryHtml}
         <table><thead><tr>${tableHead}</tr></thead><tbody>${tableRows}</tbody></table>
+        <p class="software">Software By Hassan Pharmacy${profile.customerService ? `, Phone# ${htmlEscape(profile.customerService)}` : ""}</p>
       </body>
     </html>`);
   printWindow.document.close();
@@ -5500,6 +5516,7 @@ function printTable(title, rows, columns, options = {}) {
 }
 
 function printStockPurchaseHistory(rows, columns, filters = {}) {
+  const profile = receiptPharmacyProfile(filters.profile);
   const printableColumns = columns.filter(([key]) => key !== "actions");
   const tableHead = printableColumns.map(([, label]) => `<th>${htmlEscape(label)}</th>`).join("");
   const stockValue = (row, key) => row[key] == null ? "" : String(row[key]);
@@ -5521,6 +5538,7 @@ function printStockPurchaseHistory(rows, columns, filters = {}) {
           body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 18px; }
           h1 { font-size: 22px; margin: 0; }
           h2 { font-size: 16px; margin: 3px 0 10px; }
+          .brand p { color: #5f6873; font-size: 11px; margin: 2px 0; }
           .meta { color: #5f6873; display: flex; font-size: 11px; gap: 14px; margin-bottom: 12px; }
           table { border-collapse: collapse; font-size: 9px; width: 100%; }
           th, td { border: 1px solid #cfd5dc; padding: 5px; text-align: left; vertical-align: top; }
@@ -5530,14 +5548,19 @@ function printStockPurchaseHistory(rows, columns, filters = {}) {
         </style>
       </head>
       <body>
-        <h1>Hassan Pharmacy</h1>
+        <div class="brand">
+          <h1>Hassan Pharmacy</h1>
+          ${profile.address ? `<p>${htmlEscape(profile.address)}</p>` : ""}
+          ${profile.customerService ? `<p>Phone # ${htmlEscape(profile.customerService)}</p>` : ""}
+          ${profile.licenseNumber ? `<p>License No. ${htmlEscape(profile.licenseNumber)}</p>` : ""}
+        </div>
         <h2>Stock History</h2>
         <div class="meta">
           <span>Total Records: ${htmlEscape(String(rows.length))}</span>
           ${filterBits.map((bit) => `<span>${htmlEscape(bit)}</span>`).join("")}
         </div>
         <table><thead><tr>${tableHead}</tr></thead><tbody>${tableRows}</tbody></table>
-        <p class="software">Software By Hassan Pharmacy, Phone# 03324122333</p>
+        <p class="software">Software By Hassan Pharmacy${profile.customerService ? `, Phone# ${htmlEscape(profile.customerService)}` : ""}</p>
       </body>
     </html>`);
   printWindow.document.close();
