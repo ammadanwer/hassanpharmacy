@@ -1046,6 +1046,20 @@ main {
   padding-top: 24px;
 }
 
+.return-row-action {
+  background: transparent;
+  border: 0;
+  color: var(--blue);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  padding: 0;
+}
+
+.return-row-action:hover {
+  text-decoration: underline;
+}
+
 .return-actions .primary:disabled {
   background: #d4d4d8;
   border-color: #d4d4d8;

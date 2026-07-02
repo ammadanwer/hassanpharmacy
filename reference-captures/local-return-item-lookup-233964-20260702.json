@@ -1,0 +1,219 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Return",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "233964",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "02-07-2026",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Return Quantity",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch no.",
+      "Name",
+      "Quantity Sold",
+      "Quantity Returned",
+      "Rate/Sell Price",
+      "Amount",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nReference Invoice #\nReturn Invoice Date\nPurchased Items List\nBatch no.\tName\tQuantity Sold\tQuantity Returned\tRate/Sell Price\tAmount\tAction\nAA078\tEMPTIN OD 150MG\t6\t\t38\t228\tReturn\nGenerate Invoice",
+  "evalResults": {
+    "beforeClickFile": {
+      "invoice": "233964",
+      "before": {
+        "label": "empty",
+        "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+        "title": "Hassan Pharmacy",
+        "headings": [],
+        "buttons": [
+          "Dashboard",
+          "Sales",
+          "New Sale",
+          "Return Item",
+          "Sales History",
+          "Return History",
+          "Product Sales History",
+          "Customer History",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Collapse sidebar",
+          "Add New Sale",
+          "Renew",
+          "Open account menu",
+          "Generate Invoice"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "",
+            "checked": false,
+            "readOnly": false,
+            "disabled": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "02-07-2026",
+            "checked": false,
+            "readOnly": false,
+            "disabled": true
+          }
+        ],
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Batch no.",
+              "Name",
+              "Quantity Sold",
+              "Quantity Returned",
+              "Rate/Sell Price",
+              "Amount",
+              "Action"
+            ],
+            "rows": [
+              [
+                "No Data Found!"
+              ]
+            ]
+          }
+        ],
+        "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Reference Invoice # Return Invoice Date Purchased Items List Batch no. Name Quantity Sold Quantity Returned Rate/Sell Price Amount Action No Data Found! Generate Invoice"
+      },
+      "after": {
+        "label": "after-lookup",
+        "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+        "title": "Hassan Pharmacy",
+        "headings": [],
+        "buttons": [
+          "Dashboard",
+          "Sales",
+          "New Sale",
+          "Return Item",
+          "Sales History",
+          "Return History",
+          "Product Sales History",
+          "Customer History",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Collapse sidebar",
+          "Add New Sale",
+          "Renew",
+          "Open account menu",
+          "Return",
+          "Generate Invoice"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "233964",
+            "checked": false,
+            "readOnly": false,
+            "disabled": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "02-07-2026",
+            "checked": false,
+            "readOnly": false,
+            "disabled": true
+          },
+          {
+            "tag": "INPUT",
+            "type": "number",
+            "placeholder": "Enter Return Quantity",
+            "value": "",
+            "checked": false,
+            "readOnly": false,
+            "disabled": false
+          }
+        ],
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Batch no.",
+              "Name",
+              "Quantity Sold",
+              "Quantity Returned",
+              "Rate/Sell Price",
+              "Amount",
+              "Action"
+            ],
+            "rows": [
+              [
+                "AA078",
+                "EMPTIN OD 150MG",
+                "6",
+                "",
+                "38",
+                "228",
+                "Return"
+              ]
+            ]
+          }
+        ],
+        "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Reference Invoice # Return Invoice Date Purchased Items List Batch no. Name Quantity Sold Quantity Returned Rate/Sell Price Amount Action AA078 EMPTIN OD 150MG 6 38 228 Return Generate Invoice",
+        "setInvoice": true,
+        "enterPressed": true
+      }
+    }
+  }
+}

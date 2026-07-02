@@ -1,0 +1,171 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/return-item",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Return",
+    "Generate Invoice",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "233964",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "02-07-2026",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch no.",
+      "Name",
+      "Quantity Sold",
+      "Quantity Returned",
+      "Rate/Sell Price",
+      "Amount",
+      "Action"
+    ]
+  ],
+  "text": "Reference Invoice #\n​\nReturn Invoice Date\n​\nPurchased Items List\nBatch no.\tName\tQuantity Sold\tQuantity Returned\tRate/Sell Price\tAmount\tAction\nAA078\tEMPTIN OD 150MG\t6\t\n\nEnter Return Quantity\n\n\t38\t228\t\nReturn\nGenerate Invoice\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClickFile": {
+      "invoice": "233964",
+      "before": {
+        "label": "empty",
+        "url": "https://e-mareez.com/pms/dashboard/return-item",
+        "title": "E-Mareez Pharmacy Management System",
+        "headings": [],
+        "buttons": [
+          "Generate Invoice",
+          "Add New Sale",
+          "show more",
+          "Dashboard",
+          "Sales",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "",
+            "checked": false,
+            "readOnly": false,
+            "disabled": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "02-07-2026",
+            "checked": false,
+            "readOnly": false,
+            "disabled": true
+          }
+        ],
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Batch no.",
+              "Name",
+              "Quantity Sold",
+              "Quantity Returned",
+              "Rate/Sell Price",
+              "Amount",
+              "Action"
+            ],
+            "rows": [
+              [
+                "No Data Found!"
+              ]
+            ]
+          }
+        ],
+        "bodyExcerpt": "Reference Invoice # ​ Return Invoice Date ​ Purchased Items List Batch no. Name Quantity Sold Quantity Returned Rate/Sell Price Amount Action No Data Found! Generate Invoice Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help"
+      },
+      "after": {
+        "label": "after-lookup",
+        "url": "https://e-mareez.com/pms/dashboard/return-item",
+        "title": "E-Mareez Pharmacy Management System",
+        "headings": [],
+        "buttons": [
+          "Return",
+          "Generate Invoice",
+          "Add New Sale",
+          "show more",
+          "Dashboard",
+          "Sales",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "233964",
+            "checked": false,
+            "readOnly": false,
+            "disabled": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter the original invoice#",
+            "value": "02-07-2026",
+            "checked": false,
+            "readOnly": false,
+            "disabled": true
+          }
+        ],
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Batch no.",
+              "Name",
+              "Quantity Sold",
+              "Quantity Returned",
+              "Rate/Sell Price",
+              "Amount",
+              "Action"
+            ],
+            "rows": [
+              [
+                "AA078",
+                "EMPTIN OD 150MG",
+                "6",
+                "Enter Return Quantity",
+                "38",
+                "228",
+                "Return"
+              ]
+            ]
+          }
+        ],
+        "bodyExcerpt": "Reference Invoice # ​ Return Invoice Date ​ Purchased Items List Batch no. Name Quantity Sold Quantity Returned Rate/Sell Price Amount Action AA078 EMPTIN OD 150MG 6 Enter Return Quantity 38 228 Return Generate Invoice Add New Sale Renew Pharmacy Management System Dashboard Sales Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help",
+        "setInvoice": true,
+        "enterPressed": true
+      }
+    }
+  }
+}

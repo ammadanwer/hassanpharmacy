@@ -4996,7 +4996,8 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
       .filter((row) => Number(row.sale_id) === Number(sale.id) && Number(row.batch_id) === Number(item.batch_id))
       .reduce((sum, row) => sum + Number(row.qty_returned || 0), 0);
     const remaining = Math.max(0, Number(item.total_qty || 0) - returned);
-    const unitPayable = Number(item.total_qty || 0) ? Number(item.payable_amount ?? item.amount ?? 0) / Number(item.total_qty || 1) : Number(item.rate || 0);
+    const originalLineAmount = Number(item.payable_amount ?? item.amount ?? 0);
+    const unitPayable = Number(item.total_qty || 0) ? originalLineAmount / Number(item.total_qty || 1) : Number(item.rate || 0);
     const selectedQty = Number(returnQty[item.batch_id] || 0);
     return {
       ...item,
@@ -5004,6 +5005,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
       quantity_returned: returned,
       returnable_qty: remaining,
       unit_refund_amount: unitPayable,
+      line_amount: originalLineAmount,
       amount: selectedQty * unitPayable,
     };
   }), [sale, data.returns, returnQty]);
@@ -5017,9 +5019,13 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
     const query = invoiceQuery.trim();
     if (!query) return;
     try {
-      const match = /^\d+$/.test(query)
-        ? await apiCall(`/api/sales/${query}`)
-        : await apiCall(`/api/sales/by-invoice/${encodeURIComponent(query)}`);
+      let match;
+      try {
+        match = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(query)}`);
+      } catch (error) {
+        if (error.status !== 404 || !/^\d+$/.test(query)) throw error;
+        match = await apiCall(`/api/sales/${query}`);
+      }
       setSale(match);
       setReturnQty(Object.fromEntries((match.items || []).map((item) => [item.batch_id, ""])));
     } catch (error) {
@@ -5078,15 +5084,15 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
         </label>
         <label>
           <span className="field-title">Return Invoice Date</span>
-          <input readOnly value={formatDashDate(today())} />
+          <input disabled placeholder="Enter the original invoice#" value={formatDashDate(today())} />
         </label>
       </div>
       <section className="sale-items-panel return-items-panel">
         <div className="sale-items-title">Purchased Items List</div>
         <DataTable emptyText="No Data Found!" columns={[["batch_no", "Batch no."], ["product_name", "Name"], ["quantity_sold", "Quantity Sold"], ["quantity_returned", "Quantity Returned"], ["rate", "Rate/Sell Price"], ["amount", "Amount"], ["actions", "Action"]]} rows={returnRows} render={(row, key) => {
-          if (key === "quantity_returned") return <input className="table-input" type="number" min="0" max={row.returnable_qty} placeholder={formatCompactNumber(row.returnable_qty)} value={returnQty[row.batch_id] || ""} onChange={(event) => setReturnQty((current) => ({ ...current, [row.batch_id]: event.target.value }))} />;
-          if (key === "amount") return money(row.amount);
-          if (key === "actions") return <button className="icon-action danger" type="button" disabled={!returnQty[row.batch_id]} onClick={() => setReturnQty((current) => ({ ...current, [row.batch_id]: "" }))} title="Clear return quantity"><Trash2 size={18} /></button>;
+          if (key === "quantity_returned") return <input className="table-input" type="number" min="0" max={row.returnable_qty} placeholder="Enter Return Quantity" aria-label="Enter Return Quantity" value={returnQty[row.batch_id] || ""} onChange={(event) => setReturnQty((current) => ({ ...current, [row.batch_id]: event.target.value }))} />;
+          if (key === "amount") return returnQty[row.batch_id] ? money(row.amount) : formatPlainCompactAmount(row.line_amount);
+          if (key === "actions") return <button className="return-row-action" type="button" onClick={() => setReturnQty((current) => ({ ...current, [row.batch_id]: current[row.batch_id] || String(row.returnable_qty || "") }))}>Return</button>;
           return formatCell(row[key]);
         }} />
       </section>
