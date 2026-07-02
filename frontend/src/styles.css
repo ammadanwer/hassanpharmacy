@@ -2343,6 +2343,25 @@ main {
   padding: 28px 24px 24px;
 }
 
+.order-purchase-history-modal {
+  max-width: 980px;
+  width: min(calc(100vw - 64px), 980px);
+}
+
+.order-purchase-history-modal .simple-modal-body {
+  display: block;
+  padding: 22px 24px 28px;
+}
+
+.order-purchase-history-modal h3 {
+  font-size: 18px;
+  margin: 22px 0 12px;
+}
+
+.order-purchase-history-modal .data-table + h3 {
+  margin-top: 24px;
+}
+
 .profile-modal {
   max-width: 900px;
   width: min(100%, 900px);

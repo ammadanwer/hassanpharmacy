@@ -1,0 +1,116 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/order-purchase",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Restock Batch",
+    "Add Batch",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Medicine Name",
+      "Dose",
+      "Total Quantity",
+      "R. Quantity",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nMedical\nNon Medical\nMedicine Name\tDose\tTotal Quantity\tR. Quantity\tManufacturer Name\tActions\nenliten whitening bar\t20ml\t5\t0\tAbbott\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1",
+  "evalResults": {
+    "beforeClick": {
+      "clicked": true,
+      "range": "1-1 of 1",
+      "selectCount": 0,
+      "tables": [
+        {
+          "headers": [
+            "Medicine Name",
+            "Dose",
+            "Total Quantity",
+            "R. Quantity",
+            "Manufacturer Name",
+            "Actions"
+          ],
+          "rows": [
+            [
+              "enliten whitening bar",
+              "20ml",
+              "5",
+              "0",
+              "Abbott",
+              ""
+            ]
+          ],
+          "actions": [
+            {
+              "text": "",
+              "buttons": [
+                "Restock Batch",
+                "Add Batch"
+              ],
+              "svgCount": 2
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

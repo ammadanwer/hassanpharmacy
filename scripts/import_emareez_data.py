@@ -570,6 +570,11 @@ def product_for_batch(db, product_name, formula_name):
     product = db.query(Product).filter(Product.name.ilike(name)).first()
     if product:
         return product
+    normalized_name = norm(name)
+    for candidate in db.query(Product).filter(Product.type == ProductType.medical).all():
+        display_name = norm(f"{candidate.name or ''} {candidate.dose or ''}")
+        if display_name and display_name == normalized_name:
+            return candidate
     product_type = ProductType.medical if clean(formula_name) else ProductType.non_medical
     product = Product(name=name, type=product_type, status="active")
     if clean(formula_name):

@@ -1,0 +1,461 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/order-purchase",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Batch"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch",
+    "Restock Batch",
+    "Add Batch"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter barcode.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Supplier",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Name",
+      "value": "10 cc s",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "4",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter batch no.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add no. of boxes",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add no. of units per box",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add Quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Units Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Boxes Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Units Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Boxes Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Percentage",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Amount",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Percentage",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Amount",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Shelf",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Add Price",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Payment Method",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Medicine Name",
+      "Dose",
+      "Total Quantity",
+      "R. Quantity",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nMedical\nNon Medical\nMedicine Name\tDose\tTotal Quantity\tR. Quantity\tManufacturer Name\tActions\n10 cc s\t00mg\t200\t10\tShifa\t\n\n10cc Syringe\t10 Milliliter (mL)\t48\t0\tShifa\t\n\n4OMG RISEK\t-\t9\t0\t1\t\n\n7.5 GLOVES\t-\t4\t1\tAmeer\t\n\nActrac\t20mg\t5\t1\tServing health\t\n\nAdalat\t30mg\t960\t-61\tBayer\t\n\nAdalat\t30mg\t4\t0\tBayer\t\n\nAlprib 20mg\t20mg\t20\t0\tRays pharma\t\n\nB ACTIVE SYP 120ML\t-\t144\t0\tUNICORN\t\n\nbbextrin\t20 Milligram (mg)\t40\t8\tSunshine Pharmaceuticals\t\n\ncefia\t100 Milligram (mg)\t20\t6\tHighnoon\t\n\nDow D\t5mg/ Milliliter (mL)\t2\t0\tMartin dow\t\n\nFEFAN DS TAB\t-\t20\t0\tamson\t\n\nFlagyl\t60ml\t25\t0\tSanofi-aventis\t\n\nFuroxone\t100mg\t20\t-10\tGSK\t\n\nGyno-Travogen Vag\t5g\t5\t0\tBayer\t\n\nJ FLEX TAB\t-\t15\t4\tMIKSON",
+  "evalResults": {
+    "beforeClick": {
+      "initialText": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales Inventory Batch Demand/Order Stock Audit Order Purchase Med",
+      "restockFound": true,
+      "afterRestock": {
+        "modalCount": 1,
+        "title": "Product History",
+        "body": "Product History Medicine Name Total Quantity Remaining Quantity 10 cc s 200 10 Batches List Batch No. Total boxes Units per box Total Qt. Cost price Sell price Shelf No. Exp. Date Actions 85 - - 0 10 10 - -",
+        "tables": [
+          {
+            "headers": [
+              "Medicine Name",
+              "Total Quantity",
+              "Remaining Quantity"
+            ],
+            "rows": [
+              [
+                "10 cc s",
+                "200",
+                "10"
+              ]
+            ]
+          },
+          {
+            "headers": [
+              "Batch No.",
+              "Total boxes",
+              "Units per box",
+              "Total Qt.",
+              "Cost price",
+              "Sell price",
+              "Shelf No.",
+              "Exp. Date",
+              "Actions"
+            ],
+            "rows": [
+              [
+                "85",
+                "-",
+                "-",
+                "0",
+                "10",
+                "10",
+                "-",
+                "-",
+                ""
+              ]
+            ]
+          }
+        ]
+      },
+      "addFound": true,
+      "afterAdd": {
+        "modalCount": 1,
+        "title": "Add Batch",
+        "labels": [
+          "Medical",
+          "Non Medical",
+          "Bar Code (Optional)",
+          "Supplier + Add as New",
+          "Name + Add as New",
+          "Batch No.",
+          "Total Boxes",
+          "Units per box",
+          "Total Stock",
+          "Cost Price ↔",
+          "Sell Price ↔",
+          "Stock Purchase Price Before Dis."
+        ],
+        "inputs": [
+          {
+            "type": "radio",
+            "placeholder": "",
+            "value": "on"
+          },
+          {
+            "type": "radio",
+            "placeholder": "",
+            "value": "on"
+          },
+          {
+            "type": "text",
+            "placeholder": "Enter barcode.",
+            "value": ""
+          },
+          {
+            "type": "text",
+            "placeholder": "Supplier",
+            "value": ""
+          },
+          {
+            "type": "hidden",
+            "placeholder": "",
+            "value": ""
+          },
+          {
+            "type": "text",
+            "placeholder": "Name",
+            "value": "10 cc s"
+          },
+          {
+            "type": "hidden",
+            "placeholder": "",
+            "value": "4"
+          },
+          {
+            "type": "text",
+            "placeholder": "Enter batch no.",
+            "value": ""
+          },
+          {
+            "type": "number",
+            "placeholder": "Add no. of boxes",
+            "value": ""
+          },
+          {
+            "type": "number",
+            "placeholder": "Add no. of units per box",
+            "value": ""
+          },
+          {
+            "type": "number",
+            "placeholder": "Add Quantity",
+            "value": ""
+          },
+          {
+            "type": "number",
+            "placeholder": "Units Price",
+            "value": ""
+          }
+        ],
+        "selectCount": 0
+      }
+    }
+  }
+}

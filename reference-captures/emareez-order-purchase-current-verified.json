@@ -1,0 +1,511 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/order-purchase",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "medical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "nonMedical",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Medicine Name",
+      "Dose",
+      "Total Quantity",
+      "R. Quantity",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "Medical\nNon Medical\n​\nMedicine Name\tDose\tTotal Quantity\tR. Quantity\tManufacturer Name\tActions\n10 cc s\t00mg\t200\t\n10\n\tShifa\t\n\n10cc Syringe\t10 Milliliter (mL)\t48\t\n0\n\tShifa\t\n\n4OMG RISEK\t-\t9\t\n0\n\t1\t\n\n7.5 GLOVES\t-\t4\t\n1\n\tAmeer\t\n\nActrac\t20mg\t5\t\n1\n\tServing health\t\n\nAdalat\t30mg\t960\t\n-61\n\tBayer\t\n\nAdalat\t30mg\t4\t\n0\n\tBayer\t\n\nAlprib 20mg\t20mg\t20\t\n0\n\tRays pharma\t\n\nB ACTIVE SYP 120ML\t-\t144\t\n0\n\tUNICORN\t\n\nbbextrin\t20 Milligram (mg)\t40\t\n8\n\tSunshine Pharmaceuticals\t\n\ncefia\t100 Milligram (mg)\t20\t\n6\n\tHighnoon\t\n\nDow D\t5mg/ Milliliter (mL)\t2\t\n0\n\tMartin dow\t\n\nFEFAN DS TAB\t-\t20\t\n0\n\tamson\t\n\nFlagyl\t60ml\t25\t\n0\n\tSanofi-aventis\t\n\nFuroxone\t100mg\t20\t\n-10\n\tGSK\t\n\nGyno-Travogen Vag\t5g\t5\t\n0\n\tBayer\t\n\nJ FLEX TAB\t-\t15\t\n4\n\tMIKSONS\t\n\nM & M 49.3 GG\t-\t12\t\n0\n\tGENERAL ITEM\t\n\nomeprazole\t-\t150\t\n-3\n\t2\t\n\nOmgel Podina\t-\t110\t\n32\n\t1\t\n\npanadol\t3mg\t305\t\n52\n\tNovartis\t\n\npanadol\t-\t400\t\n-8\n\t26/A,VIA PALERMO-PARMA-ITALY\t\n\nPanadol Extra\t500mg\t900\t\n-100\n\tGSK\t\n\nPANADOL TAB\t-\t500\t\n0\n\tGSK\t\n\nPAN AMIN SG 500ML\t-\t16\t\n0\n\tOTSUKA\t\n\nPD-CEF IM\t500mg\t31\t\n0\n\tPDH Pharma\t\n\nP DOXIME INJ 10ML\t-\t1\t\n0\n\tAtco\t\n\nPLATRID AP 75/75\t75MG Milligrams per deciliter (mg/dL)\t1\t\n0\n\tSAMI\t\n\nSalazopyrin\t500mg\t10\t\n-40\n\tPfizer\t\n\nSANI PLAST\t-\t200\t\n36\n\t2\t\n\nselanz\t50mg\t1200\t\n0\n\t3H HOFFMANN HUMAN HEALTH LHR.\t\n\nT DAY 5MG TAB\t-\t525\t\n50\n\tGlaxoSmithKline\t\n\nTransamin\t250mg\t19\t\n1\n\tBayer\t\n\nZYTO 250MG TAB\t-\t201\t\n53\n\tHigh Q\t\n< BACK\n1\nNEXT >\nRows per page\n50\n​\n1-34 of 34\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClickFile": {
+      "medical": {
+        "url": "https://e-mareez.com/pms/dashboard/order-purchase",
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "medical",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "nonMedical",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search...",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "50",
+            "text": ""
+          }
+        ],
+        "selectCount": 0,
+        "textRange": "1-34 of 34",
+        "tables": [
+          {
+            "headers": [
+              "Medicine Name",
+              "Dose",
+              "Total Quantity",
+              "R. Quantity",
+              "Manufacturer Name",
+              "Actions"
+            ],
+            "rows": [
+              [
+                "10 cc s",
+                "00mg",
+                "200",
+                "10",
+                "Shifa",
+                ""
+              ],
+              [
+                "10cc Syringe",
+                "10 Milliliter (mL)",
+                "48",
+                "0",
+                "Shifa",
+                ""
+              ],
+              [
+                "4OMG RISEK",
+                "-",
+                "9",
+                "0",
+                "1",
+                ""
+              ],
+              [
+                "7.5 GLOVES",
+                "-",
+                "4",
+                "1",
+                "Ameer",
+                ""
+              ],
+              [
+                "Actrac",
+                "20mg",
+                "5",
+                "1",
+                "Serving health",
+                ""
+              ],
+              [
+                "Adalat",
+                "30mg",
+                "960",
+                "-61",
+                "Bayer",
+                ""
+              ],
+              [
+                "Adalat",
+                "30mg",
+                "4",
+                "0",
+                "Bayer",
+                ""
+              ],
+              [
+                "Alprib 20mg",
+                "20mg",
+                "20",
+                "0",
+                "Rays pharma",
+                ""
+              ],
+              [
+                "B ACTIVE SYP 120ML",
+                "-",
+                "144",
+                "0",
+                "UNICORN",
+                ""
+              ],
+              [
+                "bbextrin",
+                "20 Milligram (mg)",
+                "40",
+                "8",
+                "Sunshine Pharmaceuticals",
+                ""
+              ],
+              [
+                "cefia",
+                "100 Milligram (mg)",
+                "20",
+                "6",
+                "Highnoon",
+                ""
+              ],
+              [
+                "Dow D",
+                "5mg/ Milliliter (mL)",
+                "2",
+                "0",
+                "Martin dow",
+                ""
+              ],
+              [
+                "FEFAN DS TAB",
+                "-",
+                "20",
+                "0",
+                "amson",
+                ""
+              ],
+              [
+                "Flagyl",
+                "60ml",
+                "25",
+                "0",
+                "Sanofi-aventis",
+                ""
+              ],
+              [
+                "Furoxone",
+                "100mg",
+                "20",
+                "-10",
+                "GSK",
+                ""
+              ],
+              [
+                "Gyno-Travogen Vag",
+                "5g",
+                "5",
+                "0",
+                "Bayer",
+                ""
+              ],
+              [
+                "J FLEX TAB",
+                "-",
+                "15",
+                "4",
+                "MIKSONS",
+                ""
+              ],
+              [
+                "M & M 49.3 GG",
+                "-",
+                "12",
+                "0",
+                "GENERAL ITEM",
+                ""
+              ],
+              [
+                "omeprazole",
+                "-",
+                "150",
+                "-3",
+                "2",
+                ""
+              ],
+              [
+                "Omgel Podina",
+                "-",
+                "110",
+                "32",
+                "1",
+                ""
+              ],
+              [
+                "panadol",
+                "3mg",
+                "305",
+                "52",
+                "Novartis",
+                ""
+              ],
+              [
+                "panadol",
+                "-",
+                "400",
+                "-8",
+                "26/A,VIA PALERMO-PARMA-ITALY",
+                ""
+              ],
+              [
+                "Panadol Extra",
+                "500mg",
+                "900",
+                "-100",
+                "GSK",
+                ""
+              ],
+              [
+                "PANADOL TAB",
+                "-",
+                "500",
+                "0",
+                "GSK",
+                ""
+              ],
+              [
+                "PAN AMIN SG 500ML",
+                "-",
+                "16",
+                "0",
+                "OTSUKA",
+                ""
+              ],
+              [
+                "PD-CEF IM",
+                "500mg",
+                "31",
+                "0",
+                "PDH Pharma",
+                ""
+              ],
+              [
+                "P DOXIME INJ 10ML",
+                "-",
+                "1",
+                "0",
+                "Atco",
+                ""
+              ],
+              [
+                "PLATRID AP 75/75",
+                "75MG Milligrams per deciliter (mg/dL)",
+                "1",
+                "0",
+                "SAMI",
+                ""
+              ],
+              [
+                "Salazopyrin",
+                "500mg",
+                "10",
+                "-40",
+                "Pfizer",
+                ""
+              ],
+              [
+                "SANI PLAST",
+                "-",
+                "200",
+                "36",
+                "2",
+                ""
+              ],
+              [
+                "selanz",
+                "50mg",
+                "1200",
+                "0",
+                "3H HOFFMANN HUMAN HEALTH LHR.",
+                ""
+              ],
+              [
+                "T DAY 5MG TAB",
+                "-",
+                "525",
+                "50",
+                "GlaxoSmithKline",
+                ""
+              ],
+              [
+                "Transamin",
+                "250mg",
+                "19",
+                "1",
+                "Bayer",
+                ""
+              ],
+              [
+                "ZYTO 250MG TAB",
+                "-",
+                "201",
+                "53",
+                "High Q",
+                ""
+              ]
+            ],
+            "actionCells": [
+              {
+                "text": "",
+                "buttonCount": 0,
+                "svgCount": 2,
+                "labels": []
+              },
+              {
+                "text": "",
+                "buttonCount": 0,
+                "svgCount": 2,
+                "labels": []
+              },
+              {
+                "text": "",
+                "buttonCount": 0,
+                "svgCount": 2,
+                "labels": []
+              },
+              {
+                "text": "",
+                "buttonCount": 0,
+                "svgCount": 2,
+                "labels": []
+              },
+              {
+                "text": "",
+                "buttonCount": 0,
+                "svgCount": 2,
+                "labels": []
+              }
+            ]
+          }
+        ]
+      },
+      "orderModal": {
+        "opened": false,
+        "title": "",
+        "labels": [],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "medical",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "nonMedical",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search...",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "50",
+            "text": ""
+          }
+        ],
+        "selectCount": 0
+      },
+      "nonMedical": {
+        "url": "https://e-mareez.com/pms/dashboard/order-purchase",
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "medical",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "nonMedical",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search...",
+            "value": "",
+            "text": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "50",
+            "text": ""
+          }
+        ],
+        "selectCount": 0,
+        "textRange": "1-1 of 1",
+        "tables": [
+          {
+            "headers": [
+              "Medicine Name",
+              "Dose",
+              "Total Quantity",
+              "R. Quantity",
+              "Manufacturer Name",
+              "Actions"
+            ],
+            "rows": [
+              [
+                "enliten whitening bar",
+                "20ml",
+                "5",
+                "0",
+                "Abbott",
+                ""
+              ]
+            ],
+            "actionCells": [
+              {
+                "text": "",
+                "buttonCount": 0,
+                "svgCount": 2,
+                "labels": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
