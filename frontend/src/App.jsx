@@ -1744,16 +1744,18 @@ function InvoiceModal({ sale, data, close }) {
           </div>
           <table>
             <thead><tr><th>Item(s)</th><th>QTY</th><th>Price</th><th>Amt</th></tr></thead>
-            <tbody>{items.length ? items.map((item, index) => (
-              <tr key={item.id || index}>
-                <td>{receiptProductName(item, data)}</td>
-                <td>{money(item.total_qty)}</td>
-                <td>{money(item.rate)}</td>
-                <td>{money(item.payable_amount ?? item.amount)}</td>
-              </tr>
-            )) : <tr><td colSpan="4">No items found</td></tr>}</tbody>
+            <tbody>{items.length ? <>
+              {items.map((item, index) => (
+                <tr key={item.id || index}>
+                  <td>{receiptProductName(item, data)}</td>
+                  <td>{money(item.total_qty)}</td>
+                  <td>{money(item.rate)}</td>
+                  <td>{money(item.payable_amount ?? item.amount)}</td>
+                </tr>
+              ))}
+              <tr><td colSpan="4">Total Items: {items.length}</td></tr>
+            </> : <tr><td colSpan="4">No items found</td></tr>}</tbody>
           </table>
-          <div className="receipt-total-row"><span>Total Items: {items.length}</span></div>
           <div className="receipt-total-row"><span>Gross Total:</span><strong>Rs. {money(totals.gross)}</strong></div>
           <div className="receipt-total-row"><span>Discount:</span><strong>Rs. {money(totals.discount)}</strong></div>
           <div className="receipt-total-row"><span>Net Total:</span><strong>Rs. {money(totals.net)}</strong></div>
@@ -4742,17 +4744,17 @@ function CustomerPaymentHistoryModal({ detail, apiCall, onError, onUpdated, clos
               <strong className="total-amount">Received: Rs {referenceMoney(received)}</strong>
               <div className="payment-methods">
                 <span>Select Payment Method</span>
-                <label><input type="radio" name="customer-payment-method" checked={paymentMethod === "card_payment"} onChange={() => setPaymentMethod("card_payment")} /><b>VISA</b></label>
-                <label><input type="radio" name="customer-payment-method" checked={paymentMethod === "easy_paisa"} onChange={() => setPaymentMethod("easy_paisa")} /><b>e</b></label>
-                <label><input type="radio" name="customer-payment-method" checked={paymentMethod === "jazz_cash"} onChange={() => setPaymentMethod("jazz_cash")} /><b>JazzCash</b></label>
-                <label><input type="radio" name="customer-payment-method" checked={paymentMethod === "bank_transfer"} onChange={() => setPaymentMethod("bank_transfer")} /><b>Card</b></label>
-                <label><input type="radio" name="customer-payment-method" checked={paymentMethod === "cash"} onChange={() => setPaymentMethod("cash")} /><b className="cash-icon">Cash</b></label>
+                <label><input type="radio" name="customer-payment-method" value="2" checked={paymentMethod === "card_payment"} onChange={() => setPaymentMethod("card_payment")} /><b>VISA</b></label>
+                <label><input type="radio" name="customer-payment-method" value="1" checked={paymentMethod === "easy_paisa"} onChange={() => setPaymentMethod("easy_paisa")} /><b>e</b></label>
+                <label><input type="radio" name="customer-payment-method" value="0" checked={paymentMethod === "jazz_cash"} onChange={() => setPaymentMethod("jazz_cash")} /><b>JazzCash</b></label>
+                <label><input type="radio" name="customer-payment-method" value="5" checked={paymentMethod === "bank_transfer"} onChange={() => setPaymentMethod("bank_transfer")} /><b>Card</b></label>
+                <label><input type="radio" name="customer-payment-method" value="3" checked={paymentMethod === "cash"} onChange={() => setPaymentMethod("cash")} /><b className="cash-icon">Cash</b></label>
               </div>
             </div>
             <div className="payment-right">
               <div className="due-payment"><span>Due Payment</span><strong>Rs. {referenceMoney(due)}</strong></div>
               <div className="paid-amount">Paid Amount: Rs {referenceMoney(received)}</div>
-              <label className="receive-now"><span>Receive Now:</span><input type="number" min="0" placeholder="Payment" value={receiveNow} onChange={(event) => setReceiveNow(event.target.value)} /></label>
+              <label className="receive-now"><span>Receive Now:</span><input type="number" min="0" value={receiveNow} onChange={(event) => setReceiveNow(event.target.value)} /></label>
               <div className="returned-cash"><strong>Returned Cash:</strong> RS. {referenceMoney(returnedCash)}</div>
               <button className="primary" type="button" disabled={saving || due <= 0} onClick={clearDues}>{saving ? "Clearing..." : "Clear Dues"}</button>
             </div>

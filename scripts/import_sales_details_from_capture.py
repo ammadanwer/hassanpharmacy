@@ -132,6 +132,8 @@ def fallback_summary_from_capture_row(row):
 
 def capture_payloads(capture_path):
     payload = json.loads(capture_path.read_text())
+    if payload.get("invoiceNumber") and isinstance(payload.get("items"), list):
+        return [payload]
     captures = payload.get("evalResults", {}).get("beforeClickFile", {}).get("captures", [])
     converted = []
     for capture in captures:

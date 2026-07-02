@@ -1,0 +1,1206 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Payment History",
+    "Invoice Details",
+    "Hassan Pharmacy"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "Edit Customer",
+    "View Payment History",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "close",
+    "View",
+    "Print Invoice",
+    "Clear Dues",
+    "Print Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "2",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "1",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "0",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "5",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "3",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Phone#",
+      "Due Amount",
+      "Actions"
+    ],
+    [
+      "Invoice No.",
+      "Date",
+      "Total Amt",
+      "Dis(%)",
+      "Dis Amt",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Actions"
+    ],
+    [
+      "Item(s)",
+      "QTY",
+      "Price",
+      "Amt"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nName\tPhone#\tDue Amount\tActions\nabdulmanan\t03114893102\t30.00\t\n\nAHMAD\t03059220011\t200.00\t\n\nali\t03967787777\t365.00\t\n\nGf\t03061546446\t5.00\t\n\nirfan\t03450118704\t80.00\t\n\nkhalil\t03073532319\t44.00\t\n\nnoor mustafa\t03078600503\t228.00\t\n\nRameez\t03451234532\t63.00\t\n\nrauf\t03488666418\t540.00\t\n\nsaaw\t0342765\t300.00\t\n\nSana\t03014789654\t100.00\t\n\nuuuu\t03028745969\t500.00\t\n\nwaqas s\t03339999987\t100.00\t\n\nZain b\t03334141414\t1220.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-14 of 14\nPayment History\nInvoice No.\tDate\tTotal Amt\tDis(%)\tDis Amt\tTotal Payable\tPaid\tDue(s)\tActions\n175746\t13-03-2026\t1,031.823\t0.19\t2\t1,029.823\t1,000\t30\t\n\nInvoice(s)\tTill Today\t1,031.823\t0.19\t2\t1,029.823\t1,000\t30\t-\nTotal: Rs 1,031.823\nReceived: Rs 1,000\nSelect Payment Method\nVISA\ne\nJazzCash\nCard\nCash\nDue Payment\nRs. 30\nPaid Amount: Rs 1,000\nReceive Now:\nReturned Cash: RS. 0\nClear Dues\nInvoice Details\nHassan Pharmacy\n\nPharmacy Management System\n\nDHA phase 2 extension\n\nPhone # 03324122333\n\nLicense No. 1\n\nC.Name: abdulmanan\nC.Ph #: 03114893102\nInv. No: 175746\nC. By: Admin\n13/03/2026 02:46:41 AM\nItem(s)\tQTY\tPrice\tAmt\nomeprazole\t2.00\t500.00\t1,000.00\nbbextrin20 Milligram (mg)\t2.00\t15.91\t31.82\nTotal Items: 2\nGross Total:\nRs. 1,032.00\nDiscount:\nRs. 2.00\nNet Total:\nRs. 1,030.00\nPayment Received:\nRs. 1,000.00\nDue Payment:\nRs. 30.00\n\nPlease check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable\n\nSoftware By Hassan Pharmacy, Phone# 03324122333\n\nPrint Invoice",
+  "evalResults": {
+    "beforeClickFile": {
+      "states": [
+        {
+          "label": "initial",
+          "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+          "title": "Hassan Pharmacy",
+          "headings": [],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "< BACK",
+            "1",
+            "NEXT >"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "Search...",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Phone#",
+                "Due Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "abdulmanan",
+                  "03114893102",
+                  "30.00",
+                  ""
+                ],
+                [
+                  "AHMAD",
+                  "03059220011",
+                  "200.00",
+                  ""
+                ],
+                [
+                  "ali",
+                  "03967787777",
+                  "365.00",
+                  ""
+                ],
+                [
+                  "Gf",
+                  "03061546446",
+                  "5.00",
+                  ""
+                ],
+                [
+                  "irfan",
+                  "03450118704",
+                  "80.00",
+                  ""
+                ],
+                [
+                  "khalil",
+                  "03073532319",
+                  "44.00",
+                  ""
+                ],
+                [
+                  "noor mustafa",
+                  "03078600503",
+                  "228.00",
+                  ""
+                ],
+                [
+                  "Rameez",
+                  "03451234532",
+                  "63.00",
+                  ""
+                ],
+                [
+                  "rauf",
+                  "03488666418",
+                  "540.00",
+                  ""
+                ],
+                [
+                  "saaw",
+                  "0342765",
+                  "300.00",
+                  ""
+                ],
+                [
+                  "Sana",
+                  "03014789654",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "uuuu",
+                  "03028745969",
+                  "500.00",
+                  ""
+                ],
+                [
+                  "waqas s",
+                  "03339999987",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "Zain b",
+                  "03334141414",
+                  "1220.00",
+                  ""
+                ]
+              ]
+            }
+          ],
+          "footerText": "1-14 of 14",
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00 < BACK 1 NEXT > Rows per page 1-14 of 14"
+        },
+        {
+          "label": "payment-history",
+          "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+          "title": "Hassan Pharmacy",
+          "headings": [
+            "Payment History"
+          ],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "< BACK",
+            "1",
+            "NEXT >",
+            "close",
+            "View",
+            "Print Invoice",
+            "Clear Dues"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "Search...",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "2",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "1",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "0",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "5",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "3",
+              "checked": true,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Phone#",
+                "Due Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "abdulmanan",
+                  "03114893102",
+                  "30.00",
+                  ""
+                ],
+                [
+                  "AHMAD",
+                  "03059220011",
+                  "200.00",
+                  ""
+                ],
+                [
+                  "ali",
+                  "03967787777",
+                  "365.00",
+                  ""
+                ],
+                [
+                  "Gf",
+                  "03061546446",
+                  "5.00",
+                  ""
+                ],
+                [
+                  "irfan",
+                  "03450118704",
+                  "80.00",
+                  ""
+                ],
+                [
+                  "khalil",
+                  "03073532319",
+                  "44.00",
+                  ""
+                ],
+                [
+                  "noor mustafa",
+                  "03078600503",
+                  "228.00",
+                  ""
+                ],
+                [
+                  "Rameez",
+                  "03451234532",
+                  "63.00",
+                  ""
+                ],
+                [
+                  "rauf",
+                  "03488666418",
+                  "540.00",
+                  ""
+                ],
+                [
+                  "saaw",
+                  "0342765",
+                  "300.00",
+                  ""
+                ],
+                [
+                  "Sana",
+                  "03014789654",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "uuuu",
+                  "03028745969",
+                  "500.00",
+                  ""
+                ],
+                [
+                  "waqas s",
+                  "03339999987",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "Zain b",
+                  "03334141414",
+                  "1220.00",
+                  ""
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Invoice No.",
+                "Date",
+                "Total Amt",
+                "Dis(%)",
+                "Dis Amt",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "175746",
+                  "13-03-2026",
+                  "1,031.823",
+                  "0.19",
+                  "2",
+                  "1,029.823",
+                  "1,000",
+                  "30",
+                  ""
+                ],
+                [
+                  "Invoice(s)",
+                  "Till Today",
+                  "1,031.823",
+                  "0.19",
+                  "2",
+                  "1,029.823",
+                  "1,000",
+                  "30",
+                  "-"
+                ]
+              ]
+            }
+          ],
+          "footerText": "1-14 of 14",
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00 < BACK 1 NEXT > Rows per page 1-14 of 14 Payment History Invoice No. Date Total Amt Dis(%) Dis Amt Total Payable Paid Due(s) Actions 175746 13-03-2026 1,031.823 0.19 2 1,029.823 1,000 30 Invoice(s) Till Today 1,031.823 0.19 2 1,029.823 1,000 30 - Total: Rs 1,031.823 Received: Rs 1,000 Select Payment Method VISA e JazzCash Card Cash Due Payment Rs. 30 Paid Amount: Rs 1,000 Receive Now: Returned Cash: RS. 0 Clear Dues",
+          "openedPaymentHistory": true
+        },
+        {
+          "label": "sales-history-details",
+          "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+          "title": "Hassan Pharmacy",
+          "headings": [
+            "Payment History",
+            "Sales History Details",
+            "Invoice Number : 175746"
+          ],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "< BACK",
+            "1",
+            "NEXT >",
+            "close",
+            "View",
+            "Print Invoice",
+            "Clear Dues",
+            "Close"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "Search...",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "2",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "1",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "0",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "5",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "3",
+              "checked": true,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Phone#",
+                "Due Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "abdulmanan",
+                  "03114893102",
+                  "30.00",
+                  ""
+                ],
+                [
+                  "AHMAD",
+                  "03059220011",
+                  "200.00",
+                  ""
+                ],
+                [
+                  "ali",
+                  "03967787777",
+                  "365.00",
+                  ""
+                ],
+                [
+                  "Gf",
+                  "03061546446",
+                  "5.00",
+                  ""
+                ],
+                [
+                  "irfan",
+                  "03450118704",
+                  "80.00",
+                  ""
+                ],
+                [
+                  "khalil",
+                  "03073532319",
+                  "44.00",
+                  ""
+                ],
+                [
+                  "noor mustafa",
+                  "03078600503",
+                  "228.00",
+                  ""
+                ],
+                [
+                  "Rameez",
+                  "03451234532",
+                  "63.00",
+                  ""
+                ],
+                [
+                  "rauf",
+                  "03488666418",
+                  "540.00",
+                  ""
+                ],
+                [
+                  "saaw",
+                  "0342765",
+                  "300.00",
+                  ""
+                ],
+                [
+                  "Sana",
+                  "03014789654",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "uuuu",
+                  "03028745969",
+                  "500.00",
+                  ""
+                ],
+                [
+                  "waqas s",
+                  "03339999987",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "Zain b",
+                  "03334141414",
+                  "1220.00",
+                  ""
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Invoice No.",
+                "Date",
+                "Total Amt",
+                "Dis(%)",
+                "Dis Amt",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "175746",
+                  "13-03-2026",
+                  "1,031.823",
+                  "0.19",
+                  "2",
+                  "1,029.823",
+                  "1,000",
+                  "30",
+                  ""
+                ],
+                [
+                  "Invoice(s)",
+                  "Till Today",
+                  "1,031.823",
+                  "0.19",
+                  "2",
+                  "1,029.823",
+                  "1,000",
+                  "30",
+                  "-"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Date",
+                "Time",
+                "Total Amount",
+                "Discount Amount",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Change Returned"
+              ],
+              "rows": [
+                [
+                  "2026-03-13",
+                  "02:46:41 AM",
+                  "1,031.823",
+                  "2",
+                  "1,030",
+                  "1,000",
+                  "30",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Batch no.",
+                "Product Name",
+                "QTY Sold",
+                "QTY Returned",
+                "Rate/Sell Price",
+                "Amount"
+              ],
+              "rows": [
+                [
+                  "34550",
+                  "omeprazole",
+                  "2",
+                  "-",
+                  "500",
+                  "1,000.00"
+                ],
+                [
+                  "8748",
+                  "bbextrin",
+                  "2",
+                  "-",
+                  "15.912",
+                  "31.82"
+                ]
+              ]
+            }
+          ],
+          "footerText": "1-14 of 14",
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00 < BACK 1 NEXT > Rows per page 1-14 of 14 Payment History Invoice No. Date Total Amt Dis(%) Dis Amt Total Payable Paid Due(s) Actions 175746 13-03-2026 1,031.823 0.19 2 1,029.823 1,000 30 Invoice(s) Till Today 1,031.823 0.19 2 1,029.823 1,000 30 - Total: Rs 1,031.823 Received: Rs 1,000 Select Payment Method VISA e JazzCash Card Cash Due Payment Rs. 30 Paid Amount: Rs 1,000 Receive Now: Returned Cash: RS. 0 Clear Dues Sales History Details Invoice Number : 175746 Sales Invoice Date Time Total Amount Discount Amount Total Payable Paid Due(s) Change Returned 2026-03-13 02:46:41 AM 1,031.823 2 1,030 1,000 30 0 Purchase Item List Batch no. Product Name QTY Sold QTY Returned Rate/Sell Price Amount 34550 omeprazole 2 - 500 1,000.00 8748 bbextrin 2 - 15.912 31.82 Close",
+          "openedView": true
+        },
+        {
+          "label": "invoice-details",
+          "url": "http://127.0.0.1:5173/pms/dashboard/customer-history",
+          "title": "Hassan Pharmacy",
+          "headings": [
+            "Payment History",
+            "Invoice Details",
+            "Hassan Pharmacy"
+          ],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "Edit Customer",
+            "View Payment History",
+            "< BACK",
+            "1",
+            "NEXT >",
+            "close",
+            "View",
+            "Print Invoice",
+            "Clear Dues",
+            "Print Invoice"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "Search...",
+              "value": "",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "placeholder": "",
+              "value": "50",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "2",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "1",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "0",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "5",
+              "checked": false,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "placeholder": "",
+              "value": "3",
+              "checked": true,
+              "text": ""
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "placeholder": "",
+              "value": "",
+              "checked": false,
+              "text": ""
+            }
+          ],
+          "tables": [
+            {
+              "headers": [
+                "Name",
+                "Phone#",
+                "Due Amount",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "abdulmanan",
+                  "03114893102",
+                  "30.00",
+                  ""
+                ],
+                [
+                  "AHMAD",
+                  "03059220011",
+                  "200.00",
+                  ""
+                ],
+                [
+                  "ali",
+                  "03967787777",
+                  "365.00",
+                  ""
+                ],
+                [
+                  "Gf",
+                  "03061546446",
+                  "5.00",
+                  ""
+                ],
+                [
+                  "irfan",
+                  "03450118704",
+                  "80.00",
+                  ""
+                ],
+                [
+                  "khalil",
+                  "03073532319",
+                  "44.00",
+                  ""
+                ],
+                [
+                  "noor mustafa",
+                  "03078600503",
+                  "228.00",
+                  ""
+                ],
+                [
+                  "Rameez",
+                  "03451234532",
+                  "63.00",
+                  ""
+                ],
+                [
+                  "rauf",
+                  "03488666418",
+                  "540.00",
+                  ""
+                ],
+                [
+                  "saaw",
+                  "0342765",
+                  "300.00",
+                  ""
+                ],
+                [
+                  "Sana",
+                  "03014789654",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "uuuu",
+                  "03028745969",
+                  "500.00",
+                  ""
+                ],
+                [
+                  "waqas s",
+                  "03339999987",
+                  "100.00",
+                  ""
+                ],
+                [
+                  "Zain b",
+                  "03334141414",
+                  "1220.00",
+                  ""
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Invoice No.",
+                "Date",
+                "Total Amt",
+                "Dis(%)",
+                "Dis Amt",
+                "Total Payable",
+                "Paid",
+                "Due(s)",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "175746",
+                  "13-03-2026",
+                  "1,031.823",
+                  "0.19",
+                  "2",
+                  "1,029.823",
+                  "1,000",
+                  "30",
+                  ""
+                ],
+                [
+                  "Invoice(s)",
+                  "Till Today",
+                  "1,031.823",
+                  "0.19",
+                  "2",
+                  "1,029.823",
+                  "1,000",
+                  "30",
+                  "-"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Item(s)",
+                "QTY",
+                "Price",
+                "Amt"
+              ],
+              "rows": [
+                [
+                  "omeprazole",
+                  "2.00",
+                  "500.00",
+                  "1,000.00"
+                ],
+                [
+                  "bbextrin20 Milligram (mg)",
+                  "2.00",
+                  "15.91",
+                  "31.82"
+                ],
+                [
+                  "Total Items: 2"
+                ]
+              ]
+            }
+          ],
+          "footerText": "1-14 of 14",
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy Name Phone# Due Amount Actions abdulmanan 03114893102 30.00 AHMAD 03059220011 200.00 ali 03967787777 365.00 Gf 03061546446 5.00 irfan 03450118704 80.00 khalil 03073532319 44.00 noor mustafa 03078600503 228.00 Rameez 03451234532 63.00 rauf 03488666418 540.00 saaw 0342765 300.00 Sana 03014789654 100.00 uuuu 03028745969 500.00 waqas s 03339999987 100.00 Zain b 03334141414 1220.00 < BACK 1 NEXT > Rows per page 1-14 of 14 Payment History Invoice No. Date Total Amt Dis(%) Dis Amt Total Payable Paid Due(s) Actions 175746 13-03-2026 1,031.823 0.19 2 1,029.823 1,000 30 Invoice(s) Till Today 1,031.823 0.19 2 1,029.823 1,000 30 - Total: Rs 1,031.823 Received: Rs 1,000 Select Payment Method VISA e JazzCash Card Cash Due Payment Rs. 30 Paid Amount: Rs 1,000 Receive Now: Returned Cash: RS. 0 Clear Dues Invoice Details Hassan Pharmacy Pharmacy Management System DHA phase 2 extension Phone # 03324122333 License No. 1 C.Name: abdulmanan C.Ph #: 03114893102 Inv. No: 175746 C. By: Admin 13/03/2026 02:46:41 AM Item(s) QTY Price Amt omeprazole 2.00 500.00 1,000.00 bbextrin20 Milligram (mg) 2.00 15.91 31.82 Total Items: 2 Gross Total: Rs. 1,032.00 Discount: Rs. 2.00 Net Total: Rs. 1,030.00 Payment Received: Rs. 1,000.00 Due Payment: Rs. 30.00 Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable Software By Hassan Pharmacy, Phone# 03324122333 Print Invoice",
+          "openedPrint": true
+        }
+      ]
+    }
+  }
+}
