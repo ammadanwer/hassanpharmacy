@@ -1489,11 +1489,11 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
             </div>
             <div className="payment-methods">
               <span>Select Payment Method</span>
-              <label><input type="radio" name="payment-method" checked={paymentMethod === "card_payment"} onChange={() => setPaymentMethod("card_payment")} /><b>VISA</b></label>
-              <label><input type="radio" name="payment-method" checked={paymentMethod === "easy_paisa"} onChange={() => setPaymentMethod("easy_paisa")} /><b>e</b></label>
-              <label><input type="radio" name="payment-method" checked={paymentMethod === "jazz_cash"} onChange={() => setPaymentMethod("jazz_cash")} /><b>JazzCash</b></label>
-              <label><input type="radio" name="payment-method" checked={paymentMethod === "bank_transfer"} onChange={() => setPaymentMethod("bank_transfer")} /><b>Card</b></label>
-              <label><input type="radio" name="payment-method" checked={paymentMethod === "cash"} onChange={() => setPaymentMethod("cash")} /><b className="cash-icon">Cash</b></label>
+              <label><input type="radio" name="payment-method" value="2" checked={paymentMethod === "card_payment"} onChange={() => setPaymentMethod("card_payment")} /><b>VISA</b></label>
+              <label><input type="radio" name="payment-method" value="1" checked={paymentMethod === "easy_paisa"} onChange={() => setPaymentMethod("easy_paisa")} /><b>e</b></label>
+              <label><input type="radio" name="payment-method" value="0" checked={paymentMethod === "jazz_cash"} onChange={() => setPaymentMethod("jazz_cash")} /><b>JazzCash</b></label>
+              <label><input type="radio" name="payment-method" value="5" checked={paymentMethod === "bank_transfer"} onChange={() => setPaymentMethod("bank_transfer")} /><b>Card</b></label>
+              <label><input type="radio" name="payment-method" value="3" checked={paymentMethod === "cash"} onChange={() => setPaymentMethod("cash")} /><b className="cash-icon">Cash</b></label>
             </div>
           </div>
           <div className="payment-right">
@@ -5307,7 +5307,8 @@ function htmlEscape(value) {
 function formatInvoiceDate(sale) {
   const date = String(sale.date || "").split("-");
   const formattedDate = date.length === 3 ? `${date[2]}/${date[1]}/${date[0]}` : sale.date || "";
-  return `${formattedDate} ${formatHistoryTime(sale.time)}`.trim();
+  const time = formatHistoryTime(sale.time).replace(/^0(?=\d:)/, "");
+  return `${formattedDate} ${time}`.trim();
 }
 
 function invoiceReceiptTotals(sale) {

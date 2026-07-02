@@ -63,6 +63,31 @@
     const closeButtons = Array.from(document.querySelectorAll("button")).filter((button) => textOf(button).toLowerCase() === "close" || button.getAttribute("aria-label") === "close");
     return fire(closeButtons.at(-1));
   };
+  const installPrintCapture = () => {
+    const writes = [];
+    let printed = false;
+    window.open = () => ({
+      document: {
+        write: (html) => writes.push(String(html || "")),
+        close: () => {},
+      },
+      focus: () => {},
+      print: () => { printed = true; },
+    });
+    return () => {
+      const html = writes.join("");
+      return {
+        printed,
+        htmlLength: html.length,
+        text: html
+          .replace(/<style[\s\S]*?<\/style>/gi, " ")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 5000),
+      };
+    };
+  };
 
   const states = [];
   await wait(config.initialWait || 1200);
@@ -78,5 +103,12 @@
   const openedPrint = clickInvoiceAction(1);
   await wait(config.modalWait || 1200);
   states.push({ ...readState("invoice-details"), openedPrint });
-  return { states };
+  let invoicePrint = null;
+  if (config.captureInvoicePrint) {
+    const readPrintCapture = installPrintCapture();
+    const printClicked = fire(Array.from(document.querySelectorAll("button")).filter((button) => textOf(button) === "Print Invoice").at(-1));
+    await wait(config.printWait || 900);
+    invoicePrint = { printClicked, ...readPrintCapture() };
+  }
+  return { states, invoicePrint };
 })()

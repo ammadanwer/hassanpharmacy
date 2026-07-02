@@ -1,0 +1,580 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Payments & Receivables"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "‹ Back",
+    "Add Customer Details",
+    "Save as a Draft",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Doctor Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "RS.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "0",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "2",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "1",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "0",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "5",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "3",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Payment",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\n‹ Back\nDoctor Name(Optional)\nPayments & Receivables\nAdd Customer Details\nTotal Amount: RS. 80.00\nAdd Discount\n%\nSelect Payment Method\nVISA\ne\nJazzCash\nCard\nCash\nDue Payment\nRS. 0.00\nPayable Amount\nRS. 80.00\nReceive Now:\nReturned Cash: RS. 0.00\nSave as a Draft\nGenerate Invoice",
+  "evalResults": {
+    "beforeClickFile": {
+      "states": [
+        {
+          "label": "initial",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "headings": [],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Add to List"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "sale-tab",
+              "placeholder": "",
+              "value": "new",
+              "checked": true,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "sale-tab",
+              "placeholder": "",
+              "value": "recent",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "sale-tab",
+              "placeholder": "",
+              "value": "draft",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Enter Product Name",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Enter Barcode",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Select Sale Type",
+              "value": "Unit",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "Enter quantity",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            }
+          ],
+          "paymentRadios": [],
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity",
+                "Action"
+              ],
+              "rows": [
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "No Data Found"
+                ]
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy New Sales Recent Sales Draft Sales Product Name Bar Code Sale Type Quantity Action Add to List Purchased Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions No Data Found"
+        },
+        {
+          "label": "after-add",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "headings": [],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "Add to List",
+            "Edit",
+            "Delete",
+            "Save as a Draft",
+            "Proceed to Checkout"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "sale-tab",
+              "placeholder": "",
+              "value": "new",
+              "checked": true,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "sale-tab",
+              "placeholder": "",
+              "value": "recent",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "sale-tab",
+              "placeholder": "",
+              "value": "draft",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Enter Product Name",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Enter Barcode",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Select Sale Type",
+              "value": "Unit",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "Enter quantity",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "",
+              "value": "80",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "Disc(%)",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "Disc Amt",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            }
+          ],
+          "paymentRadios": [],
+          "tables": [
+            {
+              "headers": [
+                "Product Name",
+                "Bar Code",
+                "Sale Type",
+                "Quantity",
+                "Action"
+              ],
+              "rows": [
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "Add to List"
+                ]
+              ]
+            },
+            {
+              "headers": [
+                "Product Name",
+                "Batch no.",
+                "Qt in Box",
+                "Qt in Units",
+                "Total Quantity",
+                "Cost Price",
+                "Rate/Sell Price",
+                "Amount",
+                "Discount(%)",
+                "Discount(Amt)",
+                "Payable Amt",
+                "Actions"
+              ],
+              "rows": [
+                [
+                  "Dopamine 200mg/5ml",
+                  "87451",
+                  "0",
+                  "1",
+                  "1",
+                  "50.00",
+                  "",
+                  "80.00",
+                  "",
+                  "",
+                  "80.00",
+                  ""
+                ]
+              ]
+            }
+          ],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy New Sales Recent Sales Draft Sales Product Name Bar Code Sale Type Quantity Action Add to List Purchased Items List Product Name Batch no. Qt in Box Qt in Units Total Quantity Cost Price Rate/Sell Price Amount Discount(%) Discount(Amt) Payable Amt Actions Dopamine 200mg/5ml 87451 0 1 1 50.00 80.00 80.00 Payable Amt. Rs. 80.00 Save as a Draft Proceed to Checkout",
+          "selectedSuggestion": true,
+          "addClicked": true
+        },
+        {
+          "label": "checkout",
+          "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+          "headings": [
+            "Payments & Receivables"
+          ],
+          "buttons": [
+            "Dashboard",
+            "Sales",
+            "New Sale",
+            "Return Item",
+            "Sales History",
+            "Return History",
+            "Product Sales History",
+            "Customer History",
+            "Inventory",
+            "Staff Management",
+            "Shift Management",
+            "Daily Expense",
+            "Settings",
+            "Get Technical Help",
+            "Collapse sidebar",
+            "Add New Sale",
+            "Renew",
+            "Open account menu",
+            "‹ Back",
+            "Add Customer Details",
+            "Save as a Draft",
+            "Generate Invoice"
+          ],
+          "inputs": [
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "Doctor Name",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "RS.",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "0",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "2",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "1",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "0",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "5",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "3",
+              "checked": true,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "number",
+              "name": "",
+              "placeholder": "Payment",
+              "value": "",
+              "checked": false,
+              "disabled": false
+            }
+          ],
+          "paymentRadios": [
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "2",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "1",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "0",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "5",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "payment-method",
+              "placeholder": "",
+              "value": "3",
+              "checked": true,
+              "disabled": false
+            }
+          ],
+          "tables": [],
+          "bodyExcerpt": "H Hassan Pharmacy Pharmacy Management System Dashboard Sales New Sale Return Item Sales History Return History Product Sales History Customer History Inventory Staff Management Shift Management Daily Expense Settings Get Technical Help Add New Sale HP Renew Hassan Pharmacy ‹ Back Doctor Name(Optional) Payments & Receivables Add Customer Details Total Amount: RS. 80.00 Add Discount % Select Payment Method VISA e JazzCash Card Cash Due Payment RS. 0.00 Payable Amount RS. 80.00 Receive Now: Returned Cash: RS. 0.00 Save as a Draft Generate Invoice",
+          "checkoutClicked": true
+        }
+      ]
+    }
+  }
+}
