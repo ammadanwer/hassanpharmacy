@@ -482,7 +482,7 @@ def import_reference_products(db):
 
 
 def stock_purchase_cell(row, index):
-    return raw_cell(row[index] if len(row) > index else None) or "-"
+    return raw_cell(row[index] if len(row) > index else None) or ""
 
 
 def import_stock_purchases(db):

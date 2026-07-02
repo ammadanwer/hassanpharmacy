@@ -3180,8 +3180,7 @@ function StockPurchasePage({ data, apiCall, onError }) {
         <button className="text-button" type="button" disabled={printing} onClick={printStockHistory}>{printing ? "Preparing..." : "Print Stock History"}</button>
       </div>
       <DataTable columns={columns} rows={rows} render={(row, key) => {
-        if (["batch_no", "invoice_id"].includes(key)) return row[key] || "";
-        return formatCell(row[key]);
+        return row[key] == null ? "" : String(row[key]);
       }} />
       <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
     </section>
