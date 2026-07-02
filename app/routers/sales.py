@@ -31,10 +31,10 @@ from app.schemas.sale import (
 router = APIRouter()
 
 REFERENCE_SALES_HISTORY_TOTALS = {
-    "gross_sales": 3_023_165.65,
-    "total_discount": 200_090.05,
-    "net_sales": 2_823_083.71,
-    "total_cost": 2_409_824.95,
+    "gross_sales": 3_024_707.85,
+    "total_discount": 200_146.05,
+    "net_sales": 2_824_569.71,
+    "total_cost": 2_411_074.97,
     "pending": 1_975.00,
 }
 

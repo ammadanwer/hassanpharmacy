@@ -59,6 +59,13 @@ class Sale(Base, IdIntPK, TimestampMixin):
     reference_return_discount_amount: Mapped[Optional[float]] = mapped_column(Numeric(12, 2), nullable=True)
     reference_after_return_total_amount: Mapped[Optional[float]] = mapped_column(Numeric(12, 2), nullable=True)
     reference_after_return_net_paid: Mapped[Optional[float]] = mapped_column(Numeric(12, 2), nullable=True)
+    reference_total_amount_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
+    reference_discount_percent_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
+    reference_discount_amount_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
+    reference_total_payable_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
+    reference_paid_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
+    reference_due_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
+    reference_change_returned_display: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
     payment_method: Mapped[Optional[PaymentMethod]] = mapped_column(
         SAEnum(PaymentMethod, name="payment_method", native_enum=False), nullable=True
     )

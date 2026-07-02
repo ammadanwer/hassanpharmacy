@@ -50,7 +50,14 @@ function decodeFrames(buffer) {
       length = buffer.readUInt16BE(offset + 2);
       headerLength = 4;
     } else if (length === 127) {
-      throw new Error("Large websocket frames are not supported by this helper");
+      if (offset + 10 > buffer.length) break;
+      const high = buffer.readUInt32BE(offset + 2);
+      const low = buffer.readUInt32BE(offset + 6);
+      if (high > 0 || low > Number.MAX_SAFE_INTEGER) {
+        throw new Error("WebSocket frame is too large for this helper");
+      }
+      length = low;
+      headerLength = 10;
     }
     const masked = Boolean(second & 0x80);
     const maskOffset = offset + headerLength;

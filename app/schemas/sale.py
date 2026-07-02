@@ -83,6 +83,13 @@ class SaleResponse(SaleBase):
     reference_return_discount_amount: Optional[float] = None
     reference_after_return_total_amount: Optional[float] = None
     reference_after_return_net_paid: Optional[float] = None
+    reference_total_amount_display: Optional[str] = None
+    reference_discount_percent_display: Optional[str] = None
+    reference_discount_amount_display: Optional[str] = None
+    reference_total_payable_display: Optional[str] = None
+    reference_paid_display: Optional[str] = None
+    reference_due_display: Optional[str] = None
+    reference_change_returned_display: Optional[str] = None
     items: list[SaleItemResponse] = []
 
 

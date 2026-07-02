@@ -4348,6 +4348,8 @@ function SalesHistoryPage({ data, apiCall, onError }) {
           <div className="invoice-actions">
             <button className="icon-action" type="button" title="view" aria-label="view" onClick={() => openSaleDetails(row)}><Eye size={18} /></button>
           </div>
+        ) : key === "invoice_number" && row.status === "returned" ? (
+          <span>{row.invoice_number}<br /><small>Return Invoice</small></span>
         ) : key === "time" ? formatHistoryTime(row[key]) : formatSalesHistoryCell(row, key)}
       />
       {detailSale ? <SalesHistoryDetailsModal sale={detailSale} data={data} close={() => setDetailSale(null)} /> : null}
@@ -4948,7 +4950,7 @@ function ReportPage({ title, radios, inputs, rows, columns, render, printFormatV
 }
 
 function SummaryMetric({ label, value, tone = "blue" }) {
-  return <div className={`sales-summary-metric tone-${tone}`}><span>{label}</span><strong>Rs. {money(value)}</strong></div>;
+  return <div className={`sales-summary-metric tone-${tone}`}><span>{label}</span><strong>Rs. {formatPlainFixedAmount(value)}</strong></div>;
 }
 
 function PrintOptionsModal({ option, setOption, printing, close, print }) {
@@ -5223,6 +5225,16 @@ function formatCell(value) {
 }
 
 function formatSalesHistoryCell(row, key) {
+  const referenceDisplay = {
+    total_amount: "reference_total_amount_display",
+    discount_percent: "reference_discount_percent_display",
+    discount_amount: "reference_discount_amount_display",
+    total_payable: "reference_total_payable_display",
+    paid: "reference_paid_display",
+    due: "reference_due_display",
+    change_returned: "reference_change_returned_display",
+  }[key];
+  if (referenceDisplay && row[referenceDisplay] != null) return row[referenceDisplay];
   if (key === "total_amount") return formatHistoryCompactAmount(row[key]);
   if (["discount_percent", "discount_amount", "total_payable", "paid", "due", "change_returned"].includes(key)) return formatHistoryFixedAmount(row[key]);
   return formatCell(row[key]);
@@ -5232,14 +5244,14 @@ function formatHistoryCompactAmount(value) {
   if (value == null || value === "") return "";
   const number = Number(value);
   if (!Number.isFinite(number)) return String(value);
-  return number.toLocaleString(undefined, { maximumFractionDigits: 3 });
+  return number.toLocaleString(undefined, { useGrouping: false, maximumFractionDigits: 3 });
 }
 
 function formatHistoryFixedAmount(value) {
   if (value == null || value === "") return "";
   const number = Number(value);
   if (!Number.isFinite(number)) return String(value);
-  return number.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return number.toLocaleString(undefined, { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function formatPlainCompactAmount(value) {
@@ -5538,6 +5550,8 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
   };
   const fixed = (value) => Number(value || 0).toLocaleString(undefined, { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const rupees = (value) => `Rs. ${fixed(value)}`;
+  const rupeesDisplay = (displayValue, fallbackValue) => `Rs. ${displayValue != null && displayValue !== "" ? displayValue : fixed(fallbackValue)}`;
+  const percentDisplay = (displayValue, fallbackValue) => `${displayValue != null && displayValue !== "" ? displayValue : fixed(fallbackValue)}%`;
   const reportDate = (() => {
     if (filters.dateMode === "range" && filters.dateFrom && filters.dateTo) return `${formatDisplayDate(filters.dateFrom)} to ${formatDisplayDate(filters.dateTo)}`;
     if (filters.dateMode === "range" && filters.dateFrom) return `From ${formatDisplayDate(filters.dateFrom)}`;
@@ -5557,14 +5571,14 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
   const netRevenue = Number(totals.netRevenue ?? (Number(totals.grossSales || 0) - Number(totals.totalDiscount || 0) - Number(totals.totalCost || 0)));
   const tableRows = rows.length
     ? rows.map((row) => `<tr>
-      <td>${htmlEscape(row.invoice_number || "")}${row.return_invoice_number || row.is_return ? "<br><small>Return Invoice</small>" : ""}</td>
+      <td>${htmlEscape(row.invoice_number || "")}${row.return_invoice_number || row.is_return || row.status === "returned" ? "<br><small>Return Invoice</small>" : ""}</td>
       <td>${htmlEscape(formatDisplayDate(row.date))}</td>
-      <td>${htmlEscape(rupees(compact(row.total_amount)))}</td>
-      <td>${htmlEscape(fixed(row.discount_percent || 0))}%</td>
-      <td>${htmlEscape(rupees(row.discount_amount || 0))}</td>
-      <td>${htmlEscape(rupees(row.total_payable || 0))}</td>
-      <td>${htmlEscape(rupees(row.paid || 0))}</td>
-      <td>${htmlEscape(rupees(row.due || 0))}</td>
+      <td>${htmlEscape(rupeesDisplay(row.reference_total_amount_display, compact(row.total_amount)))}</td>
+      <td>${htmlEscape(percentDisplay(row.reference_discount_percent_display, row.discount_percent || 0))}</td>
+      <td>${htmlEscape(rupeesDisplay(row.reference_discount_amount_display, row.discount_amount || 0))}</td>
+      <td>${htmlEscape(rupeesDisplay(row.reference_total_payable_display, row.total_payable || 0))}</td>
+      <td>${htmlEscape(rupeesDisplay(row.reference_paid_display, row.paid || 0))}</td>
+      <td>${htmlEscape(rupeesDisplay(row.reference_due_display, row.due || 0))}</td>
     </tr>`).join("")
     : `<tr><td colspan="8">No Data Found</td></tr>`;
   printWindow.document.write(`<!doctype html>

@@ -11,7 +11,7 @@ from app.models.user import User
 
 
 CAPTURE_PATH = Path("data/emareez-import/sales-history-live.json")
-REFERENCE_TOTAL_COST = 2_409_824.95
+REFERENCE_TOTAL_COST = 2_411_074.97
 REFERENCE_FIRST_PAGE_TOTAL_COST = 19_629.58
 REFERENCE_FIRST_PAGE_SIZE = 50
 CUSTOMER_INVOICE_LINKS = {
@@ -36,6 +36,10 @@ def amount(value):
     text = "" if value is None else str(value).replace(",", "")
     match = re.search(r"-?\d+(?:\.\d+)?", text)
     return float(match.group(0)) if match else 0.0
+
+
+def display_text(value):
+    return re.sub(r"\s+", " ", str(value or "")).strip()
 
 
 def invoice_parts(value):
@@ -66,6 +70,13 @@ def parse_row(row):
         "due": due,
         "change_returned": change_returned,
         "status": status,
+        "reference_total_amount_display": display_text(row[3]),
+        "reference_discount_percent_display": display_text(row[4]),
+        "reference_discount_amount_display": display_text(row[5]),
+        "reference_total_payable_display": display_text(row[6]),
+        "reference_paid_display": display_text(row[7]),
+        "reference_due_display": display_text(row[8]),
+        "reference_change_returned_display": display_text(row[9]),
     }
 
 
@@ -147,6 +158,13 @@ def main():
             sale.paid = row["paid"]
             sale.due = row["due"]
             sale.change_returned = row["change_returned"]
+            sale.reference_total_amount_display = row["reference_total_amount_display"]
+            sale.reference_discount_percent_display = row["reference_discount_percent_display"]
+            sale.reference_discount_amount_display = row["reference_discount_amount_display"]
+            sale.reference_total_payable_display = row["reference_total_payable_display"]
+            sale.reference_paid_display = row["reference_paid_display"]
+            sale.reference_due_display = row["reference_due_display"]
+            sale.reference_change_returned_display = row["reference_change_returned_display"]
             sale.payment_method = None
             sale.status = row["status"]
             sale.reference_cost_amount = reference_cost

@@ -95,6 +95,13 @@ SALE_COLUMNS = {
     "reference_return_discount_amount": "NUMERIC(12, 2)",
     "reference_after_return_total_amount": "NUMERIC(12, 2)",
     "reference_after_return_net_paid": "NUMERIC(12, 2)",
+    "reference_total_amount_display": "VARCHAR(80)",
+    "reference_discount_percent_display": "VARCHAR(80)",
+    "reference_discount_amount_display": "VARCHAR(80)",
+    "reference_total_payable_display": "VARCHAR(80)",
+    "reference_paid_display": "VARCHAR(80)",
+    "reference_due_display": "VARCHAR(80)",
+    "reference_change_returned_display": "VARCHAR(80)",
 }
 
 SALE_ITEM_COLUMNS = {
