@@ -1538,6 +1538,20 @@ main {
   overflow-x: auto;
 }
 
+.batch-table-wrap {
+  overflow-x: auto;
+}
+
+.batch-table-wrap .data-table {
+  min-width: 100%;
+  width: max-content;
+}
+
+.batch-page .data-table .col-product_name {
+  min-width: max-content;
+  white-space: nowrap;
+}
+
 .entry-table,
 .data-table {
   background: #fff;

@@ -9,7 +9,7 @@ class PharmacyProfileBase(BaseModel):
     customer_service: Optional[str] = "0345 7427946"
     country: Optional[str] = "Pakistan"
     city: Optional[str] = "Karachi"
-    address: Optional[str] = "DHA phase 2 extension"
+    address: Optional[str] = "Old Chaudhary pansar store, harappa"
     email: Optional[str] = "haseebkiani44@gmail.com"
     reg_number: Optional[str] = "121122"
     license_number: Optional[str] = "1"

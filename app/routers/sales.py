@@ -14,7 +14,7 @@ from app.models.pharmacy_profile import PharmacyProfile
 from app.models.product import Product
 from app.models.reference_product_sale import ReferenceProductSale
 from app.models.reference_product_sale_invoice import ReferenceProductSaleInvoice
-from app.models.sale import Sale, SaleStatus
+from app.models.sale import PaymentMethod, Sale, SaleStatus
 from app.models.sale_item import SaleItem
 from app.schemas.batch import BatchCreate, BatchUpdate, BatchResponse
 from app.schemas.sale import (
@@ -155,7 +155,7 @@ def apply_sale_payload(sale: Sale, sale_in: SaleCreate, customer_due: float, cus
     sale.paid = sale_in.paid
     sale.due = customer_due
     sale.change_returned = sale_in.change_returned
-    sale.payment_method = sale_in.payment_method
+    sale.payment_method = PaymentMethod.cash
     sale.status = status
 
 

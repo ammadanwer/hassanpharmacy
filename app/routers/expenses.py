@@ -26,7 +26,7 @@ def _truncate(value: object, length: int) -> str:
 
 def _profile_pdf_lines(db: Session) -> list[str]:
     profile = db.query(PharmacyProfile).order_by(PharmacyProfile.id.asc()).first()
-    address = profile.address if profile and profile.address else "DHA phase 2 extension"
+    address = profile.address if profile and profile.address else "Old Chaudhary pansar store, harappa"
     phone = profile.customer_service if profile and profile.customer_service else "0345 7427946"
     license_number = profile.license_number if profile and profile.license_number else "1"
     return [

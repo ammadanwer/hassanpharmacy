@@ -374,7 +374,7 @@ const defaultPharmacyProfile = {
   customerService: "0345 7427946",
   country: "Pakistan",
   city: "Karachi",
-  address: "DHA phase 2 extension",
+  address: "Old Chaudhary pansar store, harappa",
   email: "haseebkiani44@gmail.com",
   regNumber: "121122",
   licenseNumber: "1",
@@ -1133,7 +1133,6 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   const [customer, setCustomer] = useState({ name: "Walk-in", phone: "" });
   const [checkoutDiscountAmount, setCheckoutDiscountAmount] = useState("");
   const [checkoutDiscountPercent, setCheckoutDiscountPercent] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("cash");
   const [receiveNow, setReceiveNow] = useState("");
   const [salesPin, setSalesPin] = useState("");
   const [validationMessage, setValidationMessage] = useState("");
@@ -1338,7 +1337,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       paid: amountPaid,
       due: Math.max(0, totalPayable - amountPaid),
       change_returned: Math.max(0, amountPaid - totalPayable),
-      payment_method: overrides.paymentMethod ?? paymentMethod,
+      payment_method: "cash",
       sales_pin: salesPinRequired ? salesPin.trim() : null,
       items: saleItems.map((item) => ({
         product_id: item.product_id,
@@ -1368,7 +1367,6 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
           discountPercent: totalDiscount ? totalDiscountPercent : null,
           totalPayable: checkoutPayable,
           paidAmount: checkoutReceived,
-          paymentMethod,
           date: editingSaleSnapshot?.date,
           time: editingSaleSnapshot?.time,
         })),
@@ -1547,7 +1545,6 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       discountPercent: totalDiscount ? totalDiscountPercent : null,
       totalPayable: checkoutPayable,
       paidAmount: checkoutReceived,
-      paymentMethod,
     };
     return (
       <section className="checkout-page">
@@ -1571,14 +1568,6 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
               <span>Add Discount</span>
               <input type="number" min="0" placeholder="RS." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
               <div className="percent-input"><input type="number" min="0" placeholder="0" value={checkoutDiscountPercent} onChange={(event) => updateCheckoutDiscountPercent(event.target.value)} /><span>%</span></div>
-            </div>
-            <div className="payment-methods">
-              <span>Select Payment Method</span>
-              <label><input type="radio" name="payment-method" value="2" checked={paymentMethod === "card_payment"} onChange={() => setPaymentMethod("card_payment")} /><b>VISA</b></label>
-              <label><input type="radio" name="payment-method" value="1" checked={paymentMethod === "easy_paisa"} onChange={() => setPaymentMethod("easy_paisa")} /><b>e</b></label>
-              <label><input type="radio" name="payment-method" value="0" checked={paymentMethod === "jazz_cash"} onChange={() => setPaymentMethod("jazz_cash")} /><b>JazzCash</b></label>
-              <label><input type="radio" name="payment-method" value="5" checked={paymentMethod === "bank_transfer"} onChange={() => setPaymentMethod("bank_transfer")} /><b>Card</b></label>
-              <label><input type="radio" name="payment-method" value="3" checked={paymentMethod === "cash"} onChange={() => setPaymentMethod("cash")} /><b className="cash-icon">Cash</b></label>
             </div>
           </div>
           <div className="payment-right">
@@ -2244,7 +2233,9 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
         <label><Search size={18} /><input placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /></label>
         <button className="text-button" onClick={printBatchHistory}>Print Batch History</button>
       </div>
-      <DataTable columns={columns} rows={tableRows} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
+      <div className="batch-table-wrap">
+        <DataTable columns={columns} rows={tableRows} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
+      </div>
       <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
     </section>
   );
@@ -5199,9 +5190,10 @@ function TechnicalHelpPage({ setRoute }) {
 }
 
 function DataTable({ columns, rows = [], render, emptyText = "No Data Found" }) {
+  const columnClass = (key) => `col-${String(key).replace(/[^a-z0-9_-]/gi, "-")}`;
   return (
-    <table className="data-table wide"><thead><tr>{columns.map(([, label]) => <th key={label}>{label}</th>)}</tr></thead>
-      <tbody>{rows.length ? rows.map((row, index) => <tr className={row.__summary ? "table-summary-row" : undefined} key={row.id || index}>{columns.map(([key]) => <td key={key}>{render ? render(row, key) : formatCell(row[key])}</td>)}</tr>) : <tr><td colSpan={columns.length} className="empty">{emptyText}</td></tr>}</tbody></table>
+    <table className="data-table wide"><thead><tr>{columns.map(([key, label]) => <th className={columnClass(key)} key={label}>{label}</th>)}</tr></thead>
+      <tbody>{rows.length ? rows.map((row, index) => <tr className={row.__summary ? "table-summary-row" : undefined} key={row.id || index}>{columns.map(([key]) => <td className={columnClass(key)} key={key}>{render ? render(row, key) : formatCell(row[key])}</td>)}</tr>) : <tr><td colSpan={columns.length} className="empty">{emptyText}</td></tr>}</tbody></table>
   );
 }
 
