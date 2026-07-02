@@ -1,35 +1,50 @@
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowLeft,
+  Archive,
   Ban,
+  BadgeDollarSign,
   Bell,
   Boxes,
   Calendar,
   ChevronLeft,
   ChevronDown,
   CircleDollarSign,
+  ClipboardCheck,
+  ClipboardList,
   Download,
   Eye,
   EyeOff,
+  Factory,
+  FileText,
+  FlaskConical,
   Grid2X2,
+  History,
   KeyRound,
   LayoutDashboard,
   Menu,
   MoreVertical,
   Package,
+  PackagePlus,
   Pencil,
+  Pill,
   Plus,
   Printer,
+  ReceiptText,
   RotateCcw,
   Search,
   Settings,
   ShieldCheck,
   ShoppingCart,
   Stethoscope,
+  Tags,
   Trash2,
+  Truck,
+  Undo2,
   UserCog,
   UserRound,
   Users,
+  WalletCards,
   X,
 } from "lucide-react";
 import { api, clearSession, getStoredSession, storeSession } from "./api";
@@ -42,12 +57,12 @@ const routes = [
     label: "Sales",
     icon: ShoppingCart,
     children: [
-      ["newsale", "New Sale"],
-      ["return-item", "Return Item"],
-      ["saleshistory", "Sales History"],
-      ["returnhistory", "Return History"],
-      ["productsaleshistory", "Product Sales History"],
-      ["customer-history", "Customer History"],
+      { id: "newsale", label: "New Sale", icon: Plus },
+      { id: "return-item", label: "Return Item", icon: Undo2 },
+      { id: "saleshistory", label: "Sales History", icon: History },
+      { id: "returnhistory", label: "Return History", icon: RotateCcw },
+      { id: "productsaleshistory", label: "Product Sales History", icon: ReceiptText },
+      { id: "customer-history", label: "Customer History", icon: UserRound },
     ],
   },
   {
@@ -55,18 +70,18 @@ const routes = [
     label: "Inventory",
     icon: Boxes,
     children: [
-      ["batch", "Batch"],
-      ["demand", "Demand/Order"],
-      ["stock-audit", "Stock Audit"],
-      ["order-purchase", "Order Purchase"],
-      ["medicines", "Medical Products"],
-      ["nonmedicines", "Non Medical Products"],
-      ["supplier", "Supplier"],
-      ["category", "Category"],
-      ["medicineformula", "Medicine Formula"],
-      ["manufacturer", "Manufacturer"],
-      ["purchases", "Stock Purchase"],
-      ["shelf", "Shelf"],
+      { id: "batch", label: "Batch", icon: Package },
+      { id: "demand", label: "Demand/Order", icon: ClipboardList },
+      { id: "stock-audit", label: "Stock Audit", icon: ClipboardCheck },
+      { id: "order-purchase", label: "Order Purchase", icon: Truck },
+      { id: "medicines", label: "Medical Products", icon: Pill },
+      { id: "nonmedicines", label: "Non Medical Products", icon: PackagePlus },
+      { id: "supplier", label: "Supplier", icon: Users },
+      { id: "category", label: "Category", icon: Tags },
+      { id: "medicineformula", label: "Medicine Formula", icon: FlaskConical },
+      { id: "manufacturer", label: "Manufacturer", icon: Factory },
+      { id: "purchases", label: "Stock Purchase", icon: BadgeDollarSign },
+      { id: "shelf", label: "Shelf", icon: Archive },
     ],
   },
   { id: "staff-management", label: "Staff Management", icon: Users },
@@ -76,8 +91,8 @@ const routes = [
     label: "Daily Expense",
     icon: CircleDollarSign,
     children: [
-      ["expense", "Expense"],
-      ["expense-category", "Expense Category"],
+      { id: "expense", label: "Expense", icon: WalletCards },
+      { id: "expense-category", label: "Expense Category", icon: Tags },
     ],
   },
   {
@@ -85,8 +100,8 @@ const routes = [
     label: "Settings",
     icon: Settings,
     children: [
-      ["change-password", "Change Password"],
-      ["return-policy", "Return Policy/Notes"],
+      { id: "change-password", label: "Change Password", icon: KeyRound },
+      { id: "return-policy", label: "Return Policy/Notes", icon: FileText },
     ],
   },
   { id: "technicalhelp", label: "Get Technical Help", icon: Stethoscope },
@@ -336,8 +351,8 @@ function firstAllowedRoute(user) {
   if (canAccessRoute(user, "dashboard")) return "dashboard";
   for (const item of routes) {
     if (!item.children && canAccessRoute(user, item.id)) return item.id;
-    const child = item.children?.find(([id]) => canAccessRoute(user, id));
-    if (child) return child[0];
+    const child = item.children?.find((candidate) => canAccessRoute(user, candidate.id));
+    if (child) return child.id;
   }
   return "change-password";
 }
@@ -346,7 +361,7 @@ function filterRoutesForUser(user) {
   return routes
     .map((item) => {
       if (item.children) {
-        const children = item.children.filter(([id]) => canAccessRoute(user, id));
+        const children = item.children.filter((child) => canAccessRoute(user, child.id));
         return children.length ? { ...item, children } : null;
       }
       return canAccessRoute(user, item.id) ? item : null;
@@ -779,7 +794,7 @@ function routeFromLocation() {
 }
 
 function parentGroupForRoute(route) {
-  return routes.find((item) => item.children?.some(([id]) => id === route))?.id || null;
+  return routes.find((item) => item.children?.some((child) => child.id === route))?.id || null;
 }
 
 function openGroupsForRoute(route) {
@@ -790,8 +805,8 @@ function openGroupsForRoute(route) {
 function activeLabel(route) {
   for (const item of routes) {
     if (item.id === route) return item.label;
-    const child = item.children?.find(([id]) => id === route);
-    if (child) return child[1];
+    const child = item.children?.find((candidate) => candidate.id === route);
+    if (child) return child.label;
   }
   return "Dashboard";
 }
@@ -960,13 +975,25 @@ function Sidebar({ routes, route, setRoute, openGroups, setOpenGroups, collapsed
       <nav>
         {routes.map((item) => {
           const Icon = item.icon;
-          const active = item.id === route || item.children?.some(([id]) => id === route);
+          const active = item.id === route || item.children?.some((child) => child.id === route);
           return (
             <div key={item.id}>
               <button title={item.label} className={`nav-button ${active ? "active" : ""}`} onClick={() => item.children ? toggleGroup(item.id) : setRoute(item.id)}>
                 <Icon size={19} /><span>{item.label}</span>{item.children ? <ChevronDown size={15} /> : null}
               </button>
-              {item.children && openGroups.has(item.id) ? <div className="subnav">{item.children.map(([id, label]) => <button title={label} key={id} className={route === id ? "active" : ""} onClick={() => setRoute(id)}>{label}</button>)}</div> : null}
+              {item.children && openGroups.has(item.id) ? (
+                <div className="subnav">
+                  {item.children.map((child) => {
+                    const ChildIcon = child.icon;
+                    return (
+                      <button title={child.label} key={child.id} className={route === child.id ? "active" : ""} onClick={() => setRoute(child.id)}>
+                        <ChildIcon size={17} />
+                        <span>{child.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : null}
             </div>
           );
         })}
@@ -5506,7 +5533,7 @@ function printInvoiceReceipt(sale, policy, data) {
       <head>
         <title>Invoice ${htmlEscape(sale.invoice_number)}</title>
         <style>
-          body { color: #111; font-family: Arial, Helvetica, sans-serif; margin: 0; }
+          body { color: #111; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; }
           .receipt { margin: 0 auto; padding: 14px 12px; width: 300px; }
           h1 { font-size: 20px; margin: 0; text-align: center; }
           p { font-size: 12px; margin: 3px 0; text-align: center; }
@@ -5566,7 +5593,7 @@ function printReturnReceipt(detail, data = {}) {
       <head>
         <title>${htmlEscape(invoiceNumber)}</title>
         <style>
-          body { color: #111; font-family: Arial, Helvetica, sans-serif; margin: 0; }
+          body { color: #111; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; }
           .receipt { margin: 0 auto; padding: 14px 12px; width: 300px; }
           h1 { font-size: 20px; margin: 0; text-align: center; }
           p { font-size: 12px; margin: 3px 0; text-align: center; }
@@ -5650,7 +5677,7 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
       <head>
         <title>Sales History</title>
         <style>
-          body { color: #20242a; font-family: Arial, Helvetica, sans-serif; margin: 24px; }
+          body { color: #20242a; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 24px; }
           .report-head { align-items: flex-start; display: flex; justify-content: space-between; margin-bottom: 14px; }
           .brand h1 { color: #0b5fad; font-size: 24px; margin: 0 0 4px; }
           .brand p, .software { color: #4b5563; font-size: 12px; margin: 3px 0; }
@@ -5723,7 +5750,7 @@ function printTable(title, rows, columns, options = {}) {
       <head>
         <title>${htmlEscape(title)}</title>
         <style>
-          body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 24px; }
+          body { color: #1f2329; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 24px; }
           h1 { font-size: 22px; margin: 0 0 4px; }
           .brand p, .software { color: #5f6873; font-size: 12px; margin: 3px 0; }
           .meta { color: #5f6873; font-size: 12px; margin-bottom: 18px; }
@@ -5776,7 +5803,7 @@ function printStockPurchaseHistory(rows, columns, filters = {}) {
         <title>Stock History</title>
         <style>
           @page { size: landscape; margin: 8mm; }
-          body { color: #1f2329; font-family: Arial, Helvetica, sans-serif; margin: 18px; }
+          body { color: #1f2329; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 18px; }
           h1 { font-size: 22px; margin: 0; }
           h2 { font-size: 16px; margin: 3px 0 10px; }
           .brand p { color: #5f6873; font-size: 11px; margin: 2px 0; }
