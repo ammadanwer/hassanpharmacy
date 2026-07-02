@@ -1,0 +1,259 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/stock-audit",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Stock Audit List"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add To List",
+    "SAVE"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by medicine name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Batch",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "Unit",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Increase",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "Increase",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Batch",
+      "Type",
+      "Quantity",
+      "Select Adjustment"
+    ],
+    [
+      "Product Name",
+      "Batch No.",
+      "Quantity Type",
+      "Quantity Before",
+      "Quantity Adjusted",
+      "Quantity After",
+      "Adjustment Type",
+      "Amount",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nProduct Name\tBatch\tType\tQuantity\tSelect Adjustment\t\n\n\t\n\t\n\t\n\t\n\tAdd To List\nStock Audit List\nProduct Name\tBatch No.\tQuantity Type\tQuantity Before\tQuantity Adjusted\tQuantity After\tAdjustment Type\tAmount\tActions\nNo Data Found\nTotal Amount\nRs. 0\nSAVE",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "http://127.0.0.1:5173/pms/dashboard/stock-audit",
+      "title": "Hassan Pharmacy",
+      "tables": [
+        {
+          "headers": [
+            "Product Name",
+            "Batch",
+            "Type",
+            "Quantity",
+            "Select Adjustment"
+          ],
+          "rows": [
+            [
+              "Search by medicine name...",
+              "Select Batch",
+              "Unit",
+              "Enter Quantity",
+              "Increase",
+              "Add To List"
+            ]
+          ],
+          "actionCells": [
+            {
+              "text": "Add To List",
+              "svgCount": 0,
+              "buttonLabels": [
+                "Add To List"
+              ]
+            }
+          ]
+        },
+        {
+          "headers": [
+            "Product Name",
+            "Batch No.",
+            "Quantity Type",
+            "Quantity Before",
+            "Quantity Adjusted",
+            "Quantity After",
+            "Adjustment Type",
+            "Amount",
+            "Actions"
+          ],
+          "rows": [
+            [
+              "No Data Found"
+            ]
+          ],
+          "actionCells": [
+            {
+              "text": "No Data Found",
+              "svgCount": 0,
+              "buttonLabels": []
+            }
+          ]
+        }
+      ],
+      "visibleControls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Search by medicine name...",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "Select Batch",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "Unit",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "placeholder": "Enter Quantity",
+          "value": "",
+          "text": "",
+          "hidden": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "placeholder": "",
+          "value": "Increase",
+          "text": "",
+          "hidden": false
+        }
+      ],
+      "textChecks": {
+        "noDataFound": true,
+        "stockAuditList": true,
+        "totalAmountZero": true,
+        "save": true,
+        "nativeSelectCount": 0
+      },
+      "buttons": [
+        "Dashboard",
+        "Sales",
+        "Inventory",
+        "Batch",
+        "Demand/Order",
+        "Stock Audit",
+        "Order Purchase",
+        "Medical Products",
+        "Non Medical Products",
+        "Supplier",
+        "Category",
+        "Medicine Formula",
+        "Manufacturer",
+        "Stock Purchase",
+        "Shelf",
+        "Staff Management",
+        "Shift Management",
+        "Daily Expense",
+        "Settings",
+        "Get Technical Help",
+        "Collapse sidebar",
+        "Add New Sale",
+        "Renew",
+        "Open account menu",
+        "Add To List",
+        "SAVE"
+      ]
+    }
+  }
+}
