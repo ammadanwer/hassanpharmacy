@@ -1,0 +1,1254 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Sales History Details",
+    "Invoice Number : 229275"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "view",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Close"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID...",
+      "value": "229275",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned",
+      "Action"
+    ],
+    [
+      "Date",
+      "Time",
+      "Total Amount",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Change Returned"
+    ],
+    [
+      "Date",
+      "Returned Amount",
+      "Returned Discount Amt(%)",
+      "Returned Discount Amt(RS)"
+    ],
+    [
+      "Total Amount",
+      "Net Paid"
+    ],
+    [
+      "Batch no.",
+      "Product Name",
+      "QTY Sold",
+      "QTY Returned",
+      "Rate/Sell Price",
+      "Amount"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nGross Sales\nRs. 522.82\nTotal Return\nRs. 117.18\nNet Sale\nRs. 382.82\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t490.00\t21.88\t107.00\t383.00\t383.00\t0.00\t0.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1\nSales History Details\nInvoice Number : 229275\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2026-06-23\t06:00:06 PM\t640\t140\t500\t500\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2026-06-23\t117.18\t21.88\t32.82\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n382.82\t382.82\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\n123321\tRISEK 20MG CAP\t10\t-\t28\t280.00\n1257mmm\tRisek\t10\t-\t6\t60.00\n145yy\tZYTO 250MG TAB\t10\t5\t30\t150.00\nClose",
+  "evalResults": {
+    "beforeClickFile": {
+      "allRange": {
+        "phase": "all-range",
+        "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+        "title": "Hassan Pharmacy",
+        "headings": [],
+        "buttons": [
+          "Dashboard",
+          "Sales",
+          "New Sale",
+          "Return Item",
+          "Sales History",
+          "Return History",
+          "Product Sales History",
+          "Customer History",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Collapse sidebar",
+          "Add New Sale",
+          "Renew",
+          "Open account menu",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view",
+          "< BACK",
+          "1",
+          "NEXT >"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "single",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "range",
+            "checked": true
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search by Invoice ID...",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "All",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "50",
+            "checked": false
+          }
+        ],
+        "radios": [
+          {
+            "label": "Select Date",
+            "value": "single",
+            "checked": false
+          },
+          {
+            "label": "Select Date Range",
+            "value": "range",
+            "checked": true
+          }
+        ],
+        "summary": {
+          "Gross Sales": "Rs. 39,630.11",
+          "Total Return": "Rs. 35,000.89",
+          "Net Sale": "Rs. 38,401.61"
+        },
+        "pagination": "1-46 of 46",
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Invoice Number",
+              "Date",
+              "Time",
+              "Total Amount(RS.)",
+              "Discount(%)",
+              "Discount Amount",
+              "Total Payable",
+              "Paid",
+              "Due(s)",
+              "Change Returned",
+              "Action"
+            ],
+            "rows": [
+              [
+                "229275\nReturn Invoice",
+                "2026-06-23",
+                "06:00:06 PM",
+                "490.00",
+                "21.88",
+                "107.00",
+                "383.00",
+                "383.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "194253\nReturn Invoice",
+                "2026-04-19",
+                "10:38:47 PM",
+                "672.00",
+                "0.00",
+                "0.00",
+                "672.00",
+                "672.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "192832\nReturn Invoice",
+                "2026-04-17",
+                "05:02:22 PM",
+                "900.00",
+                "0.00",
+                "50.00",
+                "850.00",
+                "850.00",
+                "0.00",
+                "50.00",
+                ""
+              ],
+              [
+                "192315\nReturn Invoice",
+                "2026-04-16",
+                "06:04:00 PM",
+                "1,080.00",
+                "11.90",
+                "129.00",
+                "951.00",
+                "951.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "191497\nReturn Invoice",
+                "2026-04-14",
+                "11:42:06 PM",
+                "0.00",
+                "5.00",
+                "0.00",
+                "0.00",
+                "15.00",
+                "0.00",
+                "15.00",
+                ""
+              ],
+              [
+                "190376\nReturn Invoice",
+                "2026-04-12",
+                "09:02:10 AM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "190374\nReturn Invoice",
+                "2026-04-12",
+                "08:07:26 AM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "82.00",
+                "0.00",
+                "82.00",
+                ""
+              ],
+              [
+                "190373\nReturn Invoice",
+                "2026-04-12",
+                "07:58:44 AM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "200.00",
+                "0.00",
+                "200.00",
+                ""
+              ],
+              [
+                "188425\nReturn Invoice",
+                "2026-04-08",
+                "12:26:47 AM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "175439\nReturn Invoice",
+                "2026-03-13",
+                "03:23:29 PM",
+                "930.00",
+                "0.00",
+                "0.00",
+                "930.00",
+                "930.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "166174\nReturn Invoice",
+                "2026-02-23",
+                "05:01:43 PM",
+                "170.00",
+                "0.59",
+                "1.00",
+                "169.00",
+                "170.00",
+                "0.00",
+                "1.00",
+                ""
+              ],
+              [
+                "160711\nReturn Invoice",
+                "2026-02-13",
+                "09:08:37 PM",
+                "1,444.00",
+                "0.00",
+                "0.00",
+                "1,444.00",
+                "1,488.00",
+                "0.00",
+                "44.00",
+                ""
+              ],
+              [
+                "158477\nReturn Invoice",
+                "2026-02-09",
+                "02:55:57 AM",
+                "0.00",
+                "0.00",
+                "5.00",
+                "-5.00",
+                "760.00",
+                "0.00",
+                "765.00",
+                ""
+              ],
+              [
+                "155268\nReturn Invoice",
+                "2026-02-04",
+                "06:09:27 PM",
+                "1,470.00",
+                "0.00",
+                "0.00",
+                "1,470.00",
+                "1,470.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "153955\nReturn Invoice",
+                "2026-02-02",
+                "05:09:58 PM",
+                "1,550.00",
+                "0.00",
+                "0.00",
+                "1,550.00",
+                "1,550.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "153422\nReturn Invoice",
+                "2026-01-31",
+                "02:20:12 AM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "147513\nReturn Invoice",
+                "2026-01-20",
+                "05:41:38 PM",
+                "1,400.00",
+                "0.00",
+                "0.00",
+                "1,400.00",
+                "1,400.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "136222\nReturn Invoice",
+                "2027-07-21",
+                "04:15:18 PM",
+                "195.00",
+                "0.00",
+                "0.00",
+                "195.00",
+                "995.00",
+                "0.00",
+                "800.00",
+                ""
+              ],
+              [
+                "133095\nReturn Invoice",
+                "2025-12-24",
+                "07:28:57 PM",
+                "650.00",
+                "0.00",
+                "0.00",
+                "650.00",
+                "650.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "119811\nReturn Invoice",
+                "2025-12-03",
+                "11:56:21 PM",
+                "2,500.00",
+                "0.00",
+                "0.00",
+                "2,500.00",
+                "2,500.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "113449\nReturn Invoice",
+                "2025-11-20",
+                "10:44:28 PM",
+                "472.00",
+                "0.00",
+                "0.00",
+                "472.00",
+                "472.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "109644\nReturn Invoice",
+                "2025-11-12",
+                "09:38:39 PM",
+                "7,350.00",
+                "5.00",
+                "368.00",
+                "6,983.00",
+                "7,875.00",
+                "0.00",
+                "892.00",
+                ""
+              ],
+              [
+                "109464\nReturn Invoice",
+                "2025-11-12",
+                "05:49:23 PM",
+                "1,200.00",
+                "0.00",
+                "0.00",
+                "1,200.00",
+                "1,200.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "108310\nReturn Invoice",
+                "2025-11-09",
+                "03:50:51 AM",
+                "2,500.00",
+                "0.00",
+                "0.00",
+                "2,500.00",
+                "2,500.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "106726\nReturn Invoice",
+                "2025-11-05",
+                "04:01:22 AM",
+                "10.00",
+                "0.00",
+                "0.00",
+                "10.00",
+                "10.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "102496\nReturn Invoice",
+                "2025-10-26",
+                "02:11:57 AM",
+                "50.00",
+                "5.00",
+                "3.00",
+                "48.00",
+                "1,000.00",
+                "0.00",
+                "952.00",
+                ""
+              ],
+              [
+                "101271\nReturn Invoice",
+                "2025-10-23",
+                "04:45:43 AM",
+                "30.00",
+                "0.00",
+                "0.00",
+                "30.00",
+                "30.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "96917\nReturn Invoice",
+                "2025-10-14",
+                "08:05:21 PM",
+                "50.00",
+                "0.00",
+                "0.00",
+                "50.00",
+                "50.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "82624\nReturn Invoice",
+                "2025-09-09",
+                "07:44:46 PM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "76654\nReturn Invoice",
+                "2025-08-26",
+                "06:57:33 PM",
+                "150.00",
+                "0.00",
+                "0.00",
+                "150.00",
+                "150.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "76625\nReturn Invoice",
+                "2025-08-26",
+                "05:51:19 PM",
+                "1,800.00",
+                "0.00",
+                "0.00",
+                "1,800.00",
+                "1,800.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "76176\nReturn Invoice",
+                "2025-08-25",
+                "04:07:25 PM",
+                "4,800.00",
+                "0.00",
+                "0.00",
+                "4,800.00",
+                "4,800.00",
+                "-1,800.00",
+                "0.00",
+                ""
+              ],
+              [
+                "73486\nReturn Invoice",
+                "2025-08-20",
+                "03:51:44 PM",
+                "150.00",
+                "0.00",
+                "0.00",
+                "150.00",
+                "300.00",
+                "0.00",
+                "150.00",
+                ""
+              ],
+              [
+                "73468\nReturn Invoice",
+                "2025-08-20",
+                "03:40:40 PM",
+                "200.00",
+                "0.00",
+                "18.00",
+                "182.00",
+                "190.00",
+                "0.00",
+                "8.00",
+                ""
+              ],
+              [
+                "70200\nReturn Invoice",
+                "2025-08-13",
+                "12:36:05 AM",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "63790\nReturn Invoice",
+                "2025-07-31",
+                "04:43:31 PM",
+                "1,200.00",
+                "0.00",
+                "0.00",
+                "1,200.00",
+                "1,200.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "48436\nReturn Invoice",
+                "2025-06-24",
+                "05:27:12 PM",
+                "160.00",
+                "0.00",
+                "0.00",
+                "160.00",
+                "160.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "34547\nReturn Invoice",
+                "2025-05-15",
+                "09:15:54 PM",
+                "260.00",
+                "5.00",
+                "13.00",
+                "247.00",
+                "247.00",
+                "0.00",
+                "158.00",
+                ""
+              ],
+              [
+                "34537\nReturn Invoice",
+                "2025-05-15",
+                "08:41:15 PM",
+                "80.00",
+                "0.00",
+                "0.00",
+                "80.00",
+                "420.00",
+                "0.00",
+                "340.00",
+                ""
+              ],
+              [
+                "28223\nReturn Invoice",
+                "2025-04-23",
+                "09:26:47 PM",
+                "810.00",
+                "0.00",
+                "0.00",
+                "810.00",
+                "810.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "28036\nReturn Invoice",
+                "2025-04-22",
+                "08:19:11 PM",
+                "1,550.00",
+                "0.00",
+                "0.00",
+                "1,550.00",
+                "2,500.00",
+                "0.00",
+                "950.00",
+                ""
+              ],
+              [
+                "28034\nReturn Invoice",
+                "2025-04-22",
+                "08:00:45 PM",
+                "950.00",
+                "0.00",
+                "0.00",
+                "950.00",
+                "2,750.00",
+                "0.00",
+                "1,800.00",
+                ""
+              ],
+              [
+                "20582\nReturn Invoice",
+                "2025-03-14",
+                "05:07:07 PM",
+                "600.00",
+                "0.00",
+                "0.00",
+                "600.00",
+                "800.00",
+                "0.00",
+                "200.00",
+                ""
+              ],
+              [
+                "12674\nReturn Invoice",
+                "2025-01-31",
+                "04:40:58 PM",
+                "300.00",
+                "0.00",
+                "0.00",
+                "300.00",
+                "300.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "11477\nReturn Invoice",
+                "2025-01-23",
+                "04:13:13 PM",
+                "250.00",
+                "0.00",
+                "0.00",
+                "250.00",
+                "250.00",
+                "0.00",
+                "0.00",
+                ""
+              ],
+              [
+                "1145\nReturn Invoice",
+                "2024-10-24",
+                "08:34:40 PM",
+                "750.00",
+                "3.95",
+                "30.00",
+                "720.00",
+                "808.00",
+                "0.00",
+                "87.50",
+                ""
+              ]
+            ]
+          }
+        ],
+        "bodyText": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nGross Sales\nRs. 39,630.11\nTotal Return\nRs. 35,000.89\nNet Sale\nRs. 38,401.61\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t490.00\t21.88\t107.00\t383.00\t383.00\t0.00\t0.00\t\n\n194253\nReturn Invoice\t2026-04-19\t10:38:47 PM\t672.00\t0.00\t0.00\t672.00\t672.00\t0.00\t0.00\t\n\n192832\nReturn Invoice\t2026-04-17\t05:02:22 PM\t900.00\t0.00\t50.00\t850.00\t850.00\t0.00\t50.00\t\n\n192315\nReturn Invoice\t2026-04-16\t06:04:00 PM\t1,080.00\t11.90\t129.00\t951.00\t951.00\t0.00\t0.00\t\n\n191497\nReturn Invoice\t2026-04-14\t11:42:06 PM\t0.00\t5.00\t0.00\t0.00\t15.00\t0.00\t15.00\t\n\n190376\nReturn Invoice\t2026-04-12\t09:02:10 AM\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n190374\nReturn Invoice\t2026-04-12\t08:07:26 AM\t0.00\t0.00\t0.00\t0.00\t82.00\t0.00\t82.00\t\n\n190373\nReturn Invoice\t2026-04-12\t07:58:44 AM\t0.00\t0.00\t0.00\t0.00\t200.00\t0.00\t200.00\t\n\n188425\nReturn Invoice\t2026-04-08\t12:26:47 AM\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n175439\nReturn Invoice\t2026-03-13\t03:23:29 PM\t930.00\t0.00\t0.00\t930.00\t930.00\t0.00\t0.00\t\n\n166174\nReturn Invoice\t2026-02-23\t05:01:43 PM\t170.00\t0.59\t1.00\t169.00\t170.00\t0.00\t1.00\t\n\n160711\nReturn Invoice\t2026-02-13\t09:08:37 PM\t1,444.00\t0.00\t0.00\t1,444.00\t1,488.00\t0.00\t44.00\t\n\n158477\nReturn Invoice\t2026-02-09\t02:55:57 AM\t0.00\t0.00\t5.00\t-5.00\t760.00\t0.00\t765.00\t\n\n155268\nReturn Invoice\t2026-02-04\t06:09:27 PM\t1,470.00\t0.00\t0.00\t1,470.00\t1,470.00\t0.00\t0.00\t\n\n153955\nReturn Invoice\t2026-02-02\t05:09:58 PM\t1,550.00\t0.00\t0.00\t1,550.00\t1,550.00\t0.00\t0.00\t\n\n153422\nReturn Invoice\t2026-01-31\t02:20:12 AM\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n147513\nReturn Invoice\t2026-01-20\t05:41:38 PM\t1,400.00\t0.00\t0.00\t1,400.00\t1,400.00\t0.00\t0.00\t\n\n136222\nReturn Invoice\t2027-07-21\t04:15:18 PM\t195.00\t0.00\t0.00\t195.00\t995.00\t0.00\t800.00\t\n\n133095\nReturn Invoice\t2025-12-24\t07:28:57 PM\t650.00\t0.00\t0.00\t650.00\t650.00\t0.00\t0.00\t\n\n119811\nReturn Invoice\t2025-12-03\t11:56:21 PM\t2,500.00\t0.00\t0.00\t2,500.00\t2,500.00\t0.00\t0.00\t\n\n113449\nReturn Invoice\t2025-11-20\t10:44:28 PM\t472.00\t0.00\t0.00\t472.00\t472.00\t0.00\t0.00\t\n\n109644\nReturn Invoice\t2025-11-12\t09:38:39 PM\t7,350.00\t5.00\t368.00\t6,983.00\t7,875.00\t0.00\t892.00\t\n\n109464\nReturn Invoice\t2025-11-12\t05:49:23 PM\t1,200.00\t0.00\t0.00\t1,200.00\t1,200.00\t0.00\t0.00\t\n\n108310\nReturn Invoice\t2025-11-09\t03:50:51 AM\t2,500.00\t0.00\t0.00\t2,500.00\t2,500.00\t0.00\t0.00\t\n\n106726\nReturn Invoice\t2025-11-05\t04:01:22 AM\t10.00\t0.00\t0.00\t10.00\t10.00\t0.00\t0.00\t\n\n102496\nReturn Invoice\t2025-10-26\t02:11:57 AM\t50.00\t5.00\t3.00\t48.00\t1,000.00\t0.00\t952.00\t\n\n101271\nReturn Invoice\t2025-10-23\t04:45:43 AM\t30.00\t0.00\t0.00\t30.00\t30.00\t0.00\t0.00\t\n\n96917\nReturn Invoice\t2025-10-14\t08:05:21 PM\t50.00\t0.00\t0.00\t50.00\t50.00\t0.00\t0.00\t\n\n82624\nReturn Invoice\t2025-09-09\t07:44:46 PM\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n76654\nReturn Invoice\t2025-08-26\t06:57:33 PM\t150.00\t0.00\t0.00\t150.00\t150.00\t0.00\t0.00\t\n\n76625\nReturn Invoice\t2025-08-26\t05:51:19 PM\t1,800.00\t0.00\t0.00\t1,800.00\t1,800.00\t0.00\t0.00\t\n\n76176\nReturn Invoice\t2025-08-25\t04:07:25 PM\t4,800.00\t0.00\t0.00\t4,800.00\t4,800.00\t-1,800.00\t0.00\t\n\n73486\nReturn Invoice\t2025-08-20\t03:51:44 PM\t150.00\t0.00\t0.00\t150.00\t300.00\t0.00\t150.00\t\n\n73468\nReturn Invoice\t2025-08-20\t03:40:40 PM\t200.00\t0.00\t18.00\t182.00\t190.00\t0.00\t8.00\t\n\n70200\nReturn Invoice\t2025-08-13\t12:36:05 AM\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t0.00\t\n\n63790\nReturn Invoice\t2025-07-31\t04:43:31 PM\t1,200.00\t0.00\t0.00\t1,200.00\t1,200.00\t0.00\t0.00\t\n\n48436\nReturn Invoice\t2025-06-24\t05:27:12 PM\t160.00\t0.00\t0.00\t160.00\t160.00\t0.00\t0.00\t\n\n34547\nReturn Invoice\t2025-05-15\t09:15:54 PM\t260.00\t5.00\t13.00\t247.00\t247.00\t0.00\t158.00\t\n\n34537\nReturn Invoice\t2025-05-15\t08:41:15 PM\t80.00\t0.00\t0.00\t80.00\t420.00\t0.00\t340.00\t\n\n28223\nReturn Invoice\t2025-04-23\t09:26:47 PM\t810.00\t0.00\t0.00\t810.00\t810.00\t0.00\t0.00\t\n\n28036\nReturn Invoice\t2025-04-22\t08:19:11 PM\t1,550.00\t0.00\t0.00\t1,550.00\t2,500.00\t0.00\t950.00\t\n\n28034\nReturn Invoice\t2025-04-22\t08:00:45 PM\t950.00\t0.00\t0.00\t950.00\t2,750.00\t0.00\t1,800.00\t\n\n20582\nReturn Invoice\t2025-03-14\t05:07:07 PM\t600.00\t0.00\t0.00\t600.00\t800.00\t0.00\t200.00\t\n\n12674\nReturn Invoice\t2025-01-31\t04:40:58 PM\t300.00\t0.00\t0.00\t300.00\t300.00\t0.00\t0.00\t\n\n11477\nReturn Invoice\t2025-01-23\t04:13:13 PM\t250.00\t0.00\t0.00\t250.00\t250.00\t0.00\t0.00\t\n\n1145\nReturn Invoice\t2024-10-24\t08:34:40 PM\t750.00\t3.95\t30.00\t720.00\t808.00\t0.00\t87.50\t\n< BACK\n1\nNEXT >\nRows per page\n1-46 of 46"
+      },
+      "focused": {
+        "phase": "focused-229275",
+        "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+        "title": "Hassan Pharmacy",
+        "headings": [],
+        "buttons": [
+          "Dashboard",
+          "Sales",
+          "New Sale",
+          "Return Item",
+          "Sales History",
+          "Return History",
+          "Product Sales History",
+          "Customer History",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Collapse sidebar",
+          "Add New Sale",
+          "Renew",
+          "Open account menu",
+          "view",
+          "< BACK",
+          "1",
+          "NEXT >"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "single",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "range",
+            "checked": true
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search by Invoice ID...",
+            "value": "229275",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "All",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "50",
+            "checked": false
+          }
+        ],
+        "radios": [
+          {
+            "label": "Select Date",
+            "value": "single",
+            "checked": false
+          },
+          {
+            "label": "Select Date Range",
+            "value": "range",
+            "checked": true
+          }
+        ],
+        "summary": {
+          "Gross Sales": "Rs. 522.82",
+          "Total Return": "Rs. 117.18",
+          "Net Sale": "Rs. 382.82"
+        },
+        "pagination": "1-1 of 1",
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Invoice Number",
+              "Date",
+              "Time",
+              "Total Amount(RS.)",
+              "Discount(%)",
+              "Discount Amount",
+              "Total Payable",
+              "Paid",
+              "Due(s)",
+              "Change Returned",
+              "Action"
+            ],
+            "rows": [
+              [
+                "229275\nReturn Invoice",
+                "2026-06-23",
+                "06:00:06 PM",
+                "490.00",
+                "21.88",
+                "107.00",
+                "383.00",
+                "383.00",
+                "0.00",
+                "0.00",
+                ""
+              ]
+            ]
+          }
+        ],
+        "bodyText": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nGross Sales\nRs. 522.82\nTotal Return\nRs. 117.18\nNet Sale\nRs. 382.82\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t490.00\t21.88\t107.00\t383.00\t383.00\t0.00\t0.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1"
+      },
+      "withModal": {
+        "phase": "details-229275",
+        "url": "http://127.0.0.1:5173/pms/dashboard/returnhistory",
+        "title": "Hassan Pharmacy",
+        "headings": [
+          "Sales History Details",
+          "Invoice Number : 229275"
+        ],
+        "buttons": [
+          "Dashboard",
+          "Sales",
+          "New Sale",
+          "Return Item",
+          "Sales History",
+          "Return History",
+          "Product Sales History",
+          "Customer History",
+          "Inventory",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Collapse sidebar",
+          "Add New Sale",
+          "Renew",
+          "Open account menu",
+          "view",
+          "< BACK",
+          "1",
+          "NEXT >",
+          "Close"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "single",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "radio",
+            "placeholder": "",
+            "value": "range",
+            "checked": true
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "placeholder": "",
+            "value": "",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Search by Invoice ID...",
+            "value": "229275",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "All",
+            "checked": false
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "",
+            "value": "50",
+            "checked": false
+          }
+        ],
+        "radios": [
+          {
+            "label": "Select Date",
+            "value": "single",
+            "checked": false
+          },
+          {
+            "label": "Select Date Range",
+            "value": "range",
+            "checked": true
+          }
+        ],
+        "summary": {
+          "Gross Sales": "Rs. 522.82",
+          "Total Return": "Rs. 117.18",
+          "Net Sale": "Rs. 382.82"
+        },
+        "pagination": "1-1 of 1",
+        "selectCount": 0,
+        "tables": [
+          {
+            "headers": [
+              "Invoice Number",
+              "Date",
+              "Time",
+              "Total Amount(RS.)",
+              "Discount(%)",
+              "Discount Amount",
+              "Total Payable",
+              "Paid",
+              "Due(s)",
+              "Change Returned",
+              "Action"
+            ],
+            "rows": [
+              [
+                "229275\nReturn Invoice",
+                "2026-06-23",
+                "06:00:06 PM",
+                "490.00",
+                "21.88",
+                "107.00",
+                "383.00",
+                "383.00",
+                "0.00",
+                "0.00",
+                ""
+              ]
+            ]
+          },
+          {
+            "headers": [
+              "Date",
+              "Time",
+              "Total Amount",
+              "Discount Amount",
+              "Total Payable",
+              "Paid",
+              "Due(s)",
+              "Change Returned"
+            ],
+            "rows": [
+              [
+                "2026-06-23",
+                "06:00:06 PM",
+                "640",
+                "140",
+                "500",
+                "500",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "headers": [
+              "Date",
+              "Returned Amount",
+              "Returned Discount Amt(%)",
+              "Returned Discount Amt(RS)"
+            ],
+            "rows": [
+              [
+                "2026-06-23",
+                "117.18",
+                "21.88",
+                "32.82"
+              ]
+            ]
+          },
+          {
+            "headers": [
+              "Total Amount",
+              "Net Paid"
+            ],
+            "rows": [
+              [
+                "382.82",
+                "382.82"
+              ]
+            ]
+          },
+          {
+            "headers": [
+              "Batch no.",
+              "Product Name",
+              "QTY Sold",
+              "QTY Returned",
+              "Rate/Sell Price",
+              "Amount"
+            ],
+            "rows": [
+              [
+                "123321",
+                "RISEK 20MG CAP",
+                "10",
+                "-",
+                "28",
+                "280.00"
+              ],
+              [
+                "1257mmm",
+                "Risek",
+                "10",
+                "-",
+                "6",
+                "60.00"
+              ],
+              [
+                "145yy",
+                "ZYTO 250MG TAB",
+                "10",
+                "5",
+                "30",
+                "150.00"
+              ]
+            ]
+          }
+        ],
+        "bodyText": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nSelect Date\nSelect Date Range\nFrom Date\nTo Date\nGross Sales\nRs. 522.82\nTotal Return\nRs. 117.18\nNet Sale\nRs. 382.82\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\tAction\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t490.00\t21.88\t107.00\t383.00\t383.00\t0.00\t0.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1\nSales History Details\nInvoice Number : 229275\nSales Invoice\nDate\tTime\tTotal Amount\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tChange Returned\n2026-06-23\t06:00:06 PM\t640\t140\t500\t500\t0\t0\nReturn Invoice\nDate\tReturned Amount\tReturned Discount Amt(%)\tReturned Discount Amt(RS)\n2026-06-23\t117.18\t21.88\t32.82\nAfter Return Sales Invoice\nTotal Amount\tNet Paid\n382.82\t382.82\nPurchase Item List\nBatch no.\tProduct Name\tQTY Sold\tQTY Returned\tRate/Sell Price\tAmount\n123321\tRISEK 20MG CAP\t10\t-\t28\t280.00\n1257mmm\tRisek\t10\t-\t6\t60.00\n145yy\tZYTO 250MG TAB\t10\t5\t30\t150.00\nClose",
+        "clickedDetails": true
+      }
+    }
+  }
+}

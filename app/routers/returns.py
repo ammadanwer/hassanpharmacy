@@ -32,7 +32,7 @@ REFERENCE_RETURN_HISTORY_TOTALS = {
     "total_return": 35_000.89,
     "net_sale": 38_401.61,
 }
-REFERENCE_RETURN_HISTORY_CAPTURE = Path("data/emareez-import/return-history-live.json")
+REFERENCE_RETURN_HISTORY_CAPTURE = Path(__file__).resolve().parents[2] / "data/emareez-import/return-history-live.json"
 
 
 def invoice_order_expression():
@@ -330,11 +330,12 @@ def return_history(
                 .all()
             )
         ]
-        rows = sorted(
-            [*reference_rows, *actual_rows],
+        actual_rows = sorted(
+            actual_rows,
             key=lambda row: (row.date, invoice_sort_number(row.invoice_number), row.sale_id),
             reverse=True,
         )
+        rows = [*actual_rows, *reference_rows]
         total = len(rows)
         return PagedReturnHistoryResponse(
             items=rows[skip:skip + limit],

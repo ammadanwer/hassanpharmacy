@@ -28,6 +28,7 @@ services:
       - "8001:8000"
     volumes:
       - ./app:/app/app
+      - ./data:/app/data
     depends_on:
       db:
         condition: service_healthy
