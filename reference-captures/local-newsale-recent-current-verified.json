@@ -1,0 +1,190 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Product Sales History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "edit",
+    "view",
+    "< BACK",
+    "1",
+    "NEXT >"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "231646",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "10",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Due(s)",
+      "Returned",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nSelect Date\nSelect Date Range\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tReturned\tAction\n231646\t2026-06-28\t08:48:38 PM\t1500.00\t0.00\t0.00\t1500.00\t1500.00\t0.00\t0.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1",
+  "evalResults": {
+    "beforeClickFile": {
+      "modeRadios": [
+        {
+          "value": "single",
+          "checked": true
+        },
+        {
+          "value": "range",
+          "checked": false
+        }
+      ],
+      "rangeInputsCleared": true,
+      "headers": [
+        "Invoice Number",
+        "Date",
+        "Time",
+        "Total Amount(RS.)",
+        "Discount(%)",
+        "Discount Amount",
+        "Total Payable",
+        "Paid",
+        "Due(s)",
+        "Returned",
+        "Action"
+      ],
+      "allRangeFirstRow": [
+        "232938",
+        "2026-06-30",
+        "10:31:19 PM",
+        "474.04",
+        "0.00",
+        "0.00",
+        "474.00",
+        "474.00",
+        "0.00",
+        "0.40",
+        ""
+      ],
+      "allRangePaginationVisible": true,
+      "firstRowHasSeconds": true,
+      "firstActionLabels": [
+        "edit",
+        "view"
+      ],
+      "firstActionSvgCount": 2,
+      "focusedInvoiceRows": [
+        [
+          "231647",
+          "2026-06-28",
+          "08:49:05 PM",
+          "2550.00",
+          "0.00",
+          "0.00",
+          "2550.00",
+          "2550.00",
+          "0.00",
+          "0.00",
+          ""
+        ],
+        [
+          "231646",
+          "2026-06-28",
+          "08:48:38 PM",
+          "1500.00",
+          "0.00",
+          "0.00",
+          "1500.00",
+          "1500.00",
+          "0.00",
+          "0.00",
+          ""
+        ]
+      ],
+      "focusedAmountFormattingOk": true,
+      "focusedPaginationVisible": true,
+      "finalTextExcerpt": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nProduct Sales History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nSelect Date\nSelect Date Range\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tDue(s)\tReturned\tAction\n231646\t2026-06-28\t08:48:38 PM\t1500.00\t0.00\t0.00\t1500.00\t1500.00\t0.00\t0.00\t\n< BACK\n1\nNEXT >\nRows per page\n1-1 of 1"
+    }
+  }
+}
