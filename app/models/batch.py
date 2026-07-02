@@ -38,6 +38,8 @@ class Batch(Base, IdIntPK, TimestampMixin):
     reference_batch_no: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     reference_sort_order: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     reference_created_at: Mapped[Optional[date]] = mapped_column(Date, nullable=True)
+    reference_product_name: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    reference_medicine_formula: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     reference_sell_price_display: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     reference_cost_price_display: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     barcode: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
@@ -71,6 +73,8 @@ class Batch(Base, IdIntPK, TimestampMixin):
 
     @property
     def product_name(self) -> Optional[str]:
+        if self.reference_product_name:
+            return self.reference_product_name
         return self.product.name if self.product else None
 
     @property
@@ -91,6 +95,8 @@ class Batch(Base, IdIntPK, TimestampMixin):
 
     @property
     def medicine_formula(self) -> Optional[str]:
+        if self.reference_medicine_formula:
+            return self.reference_medicine_formula
         if not self.product:
             return None
         return self.product.formula_name

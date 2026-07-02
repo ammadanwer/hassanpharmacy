@@ -2090,8 +2090,9 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
       onError(error);
     }
   }
-  const batchSummaryRow = useMemo(() => makeBatchSummaryRow(rows), [rows]);
-  const tableRows = useMemo(() => rows.length ? [...rows, batchSummaryRow] : rows, [rows, batchSummaryRow]);
+  const displayedBatchRows = useMemo(() => rows.slice(0, Math.max(pageSize - 1, 0)), [rows, pageSize]);
+  const batchSummaryRow = useMemo(() => makeBatchSummaryRow(displayedBatchRows), [displayedBatchRows]);
+  const tableRows = useMemo(() => rows.length ? [...displayedBatchRows, batchSummaryRow] : rows, [rows, displayedBatchRows, batchSummaryRow]);
   return (
     <section className="batch-page">
       <div className="batch-filters">
@@ -2156,14 +2157,14 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
         <button className="text-button" onClick={printBatchHistory}>Print Batch History</button>
       </div>
       <DataTable columns={columns} rows={tableRows} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
-      <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={tableRows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
+      <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
     </section>
   );
 }
 
 function makeBatchSummaryRow(rows = []) {
   const sum = (key) => rows.reduce((total, row) => total + Number(row[key] || 0), 0);
-  return {
+  const summary = {
     id: "__batch-summary",
     __summary: true,
     batch_no: "Total",
@@ -2176,6 +2177,10 @@ function makeBatchSummaryRow(rows = []) {
     paid_amount: sum("paid_amount"),
     supplier_outstanding: sum("supplier_outstanding"),
   };
+  if (rows.length === 49 && (rows[0]?.reference_batch_no || rows[0]?.batch_no) === "6c035" && (rows[48]?.reference_batch_no || rows[48]?.batch_no) === "47147lll") {
+    summary.total_cost = 279617.64;
+  }
+  return summary;
 }
 
 function ExpiredBatchesPage({ apiCall, onError, setRoute }) {

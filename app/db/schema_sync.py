@@ -22,6 +22,8 @@ BATCH_COLUMNS = {
     "reference_batch_no": "VARCHAR(100)",
     "reference_sort_order": "INTEGER",
     "reference_created_at": "DATE",
+    "reference_product_name": "VARCHAR(255)",
+    "reference_medicine_formula": "VARCHAR(255)",
     "reference_sell_price_display": "VARCHAR(255)",
     "reference_cost_price_display": "VARCHAR(255)",
 }

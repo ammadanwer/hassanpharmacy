@@ -28,6 +28,8 @@ class BatchBase(BaseModel):
     reference_batch_no: Optional[str] = None
     reference_sort_order: Optional[int] = None
     reference_created_at: Optional[date] = None
+    reference_product_name: Optional[str] = None
+    reference_medicine_formula: Optional[str] = None
     reference_sell_price_display: Optional[str] = None
     reference_cost_price_display: Optional[str] = None
     barcode: Optional[str] = None

@@ -665,6 +665,8 @@ def import_batches(db, raw):
         batch.reference_batch_no = reference_batch_no
         batch.reference_sort_order = sort_order
         batch.reference_created_at = date_value(row[14])
+        batch.reference_product_name = clip_raw(row[2], 255)
+        batch.reference_medicine_formula = clip_raw(row[3], 255)
         batch.reference_sell_price_display = clip_raw(row[9], 255)
         batch.reference_cost_price_display = clip_raw(row[10], 255)
         batch.status = BatchStatus.active
