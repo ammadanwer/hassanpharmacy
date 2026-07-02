@@ -1,0 +1,367 @@
+{
+  "url": "https://e-mareez.com/pms/dashboard/medicines",
+  "title": "E-Mareez Pharmacy Management System",
+  "headings": [],
+  "buttons": [
+    "Add New Medicine",
+    "< BACK",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "NEXT >",
+    "Add New Sale",
+    "show more"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "active",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "reported",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Formula",
+      "Dose",
+      "Total Quantity",
+      "Remaining Quantity",
+      "Generic Name",
+      "Category",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "Active Medicines\nReported Medicines\nAdd New Medicine\n​\nSome medicines are out of stock.\nSome medicines are low in stock.\nSome medicines have been added but are awaiting stock entry.\nProducts Without Stock (60)\nOut of Stock (22)\nLow in Stock (12)\nName\tFormula\tDose\tTotal Quantity\tRemaining Quantity\tGeneric Name\tCategory\tManufacturer Name\tActions\n0.9% SODIUM CHLORIDE 25ML\tSodium Chloride IV Soln\t-\t\n110\n\t\n60\n\t-\tinfusion\tOTSUKA\t\n\n0meprazole\tomeprazole\t-\t\n25,06,000\n\t\n25,05,708\n\t-\tInjection\tAmeer\t\n\n0PZOL\tChloramphenicol\t150 mg\t\n5,101\n\t\n4,980\n\tfafa\tSyrup\tOBS\t\n\n10 cc s\t10CC SYRINGE\t00mg\t\n200\n\t\n10\n\tsurgical\tSyringes\tShifa\t\n\n10cc Syringe\tSYRINGE 10 CC\t10 Milliliter (mL)\t\n48\n\t\n0\n\tSYRINGE\tSyringes\tShifa\t\n\n10CC SYRINGE\t10CC SYRINGE\t10 mg\t\n166\n\t\n86\n\t-\tSyringes\tSMD\t\n\n2SUM 1GM INJ\t\t-\t\n18\n\t\n14\n\t-\t\tSami\t\n\n2SUM 2GM INJ\t\t-\t\n25\n\t\n23\n\t-\t\tSami\t\n\n+3.25\t+3.25ds\t+3.25\t\n200\n\t\n200\n\t+3.25\tEye Glasses\tMadina Optical\t\n\n4OMG RISEK\ttablet\t-\t\n9\n\t\n0\n\t-\tAnti deressant\t1\t\n\n7.5 GLOVES\tDR TRUST\t-\t\n4\n\t\n1\n\t-\tsurgical\tAmeer\t\n\nabcdef\tZoledronic Acid\t200mg\t\n0\n\t\n0\n\t-\tserum\tGSK\t\n\nAcneez\tNifedipine\t60ml\t\n55\n\t\n28\n\tbar\tsolution\tAbbott\t\n\nActifed P\tParacetamol pseudoephedrine Triprolidine\tmg\t\n500\n\t\n494\n\t-\tSyrup\tGSK\t\n\nActrac\tisotretinoin\t20mg\t\n5\n\t\n1\n\tgelatin\tAnticonvulsants\tServing health\t\n\nActrapid HM Penfi|\tInsulin Regular, Human\t100IU\t\n610\n\t\n446\n\t-\tInjection\tNovo Nordisk\t\n\nAcumeb inj.\tMecobalamin (500mcg)\t-\t\n20\n\t\n8\n\t-\tInjection\tcore helth\t\n\nadalat\tNifedipine\t200mg\t\n0\n\t\n0\n\t-\tserum\tNovo Nordisk\t\n\nadalat\tZoledronic Acid\t100mg\t\n0\n\t\n0\n\t-\tCOTTON ROLL\tGSK\t\n\nAdalat\tNifedipine\t30mg\t\n4\n\t\n0\n\t-\tTablet\tBayer\t\n\nAdalat\tNifedipine\t30mg\t\n960\n\t\n-61\n\t-\tTablet\tBayer\t\n\nADENURIC 40MG TAB\tFebuxostat (40mg)\t-\t\n240\n\t\n226\n\t-\tTablet\tS J & G FAZL ELLAHIE (PVT) LTD\t\n\nadnan\t0.1%\t-\t\n0\n\t\n0\n\t0.1%\tAlcohal Pad\tmedevo\t\n\nADORA TAB\t\t-\t\n60\n\t\n60\n\t-\t\tDYSON PHARMA\t\n\nA DROP 10ML\t\t-\t\n144\n\t\n85\n\t-\t\tROOTS HEALTH SCIENCES\t\n\nAedgi\tBetamethasone Dipropionate + salicylic Acid\t150 Milligrams per deciliter (mg/dL)\t\n150\n\t\n129\n\t-\tDrip\tAPC PHARMA\t\n\naerofen 100\tFlurbiprofen (100mg)\t-\t\n300\n\t\n300\n\t-\tTablet\tEffort pharmaceutical\t\n\nAerolin Evohaler Inhaler\tSalbutamol, lnhaler\t0ml\t\n800\n\t\n757\n\t-\tInhaler\tGSK\t\n\nAIREEZ 5MG TAB\t\t-\t\n506\n\t\n506\n\t-\t\tPHARMEVO\t\n\nAlfalfa\t..\t-\t\n0\n\t\n0\n\t-\tSyrup\t3A Pharma\t\n\nAlprib 20mg\tPiroxicam-beta-cyclodextrin\t20mg\t\n20\n\t\n0\n\t-\tAnalgesics\tRays pharma\t\n\nAMINOLEBAN DRIP\tDRIPS\t-\t\n100\n\t\n86\n\t-\tDrip\t1\t\n\nAmna\t10CC SYRINGE\t2\t\n0\n\t\n0\n\t19/05/2025\tAnalgesics\t26/A,VIA PALERMO-PARMA-ITALY\t\n\nArinac\t20mg\t20 Milligram (mg)\t\n0\n\t\n0\n\tAri Pvt Ltd\tAntacids\tAamir medicose\t\n\nArq E GUlab\t0.2%\t-\t\n0\n\t\n0\n\t-\tAnalgesics\tAamir medicose\t\n\nAVSAR 160/5MG TAB\t\t-\t\n280\n\t\n266\n\t-\t\tPHARMEVO\t\n\nAVSAR 80/5MG TAB\t\t-\t\n56\n\t\n56\n\t-\t\tPHARMEVO\t\n\nazomax\tAzithromycin\t200 Milligram (mg)\t\n0\n\t\n0\n\tazithromycin\tAntibiotics\tcosmo pharma\t\n\nB ACTIVE DROP 20ML\t\t-\t\n45\n\t\n38\n\t-\t\tUNICORN\t\n\nB ACTIVE SYP 120ML\t\t-\t\n144\n\t\n0\n\t-\t\tUNICORN\t\n\nBARILOL\tBisoprolol\t5mg\t\n200\n\t\n138\n\t-\tTablet\tBarrett\t\n\nBBA\tAcne Soap\t50 Molarity (M)\t\n1,040\n\t\n922\n\tssdd\tAnalgesics\t3A Pharma\t\n\nBBC\tacylovir\t5 Milligram (mg)\t\n0\n\t\n0\n\taz\tAlcohal Pad\t3A Pharma\t\n\nbbextrin\tPiroxicam-beta-cyclodextrin\t20 Milligram (mg)\t\n40\n\t\n8\n\tNSAID\tTablet\tSunshine Pharmaceuticals\t\n\nB BRAUN 22G\tCANULA\t-\t\n56\n\t\n56\n\t-\tCANULA\tB.BRAUN PAKISTAN\t\n\nBefast 20mg\tisotretinoin\t2 Milligram (mg)\t\n0\n\t\n0\n\tistotretinoin\tCapsule\tWebros Pharma\t\n\nBetaderm\tBetamethasone Valerate, Topical\t15g\t\n95\n\t\n76\n\t-\tCream\tAtco\t\n\nBeto c\tSupplement\t1 Atmosphere (atm)\t\n40\n\t\n25\n\tB1 B3 B12\tSupplement\tBIO CLASSIC PHARMA\t\n\nbextrin\t20mg\t20 Milligram (mg)\t\n0\n\t\n0\n\tPiroxicam betaclodextrin\tTablet\tSunshine Pharmaceuticals\t\n\nBM pharma Alfalfa Compound Syrup\tZoledronic Acid\t60 Milliliter (mL)\t\n2,000\n\t\n1,998\n\t-\tSyrup\tBM pharma\t\n< BACK\n1\n2\n3\n4\n5\nNEXT >\nRows per page\n50\n​\n1-50 of 209\nAdd New Sale\n\nRenew\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help",
+  "evalResults": {
+    "beforeClickFile": {
+      "url": "https://e-mareez.com/pms/dashboard/medicines",
+      "headers": [
+        "Name",
+        "Formula",
+        "Dose",
+        "Total Quantity",
+        "Remaining Quantity",
+        "Generic Name",
+        "Category",
+        "Manufacturer Name",
+        "Actions"
+      ],
+      "rowCount": 50,
+      "samples": [
+        {
+          "rowText": [
+            "0.9% SODIUM CHLORIDE 25ML",
+            "Sodium Chloride IV Soln",
+            "-",
+            "110",
+            "60",
+            "-",
+            "infusion",
+            "OTSUKA",
+            ""
+          ],
+          "remainingText": "60",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "0meprazole",
+            "omeprazole",
+            "-",
+            "25,06,000",
+            "25,05,708",
+            "-",
+            "Injection",
+            "Ameer",
+            ""
+          ],
+          "remainingText": "25,05,708",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "0PZOL",
+            "Chloramphenicol",
+            "150 mg",
+            "5,101",
+            "4,980",
+            "fafa",
+            "Syrup",
+            "OBS",
+            ""
+          ],
+          "remainingText": "4,980",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "10 cc s",
+            "10CC SYRINGE",
+            "00mg",
+            "200",
+            "10",
+            "surgical",
+            "Syringes",
+            "Shifa",
+            ""
+          ],
+          "remainingText": "10",
+          "remainingSvgCount": 1,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "10cc Syringe",
+            "SYRINGE 10 CC",
+            "10 Milliliter (mL)",
+            "48",
+            "0",
+            "SYRINGE",
+            "Syringes",
+            "Shifa",
+            ""
+          ],
+          "remainingText": "0",
+          "remainingSvgCount": 1,
+          "actionText": "",
+          "actionSvgCount": 4,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"15\" height=\"15\" viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.3818 15L11.7273 13.3455C11.1333 ",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "10CC SYRINGE",
+            "10CC SYRINGE",
+            "10 mg",
+            "166",
+            "86",
+            "-",
+            "Syringes",
+            "SMD",
+            ""
+          ],
+          "remainingText": "86",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "2SUM 1GM INJ",
+            "",
+            "-",
+            "18",
+            "14",
+            "-",
+            "",
+            "Sami",
+            ""
+          ],
+          "remainingText": "14",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "2SUM 2GM INJ",
+            "",
+            "-",
+            "25",
+            "23",
+            "-",
+            "",
+            "Sami",
+            ""
+          ],
+          "remainingText": "23",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "+3.25",
+            "+3.25ds",
+            "+3.25",
+            "200",
+            "200",
+            "+3.25",
+            "Eye Glasses",
+            "Madina Optical",
+            ""
+          ],
+          "remainingText": "200",
+          "remainingSvgCount": 0,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "4OMG RISEK",
+            "tablet",
+            "-",
+            "9",
+            "0",
+            "-",
+            "Anti deressant",
+            "1",
+            ""
+          ],
+          "remainingText": "0",
+          "remainingSvgCount": 1,
+          "actionText": "",
+          "actionSvgCount": 4,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"15\" height=\"15\" viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.3818 15L11.7273 13.3455C11.1333 ",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "7.5 GLOVES",
+            "DR TRUST",
+            "-",
+            "4",
+            "1",
+            "-",
+            "surgical",
+            "Ameer",
+            ""
+          ],
+          "remainingText": "1",
+          "remainingSvgCount": 1,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        },
+        {
+          "rowText": [
+            "abcdef",
+            "Zoledronic Acid",
+            "200mg",
+            "0",
+            "0",
+            "-",
+            "serum",
+            "GSK",
+            ""
+          ],
+          "remainingText": "0",
+          "remainingSvgCount": 1,
+          "actionText": "",
+          "actionSvgCount": 3,
+          "svgSnippets": [
+            "<svg width=\"15\" height=\"18\" viewBox=\"0 0 15 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.79545 3H9.20455C9.20455 2.50272 9",
+            "<svg width=\"16\" height=\"18\" viewBox=\"0 0 16 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.771 0L15.6962 2.92516L13.4662 5.",
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.3415 13.0667C8.52295 13.6381 6.4"
+          ]
+        }
+      ]
+    }
+  }
+}

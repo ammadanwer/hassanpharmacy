@@ -2620,6 +2620,7 @@ function ProductsPage({ type, initialStockFilter = "", data, apiCall, reload, on
       {statusTab === "active" ? <div className="batch-alerts product-alerts">
         <div className="batch-alert-messages">
           <span><span className="alert-icon danger" aria-hidden="true" />Some {medical ? "medicines" : "products"} are <strong>out of stock.</strong></span>
+          {medical ? <span><span className="alert-icon warning" aria-hidden="true" />Some medicines are <strong className="warning-text">low in stock.</strong></span> : null}
           <span><span className="alert-icon info" aria-hidden="true" />Some {medical ? "medicines" : "products"} have been added but are awaiting stock entry.</span>
         </div>
         <div className="batch-alert-filter">
@@ -2635,7 +2636,8 @@ function ProductsPage({ type, initialStockFilter = "", data, apiCall, reload, on
       <DataTable columns={columns} rows={rows} render={(row, key) => {
         if (key === "actions") return <LifecycleActions row={row} onEdit={() => setModal({ row })} onReport={() => deleteProduct(row)} onRestore={() => restoreProduct(row)} />;
         if (key === "category_name" && (row[key] == null || row[key] === "")) return "";
-        if (key === "remaining_quantity" && Number(row[key] || 0) <= 0) return <ProductRemainingQuantity row={row} />;
+        if (key === "formula_name" && (row[key] == null || row[key] === "")) return "";
+        if (key === "remaining_quantity" && (Number(row[key] || 0) <= 0 || (medical && Number(row[key] || 0) <= 10))) return <ProductRemainingQuantity row={row} lowStock={medical && Number(row[key] || 0) > 0 && Number(row[key] || 0) <= 10} />;
         if (["total_quantity", "remaining_quantity"].includes(key)) return formatIndianInteger(row[key]);
         return formatCell(row[key]);
       }} />
@@ -2659,12 +2661,12 @@ function LifecycleActions({ row, onEdit, onReport, onRestore }) {
   );
 }
 
-function ProductRemainingQuantity({ row }) {
+function ProductRemainingQuantity({ row, lowStock = false }) {
   const remaining = Number(row.remaining_quantity || 0);
   const total = Number(row.total_quantity || 0);
   return (
     <span className="product-stock-marker">
-      <span className={`alert-icon ${total > 0 ? "danger" : "info"}`} aria-hidden="true" />
+      <span className={`alert-icon ${lowStock ? "warning" : total > 0 ? "danger" : "info"}`} aria-hidden="true" />
       {formatIndianInteger(remaining)}
     </span>
   );

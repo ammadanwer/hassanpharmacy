@@ -1,0 +1,739 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/medicines",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Medical Product"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Medicine",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Out of Stock",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Out of Stock",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit",
+    "Notify",
+    "Report",
+    "Edit"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "active",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "reported",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter barcode.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Medicine Formula",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Category",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Dose",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Sel. Unit",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Generic Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Manufacturer",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "hidden",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Formula",
+      "Dose",
+      "Total Quantity",
+      "Remaining Quantity",
+      "Generic Name",
+      "Category",
+      "Manufacturer Name",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nActive Medicines\nReported Medicines\nSome medicines are\nout of stock.\nSome medicines are\nlow in stock.\nSome medicines have been added but are awaiting stock entry.\nProducts Without Stock (60)\nOut of Stock (22)\nLow in Stock (12)\nAdd New Medicine\nName\tFormula\tDose\tTotal Quantity\tRemaining Quantity\tGeneric Name\tCategory\tManufacturer Name\tActions\n0.9% SODIUM CHLORIDE 25ML\tSodium Chloride IV Soln\t-\t110\t60\t-\tinfusion\tOTSUKA\t\n\n0meprazole\tomeprazole\t-\t25,06,000\t25,05,708\t-\tInjection\tAmeer\t\n\n0PZOL\tChloramphenicol\t150 mg\t5,101\t4,980\tfafa\tSyrup\tOBS\t\n\n10 cc s\t10CC SYRINGE\t00mg\t200\t\n10\tsurgical\tSyringes\tShifa\t\n\n10cc Syringe\tSYRINGE 10 CC\t10 Milliliter (mL)\t48\t\n0\tSYRINGE\tSyringes\tShifa\t\n\n10CC SYRINGE\t10CC SYRINGE\t10 mg\t166\t86\t-\tSyringes\tSMD\t\n\n2SUM 1GM INJ\t\t-\t18\t14\t-\t\tSami\t\n\n2SUM 2GM INJ\t\t-\t25\t23\t-\t\tSami\t\n\n+3.25\t+3.25ds\t+3.25\t200\t200\t+3.25\tEye Glasses\tMadina Optical\t\n\n4OMG RISEK\ttablet\t-\t9\t\n0\t-\tAnti deressant\t1\t\n\n7.5 GLOVES\tDR TRUST\t-\t4\t\n1\t-\tsurgical\tAmeer\t\n\nabcdef\tZoledronic Acid\t200mg\t0\t\n0\t-\tserum\tGSK\t\n\nAcneez\tNifedipine\t60ml\t55\t28\tbar\tsolution\tAbbott\t\n\nActifed P\tParacetamol pseudoephedrine Triprolidine\tmg\t500\t494\t-\tSyrup\tGSK\t\n\nActrac\tisotretinoin\t20mg\t5\t\n1\tgelatin\tAnticonvulsants\tServing health\t\n\nActrapid HM Penfi|\tInsulin Regular, Human\t100IU\t610\t446\t-\tInjection\tNovo Nordisk\t\n\nAcumeb inj.\tMecobalamin (500mcg)\t-\t20\t\n8\t-\tInjection\tcore helth\t\n\nadalat\tNifedipine\t200mg\t0\t\n0\t-\tserum\tNovo Nordisk\t\n\nadalat\tZoledronic Acid\t100mg\t0\t\n0\t-\tCOTTON ROLL\tGSK\t\n\nAdalat\tNifedipine\t30mg\t4\t\n0\t-\tTablet\tBayer\t\n\nAdalat\tNifedipine\t30mg\t960\t\n-61\t-\tTablet\tBayer\t\n\nADENURIC 40MG TAB\tFebuxostat (40mg)\t-\t240\t226\t-\tTablet\tS J & G FAZL ELLAHIE (PVT) LTD\t\n\nadnan\t0.1%\t-\t0\t\n0\t0.1%\tAlcohal Pad\tmedevo\t\n\nADORA TAB\t\t-\t60\t60\t-\t\tDYSON PHARMA\t\n\nA DROP 10ML\t\t-\t144\t85\t-\t\tROOTS HEALTH SCIENCES\t\n\nAedgi\tBetamethasone Dipropionate + salicylic Acid\t150 Milligrams per deciliter (mg/dL)\t150\t129\t-\tDrip\tAPC PHARMA\t\n\naerofen 100\tFlurbiprofen (100mg)\t-\t300\t300\t-\tTablet\tEffort pharmaceutical\t\n\nAerolin Evohaler Inhaler\tSalbutamol, lnhaler\t0ml\t800\t757\t-\tInhaler\tGSK\t\n\nAIREEZ 5MG TAB\t\t-\t506\t506\t-\t\tPHARMEVO\t\n\nAlfalfa\t..\t-\t0\t\n0\t-\tSyrup\t3A Pharma\t\n\nAlprib 20mg\tPiroxicam-beta-cyclodextrin\t20mg\t20\t\n0\t-\tAnalgesics\tRays pharma\t\n\nAMINOLEBAN DRIP\tDRIPS\t-\t100\t86\t-\tDrip\t1\t\n\nAmna\t10CC SYRINGE\t2\t0\t\n0\t19/05/2025\tAnalgesics\t26/A,VIA PALERMO-PARMA-ITALY\t\n\nArinac\t20mg\t20 Milligram (mg)\t0\t\n0\tAri Pvt Ltd\tAntacids\tAamir medicose\t\n\nArq E GUlab\t0.2%\t-\t0\t\n0\t-\tAnalgesics\tAamir medicose\t\n\nAVSAR 160/5MG TAB\t\t-\t280\t266\t-\t\tPHARMEVO\t\n\nAVSAR 80/5MG TAB\t\t-\t56\t56\t-\t\tPHARMEVO\t\n\nazomax\tAzithromycin\t200 Milligram (mg)\t0\t\n0\tazithromycin\tAntibiotics\tcosmo pharma\t\n\nB ACTIVE DROP 20ML\t\t-\t45\t38\t-\t\tUNICORN\t\n\nB ACTIVE SYP 120ML\t\t-\t144\t\n0\t-\t\tUNICORN\t\n\nBARILOL\tBisoprolol\t5mg\t200\t138\t-\tTablet\tBarrett\t\n\nBBA\tAcne Soap\t50 Molarity (M)\t1,040\t922\tssdd\tAnalgesics\t3A Pharma\t\n\nBBC\tacylovir\t5 Milligram (mg)\t0\t\n0\taz\tAlcohal Pad\t3A Pharma\t\n\nbbextrin\tPiroxicam-beta-cyclodextrin\t20 Milligram (mg)\t40\t\n8\tNSAID\tTablet\tSunshine Pharmaceuticals\t\n\nB BRAUN 22G\tCANULA\t-\t56\t56\t-\tCANULA\tB.BRAUN PAKISTAN\t\n\nBefast 20mg\tisotretinoin\t2 Milligram (mg)\t0\t\n0\tistotretinoin\tCapsule\tWebros Pharma\t\n\nBetaderm\tBetamethasone Valerate, Topical\t15g\t95\t76\t-\tCream\tAtco\t\n\nBeto c\tSupplement\t1 Atmosphere (atm)\t40\t25\tB1 B3 B12\tSupplement\tBIO CLASSIC PHARMA\t\n\nbextrin\t20mg\t20 Milligram (mg)\t0\t\n0\tPiroxicam betaclodextrin\tTablet\tSunshine Pharmaceuticals\t\n\nBM pharma Alfalfa Compound Syrup\tZoledronic Acid\t60 Milliliter (mL)\t2,000\t1,998\t-\tSyrup\tBM pharma\t\n< BACK\n1\n2\n3\n4\nNEXT >\nRows per page\n1-50 of 200\nAdd Medical Product\nBar Code\nName\nMedical Formula\n+ Add as New\nCategory\nDose\nGeneric Name\nManufacturer Name\nPrescription needed for this medicine\nAdd",
+  "evalResults": {
+    "beforeClickFile": {
+      "tableState": {
+        "url": "http://127.0.0.1:5173/pms/dashboard/medicines",
+        "title": "Hassan Pharmacy",
+        "radioInputs": [
+          {
+            "value": "active",
+            "checked": true,
+            "label": "Active Medicines"
+          },
+          {
+            "value": "reported",
+            "checked": false,
+            "label": "Reported Medicines"
+          }
+        ],
+        "checkboxInputs": [
+          {
+            "checked": false,
+            "label": "Products Without Stock (60)"
+          },
+          {
+            "checked": false,
+            "label": "Out of Stock (22)"
+          },
+          {
+            "checked": false,
+            "label": "Low in Stock (12)"
+          }
+        ],
+        "alertText": "Some medicines are\nout of stock.\nSome medicines are\nlow in stock.\nSome medicines have been added but are awaiting stock entry.\nProducts Without Stock (60)\nOut of Stock (22)\nLow in Stock (12)",
+        "buttonLabels": [
+          "Dashboard",
+          "Sales",
+          "Inventory",
+          "Batch",
+          "Demand/Order",
+          "Stock Audit",
+          "Order Purchase",
+          "Medical Products",
+          "Non Medical Products",
+          "Supplier",
+          "Category",
+          "Medicine Formula",
+          "Manufacturer",
+          "Stock Purchase",
+          "Shelf",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Add New Sale",
+          "Renew",
+          "Add New Medicine",
+          "< BACK",
+          "1",
+          "2",
+          "3",
+          "4",
+          "NEXT >"
+        ],
+        "headers": [
+          "Name",
+          "Formula",
+          "Dose",
+          "Total Quantity",
+          "Remaining Quantity",
+          "Generic Name",
+          "Category",
+          "Manufacturer Name",
+          "Actions"
+        ],
+        "firstRows": [
+          [
+            "0.9% SODIUM CHLORIDE 25ML",
+            "Sodium Chloride IV Soln",
+            "-",
+            "110",
+            "60",
+            "-",
+            "infusion",
+            "OTSUKA",
+            ""
+          ],
+          [
+            "0meprazole",
+            "omeprazole",
+            "-",
+            "25,06,000",
+            "25,05,708",
+            "-",
+            "Injection",
+            "Ameer",
+            ""
+          ],
+          [
+            "0PZOL",
+            "Chloramphenicol",
+            "150 mg",
+            "5,101",
+            "4,980",
+            "fafa",
+            "Syrup",
+            "OBS",
+            ""
+          ],
+          [
+            "10 cc s",
+            "10CC SYRINGE",
+            "00mg",
+            "200",
+            "10",
+            "surgical",
+            "Syringes",
+            "Shifa",
+            ""
+          ],
+          [
+            "10cc Syringe",
+            "SYRINGE 10 CC",
+            "10 Milliliter (mL)",
+            "48",
+            "0",
+            "SYRINGE",
+            "Syringes",
+            "Shifa",
+            ""
+          ],
+          [
+            "10CC SYRINGE",
+            "10CC SYRINGE",
+            "10 mg",
+            "166",
+            "86",
+            "-",
+            "Syringes",
+            "SMD",
+            ""
+          ],
+          [
+            "2SUM 1GM INJ",
+            "",
+            "-",
+            "18",
+            "14",
+            "-",
+            "",
+            "Sami",
+            ""
+          ],
+          [
+            "2SUM 2GM INJ",
+            "",
+            "-",
+            "25",
+            "23",
+            "-",
+            "",
+            "Sami",
+            ""
+          ],
+          [
+            "+3.25",
+            "+3.25ds",
+            "+3.25",
+            "200",
+            "200",
+            "+3.25",
+            "Eye Glasses",
+            "Madina Optical",
+            ""
+          ],
+          [
+            "4OMG RISEK",
+            "tablet",
+            "-",
+            "9",
+            "0",
+            "-",
+            "Anti deressant",
+            "1",
+            ""
+          ],
+          [
+            "7.5 GLOVES",
+            "DR TRUST",
+            "-",
+            "4",
+            "1",
+            "-",
+            "surgical",
+            "Ameer",
+            ""
+          ],
+          [
+            "abcdef",
+            "Zoledronic Acid",
+            "200mg",
+            "0",
+            "0",
+            "-",
+            "serum",
+            "GSK",
+            ""
+          ]
+        ],
+        "rowCount": 50,
+        "footerText": "1-50 of 200",
+        "searchPlaceholder": "Search...",
+        "remainingCells": [
+          {
+            "text": "60",
+            "markerClass": ""
+          },
+          {
+            "text": "25,05,708",
+            "markerClass": ""
+          },
+          {
+            "text": "4,980",
+            "markerClass": ""
+          },
+          {
+            "text": "10",
+            "markerClass": "alert-icon warning"
+          },
+          {
+            "text": "0",
+            "markerClass": "alert-icon danger"
+          },
+          {
+            "text": "86",
+            "markerClass": ""
+          },
+          {
+            "text": "14",
+            "markerClass": ""
+          },
+          {
+            "text": "23",
+            "markerClass": ""
+          },
+          {
+            "text": "200",
+            "markerClass": ""
+          },
+          {
+            "text": "0",
+            "markerClass": "alert-icon danger"
+          },
+          {
+            "text": "1",
+            "markerClass": "alert-icon warning"
+          },
+          {
+            "text": "0",
+            "markerClass": "alert-icon info"
+          }
+        ],
+        "actionCells": [
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 4,
+            "buttonCount": 4,
+            "labels": [
+              "Report",
+              "Edit",
+              "Out of Stock",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 4,
+            "buttonCount": 4,
+            "labels": [
+              "Report",
+              "Edit",
+              "Out of Stock",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          },
+          {
+            "text": "",
+            "svgCount": 3,
+            "buttonCount": 3,
+            "labels": [
+              "Report",
+              "Edit",
+              "Notify"
+            ]
+          }
+        ]
+      },
+      "modalState": {
+        "title": "Add Medical Product",
+        "width": 1200,
+        "labels": [
+          "Bar Code",
+          "Bar Code",
+          "Name",
+          "Name",
+          "Medical Formula\n+ Add as New",
+          "Medical Formula",
+          "Category",
+          "Category",
+          "Dose",
+          "Dose",
+          "Generic Name",
+          "Generic Name",
+          "Manufacturer Name",
+          "Manufacturer Name",
+          "Prescription needed for this medicine"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter barcode.",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter Name",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Select Medicine Formula",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "hidden",
+            "placeholder": "",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Select Category",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "hidden",
+            "placeholder": "",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter Dose",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Sel. Unit",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Enter Generic Name",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Select Manufacturer",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "hidden",
+            "placeholder": "",
+            "value": "",
+            "role": ""
+          },
+          {
+            "tag": "INPUT",
+            "type": "checkbox",
+            "placeholder": "",
+            "value": "on",
+            "role": ""
+          }
+        ],
+        "buttons": [
+          "+ Add as New",
+          "Add"
+        ],
+        "selectCount": 0,
+        "text": "Add Medical Product\nBar Code\nName\nMedical Formula\n+ Add as New\nCategory\nDose\nGeneric Name\nManufacturer Name\nPrescription needed for this medicine\nAdd"
+      }
+    }
+  }
+}
