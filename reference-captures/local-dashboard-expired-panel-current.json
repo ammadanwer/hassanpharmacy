@@ -1,0 +1,284 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/batch",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Batch",
+    "Print Batch History",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "2026-07-02",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Expire Date",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "In Stock",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch No.",
+      "Shelf No.",
+      "Name",
+      "Medicine Formula",
+      "Stock In",
+      "Stock Out",
+      "Stock Remaining",
+      "Stock Purchase Price",
+      "Stock Purchase Price Before Tax",
+      "Sell Price",
+      "Cost Price",
+      "Total Cost",
+      "Production Date",
+      "Expire Date",
+      "Created at",
+      "Supplier Name",
+      "Paid Amount",
+      "Supplier Outstanding",
+      "Supplier Invoice no.",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nActive\nReported\nAdded By\nUpdated By\nDate\nDate Range\nAdd New Batch\n!\nSome batch medicines are\nexpired.\n!\nSome batch medicines are\nnear expiration.\nExpired Medicines (74)\nNear Expiry Medicines (35)\nFrom Date\nTo Date\nStock Status\nPrint Batch History\nBatch No.\tShelf No.\tName\tMedicine Formula\tStock In\tStock Out\tStock Remaining\tStock Purchase Price\tStock Purchase Price Before Tax\tSell Price\tCost Price\tTotal Cost\tProduction Date\tExpire Date\tCreated at\tSupplier Name\tPaid Amount\tSupplier Outstanding\tSupplier Invoice no.\tActions\n12544\t-\tToot Siah\t120ml\t12.00\t0\t12\t1260.00\t1260.00\t140.00/unit\n1680.00/Box\t105.00/unit\n1260.00/Box\t1260.00\t-\t19/05/2026\t20/05/2026\tEhsan\t-\t1260.00\t-\t\n\n14kkkk\t-\taerofen 100\tFlurbiprofen (100mg)\t300.00\t0\t300\t3600.00\t3600.00\t20.00/unit\n400.00/Box\t12.00/unit\n240.00/Box\t3600.00\t-\t20/05/2026\t21/04/2026\tzohaib lays\t-\t3600.00\t-\t\n\n56\t-\t212 MEN NYC BODY SPRAY\t-\t12.00\t0\t12\t276.00\t242.88\t67.00/unit\n201.00/Box\t23.00/unit\n69.00/Box\t276.00\t-\t20/04/2026\t21/04/2026\t-\t-\t276.00\t-\t\n\n147poutt\t1 B\tPanadol 500 Milligram (mg)\tParacetamol\t600.00\t102\t498\t3180.00\t3180.00\t8.50/unit\n425.00/Box\t5.30/unit\n265.00/Box\t2639.40\t-\t15/05/2026\t16/04/2026\tgohar and comp\t-\t3180.00\t-\t\n\n47147lll\t-\tJACK 3D PRE WORK OUT\t-\t2000.00\t18\t1,982\t24000.00\t24000.00\t18.00/unit\n1800.00/Box\t12.00/unit\n1200.00/Box\t23784.00\t-\t29/05/2026\t30/03/2026\tsami\t-\t24000.00\t-\t\n\n\t-\tA DROP 10ML\t-\t144.00\t59\t85\t8640.00\t8380.80\t80.00/unit\n1920.00/Box\t60.00/unit\n1440.00/Box\t5100.00\t03/01/2025\t10/03/2026\t03/01/2026\tSahil Traders\t-\t8540.00\t89-07\t\n\n123365\t-\tDisprin 20mg\tAspirin\t1000.00\t47\t953\t1000.00\t1000.00\t15.00/unit\n-\t10.00/unit\n-\t9530.00\t-\t12/03/2026\t30/12/2025\tmohsin\t-\t1000.00\t-\t\n\n\tShelf 1\tBBA 50 Molarity (M)\tAcne Soap\t234.00\t0\t234\t8736.00\t8736.00\t60.00/unit\n780.00/Box\t56.00/unit\n728.00/Box\t13104.00\t-\t01/12/2025\t24/12/2025\tWaseem and Sons\t-\t8736.00\t-\t\n\n25-12-11 (1)\tAli\tPanadol CF 500mg\tAmoxicillin\t5000.00\t0\t5,000\t50000.00\t-\t20.00/unit\n2000.00/Box\t10.00/unit\n1000.00/Box\t50000.00\t04/01/2004\t21/01/2025\t12/11/2025\tSahil Traders\t45000.00\t5000.00\t-\t\n\nbb123\tShelf 1\tBBA 50 Molarity (M)\tAcne Soap\t156.00\t0\t156\t8736.00\t-\t60.00/unit\n780.00/Box\t56.00/unit\n728.00/Box\t8736.00\t01/08/2025\t01/12/2025\t29/10/2025\tWaseem and Sons\t500.00\t8236.00\t-\t\n\nbb123\tSAMI\tBBA 50 Molarity (M)\tAcne Soap\t650.00\t118\t532\t32500.00\t-\t56.00/unit\n728.00/Box\t50.00/unit\n650.00/Box\t26600.00\t01/07/2025\t01/12/2025\t29/10/2025\tWaseem and Sons\t500.00\t32000.00\t-\t\n\n1222\t-\tCRAN BEE SACH\t-\t100.00\t5\t95\t-\t-\t30.00/unit\n300.00/Box\t20.00/unit\n200.00/Box\t1900.00\t-\t25/09/2025\t24/09/2025\tSahil Traders\t-\t-\t-\t\n\n1\t-\tPandol m 60 Milliliter (mL)\tMethylprednisolone Aceponate, Topical\t5000.00\t0\t5,000\t-\t-\t10.00/unit\n1000.00/Box\t5.00/unit\n500.00/Box\t25000.00\t-\t23/09/2025\t17/09/2025\tadv anza\t-\t-\t-\t\n\n47856\t-\tFlagyl 90ml\tMetronidazole\t85.00\t55\t30\t-\t-\t50.00/unit\n850.00/Box\t30.00/unit\n510.00/Box\t900.00\t-\t08/06/2026\t22/08/2025\tSahil Traders\t-\t-\t-\t\n\n121\tShelf 1\tGripe water 120ml\tGripe Water\t4.00\t0\t4\t-\t-\t100.00/unit\n200.00/Box\t80.00/unit\n160.00/Box\t320.00\t-\t29/09/2025\t22/08/2025\tAtco\t-\t-\t-\t\n\n1122\tSAMI\t7.5 GLOVES\tDR TRUST\t4.00\t3\t1\t-\t-\t200.00/unit\n-\t69.00/unit\n-\t69.00\t-\t20/09/2025\t20/08/2025\tSAMMI\t-\t-\t-\t\n\n1111\tShelf 1\tOmeprazole risek 20 20\tomeprazole 20mg\t140.00\t123\t17\t20.00\t-\t50.00/unit\n-\t35.00/unit\n-\t595.00\t01/01/2025\t31/08/2025\t12/08/2025\tGetz pharma\t-\t-\t-\t\n\ngh899\tcream rack\tR PRO TAB 30'S\t-\t750.00\t0\t750\t-\t-\t200.00/unit\n-\t150.00/unit\n-\t112500.00\t-\t05/03/2026\t01/08/2025\tSahil Traders\t-\t-\t-\t\n\n45kikhgjj\t-\tAIREEZ 5MG TAB\t-\t506.00\t0\t506\t-\t-\t16.00/unit\n-\t12.00/unit\n-\t6072.00\t-\t30/12/2025\t31/07/2025\tAtco\t-\t-\t-\t\n\n45kik\t-\tEFLOGEN CREAM 15GM\t-\t18.00\t12\t6\t-\t-\t100.00/unit\n-\t50.00/unit\n-\t300.00\t-\t27/02/2026\t31/07/2025\twaleed\t-\t-\t-\t\n\n457iiu",
+  "evalResults": {
+    "beforeClickFile": {
+      "dashboardUrlAfterClick": "http://127.0.0.1:5173/pms/dashboard/batch",
+      "rowCount": 57,
+      "expectedRowCount": 57,
+      "mismatches": [],
+      "firstRows": [
+        [
+          "74hh",
+          "W LEVO 250MG TABS",
+          "24/05/2026"
+        ],
+        [
+          "12365po",
+          "TERBISIL",
+          "31/01/2026"
+        ],
+        [
+          "7378m",
+          "B BRAUN 22G",
+          "04/02/2025"
+        ],
+        [
+          "gh899",
+          "R PRO TAB 30'S",
+          "04/02/2026"
+        ],
+        [
+          "kk8999",
+          "WEBBOX BEAF DOG FOOD 2KG",
+          "05/02/2025"
+        ]
+      ],
+      "lastRows": [
+        [
+          "123365",
+          "Disprin",
+          "12/03/2026"
+        ],
+        [
+          "56",
+          "212 MEN NYC BODY SPRAY",
+          "21/04/2026"
+        ],
+        [
+          "14kkkk",
+          "aerofen 100",
+          "21/05/2026"
+        ],
+        [
+          "47147lll",
+          "JACK 3D PRE WORK OUT",
+          "30/05/2026"
+        ],
+        [
+          "12544",
+          "Toot Siah",
+          "19/05/2026"
+        ]
+      ],
+      "clickRoutedToBatch": true,
+      "batchPageHasExpiredFilter": true,
+      "batchPageHasBatchActions": true
+    }
+  }
+}
