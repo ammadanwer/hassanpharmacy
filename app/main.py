@@ -1,13 +1,16 @@
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, Response
+from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
+from jose import JWTError, jwt
 
+from app.core.permissions import can_access_api
 from app.core.config import settings
 from app.db.schema_sync import sync_batch_columns
-from app.db.session import Base, engine
+from app.db.session import Base, SessionLocal, engine
+from app.models.user import User
 from app.models import (
     base,
     batch,
@@ -77,6 +80,31 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def enforce_staff_permissions(request: Request, call_next):
+    if request.method != "OPTIONS" and request.url.path.startswith("/api/"):
+        authorization = request.headers.get("Authorization", "")
+        scheme, _, token = authorization.partition(" ")
+        if scheme.lower() == "bearer" and token:
+            try:
+                payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+                user_id = payload.get("sub")
+            except JWTError:
+                user_id = None
+            if user_id:
+                db = SessionLocal()
+                try:
+                    current_user = db.get(User, int(user_id))
+                    if current_user and current_user.is_active:
+                        query = dict(request.query_params)
+                        if not can_access_api(current_user, request.url.path, request.method, query):
+                            return JSONResponse(status_code=403, content={"detail": "Permission denied"})
+                finally:
+                    db.close()
+    return await call_next(request)
+
 
 app.include_router(auth.router)
 app.include_router(sales.router)

@@ -284,6 +284,73 @@ const localReturnInvoiceNumber = () => {
   return `RET-${stamp}`;
 };
 
+const alwaysAllowedRoutes = new Set(["change-password", "technicalhelp"]);
+const routePermissionMap = {
+  dashboard: ["pharmacy_dashboard", "view"],
+  newsale: ["new_sale", "view"],
+  "return-item": ["sales_return", "add"],
+  saleshistory: ["sales_history", "view"],
+  returnhistory: ["sales_return_history", "view"],
+  productsaleshistory: ["sales_history", "view"],
+  "customer-history": ["sales_history", "view"],
+  batch: ["batch", "view"],
+  demand: ["demand_order", "view"],
+  "stock-audit": ["audit_batch", "add"],
+  "order-purchase": ["demand_order", "view"],
+  medicines: ["medical_product", "view"],
+  nonmedicines: ["non_medical_product", "view"],
+  supplier: ["supplier", "view"],
+  category: ["category", "view"],
+  medicineformula: ["medicine_formula", "view"],
+  manufacturer: ["manufacturer", "view"],
+  purchases: ["batch", "view"],
+  shelf: ["batch", "view"],
+  "staff-management": ["pharmacy_component", "view"],
+  "shift-management": ["pharmacy_component", "view"],
+  expense: ["daily_expense", "view"],
+  "expense-category": ["expense_category", "view"],
+  "return-policy": ["pharmacy_component", "view"],
+};
+
+function isFullAccessUser(user) {
+  return ["owner", "admin"].includes(user?.role);
+}
+
+function userHasPermission(user, moduleKey, action = "view") {
+  if (!user || isFullAccessUser(user)) return true;
+  const permissions = normalizeStaffPermissions(user.permissions);
+  return Boolean(permissions?.[moduleKey]?.[action]);
+}
+
+function canAccessRoute(user, route) {
+  if (!route || route === "not-found" || alwaysAllowedRoutes.has(route)) return true;
+  const requirement = routePermissionMap[route];
+  if (!requirement) return isFullAccessUser(user);
+  return userHasPermission(user, requirement[0], requirement[1]);
+}
+
+function firstAllowedRoute(user) {
+  if (canAccessRoute(user, "dashboard")) return "dashboard";
+  for (const item of routes) {
+    if (!item.children && canAccessRoute(user, item.id)) return item.id;
+    const child = item.children?.find(([id]) => canAccessRoute(user, id));
+    if (child) return child[0];
+  }
+  return "change-password";
+}
+
+function filterRoutesForUser(user) {
+  return routes
+    .map((item) => {
+      if (item.children) {
+        const children = item.children.filter(([id]) => canAccessRoute(user, id));
+        return children.length ? { ...item, children } : null;
+      }
+      return canAccessRoute(user, item.id) ? item : null;
+    })
+    .filter(Boolean);
+}
+
 const defaultPharmacyProfile = {
   name: "Hassan Pharmacy",
   customerService: "03324122333",
@@ -359,11 +426,13 @@ export default function App() {
   const [productRouteFilter, setProductRouteFilter] = useState("");
   const [batchRouteAlertFilter, setBatchRouteAlertFilter] = useState("");
   const accountMenuRef = useRef(null);
+  const visibleRoutes = useMemo(() => filterRoutesForUser(user), [user]);
 
   const apiCall = (path, options) => api(path, options, token);
 
   function setRoute(nextRoute, options = {}) {
-    const normalizedRoute = routePaths[nextRoute] ? nextRoute : "dashboard";
+    const requestedRoute = routePaths[nextRoute] ? nextRoute : "dashboard";
+    const normalizedRoute = canAccessRoute(user, requestedRoute) ? requestedRoute : firstAllowedRoute(user);
     setProductRouteFilter(["medicines", "nonmedicines"].includes(normalizedRoute) ? (options.stockFilter || "") : "");
     setBatchRouteAlertFilter(normalizedRoute === "batch" ? (options.alertFilter || "") : "");
     setRouteState(normalizedRoute);
@@ -379,14 +448,21 @@ export default function App() {
   useEffect(() => {
     if (!routePaths[route] && route !== "not-found") setRoute("dashboard", { replace: true });
     const onPopState = () => {
-      const nextRoute = routeFromLocation();
+      const requestedRoute = routeFromLocation();
+      const nextRoute = canAccessRoute(user, requestedRoute) ? requestedRoute : firstAllowedRoute(user);
       setRouteState(nextRoute);
       const group = parentGroupForRoute(nextRoute);
       if (group) setOpenGroups((current) => new Set([...current, group]));
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    if (token && route !== "not-found" && !canAccessRoute(user, route)) {
+      setRoute(firstAllowedRoute(user), { replace: true });
+    }
+  }, [token, user, route]);
 
   useEffect(() => {
     if (!token) return;
@@ -424,8 +500,16 @@ export default function App() {
       returnNotes: "/api/return-notes?limit=500",
       pharmacyProfile: "/api/pharmacy-profile",
     };
-    const entries = await Promise.all(Object.entries(calls).map(async ([key, path]) => [key, await apiCall(path)]));
-    const nextData = Object.fromEntries(entries);
+    const fallback = emptyData();
+    const entries = await Promise.all(Object.entries(calls).map(async ([key, path]) => {
+      try {
+        return [key, await apiCall(path)];
+      } catch (error) {
+        if (error.status === 403) return [key, fallback[key]];
+        throw error;
+      }
+    }));
+    const nextData = { ...fallback, ...Object.fromEntries(entries) };
     setPharmacyProfile(normalizePharmacyProfile(nextData.pharmacyProfile));
     setData(nextData);
   }
@@ -483,7 +567,7 @@ export default function App() {
 
   return (
     <div className={`app ${collapsed ? "collapsed" : ""}`}>
-      <Sidebar route={route} setRoute={setRoute} openGroups={openGroups} setOpenGroups={setOpenGroups} collapsed={collapsed} setCollapsed={setCollapsed} />
+      <Sidebar routes={visibleRoutes} route={route} setRoute={setRoute} openGroups={openGroups} setOpenGroups={setOpenGroups} collapsed={collapsed} setCollapsed={setCollapsed} />
       <main>
         <header className="topbar">
           <div className="header-left">
@@ -491,7 +575,7 @@ export default function App() {
               <Menu size={25} />
               {!collapsed ? <ChevronLeft size={19} /> : null}
             </button>
-            <button className="primary" onClick={() => setRoute("newsale")}>Add New Sale</button>
+            {canAccessRoute(user, "newsale") ? <button className="primary" onClick={() => setRoute("newsale")}>Add New Sale</button> : null}
           </div>
           <div className="header-right" ref={accountMenuRef}>
             <span className="renew-badge">HP</span>
@@ -789,7 +873,7 @@ function AuthPasswordInput({ placeholder, value, onChange }) {
   );
 }
 
-function Sidebar({ route, setRoute, openGroups, setOpenGroups, collapsed, setCollapsed }) {
+function Sidebar({ routes, route, setRoute, openGroups, setOpenGroups, collapsed, setCollapsed }) {
   function toggleGroup(groupId) {
     if (collapsed) setCollapsed(false);
     setOpenGroups((current) => current.has(groupId) ? new Set() : new Set([groupId]));
