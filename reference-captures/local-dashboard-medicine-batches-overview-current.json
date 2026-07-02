@@ -1,0 +1,258 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/batch",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Batch",
+    "Print Batch History",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report",
+    "Edit",
+    "Report"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "placeholder": "",
+      "value": "on",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "Created at",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "In Stock",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch No.",
+      "Shelf No.",
+      "Name",
+      "Medicine Formula",
+      "Stock In",
+      "Stock Out",
+      "Stock Remaining",
+      "Stock Purchase Price",
+      "Stock Purchase Price Before Tax",
+      "Sell Price",
+      "Cost Price",
+      "Total Cost",
+      "Production Date",
+      "Expire Date",
+      "Created at",
+      "Supplier Name",
+      "Paid Amount",
+      "Supplier Outstanding",
+      "Supplier Invoice no.",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nActive\nReported\nAdded By\nUpdated By\nDate\nDate Range\nAdd New Batch\n!\nSome batch medicines are\nexpired.\n!\nSome batch medicines are\nnear expiration.\nExpired Medicines (74)\nNear Expiry Medicines (35)\nDate\nStock Status\nPrint Batch History\nBatch No.\tShelf No.\tName\tMedicine Formula\tStock In\tStock Out\tStock Remaining\tStock Purchase Price\tStock Purchase Price Before Tax\tSell Price\tCost Price\tTotal Cost\tProduction Date\tExpire Date\tCreated at\tSupplier Name\tPaid Amount\tSupplier Outstanding\tSupplier Invoice no.\tActions\n6c035\t-\tAVSAR 80/5MG TAB\t-\t56.00\t0\t56\t1580.04\t1580.04\t33.00/unit\n462.00/Box\t28.21/unit\n395.01/Box\t1580.04\t-\t01/02/2028\t30/06/2026\tPremier\t-\t1580.04\t-\t\n\nH26952\t-\tADORA TAB\t-\t60.00\t0\t60\t1569.78\t1569.78\t30.62/unit\n612.42/Box\t26.16/unit\n523.26/Box\t1569.78\t-\t01/01/2028\t30/06/2026\tDyson\t-\t1569.78\t-\t\n\nAA078\t-\tEMPTIN OD 150MG 159 Milligram (mg)\tItopride (150mg)\t70.00\t0\t70\t2261.00\t2261.00\t38.00/unit\n380.00/Box\t32.30/unit\n323.00/Box\t2261.00\t-\t01/03/2028\t30/06/2026\tDyson\t-\t2261.00\t-\t\n\n321456\t-\tAVSAR 160/5MG TAB\t-\t280.00\t14\t266\t6400.00\t6400.00\t27.86/unit\n780.00/Box\t22.86/unit\n640.00/Box\t6080.00\t-\t22/08/2034\t30/06/2026\tPremier\t-\t6400.00\t-\t\n\n23\t-\t0meprazole\tomeprazole\t1000.00\t1\t999\t100000.00\t100000.00\t150.00/unit\n15000.00/Box\t100.00/unit\n10000.00/Box\t99900.00\t-\t04/09/2027\t30/06/2026\tQa\t-\t100000.00\t-\t\n\n41aaa\t-\t+3.25 +3.25\t+3.25ds\t200.00\t0\t200\t950.00\t950.00\t10.00/unit\n200.00/Box\t5.00/unit\n100.00/Box\t1000.00\t-\t28/06/2027\t29/06/2026\tkhuram traders\t-\t950.00\t-\t\n\n1257mmm\t-\tRisek 40mg\tomeprazole\t999.00\t282\t717\t3996.00\t3996.00\t6.00/unit\n300.00/Box\t4.00/unit\n200.00/Box\t2868.00\t-\t22/06/2028\t23/06/2026\tUDL\t-\t3996.00\t-\t\n\n145yy\t-\tZYTO 250MG TAB\t-\t201.00\t148\t53\t4020.00\t4020.00\t30.00/unit\n600.00/Box\t20.00/unit\n400.00/Box\t1060.00\t-\t16/12/2027\t18/06/2026\tPREMEIER\t4000.00\t20.00\t-\t\n\n\t-\tDABA 2GM SACHET\tStrontium Ranelate\t225.00\t22\t203\t5625.00\t5625.00\t40.00/unit\n600.00/Box\t25.00/unit\n375.00/Box\t5075.00\t-\t17/06/2027\t18/06/2026\tpremiers\t-\t5625.00\t-\t\n\n124kjhhhh\t-\tRECALCIN DROPS\tCAPSICUM +MENTHOL\t200.00\t20\t180\t2000.00\t2000.00\t15.00/unit\n300.00/Box\t10.00/unit\n200.00/Box\t1800.00\t-\t10/06/2027\t11/06/2026\tUDL\t-\t2000.00\t-\t\n\n457klj\t-\tAedgi 150 Milligrams per deciliter (mg/dL)\tBetamethasone Dipropionate + salicylic Acid\t150.00\t21\t129\t3000.00\t3000.00\t30.00/unit\n300.00/Box\t20.00/unit\n200.00/Box\t2580.00\t-\t04/06/2027\t05/06/2026\tMansoor\t-\t3000.00\t-\t\n\n12544\tShelf 1\tCAC 1000 10ML ING\t-\t1040.00\t106\t934\t30264.00\t30264.00\t36.00/unit\n360.00/Box\t29.10/unit\n291.00/Box\t27179.40\t-\t01/06/2030\t23/05/2026\tUDL\t30000.00\t264.00\t-\t\n\n\t-\tAerolin Evohaler Inhaler 0ml\tSalbutamol, lnhaler\t425.00\t1\t424\t6800.00\t6800.00\t25.00/unit\n625.00/Box\t16.00/unit\n400.00/Box\t6784.00\t-\t17/05/2027\t22/05/2026\tNourish & Flourish\t-\t6800.00\t-\t\n\n64345\t-\tRIMONA SACHETS\t-\t108.00\t77\t31\t6921.00\t6921.00\t70.83/unit\n849.96/Box\t64.08/unit\n769.00/Box\t1986.58\t-\t01/06/2027\t22/05/2026\tKhursheed\t-\t6921.00\t-\t\n\n64345\t-\tRIMONA SACHETS\t-\t48.00\t2\t46\t3076.00\t3076.00\t70.83/unit\n850.00/Box\t64.08/unit\n769.00/Box\t2947.83\t-\t01/06/2027\t21/05/2026\tKhursheed\t-\t3076.00\t-\t\n\n12544\t-\tLaboob Kabir\t0.1%\t12.00\t8\t4\t5400.00\t5400.00\t580.00/unit\n580.00/Box\t450.00/unit\n450.00/Box\t1800.00\t-\t01/08/2031\t21/05/2026\tEhsan\t-\t5400.00\t-\t\n\nCRA424\t1 B\tCEREMIN 3*4 INJ\t-\t140.00\t20\t120\t4456.67\t4456.67\t37.50/unit\n375.00/Box\t31.83/unit\n318.33/Box\t3820.00\t21/05/2026\t19/01/2028\t21/05/2026\tEhsan\t200.00\t4256.67\t-\t\n\n478llll\t-\tGH AD DROPS 30mL\tVitamin A 2500IU Vitamin D3 200IU\t300.00\t15\t285\t4000.00\t4000.00\t20.00/unit\n600.00/Box\t13.33/unit\n400.00/Box\t3800.00\t-\t20/05/2027\t21/05/2026\tEhsan\t-\t4000.00\t-\t\n\nCRA424\t-\tCEREMIN 3*4 INJ\t-\t36.00\t4\t32\t1146.00\t1146.00\t37.50/unit\n450.00/Box\t31.83/unit\n382.00/Box\t1018.67\t-\t19/01/2028\t21/05/2026\tEhsan\t-\t1146.00\t-",
+  "evalResults": {
+    "beforeClickFile": {
+      "overviewValues": [
+        {
+          "value": "166",
+          "label": "Batches in Stock"
+        },
+        {
+          "value": "42",
+          "label": "Batches out of Stock"
+        },
+        {
+          "value": "59",
+          "label": "Expired Batches"
+        },
+        {
+          "value": "Panadol CF, selanz, Adalat",
+          "label": "Frequently bought Item(s)"
+        }
+      ],
+      "expectedValues": [
+        {
+          "value": "166",
+          "label": "Batches in Stock"
+        },
+        {
+          "value": "42",
+          "label": "Batches out of Stock"
+        },
+        {
+          "value": "59",
+          "label": "Expired Batches"
+        },
+        {
+          "value": "Panadol CF, selanz, Adalat",
+          "label": "Frequently bought Item(s)"
+        }
+      ],
+      "mismatches": [],
+      "overviewText": "Medicine Batches Overview\nGo To Batch Management »\n166\nBatches in Stock\n42\nBatches out of Stock\n59\nExpired Batches\nPanadol CF, selanz, Adalat\nFrequently bought Item(s)",
+      "routedToBatch": true,
+      "batchPageHasControls": true,
+      "batchPageHasTable": true,
+      "urlAfterClick": "http://127.0.0.1:5173/pms/dashboard/batch"
+    }
+  }
+}
