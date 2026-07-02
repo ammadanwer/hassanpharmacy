@@ -383,6 +383,10 @@ function normalizePharmacyProfile(profile = {}) {
   };
 }
 
+function receiptPharmacyProfile(data = {}) {
+  return normalizePharmacyProfile(data.pharmacyProfile || data);
+}
+
 function serializePharmacyProfile(profile) {
   return {
     name: profile.name,
@@ -510,8 +514,15 @@ export default function App() {
       }
     }));
     const nextData = { ...fallback, ...Object.fromEntries(entries) };
-    setPharmacyProfile(normalizePharmacyProfile(nextData.pharmacyProfile));
-    setData(nextData);
+    const normalizedProfile = normalizePharmacyProfile(nextData.pharmacyProfile);
+    setPharmacyProfile(normalizedProfile);
+    setData({ ...nextData, pharmacyProfile: normalizedProfile });
+  }
+
+  function savePharmacyProfile(nextProfile) {
+    const normalizedProfile = normalizePharmacyProfile(nextProfile);
+    setPharmacyProfile(normalizedProfile);
+    setData((current) => ({ ...current, pharmacyProfile: normalizedProfile }));
   }
 
   function handleApiError(error) {
@@ -620,7 +631,7 @@ export default function App() {
       </main>
       {batchModal ? <BatchModal data={data} row={batchModal.row} close={() => setBatchModal(null)} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} /> : null}
       {crudModal ? <CrudModal config={crudConfigs[crudModal.type]} row={crudModal.row} close={() => setCrudModal(null)} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} /> : null}
-      {profileOpen ? <PharmacyProfileModal profile={pharmacyProfile} close={() => setProfileOpen(false)} apiCall={apiCall} onError={handleApiError} onSave={setPharmacyProfile} /> : null}
+      {profileOpen ? <PharmacyProfileModal profile={pharmacyProfile} close={() => setProfileOpen(false)} apiCall={apiCall} onError={handleApiError} onSave={savePharmacyProfile} /> : null}
     </div>
   );
 }
@@ -1705,6 +1716,7 @@ function DraftSalesList({ sales, page, pageSize, totalRows, onPageChange, onPage
 function InvoiceModal({ sale, data, close }) {
   const items = sale.items || [];
   const policy = data.returnPolicies?.[0]?.description || "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable";
+  const profile = receiptPharmacyProfile(data);
   const totals = invoiceReceiptTotals(sale);
   const showPaymentRows = sale.reference_original_due_display !== "";
   return (
@@ -1717,9 +1729,9 @@ function InvoiceModal({ sale, data, close }) {
         <div className="receipt-card" id="invoice-receipt">
           <h3>Hassan Pharmacy</h3>
           <p>Pharmacy Management System</p>
-          <p>DHA phase 2 extension</p>
-          <p>Phone # 03324122333</p>
-          <p>License No. 1</p>
+          {profile.address ? <p>{profile.address}</p> : null}
+          {profile.customerService ? <p>Phone # {profile.customerService}</p> : null}
+          {profile.licenseNumber ? <p>License No. {profile.licenseNumber}</p> : null}
           <div className="receipt-meta">
             {sale.customer_name ? <span>C.Name: {sale.customer_name}</span> : null}
             {sale.customer_phone ? <span>C.Ph #: {sale.customer_phone}</span> : null}
@@ -1747,7 +1759,7 @@ function InvoiceModal({ sale, data, close }) {
             <div className="receipt-total-row"><span>Due Payment:</span><strong>Rs. {money(totals.due)}</strong></div>
           </> : null}
           <p className="receipt-policy">{policy}</p>
-          <p className="receipt-footer">Software By Hassan Pharmacy, Phone# 03324122333</p>
+          <p className="receipt-footer">Software By Hassan Pharmacy{profile.customerService ? `, Phone# ${profile.customerService}` : ""}</p>
         </div>
         <div className="invoice-modal-actions">
           <button className="primary" type="button" onClick={() => printInvoiceReceipt(sale, policy, data)}>Print Invoice</button>
@@ -1757,9 +1769,10 @@ function InvoiceModal({ sale, data, close }) {
   );
 }
 
-function ReturnInvoiceModal({ detail, close }) {
+function ReturnInvoiceModal({ detail, data = {}, close }) {
   const sale = detail.sale || {};
   const returns = detail.returns || [];
+  const profile = receiptPharmacyProfile(data);
   const invoiceNumber = returns[0]?.return_invoice_number || "Return Invoice";
   const total = returns.reduce((sum, row) => sum + Number(row.amount || 0), 0);
   return (
@@ -1772,8 +1785,9 @@ function ReturnInvoiceModal({ detail, close }) {
         <div className="receipt-card" id="return-receipt">
           <h3>Hassan Pharmacy</h3>
           <p>Pharmacy Management System</p>
-          <p>Phone # 03324122333</p>
-          <p>License No. 1</p>
+          {profile.address ? <p>{profile.address}</p> : null}
+          {profile.customerService ? <p>Phone # {profile.customerService}</p> : null}
+          {profile.licenseNumber ? <p>License No. {profile.licenseNumber}</p> : null}
           <div className="receipt-meta">
             <span>Return Inv. No: {invoiceNumber}</span>
             <span>Original Inv. No: {sale.invoice_number}</span>
@@ -1792,10 +1806,10 @@ function ReturnInvoiceModal({ detail, close }) {
           </table>
           <div className="receipt-total-row"><span>Total Items: {returns.length}</span></div>
           <div className="receipt-total-row"><span>Total Return:</span><strong>Rs. {money(total)}</strong></div>
-          <p className="receipt-footer">Software By Hassan Pharmacy, Phone# 03324122333</p>
+          <p className="receipt-footer">Software By Hassan Pharmacy{profile.customerService ? `, Phone# ${profile.customerService}` : ""}</p>
         </div>
         <div className="invoice-modal-actions">
-          <button className="primary" type="button" onClick={() => printReturnReceipt(detail)}>Print Return Invoice</button>
+          <button className="primary" type="button" onClick={() => printReturnReceipt(detail, data)}>Print Return Invoice</button>
         </div>
       </section>
     </div>
@@ -4909,7 +4923,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
       <div className="return-actions">
         <button className="primary" type="button" disabled={sale ? !selectedReturnRows.length : !invoiceQuery.trim()} onClick={generateReturnInvoice}>Generate Invoice</button>
       </div>
-      {returnInvoice ? <ReturnInvoiceModal detail={returnInvoice} close={() => setReturnInvoice(null)} /> : null}
+      {returnInvoice ? <ReturnInvoiceModal detail={returnInvoice} data={data} close={() => setReturnInvoice(null)} /> : null}
     </section>
   );
 }
@@ -5232,6 +5246,7 @@ function formatTimeInput(value, fallback) {
 
 function printInvoiceReceipt(sale, policy, data) {
   const items = sale.items || [];
+  const profile = receiptPharmacyProfile(data);
   const totals = invoiceReceiptTotals(sale);
   const paymentRows = sale.reference_original_due_display === ""
     ? ""
@@ -5265,9 +5280,9 @@ function printInvoiceReceipt(sale, policy, data) {
         <section class="receipt">
           <h1>Hassan Pharmacy</h1>
           <p>Pharmacy Management System</p>
-          <p>DHA phase 2 extension</p>
-          <p>Phone # 03324122333</p>
-          <p>License No. 1</p>
+          ${profile.address ? `<p>${htmlEscape(profile.address)}</p>` : ""}
+          ${profile.customerService ? `<p>Phone # ${htmlEscape(profile.customerService)}</p>` : ""}
+          ${profile.licenseNumber ? `<p>License No. ${htmlEscape(profile.licenseNumber)}</p>` : ""}
           <div class="meta">
             ${sale.customer_name ? `<span>C.Name: ${htmlEscape(sale.customer_name)}</span>` : ""}
             ${sale.customer_phone ? `<span>C.Ph #: ${htmlEscape(sale.customer_phone)}</span>` : ""}
@@ -5282,7 +5297,7 @@ function printInvoiceReceipt(sale, policy, data) {
           <div class="total"><span>Net Total:</span><strong>Rs. ${htmlEscape(money(totals.net))}</strong></div>
           ${paymentRows}
           <p class="policy">${htmlEscape(policy)}</p>
-          <p>Software By Hassan Pharmacy, Phone# 03324122333</p>
+          <p>Software By Hassan Pharmacy${profile.customerService ? `, Phone# ${htmlEscape(profile.customerService)}` : ""}</p>
         </section>
       </body>
     </html>`);
@@ -5291,9 +5306,10 @@ function printInvoiceReceipt(sale, policy, data) {
   setTimeout(() => printWindow.print(), 250);
 }
 
-function printReturnReceipt(detail) {
+function printReturnReceipt(detail, data = {}) {
   const sale = detail.sale || {};
   const returns = detail.returns || [];
+  const profile = receiptPharmacyProfile(data);
   const invoiceNumber = returns[0]?.return_invoice_number || "Return Invoice";
   const total = returns.reduce((sum, row) => sum + Number(row.amount || 0), 0);
   const itemRows = returns.length
@@ -5323,8 +5339,9 @@ function printReturnReceipt(detail) {
         <section class="receipt">
           <h1>Hassan Pharmacy</h1>
           <p>Pharmacy Management System</p>
-          <p>Phone # 03324122333</p>
-          <p>License No. 1</p>
+          ${profile.address ? `<p>${htmlEscape(profile.address)}</p>` : ""}
+          ${profile.customerService ? `<p>Phone # ${htmlEscape(profile.customerService)}</p>` : ""}
+          ${profile.licenseNumber ? `<p>License No. ${htmlEscape(profile.licenseNumber)}</p>` : ""}
           <div class="meta">
             <span>Return Inv. No: ${htmlEscape(invoiceNumber)}</span>
             <span>Original Inv. No: ${htmlEscape(sale.invoice_number)}</span>
@@ -5333,7 +5350,7 @@ function printReturnReceipt(detail) {
           <table><thead><tr><th>Item(s)</th><th>Returned</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
           <div class="total"><span>Total Items: ${returns.length}</span></div>
           <div class="total"><span>Total Return:</span><strong>Rs. ${htmlEscape(money(total))}</strong></div>
-          <p>Software By Hassan Pharmacy, Phone# 03324122333</p>
+          <p>Software By Hassan Pharmacy${profile.customerService ? `, Phone# ${htmlEscape(profile.customerService)}` : ""}</p>
         </section>
       </body>
     </html>`);
