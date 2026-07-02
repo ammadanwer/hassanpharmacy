@@ -5,10 +5,11 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import Numeric, and_, case, cast, func, or_
 from sqlalchemy.orm import Session
 
-from app.core.security import CurrentUser
+from app.core.security import CurrentUser, verify_password
 from app.db.session import get_db
 from app.models.batch import Batch, BatchStatus
 from app.models.customer import Customer
+from app.models.pharmacy_profile import PharmacyProfile
 from app.models.product import Product
 from app.models.reference_product_sale import ReferenceProductSale
 from app.models.reference_product_sale_invoice import ReferenceProductSaleInvoice
@@ -127,6 +128,16 @@ def sale_status_for_payload(sale_in: SaleCreate) -> SaleStatus:
     return SaleStatus.paid if sale_in.paid >= sale_in.total_payable else SaleStatus.partial
 
 
+def require_sales_pin_if_enabled(db: Session, sale_in: SaleCreate, current_user: CurrentUser) -> None:
+    profile = db.query(PharmacyProfile).order_by(PharmacyProfile.id.asc()).first()
+    if not profile or not profile.pin_required:
+        return
+    if not sale_in.sales_pin:
+        raise HTTPException(status_code=400, detail="Sales PIN is required")
+    if not current_user.sales_pin_hash or not verify_password(sale_in.sales_pin, current_user.sales_pin_hash):
+        raise HTTPException(status_code=403, detail="Invalid sales PIN")
+
+
 def apply_sale_payload(sale: Sale, sale_in: SaleCreate, customer_due: float, customer_id: Optional[int], status: SaleStatus) -> None:
     sale.customer_id = customer_id
     sale.customer_name = sale_in.customer_name
@@ -187,6 +198,7 @@ def create_sale(
     db: Annotated[Session, Depends(get_db)],
     current_user: CurrentUser,
 ):
+    require_sales_pin_if_enabled(db, sale_in, current_user)
     new_invoice_number = invoice_number("INV", current_user.id)
     customer_due = max(0, sale_in.total_payable - sale_in.paid)
     customer_id = attach_customer_due(db, sale_in, customer_due)
@@ -222,6 +234,7 @@ def update_sale(
     if sale.status == SaleStatus.draft:
         raise HTTPException(status_code=400, detail="Use draft checkout to edit draft sales")
 
+    require_sales_pin_if_enabled(db, sale_in, current_user)
     remove_customer_due(db, sale)
     restore_sale_stock_and_items(db, sale)
 
@@ -297,6 +310,7 @@ def checkout_draft_sale(
     if sale.status != SaleStatus.draft:
         raise HTTPException(status_code=400, detail="Only draft sales can be checked out")
 
+    require_sales_pin_if_enabled(db, sale_in, current_user)
     for item in list(sale.items):
         db.delete(item)
     db.flush()

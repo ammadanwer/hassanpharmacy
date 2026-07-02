@@ -54,6 +54,7 @@ class SaleBase(BaseModel):
 
 class SaleCreate(SaleBase):
     items: list[SaleItemCreate] = Field(min_length=1)
+    sales_pin: Optional[str] = Field(default=None, min_length=3, max_length=8)
 
 
 class SaleUpdate(SaleBase):

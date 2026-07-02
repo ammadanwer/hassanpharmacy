@@ -1036,6 +1036,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   const [checkoutDiscountPercent, setCheckoutDiscountPercent] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const [receiveNow, setReceiveNow] = useState("");
+  const [salesPin, setSalesPin] = useState("");
   const [validationMessage, setValidationMessage] = useState("");
   const [invoiceSale, setInvoiceSale] = useState(null);
   const [saleListPage, setSaleListPage] = useState(1);
@@ -1066,7 +1067,8 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   const checkoutReceived = Number(receiveNow || 0);
   const duePayment = 0;
   const returnedCash = Math.max(0, checkoutReceived - checkoutPayable);
-  const canGenerateInvoice = receiveNow !== "";
+  const salesPinRequired = Boolean(data.pharmacyProfile?.pin_required ?? data.pharmacyProfile?.pinRequired);
+  const canGenerateInvoice = receiveNow !== "" && (!salesPinRequired || salesPin.trim().length > 0);
   const loadSaleList = useCallback(async () => {
     const params = new URLSearchParams({
       skip: String((saleListPage - 1) * saleListPageSize),
@@ -1236,6 +1238,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       due: Math.max(0, totalPayable - amountPaid),
       change_returned: Math.max(0, amountPaid - totalPayable),
       payment_method: overrides.paymentMethod ?? paymentMethod,
+      sales_pin: salesPinRequired ? salesPin.trim() : null,
       items: saleItems.map((item) => ({
         product_id: item.product_id,
         batch_id: item.batch_id,
@@ -1279,6 +1282,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       setCheckoutDiscountAmount("");
       setCheckoutDiscountPercent("");
       setReceiveNow("");
+      setSalesPin("");
       await reload();
       setInvoiceSale(createdSale);
     } catch (error) {
@@ -1303,6 +1307,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       setSaleItems([]);
       setPaid("");
       setCheckoutOpen(false);
+      setSalesPin("");
       setSaleTab("draft");
       setSaleListPage(1);
       setSaleListPageSize(10);
@@ -1340,6 +1345,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
     setCheckoutDiscountAmount(sale.discount_amount || "");
     setCheckoutDiscountPercent(sale.discount_percent || "");
     setReceiveNow(sale.paid || "");
+    setSalesPin("");
     setCurrentDraftId(sale.id);
     setEditingSaleId(null);
     setEditingSaleSnapshot(null);
@@ -1354,6 +1360,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
     setCheckoutDiscountAmount(sale.discount_amount || "");
     setCheckoutDiscountPercent(sale.discount_percent || "");
     setReceiveNow(sale.paid || "");
+    setSalesPin("");
     setCurrentDraftId(null);
     setEditingSaleId(sale.id);
     setEditingSaleSnapshot({ date: sale.date, time: sale.time });
@@ -1477,6 +1484,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
             <div className="due-payment"><span>Due Payment</span><strong>RS. {money(duePayment)}</strong></div>
             <div className="payable-line"><span>Payable Amount</span><strong>RS. {money(checkoutPayable)}</strong></div>
             <label className="receive-now"><span>Receive Now:</span><input type="number" min="0" placeholder="Payment" value={receiveNow} onChange={(event) => setReceiveNow(event.target.value)} /></label>
+            {salesPinRequired ? <label className="receive-now"><span>Sales PIN:</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
             <div className="returned-cash"><strong>Returned Cash:</strong> RS. {money(returnedCash)}</div>
           </div>
         </section>
