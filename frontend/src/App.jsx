@@ -3937,9 +3937,19 @@ function ExpensePage({ data, apiCall, reload, onError }) {
       onError(error);
     }
   }
+  function changeExpenseDateMode(mode) {
+    setDateMode(mode);
+    setPage(1);
+    if (mode === "range") {
+      setDateFrom("");
+      setDateTo("");
+    } else if (!date) {
+      setDate(today());
+    }
+  }
   return (
     <section className="list-page">
-      <div className="tabs"><label><input type="radio" checked={dateMode === "single"} onChange={() => { setDateMode("single"); setPage(1); }} /> Date</label><label><input type="radio" checked={dateMode === "range"} onChange={() => { setDateMode("range"); setPage(1); }} /> Date Range</label></div>
+      <div className="tabs"><label><input type="radio" value="single" checked={dateMode === "single"} onChange={() => changeExpenseDateMode("single")} /> Date</label><label><input type="radio" value="range" checked={dateMode === "range"} onChange={() => changeExpenseDateMode("range")} /> Date Range</label></div>
       <div className="list-head report-filters">{dateMode === "range" ? <>
         <label><span className="field-title">From Date</span><input type="date" value={dateFrom} onChange={(event) => { setDateFrom(event.target.value); setPage(1); }} /></label>
         <label><span className="field-title">To Date</span><input type="date" value={dateTo} onChange={(event) => { setDateTo(event.target.value); setPage(1); }} /></label>

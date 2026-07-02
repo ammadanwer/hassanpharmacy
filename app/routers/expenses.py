@@ -72,13 +72,13 @@ def _expense_report_pdf(
     date_from: date | None,
     date_to: date | None,
     q: str | None,
-    category_id: int | None,
+    category_name: str | None,
 ) -> bytes:
     total = sum(float(expense.expense_amount or 0) for expense in expenses)
-    table_header = f"{'Date':<12} {'Name':<28} {'Expense Category':<24} {'Amount':>12}"
+    table_header = f"{'Date':<12} {'Name':<28} {'Expense Category':<24} {'Expense Amount':>14}"
     table_rule = "-" * len(table_header)
     row_lines = [
-        f"{str(expense.date):<12} {_truncate(expense.name, 28):<28} {_truncate(expense.expense_category_name or '-', 24):<24} {float(expense.expense_amount or 0):>12,.2f}"
+        f"{str(expense.date):<12} {_truncate(expense.name, 28):<28} {_truncate(expense.expense_category_name or '-', 24):<24} {float(expense.expense_amount or 0):>14,.2f}"
         for expense in expenses
     ]
     rows_per_page = 35
@@ -89,8 +89,8 @@ def _expense_report_pdf(
             "Hassan Pharmacy",
             "Daily Expense Report",
             f"Date From: {date_from or '-'}    Date To: {date_to or '-'}",
-            f"Search: {q or '-'}    Category ID: {category_id or '-'}",
-            f"Total Expenses: {len(expenses)}    Total Amount: Rs. {total:,.2f}    Page {page_index} of {len(chunks)}",
+            f"Search: {q or '-'}    Expense Category: {category_name or '-'}",
+            f"Total Expenses: {len(expenses)}    Total Expense Amount: Rs. {total:,.2f}    Page {page_index} of {len(chunks)}",
             "",
             table_header,
             table_rule,
@@ -103,12 +103,11 @@ def _expense_pdf(expense: Expense) -> bytes:
     return _text_pdf([
         "Hassan Pharmacy",
         "Daily Expense",
-        f"Expense ID: {expense.id}",
         f"Date: {expense.date}",
         f"Name: {expense.name}",
-        f"Category: {expense.expense_category_name or '-'}",
-        f"Amount: Rs. {float(expense.expense_amount or 0):.2f}",
-        f"Notes: {expense.notes or '-'}",
+        f"Expense Category: {expense.expense_category_name or '-'}",
+        f"Expense Amount: Rs. {float(expense.expense_amount or 0):.2f}",
+        f"Description: {expense.notes or '-'}",
     ])
 
 
@@ -158,9 +157,13 @@ def download_expenses_pdf(
     category_id: int | None = Query(default=None),
 ):
     rows = apply_expense_filters(db.query(Expense), date_from, date_to, q, category_id).order_by(Expense.date.desc(), Expense.id.desc()).all()
+    category_name = None
+    if category_id:
+        category = db.get(ExpenseCategory, category_id)
+        category_name = category.name if category else str(category_id)
     filename = "expenses.pdf"
     return Response(
-        content=_expense_report_pdf(rows, date_from, date_to, q, category_id),
+        content=_expense_report_pdf(rows, date_from, date_to, q, category_name),
         media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
