@@ -1,9 +1,6 @@
-from pathlib import Path
-
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, Response
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse, RedirectResponse, Response
 from jose import JWTError, jwt
 
 from app.core.permissions import can_access_api
@@ -70,9 +67,6 @@ app = FastAPI(
     description="Hassan Pharmacy management system",
     version="0.1.0",
 )
-
-STATIC_DIR = Path(__file__).resolve().parent / "static"
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -141,7 +135,7 @@ def health():
 
 @app.get("/", include_in_schema=False)
 def index():
-    return FileResponse(STATIC_DIR / "index.html")
+    return RedirectResponse(f"{settings.FRONTEND_URL.rstrip('/')}/pms/dashboard")
 
 
 @app.get("/favicon.ico", include_in_schema=False)
