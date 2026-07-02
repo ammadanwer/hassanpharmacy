@@ -204,7 +204,7 @@ textarea::placeholder {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: clamp(112px, 14vh, 150px) 64px 40px;
+  padding: clamp(104px, 13vh, 138px) 52px 40px;
 }
 
 .brand {
@@ -251,10 +251,18 @@ textarea::placeholder {
   color: var(--navy);
 }
 
+.auth-side .brand-mark {
+  font-size: 36px;
+}
+
+.auth-side .brand strong {
+  font-size: 38px;
+}
+
 .auth-subtitle {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.25;
-  margin: 12px 0 clamp(116px, 13.8vh, 142px);
+  margin: 12px 0 clamp(108px, 13vh, 132px);
   max-width: 100%;
   text-align: center;
 }
@@ -269,7 +277,7 @@ textarea::placeholder {
 .role-row label {
   align-items: center;
   display: flex;
-  font-size: 18px;
+  font-size: 17px;
   gap: 10px;
 }
 
@@ -286,8 +294,8 @@ textarea::placeholder {
 }
 
 .auth-form input {
-  font-size: 20px;
-  min-height: 54px;
+  font-size: 18px;
+  min-height: 50px;
 }
 
 .auth-password-wrap {
@@ -322,8 +330,8 @@ textarea::placeholder {
 
 .auth-form .primary {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.24);
-  font-size: 19px;
-  min-height: 54px;
+  font-size: 18px;
+  min-height: 50px;
 }
 
 .auth-form p,
@@ -2999,11 +3007,11 @@ main {
 
 @media (max-height: 850px) and (min-width: 1151px) {
   .auth-side {
-    padding-top: 84px;
+    padding-top: 94px;
   }
 
   .auth-subtitle {
-    margin-bottom: 70px;
+    margin-bottom: 78px;
   }
 
   .role-row {
