@@ -1,0 +1,231 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/shelf",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Add Shelf"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "Inventory",
+    "Batch",
+    "Demand/Order",
+    "Stock Audit",
+    "Order Purchase",
+    "Medical Products",
+    "Non Medical Products",
+    "Supplier",
+    "Category",
+    "Medicine Formula",
+    "Manufacturer",
+    "Stock Purchase",
+    "Shelf",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Renew",
+    "Open account menu",
+    "Add New Shelf",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "Edit",
+    "Delete",
+    "< BACK",
+    "1",
+    "NEXT >",
+    "Add"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search Medicine",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Shelf A",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Name",
+      "Total Batches",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nInventory\nBatch\nDemand/Order\nStock Audit\nOrder Purchase\nMedical Products\nNon Medical Products\nSupplier\nCategory\nMedicine Formula\nManufacturer\nStock Purchase\nShelf\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nRenew\nHassan Pharmacy\nAdd New Shelf\nName\tTotal Batches\tActions\nac preminous\t2\t\n\ncream rack\t3\t\n\nShelf 1\t11\t\n\nSAMI\t2\t\n\nAli\t1\t\n\n14\t2\t\n\nY\t1\t\n\n1 B\t2\t\n< BACK\n1\nNEXT >\nRows per page\n1-8 of 8\nAdd Shelf\nShelf Name\nAdd",
+  "evalResults": {
+    "beforeClickFile": {
+      "tableState": {
+        "url": "http://127.0.0.1:5173/pms/dashboard/shelf",
+        "title": "Hassan Pharmacy",
+        "buttonLabels": [
+          "Dashboard",
+          "Sales",
+          "Inventory",
+          "Batch",
+          "Demand/Order",
+          "Stock Audit",
+          "Order Purchase",
+          "Medical Products",
+          "Non Medical Products",
+          "Supplier",
+          "Category",
+          "Medicine Formula",
+          "Manufacturer",
+          "Stock Purchase",
+          "Shelf",
+          "Staff Management",
+          "Shift Management",
+          "Daily Expense",
+          "Settings",
+          "Get Technical Help",
+          "Add New Sale",
+          "Renew",
+          "Add New Shelf",
+          "< BACK",
+          "1",
+          "NEXT >"
+        ],
+        "headers": [
+          "Name",
+          "Total Batches",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "ac preminous",
+            "2",
+            ""
+          ],
+          [
+            "cream rack",
+            "3",
+            ""
+          ],
+          [
+            "Shelf 1",
+            "11",
+            ""
+          ],
+          [
+            "SAMI",
+            "2",
+            ""
+          ],
+          [
+            "Ali",
+            "1",
+            ""
+          ],
+          [
+            "14",
+            "2",
+            ""
+          ],
+          [
+            "Y",
+            "1",
+            ""
+          ],
+          [
+            "1 B",
+            "2",
+            ""
+          ]
+        ],
+        "rowCount": 8,
+        "footerText": "1-8 of 8",
+        "searchPlaceholder": "Search Medicine",
+        "actionCells": [
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          },
+          {
+            "text": "",
+            "svgCount": 2,
+            "buttonCount": 2
+          }
+        ]
+      },
+      "modalState": {
+        "title": "Add Shelf",
+        "labels": [
+          "Shelf Name"
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "text",
+            "placeholder": "Shelf A",
+            "value": ""
+          }
+        ],
+        "buttons": [
+          "Add"
+        ],
+        "text": "Add Shelf\nShelf Name\nAdd"
+      }
+    }
+  }
+}
