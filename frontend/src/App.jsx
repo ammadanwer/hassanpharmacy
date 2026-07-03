@@ -5964,8 +5964,8 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
             setProductQuery(product.name);
           }} options={productOptions.filter((product) => product.status !== "reported")} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} />
           <Field label="Total Boxes" type="number" value={form.box_quantity || ""} onChange={(v) => setStockDimension("box_quantity", v)} placeholder="Add no. of boxes" />
-          <Field label="Units per box" type="number" value={form.units_per_box || ""} onChange={(v) => setStockDimension("units_per_box", v)} placeholder="Add no. of units per box" />
-          <Field label="Items per unit" type="number" value={form.items_per_unit || ""} onChange={(v) => setStockDimension("items_per_unit", v)} placeholder="Items per unit" />
+          <Field label="Units per box (Patta)" type="number" value={form.units_per_box || ""} onChange={(v) => setStockDimension("units_per_box", v)} placeholder="Add no. of pattas per box" />
+          <Field label="Items per unit (Goli)" type="number" value={form.items_per_unit || ""} onChange={(v) => setStockDimension("items_per_unit", v)} placeholder="Goli per patta" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
           <Field label="Cost Price" type="number" value={form.cost_price || ""} onChange={(v) => set("cost_price", v)} placeholder="Cost price" />
           <Field label="Sell Price" type="number" value={form.sell_price || ""} onChange={(v) => set("sell_price", v)} placeholder="Sell price" />
