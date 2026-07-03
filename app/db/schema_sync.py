@@ -106,6 +106,7 @@ SALE_COLUMNS = {
 }
 
 SALE_ITEM_COLUMNS = {
+    "sale_type": "VARCHAR(30)",
     "reference_qty_returned": "NUMERIC(12, 2)",
     "reference_receipt_name": "VARCHAR(255)",
     "reference_qt_in_box_display": "VARCHAR(50)",

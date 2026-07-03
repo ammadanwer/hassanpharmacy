@@ -10,6 +10,7 @@ from app.schemas.product import ProductResponse
 class SaleItemCreate(BaseModel):
     product_id: int
     batch_id: int
+    sale_type: Optional[str] = None
     qt_in_box: float
     qt_in_units: float
     total_qty: float

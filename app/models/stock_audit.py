@@ -17,7 +17,7 @@ class StockAudit(Base, IdIntPK, TimestampMixin):
 
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
     batch_id: Mapped[int] = mapped_column(ForeignKey("batches.id"), nullable=False)
-    quantity_type: Mapped[str] = mapped_column(String(30), nullable=False, default="Unit")
+    quantity_type: Mapped[str] = mapped_column(String(30), nullable=False, default="Goli")
     quantity_before: Mapped[float] = mapped_column(Numeric(12, 2), nullable=False)
     quantity_adjusted: Mapped[float] = mapped_column(Numeric(12, 2), nullable=False)
     quantity_after: Mapped[float] = mapped_column(Numeric(12, 2), nullable=False)

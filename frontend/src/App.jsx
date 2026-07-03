@@ -1115,6 +1115,35 @@ function Panel({ title, children, className = "" }) {
   return <section className={`panel ${className}`.trim()}><div className="panel-head"><h2>{title}</h2></div>{children}</section>;
 }
 
+const SALE_QUANTITY_TYPE_OPTIONS = [
+  { value: "Box", label: "Box" },
+  { value: "Patta", label: "Patta" },
+  { value: "Goli", label: "Goli" },
+];
+
+function normalizeQuantityType(value) {
+  const type = String(value || "").toLowerCase();
+  if (type === "box") return "Box";
+  if (type === "patta") return "Patta";
+  return "Goli";
+}
+
+function batchItemsPerPatta(batch) {
+  return Number(batch?.items_per_unit || 1) || 1;
+}
+
+function batchGoliPerBox(batch) {
+  const pattasPerBox = Number(batch?.units_per_box || 1) || 1;
+  return pattasPerBox * batchItemsPerPatta(batch);
+}
+
+function quantityTypeGoliMultiplier(batch, quantityType) {
+  const type = normalizeQuantityType(quantityType);
+  if (type === "Box") return batchGoliPerBox(batch);
+  if (type === "Patta") return batchItemsPerPatta(batch);
+  return 1;
+}
+
 function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, reload }) {
   const [saleTab, setSaleTab] = useState("new");
   const [currentDraftId, setCurrentDraftId] = useState(null);
@@ -1124,7 +1153,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   const [barcode, setBarcode] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedBatch, setSelectedBatch] = useState(null);
-  const [saleType, setSaleType] = useState("Unit");
+  const [saleType, setSaleType] = useState("Goli");
   const [qty, setQty] = useState("");
   const [paid, setPaid] = useState("");
   const [checkoutOpen, setCheckoutOpen] = useState(false);
@@ -1266,27 +1295,32 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       onError(new Error("Enter a valid quantity."));
       return;
     }
-    const unitsPerBox = Number(batch.units_per_box || 0);
-    const itemsPerUnit = Number(batch.items_per_unit || 1) || 1;
-    const boxUnitMultiplier = (unitsPerBox || 1) * itemsPerUnit;
-    const totalQty = saleType === "Box" ? quantity * boxUnitMultiplier : quantity;
+    const selectedSaleType = normalizeQuantityType(saleType);
+    const itemsPerUnit = batchItemsPerPatta(batch);
+    const boxUnitMultiplier = batchGoliPerBox(batch);
+    const saleMultiplier = quantityTypeGoliMultiplier(batch, selectedSaleType);
+    const totalQty = quantity * saleMultiplier;
     if (totalQty > Number(batch.stock_remaining || 0)) {
-      onError(new Error(`Only ${formatCompactNumber(batch.stock_remaining)} units are available in this batch.`));
+      onError(new Error(`Only ${formatCompactNumber(batch.stock_remaining)} goli are available in this batch.`));
       return;
     }
-    const unitRate = Number(batch.sell_price || 0);
-    const boxRate = Number(batch.boxes_price || unitRate * boxUnitMultiplier || unitRate);
+    const goliRate = Number(batch.sell_price || 0);
+    const pattaRate = goliRate * itemsPerUnit;
+    const boxRate = Number(batch.boxes_price || goliRate * boxUnitMultiplier || goliRate);
+    const rate = selectedSaleType === "Box" ? boxRate : selectedSaleType === "Patta" ? pattaRate : goliRate;
     setSaleItems([...saleItems, calculateItem({
       batch_id: batch.id,
       product_id: batch.product_id,
       product_name: product?.name || "-",
       batch_no: batch.batch_no,
-      qt_in_box: saleType === "Box" ? quantity : boxUnitMultiplier ? Number((quantity / boxUnitMultiplier).toFixed(2)) : 0,
-      qt_in_units: saleType === "Box" ? 0 : quantity,
+      sale_type: selectedSaleType,
+      qt_in_box: selectedSaleType === "Box" ? quantity : boxUnitMultiplier ? Number((totalQty / boxUnitMultiplier).toFixed(2)) : 0,
+      qt_in_patta: selectedSaleType === "Patta" ? quantity : itemsPerUnit ? Number((totalQty / itemsPerUnit).toFixed(2)) : 0,
+      qt_in_units: totalQty,
       total_qty: totalQty,
-      pricing_qty: saleType === "Box" ? quantity : totalQty,
+      pricing_qty: quantity,
       cost_price: Number(batch.cost_price || 0),
-      rate: saleType === "Box" ? boxRate : unitRate,
+      rate,
       discount_percent: "",
       discount_amount: "",
     })]);
@@ -1295,7 +1329,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
     setNotice?.("");
     setShowSuggestions(false);
     setSelectedBatch(null);
-    setSaleType("Unit");
+    setSaleType("Goli");
     setQty("");
   }
 
@@ -1343,6 +1377,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       items: saleItems.map((item) => ({
         product_id: item.product_id,
         batch_id: item.batch_id,
+        sale_type: normalizeQuantityType(item.sale_type),
         qt_in_box: Number(item.qt_in_box || 0),
         qt_in_units: Number(item.qt_in_units || 0),
         total_qty: Number(item.total_qty || 0),
@@ -1418,23 +1453,33 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   }
 
   function loadSaleItems(sale) {
-    setSaleItems((sale.items || []).map((item) => ({
-      batch_id: item.batch_id,
-      product_id: item.product_id,
-      product_name: item.product_name,
-      batch_no: item.batch_no,
-      reference_qt_in_box_display: item.reference_qt_in_box_display || "",
-      qt_in_box: Number(item.qt_in_box || 0),
-      qt_in_units: Number(item.qt_in_units || item.total_qty || 0),
-      total_qty: Number(item.total_qty || 0),
-      pricing_qty: Number(item.qt_in_box || 0) > 0 && Number(item.qt_in_units || 0) === 0 ? Number(item.qt_in_box || 0) : Number(item.total_qty || 0),
-      cost_price: Number(item.cost_price || 0),
-      rate: Number(item.rate || 0),
-      amount: Number(item.amount || item.payable_amount || 0),
-      payable_amount: Number(item.payable_amount || item.amount || 0),
-      discount_percent: item.discount_percent || "",
-      discount_amount: item.discount_amount || "",
-    })));
+    setSaleItems((sale.items || []).map((item) => {
+      const batch = data.batches.find((batchRow) => Number(batchRow.id) === Number(item.batch_id));
+      const saleItemType = normalizeQuantityType(item.sale_type || (Number(item.qt_in_box || 0) > 0 && Number(item.qt_in_units || 0) === 0 ? "Box" : "Goli"));
+      const totalQty = Number(item.total_qty || 0);
+      const pattaQty = batchItemsPerPatta(batch) ? Number((totalQty / batchItemsPerPatta(batch)).toFixed(2)) : 0;
+      const boxQty = batchGoliPerBox(batch) ? Number((totalQty / batchGoliPerBox(batch)).toFixed(2)) : Number(item.qt_in_box || 0);
+      const pricingQty = saleItemType === "Box" ? Number(item.qt_in_box || boxQty || 0) : saleItemType === "Patta" ? pattaQty : totalQty;
+      return {
+        batch_id: item.batch_id,
+        product_id: item.product_id,
+        product_name: item.product_name,
+        batch_no: item.batch_no,
+        reference_qt_in_box_display: item.reference_qt_in_box_display || "",
+        sale_type: saleItemType,
+        qt_in_box: Number(item.qt_in_box || boxQty || 0),
+        qt_in_patta: pattaQty,
+        qt_in_units: Number(item.qt_in_units || totalQty || 0),
+        total_qty: totalQty,
+        pricing_qty: pricingQty,
+        cost_price: Number(item.cost_price || 0),
+        rate: Number(item.rate || 0),
+        amount: Number(item.amount || item.payable_amount || 0),
+        payable_amount: Number(item.payable_amount || item.amount || 0),
+        discount_percent: item.discount_percent || "",
+        discount_amount: item.discount_amount || "",
+      };
+    }));
   }
 
   function resumeSale(sale) {
@@ -1483,7 +1528,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   }
 
   function renderSaleEditor({ inline = false, showCost = !inline } = {}) {
-    const tableColSpan = showCost ? 12 : 11;
+    const tableColSpan = showCost ? 13 : 12;
     return (
       <>
         {!inline && editingSaleId ? <div className="edit-sale-notice">Editing existing invoice. Checkout will update this sale.</div> : null}
@@ -1504,7 +1549,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
                 ariaLabel="Sale Type"
                 placeholder="Select Sale Type"
                 value={saleType}
-                options={[{ value: "Unit", label: "Unit" }, { value: "Box", label: "Box" }]}
+                options={SALE_QUANTITY_TYPE_OPTIONS}
                 onChange={setSaleType}
               />
             </td>
@@ -1515,11 +1560,12 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
         <section className={`panel sale-items-panel${inline ? " inline-sale-editor" : ""}`}>
           <div className="sale-items-title">{inline ? "Sales Items List" : "Purchased Items List"}</div>
           {inline && editingSaleSnapshot?.date ? <div className="sale-edit-date">{formatDisplayDate(editingSaleSnapshot.date)}</div> : null}
-          <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Batch no.</th><th>Qt in Box</th><th>Qt in Units</th><th>Total Quantity</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
+          <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Batch no.</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
             <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.batch_id}-${index}`}>
               <td>{item.product_name}</td>
               <td>{item.batch_no}</td>
               <td>{item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
+              <td>{formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
               <td>{formatCompactNumber(item.qt_in_units)}</td>
               <td>{formatCompactNumber(item.total_qty)}</td>
               {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
@@ -1818,7 +1864,7 @@ function InvoiceModal({ sale, data, close }) {
             <span>{formatInvoiceDate(sale)}</span>
           </div>
           <table>
-            <thead><tr><th>Item(s)</th><th>QTY</th><th>Price</th><th>Amt</th></tr></thead>
+            <thead><tr><th>Item(s)</th><th>QTY (Goli)</th><th>Price</th><th>Amt</th></tr></thead>
             <tbody>{items.length ? <>
               {items.map((item, index) => (
                 <tr key={item.id || index}>
@@ -1945,7 +1991,7 @@ function SalesHistoryDetailsModal({ sale, data, close }) {
           </> : null}
           <h4>Purchase Item List</h4>
           <table className="data-table">
-            <thead><tr><th>Batch no.</th><th>Product Name</th><th>QTY Sold</th><th>QTY Returned</th><th>Rate/Sell Price</th><th>Amount</th></tr></thead>
+            <thead><tr><th>Batch no.</th><th>Product Name</th><th>QTY Sold (Goli)</th><th>QTY Returned</th><th>Rate/Sell Price</th><th>Amount</th></tr></thead>
             <tbody>{items.length ? items.map((item, index) => (
               <tr key={item.id || index}>
                 <td>{item.batch_no}</td>
@@ -2992,15 +3038,15 @@ function DemandPage({ data, apiCall, reload, onError }) {
 }
 
 function StockAuditPage({ data, apiCall, reload, onError }) {
-  const auditTypeOptions = [{ id: "Unit", name: "Unit" }, { id: "Box", name: "Box" }];
+  const auditTypeOptions = SALE_QUANTITY_TYPE_OPTIONS.map((option) => ({ id: option.value, name: option.label }));
   const adjustmentTypeOptions = [{ id: "Increase", name: "Increase" }, { id: "Decrease", name: "Decrease" }];
-  const [form, setForm] = useState({ product_id: "", batch_id: "", quantity_type: "Unit", quantity_adjusted: "", adjustment_type: "Increase" });
+  const [form, setForm] = useState({ product_id: "", batch_id: "", quantity_type: "Goli", quantity_adjusted: "", adjustment_type: "Increase" });
   const [pending, setPending] = useState([]);
   const [editingAudit, setEditingAudit] = useState(null);
   const [search, setSearch] = useState("");
   const [productQuery, setProductQuery] = useState("");
   const [batchQuery, setBatchQuery] = useState("");
-  const [quantityTypeQuery, setQuantityTypeQuery] = useState("Unit");
+  const [quantityTypeQuery, setQuantityTypeQuery] = useState("Goli");
   const [adjustmentTypeQuery, setAdjustmentTypeQuery] = useState("Increase");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
@@ -3041,18 +3087,18 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     setBatchQuery(batch.name);
   }
   function selectAuditType(option) {
-    set("quantity_type", option.id);
-    setQuantityTypeQuery(option.name);
+    set("quantity_type", normalizeQuantityType(option.id));
+    setQuantityTypeQuery(normalizeQuantityType(option.name));
   }
   function selectAdjustmentType(option) {
     set("adjustment_type", option.id);
     setAdjustmentTypeQuery(option.name);
   }
   function resetAuditForm() {
-    setForm({ product_id: "", batch_id: "", quantity_type: "Unit", quantity_adjusted: "", adjustment_type: "Increase" });
+    setForm({ product_id: "", batch_id: "", quantity_type: "Goli", quantity_adjusted: "", adjustment_type: "Increase" });
     setProductQuery("");
     setBatchQuery("");
-    setQuantityTypeQuery("Unit");
+    setQuantityTypeQuery("Goli");
     setAdjustmentTypeQuery("Increase");
   }
   function projectedStockForBatch(batchId) {
@@ -3075,12 +3121,9 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     }
     const matchedQuantityType = auditTypeOptions.find((option) => option.name.toLowerCase() === quantityTypeQuery.trim().toLowerCase());
     const matchedAdjustmentType = adjustmentTypeOptions.find((option) => option.name.toLowerCase() === adjustmentTypeQuery.trim().toLowerCase());
-    const quantityType = form.quantity_type || matchedQuantityType?.id || quantityTypeQuery.trim() || "Unit";
+    const quantityType = normalizeQuantityType(form.quantity_type || matchedQuantityType?.id || quantityTypeQuery.trim() || "Goli");
     const adjustmentType = form.adjustment_type || matchedAdjustmentType?.id || adjustmentTypeQuery.trim() || "Increase";
-    const unitsPerBox = Number(batch.units_per_box || 1) || 1;
-    const itemsPerUnit = Number(batch.items_per_unit || 1) || 1;
-    const boxUnitMultiplier = unitsPerBox * itemsPerUnit;
-    const effectiveQuantity = quantityType === "Box" ? quantity * boxUnitMultiplier : quantity;
+    const effectiveQuantity = quantity * quantityTypeGoliMultiplier(batch, quantityType);
     let before = projectedStockForBatch(form.batch_id);
     if (editingAudit && Number(editingAudit.batch_id) === Number(form.batch_id)) {
       const previousQuantity = Number(editingAudit.quantity_adjusted || 0);
@@ -3130,19 +3173,17 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
   function editAudit(row) {
     const batch = data.batches.find((item) => Number(item.id) === Number(row.batch_id));
     const product = data.products.find((item) => Number(item.id) === Number(row.product_id));
-    const unitsPerBox = Number(batch?.units_per_box || 1) || 1;
-    const itemsPerUnit = Number(batch?.items_per_unit || 1) || 1;
-    const boxUnitMultiplier = unitsPerBox * itemsPerUnit;
-    const enteredQuantity = row.quantity_type === "Box" ? Number(row.quantity_adjusted || 0) / boxUnitMultiplier : Number(row.quantity_adjusted || 0);
+    const quantityType = normalizeQuantityType(row.quantity_type || "Goli");
+    const enteredQuantity = Number(row.quantity_adjusted || 0) / quantityTypeGoliMultiplier(batch, quantityType);
     setEditingAudit(row);
     setProductQuery(product?.name || nameById(data.products, row.product_id));
     setBatchQuery(batch ? `${batch.batch_no} - Stock ${batch.stock_remaining}` : batchNo(data.batches, row.batch_id));
-    setQuantityTypeQuery(row.quantity_type || "Unit");
+    setQuantityTypeQuery(quantityType);
     setAdjustmentTypeQuery(row.adjustment_type || "Increase");
     setForm({
       product_id: row.product_id || "",
       batch_id: row.batch_id || "",
-      quantity_type: row.quantity_type || "Unit",
+      quantity_type: quantityType,
       quantity_adjusted: enteredQuantity || "",
       adjustment_type: row.adjustment_type || "Increase",
     });
@@ -3203,6 +3244,7 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
       <DataTable columns={[["product_id", "Product Name"], ["batch_id", "Batch No."], ["quantity_type", "Quantity Type"], ["quantity_before", "Quantity Before"], ["quantity_adjusted", "Quantity Adjusted"], ["quantity_after", "Quantity After"], ["adjustment_type", "Adjustment Type"], ["amount", "Amount"], ["actions", "Actions"]]} rows={rows} render={(row, key) => {
         if (key === "product_id") return nameById(data.products, row[key]);
         if (key === "batch_id") return batchNo(data.batches, row[key]);
+        if (key === "quantity_type") return normalizeQuantityType(row[key]);
         if (key === "actions") return row.pending ? (
           <div className="icon-actions"><button className="icon-action danger-icon" type="button" title="Remove" aria-label="Remove" onClick={() => setPending((items) => items.filter((item) => item.id !== row.id))}><Trash2 size={18} /></button></div>
         ) : <CrudIconActions onEdit={() => editAudit(row)} onDelete={() => deleteAudit(row)} />;
@@ -5289,7 +5331,7 @@ function TextOptionPicker({ value, options = [], onChange, className = "", ariaL
         readOnly
         value={selected?.label || ""}
         onFocus={() => setOpen(true)}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 120)}
       />
       {open ? <div className="text-option-menu">
@@ -5566,7 +5608,7 @@ function printInvoiceReceipt(sale, policy, data) {
             <span>C. By: Admin</span>
             <span>${htmlEscape(formatInvoiceDate(sale))}</span>
           </div>
-          <table><thead><tr><th>Item(s)</th><th>QTY</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
+          <table><thead><tr><th>Item(s)</th><th>QTY (Goli)</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
           <div class="total"><span>Total Items: ${items.length}</span></div>
           <div class="total"><span>Gross Total:</span><strong>Rs. ${htmlEscape(money(totals.gross))}</strong></div>
           <div class="total"><span>Discount:</span><strong>Rs. ${htmlEscape(money(totals.discount))}</strong></div>

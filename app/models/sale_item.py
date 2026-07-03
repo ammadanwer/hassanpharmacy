@@ -15,6 +15,7 @@ class SaleItem(Base, IdIntPK):
     batch_id: Mapped[int] = mapped_column(ForeignKey("batches.id"), nullable=False)
     product_name: Mapped[str] = mapped_column(String(255), nullable=False)
     batch_no: Mapped[str] = mapped_column(String(100), nullable=False)
+    sale_type: Mapped[Optional[str]] = mapped_column(String(30), nullable=True)
     qt_in_box: Mapped[float] = mapped_column(Numeric(12, 2), nullable=False)
     qt_in_units: Mapped[float] = mapped_column(Numeric(12, 2), nullable=False)
     total_qty: Mapped[float] = mapped_column(Numeric(12, 2), nullable=False)
