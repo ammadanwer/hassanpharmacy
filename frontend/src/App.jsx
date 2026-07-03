@@ -1570,22 +1570,24 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
         <section className={`panel sale-items-panel${inline ? " inline-sale-editor" : ""}`}>
           <div className="sale-items-title">{inline ? "Sales Items List" : "Purchased Items List"}</div>
           {inline && editingSaleSnapshot?.date ? <div className="sale-edit-date">{formatDisplayDate(editingSaleSnapshot.date)}</div> : null}
-          <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Batch no.</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
-            <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.batch_id}-${index}`}>
-              <td>{item.product_name}</td>
-              <td>{item.batch_no}</td>
-              <td>{item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
-              <td>{formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
-              <td>{formatCompactNumber(item.qt_in_units)}</td>
-              <td>{formatCompactNumber(item.total_qty)}</td>
-              {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
-              <td><input className="table-input" type="number" min="0" value={item.rate} onChange={(event) => updateSaleItem(index, { rate: event.target.value })} /></td>
-              <td>{plainMoney(item.amount)}</td>
-              <td><input className="table-input" type="number" min="0" placeholder="Disc(%)" value={item.discount_percent} onChange={(event) => updateSaleItem(index, { discount_percent: event.target.value }, "percent")} /></td>
-              <td><input className="table-input" type="number" min="0" placeholder="Disc Amt" value={item.discount_amount} onChange={(event) => updateSaleItem(index, { discount_amount: event.target.value }, "amount")} /></td>
-              <td>{plainMoney(item.payable_amount)}</td>
-              <td><div className="icon-actions"><button className="icon-action" type="button" title="Edit"><Pencil size={18} /></button><button className="icon-action danger-icon" type="button" title="Delete" onClick={() => setSaleItems(saleItems.filter((_, i) => i !== index))}><Trash2 size={18} /></button></div></td>
-            </tr>) : <tr><td colSpan={tableColSpan} className="empty">No Data Found</td></tr>}</tbody></table>
+          <div className="sale-items-table-wrap">
+            <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Batch no.</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
+              <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.batch_id}-${index}`}>
+                <td>{item.product_name}</td>
+                <td>{item.batch_no}</td>
+                <td>{item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
+                <td>{formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
+                <td>{formatCompactNumber(item.qt_in_units)}</td>
+                <td>{formatCompactNumber(item.total_qty)}</td>
+                {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
+                <td><input className="table-input" type="number" min="0" value={item.rate} onChange={(event) => updateSaleItem(index, { rate: event.target.value })} /></td>
+                <td>{plainMoney(item.amount)}</td>
+                <td><input className="table-input" type="number" min="0" placeholder="Disc(%)" value={item.discount_percent} onChange={(event) => updateSaleItem(index, { discount_percent: event.target.value }, "percent")} /></td>
+                <td><input className="table-input" type="number" min="0" placeholder="Disc Amt" value={item.discount_amount} onChange={(event) => updateSaleItem(index, { discount_amount: event.target.value }, "amount")} /></td>
+                <td>{plainMoney(item.payable_amount)}</td>
+                <td><div className="icon-actions"><button className="icon-action" type="button" title="Edit"><Pencil size={18} /></button><button className="icon-action danger-icon" type="button" title="Delete" onClick={() => setSaleItems(saleItems.filter((_, i) => i !== index))}><Trash2 size={18} /></button></div></td>
+              </tr>) : <tr><td colSpan={tableColSpan} className="empty">No Data Found</td></tr>}</tbody></table>
+          </div>
           {saleItems.length ? <>
             <div className="sale-total"><span>Payable Amt.</span><strong>Rs. {plainMoney(payable)}</strong></div>
             <div className="sale-actions">{!editingSaleId ? <button className="outline" onClick={() => saveDraft()}>Save as a Draft</button> : null}<button className="primary" onClick={openCheckout}>Proceed to Checkout</button></div>

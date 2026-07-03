@@ -1626,7 +1626,7 @@ main {
 
 .sale-items-panel {
   min-height: 0;
-  overflow-x: auto;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -1639,6 +1639,11 @@ main {
 
 .sale-items-table {
   min-width: 1260px;
+}
+
+.sale-items-table-wrap {
+  overflow-x: auto;
+  width: 100%;
 }
 
 .table-input {
