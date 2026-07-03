@@ -35,6 +35,7 @@ class BatchBase(BaseModel):
     barcode: Optional[str] = None
     box_quantity: Optional[int] = None
     units_per_box: Optional[int] = None
+    items_per_unit: Optional[int] = None
     cost_price_per_box: Optional[float] = None
     boxes_price: Optional[float] = None
     stock_purchase_price_before_discount: Optional[float] = None

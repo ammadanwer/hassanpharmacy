@@ -7,6 +7,7 @@ BATCH_COLUMNS = {
     "barcode": "VARCHAR(100)",
     "box_quantity": "INTEGER",
     "units_per_box": "INTEGER",
+    "items_per_unit": "INTEGER",
     "cost_price_per_box": "NUMERIC(12, 2)",
     "boxes_price": "NUMERIC(12, 2)",
     "stock_purchase_price_before_discount": "NUMERIC(14, 2)",

@@ -16,7 +16,8 @@ router = APIRouter()
 
 def effective_audit_quantity(batch: Batch, quantity: float, quantity_type: str) -> float:
     units_per_box = float(batch.units_per_box or 1)
-    return quantity * units_per_box if quantity_type.lower() == "box" else quantity
+    items_per_unit = float(batch.items_per_unit or 1)
+    return quantity * units_per_box * items_per_unit if quantity_type.lower() == "box" else quantity
 
 
 def apply_audit_to_batch(batch: Batch, quantity: float, adjustment_type: StockAuditMode) -> tuple[float, float]:
@@ -170,7 +171,7 @@ def update_stock_audit(
     if audit_in.quantity_adjusted is not None:
         entered_quantity = audit_in.quantity_adjusted
     elif quantity_type.lower() == "box":
-        entered_quantity = float(audit.quantity_adjusted or 0) / float(new_batch.units_per_box or 1)
+        entered_quantity = float(audit.quantity_adjusted or 0) / (float(new_batch.units_per_box or 1) * float(new_batch.items_per_unit or 1))
     else:
         entered_quantity = float(audit.quantity_adjusted or 0)
 

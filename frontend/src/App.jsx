@@ -1267,7 +1267,8 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       return;
     }
     const unitsPerBox = Number(batch.units_per_box || 0);
-    const boxUnitMultiplier = unitsPerBox || 1;
+    const itemsPerUnit = Number(batch.items_per_unit || 1) || 1;
+    const boxUnitMultiplier = (unitsPerBox || 1) * itemsPerUnit;
     const totalQty = saleType === "Box" ? quantity * boxUnitMultiplier : quantity;
     if (totalQty > Number(batch.stock_remaining || 0)) {
       onError(new Error(`Only ${formatCompactNumber(batch.stock_remaining)} units are available in this batch.`));
@@ -1280,7 +1281,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
       product_id: batch.product_id,
       product_name: product?.name || "-",
       batch_no: batch.batch_no,
-      qt_in_box: saleType === "Box" ? quantity : unitsPerBox ? Number((quantity / unitsPerBox).toFixed(2)) : 0,
+      qt_in_box: saleType === "Box" ? quantity : boxUnitMultiplier ? Number((quantity / boxUnitMultiplier).toFixed(2)) : 0,
       qt_in_units: saleType === "Box" ? 0 : quantity,
       total_qty: totalQty,
       pricing_qty: saleType === "Box" ? quantity : totalQty,
@@ -3077,7 +3078,9 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     const quantityType = form.quantity_type || matchedQuantityType?.id || quantityTypeQuery.trim() || "Unit";
     const adjustmentType = form.adjustment_type || matchedAdjustmentType?.id || adjustmentTypeQuery.trim() || "Increase";
     const unitsPerBox = Number(batch.units_per_box || 1) || 1;
-    const effectiveQuantity = quantityType === "Box" ? quantity * unitsPerBox : quantity;
+    const itemsPerUnit = Number(batch.items_per_unit || 1) || 1;
+    const boxUnitMultiplier = unitsPerBox * itemsPerUnit;
+    const effectiveQuantity = quantityType === "Box" ? quantity * boxUnitMultiplier : quantity;
     let before = projectedStockForBatch(form.batch_id);
     if (editingAudit && Number(editingAudit.batch_id) === Number(form.batch_id)) {
       const previousQuantity = Number(editingAudit.quantity_adjusted || 0);
@@ -3128,7 +3131,9 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     const batch = data.batches.find((item) => Number(item.id) === Number(row.batch_id));
     const product = data.products.find((item) => Number(item.id) === Number(row.product_id));
     const unitsPerBox = Number(batch?.units_per_box || 1) || 1;
-    const enteredQuantity = row.quantity_type === "Box" ? Number(row.quantity_adjusted || 0) / unitsPerBox : Number(row.quantity_adjusted || 0);
+    const itemsPerUnit = Number(batch?.items_per_unit || 1) || 1;
+    const boxUnitMultiplier = unitsPerBox * itemsPerUnit;
+    const enteredQuantity = row.quantity_type === "Box" ? Number(row.quantity_adjusted || 0) / boxUnitMultiplier : Number(row.quantity_adjusted || 0);
     setEditingAudit(row);
     setProductQuery(product?.name || nameById(data.products, row.product_id));
     setBatchQuery(batch ? `${batch.batch_no} - Stock ${batch.stock_remaining}` : batchNo(data.batches, row.batch_id));
@@ -3385,7 +3390,7 @@ function OrderPurchaseProductHistoryModal({ product, data, close, openBatchModal
           />
           <h3>Batches List</h3>
           <DataTable
-            columns={[["batch_no", "Batch No."], ["box_quantity", "Total boxes"], ["units_per_box", "Units per box"], ["total_quantity", "Total Qt."], ["cost_price", "Cost price"], ["sell_price", "Sell price"], ["shelf_display", "Shelf No."], ["expire_date", "Exp. Date"], ["actions", "Actions"]]}
+            columns={[["batch_no", "Batch No."], ["box_quantity", "Total boxes"], ["units_per_box", "Units per box"], ["items_per_unit", "Items per unit"], ["total_quantity", "Total Qt."], ["cost_price", "Cost price"], ["sell_price", "Sell price"], ["shelf_display", "Shelf No."], ["expire_date", "Exp. Date"], ["actions", "Actions"]]}
             rows={rows}
             emptyText="No Data Found"
             render={(row, key) => {
@@ -5850,44 +5855,50 @@ function productStock(batches, productId, remaining) {
 
 function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError }) {
   const editing = !!row;
-  const [more, setMore] = useState(false);
   const [form, setForm] = useState(() => {
     const product = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
     return {
       stock_out: 0,
-      supplier_outstanding: 0,
-      batch_purchase_date: today(),
-      expiry_reminder: "6 Months Before",
-      stock_out_reminder: "30%",
       product_id: product?.id || "",
+      items_per_unit: row?.items_per_unit || "",
       ...(row || {}),
       product_type: product?.type || row?.product_type || "medical",
-      non_medical_sales_tax: row?.tax_amount || "",
     };
   });
   const initialSupplier = data.suppliers.find((item) => Number(item.id) === Number(row?.supplier_id));
   const selectedInitialProduct = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
   const [supplierQuery, setSupplierQuery] = useState(initialSupplier?.name || row?.supplier_name || "");
   const [productQuery, setProductQuery] = useState(selectedInitialProduct?.name || row?.product_name || "");
+  const [invoiceTouched, setInvoiceTouched] = useState(Boolean(row?.supplier_invoice_no));
   const [quickAdd, setQuickAdd] = useState(null);
-  const bodyRef = useRef(null);
   const set = (key, value) => setForm((current) => ({ ...current, [key]: value }));
-  const isNonMedical = form.product_type === "non-medical";
-  const productOptions = data.products.filter((product) => product.type === form.product_type);
+  const productOptions = data.products;
 
-  function changeProductType(productType) {
-    setMore(false);
-    setForm((current) => ({ ...current, product_type: productType, product_id: "" }));
-    setProductQuery("");
-    requestAnimationFrame(() => bodyRef.current?.scrollTo({ top: 0 }));
+  function generatedBatchNo(productId, invoiceNo) {
+    const prefix = String(invoiceNo || "BATCH").replace(/[^a-z0-9]+/gi, "").slice(0, 12) || "BATCH";
+    return `${prefix}-${productId || "NEW"}-${Date.now().toString().slice(-6)}`;
   }
 
-  useEffect(() => {
-    if (!more || !bodyRef.current) return;
-    requestAnimationFrame(() => {
-      bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight, behavior: "smooth" });
+  function latestSupplierInvoiceNo(supplierId) {
+    return [...data.batches]
+      .filter((batch) => Number(batch.supplier_id) === Number(supplierId) && batch.supplier_invoice_no && batch.supplier_invoice_no !== "-")
+      .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0) || Number(b.id || 0) - Number(a.id || 0))[0]?.supplier_invoice_no || "";
+  }
+
+  function calculatedStock(nextForm) {
+    const boxes = Number(nextForm.box_quantity || 0);
+    const units = Number(nextForm.units_per_box || 0);
+    const items = Number(nextForm.items_per_unit || 0);
+    return boxes && units && items ? String(boxes * units * items) : "";
+  }
+
+  function setStockDimension(key, value) {
+    setForm((current) => {
+      const next = { ...current, [key]: value };
+      const stock = calculatedStock(next);
+      return stock ? { ...next, stock_in: stock } : next;
     });
-  }, [more]);
+  }
 
   async function submit(event) {
     event.preventDefault();
@@ -5901,8 +5912,10 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     }
     const boxes = Number(form.box_quantity || 0);
     const units = Number(form.units_per_box || 0);
-    const stock = form.stock_in ? Number(form.stock_in) : boxes * units;
-    const { non_medical_sales_tax: nonMedicalSalesTax, ...batchPayload } = form;
+    const items = Number(form.items_per_unit || 1) || 1;
+    const stock = form.stock_in ? Number(form.stock_in) : boxes * units * items;
+    const selectedProduct = data.products.find((product) => Number(product.id) === Number(productId));
+    const batchNo = form.batch_no || generatedBatchNo(productId, form.supplier_invoice_no);
     const stockOut = editing ? Number(row.stock_out || 0) : 0;
     const stockRemaining = editing ? stock - stockOut : stock;
     if (stockRemaining < 0) {
@@ -5910,11 +5923,25 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       return;
     }
     const normalizedPayload = {
-      ...batchPayload,
-      tax_amount: isNonMedical && nonMedicalSalesTax !== "" ? Number(nonMedicalSalesTax) : nullableNumber(form.tax_amount),
+      product_id: Number(productId),
+      batch_no: batchNo,
+      supplier_id: nullableNumber(supplierId),
+      supplier_invoice_no: form.supplier_invoice_no || null,
+      product_type: selectedProduct?.type || form.product_type || "medical",
+      box_quantity: nullableNumber(form.box_quantity),
+      units_per_box: nullableNumber(form.units_per_box),
+      items_per_unit: nullableNumber(form.items_per_unit),
+      stock_in: stock,
+      stock_remaining: stockRemaining,
+      stock_out: stockOut,
+      cost_price: nullableNumber(form.cost_price),
+      sell_price: nullableNumber(form.sell_price),
+      shelf_id: nullableNumber(form.shelf_id),
+      expire_date: form.expire_date || null,
+      status: form.status || "active",
     };
     try {
-      await apiCall(editing ? `/api/batches/${row.id}` : "/api/batches", { method: editing ? "PUT" : "POST", body: JSON.stringify({ ...normalizedPayload, product_id: Number(productId), supplier_id: isNonMedical ? null : nullableNumber(supplierId), shelf_id: nullableNumber(form.shelf_id), stock_in: stock, stock_remaining: stockRemaining, stock_out: stockOut, status: form.status || "active" }) });
+      await apiCall(editing ? `/api/batches/${row.id}` : "/api/batches", { method: editing ? "PUT" : "POST", body: JSON.stringify(normalizedPayload) });
       close();
       await reload();
     } catch (error) {
@@ -5925,53 +5952,39 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     <div className="modal-backdrop">
       <form className="batch-modal" onSubmit={submit}>
         <div className="modal-head"><h2>{editing ? "Edit Batch" : "Add Batch"}</h2><button type="button" onClick={close}><X /></button></div>
-        <div className="modal-body" ref={bodyRef}>
-          <div className="product-type"><strong>Product Type:</strong><label><input type="radio" checked={form.product_type === "medical"} onChange={() => changeProductType("medical")} /> Medical</label><label><input type="radio" checked={form.product_type === "non-medical"} onChange={() => changeProductType("non-medical")} /> Non Medical</label></div>
-          <Field label="Bar Code" optional value={form.barcode || ""} onChange={(v) => set("barcode", v)} placeholder="Enter barcode." />
-          {!isNonMedical ? <LookupField label="Supplier" value={form.supplier_id || ""} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={(supplier) => { set("supplier_id", supplier.id); setSupplierQuery(supplier.name); }} options={data.suppliers.filter((supplier) => supplier.status !== "inactive")} placeholder="Supplier" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} /> : null}
-          <LookupField label="Name" required value={form.product_id || ""} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={(product) => { set("product_id", product.id); setProductQuery(product.name); }} options={productOptions.filter((product) => product.status !== "reported")} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} />
-          <Field label="Batch No." required value={form.batch_no || ""} onChange={(v) => set("batch_no", v)} placeholder="Enter batch no." />
-          <Field label="Total Boxes" type="number" value={form.box_quantity || ""} onChange={(v) => set("box_quantity", v)} placeholder="Add no. of boxes" />
-          <Field label="Units per box" type="number" value={form.units_per_box || ""} onChange={(v) => set("units_per_box", v)} placeholder="Add no. of units per box" />
+        <div className="modal-body">
+          <Field label="Supplier Invoice No." value={form.supplier_invoice_no || ""} onChange={(v) => { setInvoiceTouched(true); set("supplier_invoice_no", v); }} placeholder="Enter Invoice no. of Supplier" />
+          <LookupField label="Supplier" value={form.supplier_id || ""} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={(supplier) => {
+            const latestInvoice = latestSupplierInvoiceNo(supplier.id);
+            setForm((current) => ({ ...current, supplier_id: supplier.id, supplier_invoice_no: !editing && !invoiceTouched && latestInvoice ? latestInvoice : current.supplier_invoice_no }));
+            setSupplierQuery(supplier.name);
+          }} options={data.suppliers.filter((supplier) => supplier.status !== "inactive")} placeholder="Supplier" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} />
+          <LookupField label="Name" required value={form.product_id || ""} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={(product) => {
+            setForm((current) => ({ ...current, product_id: product.id, product_type: product.type || current.product_type || "medical" }));
+            setProductQuery(product.name);
+          }} options={productOptions.filter((product) => product.status !== "reported")} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} />
+          <Field label="Total Boxes" type="number" value={form.box_quantity || ""} onChange={(v) => setStockDimension("box_quantity", v)} placeholder="Add no. of boxes" />
+          <Field label="Units per box" type="number" value={form.units_per_box || ""} onChange={(v) => setStockDimension("units_per_box", v)} placeholder="Add no. of units per box" />
+          <Field label="Items per unit" type="number" value={form.items_per_unit || ""} onChange={(v) => setStockDimension("items_per_unit", v)} placeholder="Items per unit" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
-          <Linked label="Cost Price" a="Units Price" b="Boxes Price" av={form.cost_price || ""} bv={form.cost_price_per_box || ""} onA={(v) => set("cost_price", v)} onB={(v) => set("cost_price_per_box", v)} />
-          <Linked label="Sell Price" a="Units Price" b="Boxes Price" av={form.sell_price || ""} bv={form.boxes_price || ""} onA={(v) => set("sell_price", v)} onB={(v) => set("boxes_price", v)} />
-          <Field label="Stock Purchase Price Before Dis." type="number" value={form.stock_purchase_price_before_discount || ""} onChange={(v) => set("stock_purchase_price_before_discount", v)} placeholder="Add Price" />
-          <Linked label="Extra Discount / Bonus" a="Percentage" b="Amount" av={form.discount_percentage || ""} bv={form.batch_discount || ""} onA={(v) => set("discount_percentage", v)} onB={(v) => set("batch_discount", v)} />
-          <Field label="Stock Purchase Price" type="number" value={form.purchase_price || ""} onChange={(v) => set("purchase_price", v)} placeholder="Add Price" />
-          <Linked label="Sales Tax" a="Percentage" b="Amount" av={form.tax_percentage || ""} bv={form.tax_amount || ""} onA={(v) => set("tax_percentage", v)} onB={(v) => set("tax_amount", v)} plus onPlus={() => set("tax_amount", roundMoney(Number(form.purchase_price_before_tax || form.stock_purchase_price_before_discount || form.purchase_price || 0) * (Number(form.tax_percentage || 0) / 100)))} />
-          <Field label="Total Stock Price Before Tax" type="number" value={form.purchase_price_before_tax || ""} onChange={(v) => set("purchase_price_before_tax", v)} placeholder="Add Price" />
+          <Field label="Cost Price" type="number" value={form.cost_price || ""} onChange={(v) => set("cost_price", v)} placeholder="Cost price" />
+          <Field label="Sell Price" type="number" value={form.sell_price || ""} onChange={(v) => set("sell_price", v)} placeholder="Sell price" />
+          <SelectField label="Shelf" value={form.shelf_id || ""} onChange={(v) => set("shelf_id", v)} options={data.shelves} placeholder="Select Shelf" action={() => setQuickAdd({ type: "shelf" })} />
           <Field label="Expire Date" type="date" value={form.expire_date || ""} onChange={(v) => set("expire_date", v)} />
-          <SelectField label={isNonMedical ? "Add Shelf" : "Shelf"} value={form.shelf_id || ""} onChange={(v) => set("shelf_id", v)} options={data.shelves} placeholder="Select Shelf" action={() => setQuickAdd({ type: "shelf" })} />
-          {!isNonMedical ? <>
-            <Field label="Production Date" optional type="date" value={form.production_date || ""} onChange={(v) => set("production_date", v)} />
-            <Field label="Paid Amount" type="number" value={form.paid_amount || ""} onChange={(v) => set("paid_amount", v)} placeholder="Add Price" />
-            <Field label="Supplier Outstanding" type="number" value={form.supplier_outstanding || ""} onChange={(v) => set("supplier_outstanding", v)} placeholder="Add Price" />
-            <SelectField label="Purchasing Method" value={form.purchasing_method || ""} onChange={(v) => set("purchasing_method", v)} options={[{ id: "cash", name: "Cash" }, { id: "card", name: "Card" }, { id: "bank", name: "Bank Transfer" }]} placeholder="Select Payment Method" />
-          </> : null}
-          {more ? <div className="batch-extra-fields">
-            {isNonMedical ? <Field label="Sales Tax" optional type="number" value={form.non_medical_sales_tax || ""} onChange={(v) => set("non_medical_sales_tax", v)} placeholder="Add sales tax" /> : null}
-            <Field label="Maximum Discount %" optional type="number" value={form.max_discount_percentage || ""} onChange={(v) => set("max_discount_percentage", v)} placeholder="Discount %" />
-            <Field label="Stock Purchase Date" optional type="date" value={form.batch_purchase_date || ""} onChange={(v) => set("batch_purchase_date", v)} />
-            {!isNonMedical ? <Field label="Supplier Invoice No." optional value={form.supplier_invoice_no || ""} onChange={(v) => set("supplier_invoice_no", v)} placeholder="Enter Invoice no. of Supplier" /> : null}
-            {isNonMedical ? <Field label="Production Date" optional type="date" value={form.production_date || ""} onChange={(v) => set("production_date", v)} /> : null}
-            <SelectField label="Expiry Reminder" optional value={form.expiry_reminder || ""} onChange={(v) => set("expiry_reminder", v)} options={[{ id: "6 Months Before", name: "6 Months Before" }, { id: "3 Months Before", name: "3 Months Before" }]} />
-            <SelectField label="Stock Out Reminder" optional value={form.stock_out_reminder || ""} onChange={(v) => set("stock_out_reminder", v)} options={[{ id: "30%", name: "30%" }, { id: "20%", name: "20%" }, { id: "10%", name: "10%" }]} />
-          </div> : null}
         </div>
         <div className="modal-actions">
-          <button className="show-more" type="button" onClick={() => setMore(!more)}><span>i</span> {more ? "Show Less" : "Show More"} <b>&rsaquo;</b></button>
+          <span />
           <div className="modal-submit"><button className="primary">{editing ? "Save" : "Add"}</button></div>
         </div>
       </form>
       {quickAdd ? <QuickAddModal type={quickAdd.type} initialName={quickAdd.initialName} productType={form.product_type} close={() => setQuickAdd(null)} apiCall={apiCall} reload={reload} onError={onError} onCreated={(created) => {
         if (quickAdd.type === "supplier") {
-          set("supplier_id", created.id);
+          setForm((current) => ({ ...current, supplier_id: created.id }));
           setSupplierQuery(created.name);
         } else if (quickAdd.type === "shelf") {
           set("shelf_id", created.id);
         } else {
-          set("product_id", created.id);
+          setForm((current) => ({ ...current, product_id: created.id, product_type: created.type || current.product_type || "medical" }));
           setProductQuery(created.name);
         }
       }} /> : null}

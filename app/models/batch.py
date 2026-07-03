@@ -45,6 +45,7 @@ class Batch(Base, IdIntPK, TimestampMixin):
     barcode: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     box_quantity: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     units_per_box: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
+    items_per_unit: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     cost_price_per_box: Mapped[Optional[float]] = mapped_column(Numeric(12, 2), nullable=True)
     boxes_price: Mapped[Optional[float]] = mapped_column(Numeric(12, 2), nullable=True)
     stock_purchase_price_before_discount: Mapped[Optional[float]] = mapped_column(Numeric(14, 2), nullable=True)
