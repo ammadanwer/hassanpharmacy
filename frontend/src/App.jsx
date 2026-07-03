@@ -122,6 +122,8 @@ const routePaths = {
   medicines: "/pms/dashboard/medicines",
   nonmedicines: "/pms/dashboard/nonmedicines",
   supplier: "/pms/dashboard/supplier",
+  "supplier-details": "/pms/dashboard/supplier/details",
+  "supplier-invoice": "/pms/dashboard/supplier/invoice",
   category: "/pms/dashboard/category",
   medicineformula: "/pms/dashboard/medicineformula",
   manufacturer: "/pms/dashboard/manufacturer",
@@ -318,6 +320,8 @@ const routePermissionMap = {
   medicines: ["medical_product", "view"],
   nonmedicines: ["non_medical_product", "view"],
   supplier: ["supplier", "view"],
+  "supplier-details": ["supplier", "view"],
+  "supplier-invoice": ["supplier", "view"],
   category: ["category", "view"],
   medicineformula: ["medicine_formula", "view"],
   manufacturer: ["manufacturer", "view"],
@@ -461,9 +465,10 @@ export default function App() {
     const group = parentGroupForRoute(normalizedRoute);
     if (group) setOpenGroups(new Set([group]));
     const nextPath = routePaths[normalizedRoute] || routePaths.dashboard;
-    if (window.location.pathname !== nextPath) {
+    const nextUrl = options.query ? `${nextPath}?${new URLSearchParams(options.query).toString()}` : nextPath;
+    if (`${window.location.pathname}${window.location.search}` !== nextUrl) {
       const method = options.replace ? "replaceState" : "pushState";
-      window.history[method]({ route: normalizedRoute }, "", nextPath);
+      window.history[method]({ route: normalizedRoute }, "", nextUrl);
     }
   }
 
@@ -639,7 +644,9 @@ export default function App() {
           {route === "order-purchase" && <OrderPurchasePage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} openBatchModal={(product) => setBatchModal({ row: null, product })} />}
           {route === "medicines" && <ProductsPage type="medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "nonmedicines" && <ProductsPage type="non-medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "supplier" && <CrudPage config={crudConfigs.supplier} rows={data.suppliers} openModal={(row = null) => setCrudModal({ type: "supplier", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
+          {route === "supplier" && <CrudPage config={crudConfigs.supplier} rows={data.suppliers} openModal={(row = null) => setCrudModal({ type: "supplier", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} setRoute={setRoute} />}
+          {route === "supplier-details" && <SupplierDetailsPage data={data} setRoute={setRoute} />}
+          {route === "supplier-invoice" && <SupplierInvoicePage data={data} setRoute={setRoute} />}
           {route === "category" && <CrudPage config={crudConfigs.category} rows={data.categories} openModal={(row = null) => setCrudModal({ type: "category", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "medicineformula" && <CrudPage config={crudConfigs.medicineformula} rows={data.formulas} openModal={(row = null) => setCrudModal({ type: "medicineformula", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "manufacturer" && <CrudPage config={crudConfigs.manufacturer} rows={data.manufacturers} openModal={(row = null) => setCrudModal({ type: "manufacturer", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
@@ -793,6 +800,7 @@ function routeFromLocation() {
 }
 
 function parentGroupForRoute(route) {
+  if (["supplier-details", "supplier-invoice"].includes(route)) return "inventory";
   return routes.find((item) => item.children?.some((child) => child.id === route))?.id || null;
 }
 
@@ -802,6 +810,8 @@ function openGroupsForRoute(route) {
 }
 
 function activeLabel(route) {
+  if (route === "supplier-details") return "Supplier Details";
+  if (route === "supplier-invoice") return "Supplier Invoice";
   for (const item of routes) {
     if (item.id === route) return item.label;
     const child = item.children?.find((candidate) => candidate.id === route);
@@ -2398,6 +2408,147 @@ function ExpiredBatchesPage({ apiCall, onError, setRoute }) {
   );
 }
 
+function currentQueryParam(name) {
+  return new URLSearchParams(window.location.search).get(name) || "";
+}
+
+function supplierInvoiceKey(batch) {
+  const value = String(batch?.supplier_invoice_no || "").trim();
+  return value && value !== "-" ? value : "No Invoice";
+}
+
+function batchCostTotal(batch) {
+  const explicitTotal = Number(batch.total_cost || 0);
+  if (explicitTotal) return explicitTotal;
+  return Number(batch.cost_price || 0) * Number(batch.stock_in || 0);
+}
+
+function batchSaleValue(batch) {
+  return Number(batch.sell_price || 0) * Number(batch.stock_in || 0);
+}
+
+function batchExpectedProfit(batch) {
+  return batchSaleValue(batch) - batchCostTotal(batch);
+}
+
+function SupplierDetailsPage({ data, setRoute }) {
+  const supplierId = Number(currentQueryParam("supplier_id"));
+  const supplier = data.suppliers.find((item) => Number(item.id) === supplierId);
+  const batches = data.batches.filter((batch) => Number(batch.supplier_id) === supplierId);
+  const invoiceRows = Object.values(batches.reduce((groups, batch) => {
+    const invoiceKey = supplierInvoiceKey(batch);
+    if (!groups[invoiceKey]) {
+      groups[invoiceKey] = {
+        id: invoiceKey,
+        invoice_no: invoiceKey,
+        invoice_key: invoiceKey,
+        batches_count: 0,
+        stock_in: 0,
+        stock_remaining: 0,
+        total_cost: 0,
+        sale_value: 0,
+        expected_profit: 0,
+        latest_date: "",
+      };
+    }
+    const row = groups[invoiceKey];
+    row.batches_count += 1;
+    row.stock_in += Number(batch.stock_in || 0);
+    row.stock_remaining += Number(batch.stock_remaining || 0);
+    row.total_cost += batchCostTotal(batch);
+    row.sale_value += batchSaleValue(batch);
+    row.expected_profit += batchExpectedProfit(batch);
+    const dateValue = batch.reference_created_at || batch.created_at || "";
+    if (dateValue && (!row.latest_date || new Date(dateValue) > new Date(row.latest_date))) row.latest_date = dateValue;
+    return groups;
+  }, {})).sort((a, b) => new Date(b.latest_date || 0) - new Date(a.latest_date || 0) || a.invoice_no.localeCompare(b.invoice_no));
+
+  if (!supplier) {
+    return (
+      <section className="list-page">
+        <button className="back-button" type="button" onClick={() => setRoute("supplier")}>&lsaquo; Back</button>
+        <Panel title="Supplier Details"><p className="empty">Supplier not found.</p></Panel>
+      </section>
+    );
+  }
+
+  const columns = [
+    ["invoice_no", "Supplier Invoice No."],
+    ["batches_count", "Batches"],
+    ["stock_in", "Total Stock"],
+    ["stock_remaining", "Remaining Stock"],
+    ["total_cost", "Total Cost"],
+    ["sale_value", "Expected Sale Value"],
+    ["expected_profit", "Expected Profit"],
+    ["latest_date", "Latest Batch Date"],
+    ["actions", "Actions"],
+  ];
+  return (
+    <section className="list-page">
+      <div className="detail-heading">
+        <button className="back-button" type="button" onClick={() => setRoute("supplier")}>&lsaquo; Back</button>
+        <div>
+          <h2>{supplier.name}</h2>
+          <p>{supplier.phone || supplier.email || "Supplier invoices"}</p>
+        </div>
+      </div>
+      <DataTable columns={columns} rows={invoiceRows} render={(row, key) => {
+        if (key === "invoice_no") return <button className="table-link" type="button" onClick={() => setRoute("supplier-invoice", { query: { supplier_id: supplier.id, invoice_no: row.invoice_key } })}>{row.invoice_no}</button>;
+        if (["total_cost", "sale_value", "expected_profit"].includes(key)) return plainMoney(row[key]);
+        if (key === "latest_date") return formatTableDate(row[key]);
+        if (key === "actions") return <button className="outline small-action" type="button" onClick={() => setRoute("supplier-invoice", { query: { supplier_id: supplier.id, invoice_no: row.invoice_key } })}>View Batches</button>;
+        return formatCell(row[key]);
+      }} />
+    </section>
+  );
+}
+
+function SupplierInvoicePage({ data, setRoute }) {
+  const supplierId = Number(currentQueryParam("supplier_id"));
+  const invoiceNo = currentQueryParam("invoice_no") || "No Invoice";
+  const supplier = data.suppliers.find((item) => Number(item.id) === supplierId);
+  const batches = data.batches
+    .filter((batch) => Number(batch.supplier_id) === supplierId && supplierInvoiceKey(batch) === invoiceNo)
+    .map((batch) => ({
+      ...batch,
+      invoice_no: supplierInvoiceKey(batch),
+      sale_value: batchSaleValue(batch),
+      expected_profit: batchExpectedProfit(batch),
+    }));
+  const columns = [
+    ["batch_no", "Batch No."],
+    ["product_name", "Name"],
+    ["box_quantity", "Total Boxes"],
+    ["units_per_box", "Pattas/Box"],
+    ["items_per_unit", "Goli/Patta"],
+    ["stock_in", "Total Stock"],
+    ["stock_remaining", "Remaining Stock"],
+    ["cost_price", "Cost Price"],
+    ["sell_price", "Sale Price"],
+    ["sale_value", "Expected Sale Value"],
+    ["expected_profit", "Expected Profit"],
+    ["expire_date", "Expire Date"],
+  ];
+  return (
+    <section className="list-page">
+      <div className="detail-heading">
+        <button className="back-button" type="button" onClick={() => setRoute("supplier-details", { query: { supplier_id: supplierId } })}>&lsaquo; Back</button>
+        <div>
+          <h2>{invoiceNo}</h2>
+          <p>{supplier?.name || "Supplier"} invoice batches</p>
+        </div>
+      </div>
+      <DataTable columns={columns} rows={batches} render={(row, key) => {
+        if (key === "batch_no") return row.reference_batch_no != null ? row.reference_batch_no : row.batch_no;
+        if (key === "product_name") return row.reference_product_name || row.product_name;
+        if (["cost_price", "sell_price", "sale_value", "expected_profit"].includes(key)) return plainMoney(row[key]);
+        if (key === "expire_date") return formatTableDate(row[key]);
+        return formatCell(row[key]);
+      }} />
+    </section>
+  );
+}
+
 function BatchActions({ row, onEdit, onReport, onRestore }) {
   return <LifecycleActions row={row} onEdit={onEdit} onReport={onReport} onRestore={onRestore} />;
 }
@@ -2412,6 +2563,8 @@ const crudConfigs = {
     modalClassName: "supplier-modal",
     modalBodyClassName: "three",
     filterRows: (rows) => rows.filter((supplier) => supplier.status !== "inactive"),
+    detailKey: "name",
+    detailRoute: "supplier-details",
     columns: [
       ["name", "Supplier Name/Company"],
       ["contact_person", "Contact Person"],
@@ -2492,7 +2645,7 @@ const crudConfigs = {
   },
 };
 
-function CrudPage({ config, rows = [], openModal, apiCall, reload, onError }) {
+function CrudPage({ config, rows = [], openModal, apiCall, reload, onError, setRoute }) {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
@@ -2547,6 +2700,9 @@ function CrudPage({ config, rows = [], openModal, apiCall, reload, onError }) {
           return config.iconActions
             ? <CrudIconActions onEdit={() => openModal(row)} onDelete={config.hideDelete ? null : () => deleteRow(row)} />
             : <ActionButtons onEdit={() => openModal(row)} onDelete={() => deleteRow(row)} />;
+        }
+        if (config.detailRoute && key === config.detailKey) {
+          return <button className="table-link" type="button" onClick={() => setRoute?.(config.detailRoute, { query: { supplier_id: row.id } })}>{formatCrudCell(row, key)}</button>;
         }
         if (config.blankEmptyCells && (row[key] == null || row[key] === "")) return "";
         return formatCrudCell(row, key);

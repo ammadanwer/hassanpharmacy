@@ -150,6 +150,43 @@ textarea::placeholder {
   padding: 0;
 }
 
+.table-link {
+  background: transparent;
+  border: 0;
+  color: var(--blue);
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  text-align: left;
+}
+
+.table-link:hover {
+  text-decoration: underline;
+}
+
+.detail-heading {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.detail-heading h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.detail-heading p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 4px 0 0;
+}
+
+.small-action {
+  min-height: 34px;
+  padding: 0 12px;
+}
+
 .icon-button {
   align-items: center;
   background: transparent;
