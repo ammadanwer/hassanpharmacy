@@ -444,7 +444,6 @@ export default function App() {
   const [data, setData] = useState(emptyData());
   const [pharmacyProfile, setPharmacyProfile] = useState(defaultPharmacyProfile);
   const [notice, setNotice] = useState("");
-  const [saleItems, setSaleItems] = useState([]);
   const [batchModal, setBatchModal] = useState(null);
   const [crudModal, setCrudModal] = useState(null);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -617,7 +616,10 @@ export default function App() {
               <Menu size={25} />
               {!collapsed ? <ChevronLeft size={19} /> : null}
             </button>
-            {canAccessRoute(user, "newsale") ? <button className="primary" onClick={() => setRoute("newsale")}>Add New Sale</button> : null}
+            {canAccessRoute(user, "newsale") ? <button className="primary" onClick={() => {
+              if (route === "newsale") window.dispatchEvent(new CustomEvent("new-sale-workspace"));
+              else setRoute("newsale");
+            }}>Add New Sale</button> : null}
           </div>
           <div className="header-right" ref={accountMenuRef}>
             <span className="renew-badge">HP</span>
@@ -632,7 +634,7 @@ export default function App() {
         {notice ? <div className="notice">{notice}</div> : null}
         <section className="content">
           {route === "dashboard" && <Dashboard data={data} setRoute={setRoute} apiCall={apiCall} onError={handleApiError} />}
-          {route === "newsale" && <NewSale data={data} saleItems={saleItems} setSaleItems={setSaleItems} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} reload={loadCoreData} />}
+          {route === "newsale" && <NewSale data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} reload={loadCoreData} />}
           {route === "batch" && <BatchPage data={data} initialAlertFilter={batchRouteAlertFilter} openModal={(row = null) => setBatchModal({ row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "saleshistory" && <SalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
@@ -1154,26 +1156,37 @@ function quantityTypeGoliMultiplier(batch, quantityType) {
   return 1;
 }
 
-function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, reload }) {
+function createSaleWorkspace(index = 1, overrides = {}) {
+  return {
+    id: `sale-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    label: `Sale ${index}`,
+    currentDraftId: null,
+    editingSaleId: null,
+    editingSaleSnapshot: null,
+    query: "",
+    barcode: "",
+    showSuggestions: false,
+    selectedBatch: null,
+    saleType: "Goli",
+    qty: "",
+    paid: "",
+    checkoutOpen: false,
+    doctorName: "",
+    showCustomer: false,
+    customer: { name: "Walk-in", phone: "" },
+    checkoutDiscountAmount: "",
+    checkoutDiscountPercent: "",
+    receiveNow: "",
+    salesPin: "",
+    saleItems: [],
+    ...overrides,
+  };
+}
+
+function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const [saleTab, setSaleTab] = useState("new");
-  const [currentDraftId, setCurrentDraftId] = useState(null);
-  const [editingSaleId, setEditingSaleId] = useState(null);
-  const [editingSaleSnapshot, setEditingSaleSnapshot] = useState(null);
-  const [query, setQuery] = useState("");
-  const [barcode, setBarcode] = useState("");
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [selectedBatch, setSelectedBatch] = useState(null);
-  const [saleType, setSaleType] = useState("Goli");
-  const [qty, setQty] = useState("");
-  const [paid, setPaid] = useState("");
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-  const [doctorName, setDoctorName] = useState("");
-  const [showCustomer, setShowCustomer] = useState(false);
-  const [customer, setCustomer] = useState({ name: "Walk-in", phone: "" });
-  const [checkoutDiscountAmount, setCheckoutDiscountAmount] = useState("");
-  const [checkoutDiscountPercent, setCheckoutDiscountPercent] = useState("");
-  const [receiveNow, setReceiveNow] = useState("");
-  const [salesPin, setSalesPin] = useState("");
+  const [saleWorkspaces, setSaleWorkspaces] = useState(() => [createSaleWorkspace(1)]);
+  const [activeSaleWorkspaceId, setActiveSaleWorkspaceId] = useState(() => saleWorkspaces[0]?.id);
   const [validationMessage, setValidationMessage] = useState("");
   const [invoiceSale, setInvoiceSale] = useState(null);
   const [saleListPage, setSaleListPage] = useState(1);
@@ -1187,6 +1200,59 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
   const [recentDateFrom, setRecentDateFrom] = useState("");
   const [recentDateTo, setRecentDateTo] = useState("");
   const [recentSearch, setRecentSearch] = useState("");
+  const activeWorkspace = saleWorkspaces.find((workspace) => workspace.id === activeSaleWorkspaceId) || saleWorkspaces[0] || createSaleWorkspace(1);
+  const workspaceIndex = Math.max(0, saleWorkspaces.findIndex((workspace) => workspace.id === activeWorkspace.id));
+
+  function updateActiveWorkspace(updater) {
+    setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
+      if (workspace.id !== activeWorkspace.id) return workspace;
+      const patch = typeof updater === "function" ? updater(workspace) : updater;
+      return { ...workspace, ...patch };
+    }));
+  }
+
+  function makeWorkspaceSetter(key) {
+    return (value) => updateActiveWorkspace((workspace) => ({ [key]: typeof value === "function" ? value(workspace[key]) : value }));
+  }
+
+  const currentDraftId = activeWorkspace.currentDraftId;
+  const setCurrentDraftId = makeWorkspaceSetter("currentDraftId");
+  const editingSaleId = activeWorkspace.editingSaleId;
+  const setEditingSaleId = makeWorkspaceSetter("editingSaleId");
+  const editingSaleSnapshot = activeWorkspace.editingSaleSnapshot;
+  const setEditingSaleSnapshot = makeWorkspaceSetter("editingSaleSnapshot");
+  const query = activeWorkspace.query;
+  const setQuery = makeWorkspaceSetter("query");
+  const barcode = activeWorkspace.barcode;
+  const setBarcode = makeWorkspaceSetter("barcode");
+  const showSuggestions = activeWorkspace.showSuggestions;
+  const setShowSuggestions = makeWorkspaceSetter("showSuggestions");
+  const selectedBatch = activeWorkspace.selectedBatch;
+  const setSelectedBatch = makeWorkspaceSetter("selectedBatch");
+  const saleType = activeWorkspace.saleType;
+  const setSaleType = makeWorkspaceSetter("saleType");
+  const qty = activeWorkspace.qty;
+  const setQty = makeWorkspaceSetter("qty");
+  const paid = activeWorkspace.paid;
+  const setPaid = makeWorkspaceSetter("paid");
+  const checkoutOpen = activeWorkspace.checkoutOpen;
+  const setCheckoutOpen = makeWorkspaceSetter("checkoutOpen");
+  const doctorName = activeWorkspace.doctorName;
+  const setDoctorName = makeWorkspaceSetter("doctorName");
+  const showCustomer = activeWorkspace.showCustomer;
+  const setShowCustomer = makeWorkspaceSetter("showCustomer");
+  const customer = activeWorkspace.customer;
+  const setCustomer = makeWorkspaceSetter("customer");
+  const checkoutDiscountAmount = activeWorkspace.checkoutDiscountAmount;
+  const setCheckoutDiscountAmount = makeWorkspaceSetter("checkoutDiscountAmount");
+  const checkoutDiscountPercent = activeWorkspace.checkoutDiscountPercent;
+  const setCheckoutDiscountPercent = makeWorkspaceSetter("checkoutDiscountPercent");
+  const receiveNow = activeWorkspace.receiveNow;
+  const setReceiveNow = makeWorkspaceSetter("receiveNow");
+  const salesPin = activeWorkspace.salesPin;
+  const setSalesPin = makeWorkspaceSetter("salesPin");
+  const saleItems = activeWorkspace.saleItems;
+  const setSaleItems = makeWorkspaceSetter("saleItems");
   const suggestions = useMemo(() => {
     const q = query.toLowerCase();
     return data.batches.filter((batch) => {
@@ -1243,6 +1309,51 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
     }, 150);
     return () => clearTimeout(timer);
   }, [loadSaleList, onError, saleTab]);
+
+  useEffect(() => {
+    window.addEventListener("new-sale-workspace", addSaleWorkspace);
+    return () => window.removeEventListener("new-sale-workspace", addSaleWorkspace);
+  }, [saleWorkspaces.length]);
+
+  function addSaleWorkspace() {
+    const nextWorkspace = createSaleWorkspace(saleWorkspaces.length + 1);
+    setSaleWorkspaces((workspaces) => [...workspaces, nextWorkspace]);
+    setActiveSaleWorkspaceId(nextWorkspace.id);
+    setSaleTab("new");
+  }
+
+  function closeSaleWorkspace(workspaceId) {
+    const workspace = saleWorkspaces.find((item) => item.id === workspaceId);
+    if (!workspace || saleWorkspaces.length === 1) return;
+    const hasWork = workspace.saleItems.length || workspace.query || workspace.barcode || workspace.checkoutOpen;
+    if (hasWork && !window.confirm(`Close ${workspace.label}? Unsaved sale items will be removed.`)) return;
+    setSaleWorkspaces((workspaces) => {
+      const next = workspaces.filter((item) => item.id !== workspaceId);
+      if (workspaceId === activeSaleWorkspaceId) {
+        const fallback = next[Math.max(0, Math.min(workspaceIndex, next.length - 1))];
+        if (fallback) setActiveSaleWorkspaceId(fallback.id);
+      }
+      return next;
+    });
+  }
+
+  function renderSaleWorkspaceTabs() {
+    return (
+      <div className="sale-workspace-tabs">
+        {saleWorkspaces.map((workspace, index) => {
+          const active = workspace.id === activeWorkspace.id;
+          const suffix = workspace.saleItems.length ? ` (${workspace.saleItems.length})` : "";
+          return (
+            <div className={`sale-workspace-tab${active ? " active" : ""}`} key={workspace.id}>
+              <button type="button" onClick={() => { setActiveSaleWorkspaceId(workspace.id); setSaleTab("new"); }}>{workspace.label || `Sale ${index + 1}`}{suffix}</button>
+              {saleWorkspaces.length > 1 ? <button className="sale-workspace-close" type="button" aria-label={`Close ${workspace.label}`} onClick={() => closeSaleWorkspace(workspace.id)}><X size={14} /></button> : null}
+            </div>
+          );
+        })}
+        <button className="sale-workspace-add" type="button" onClick={addSaleWorkspace}><Plus size={18} /> New Sale Tab</button>
+      </div>
+    );
+  }
 
   function selectBatch(batch) {
     const product = data.products.find((p) => p.id === batch.product_id);
@@ -1607,6 +1718,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
     };
     return (
       <section className="checkout-page">
+        {renderSaleWorkspaceTabs()}
         <button className="back-button" type="button" onClick={() => setCheckoutOpen(false)}>&lsaquo; Back</button>
         <label className="doctor-field">
           <span>Doctor Name(Optional)</span>
@@ -1653,7 +1765,7 @@ function NewSale({ data, saleItems, setSaleItems, apiCall, onError, setNotice, r
         <label><input type="radio" name="sale-tab" value="recent" checked={saleTab === "recent"} onChange={() => { setNotice?.(""); setSaleTab("recent"); setSaleListPage(1); setSaleListPageSize(10); }} /> Recent Sales</label>
         <label><input type="radio" name="sale-tab" value="draft" checked={saleTab === "draft"} onChange={() => { setNotice?.(""); setSaleTab("draft"); setSaleListPage(1); setSaleListPageSize(10); }} /> Draft Sales</label>
       </div>
-      {saleTab === "new" ? renderSaleEditor() : saleTab === "recent" ? (
+      {saleTab === "new" ? <>{renderSaleWorkspaceTabs()}{renderSaleEditor()}</> : saleTab === "recent" ? (
         <RecentSalesList
           sales={recentSales}
           page={saleListPage}

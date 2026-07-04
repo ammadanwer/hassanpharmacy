@@ -954,6 +954,66 @@ main {
   width: 18px;
 }
 
+.sale-workspace-tabs {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sale-workspace-tab {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: inline-flex;
+  min-height: 38px;
+  overflow: hidden;
+}
+
+.sale-workspace-tab.active {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px var(--blue);
+}
+
+.sale-workspace-tab > button:first-child {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-weight: 800;
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.sale-workspace-tab.active > button:first-child {
+  color: var(--blue);
+}
+
+.sale-workspace-close {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--line);
+  color: #677282;
+  display: inline-flex;
+  height: 36px;
+  justify-content: center;
+  width: 32px;
+}
+
+.sale-workspace-add {
+  align-items: center;
+  background: #fff;
+  border: 1px dashed var(--blue);
+  border-radius: 4px;
+  color: var(--blue);
+  display: inline-flex;
+  font-weight: 800;
+  gap: 6px;
+  min-height: 38px;
+  padding: 0 12px;
+}
+
 .sale-list-view {
   display: grid;
   gap: 16px;
