@@ -1187,6 +1187,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const [saleTab, setSaleTab] = useState("new");
   const [saleWorkspaces, setSaleWorkspaces] = useState(() => [createSaleWorkspace(1)]);
   const [activeSaleWorkspaceId, setActiveSaleWorkspaceId] = useState(() => saleWorkspaces[0]?.id);
+  const [nextSaleWorkspaceNumber, setNextSaleWorkspaceNumber] = useState(2);
   const [validationMessage, setValidationMessage] = useState("");
   const [invoiceSale, setInvoiceSale] = useState(null);
   const [saleListPage, setSaleListPage] = useState(1);
@@ -1313,11 +1314,12 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   useEffect(() => {
     window.addEventListener("new-sale-workspace", addSaleWorkspace);
     return () => window.removeEventListener("new-sale-workspace", addSaleWorkspace);
-  }, [saleWorkspaces.length]);
+  }, [nextSaleWorkspaceNumber]);
 
   function addSaleWorkspace() {
-    const nextWorkspace = createSaleWorkspace(saleWorkspaces.length + 1);
+    const nextWorkspace = createSaleWorkspace(nextSaleWorkspaceNumber);
     setSaleWorkspaces((workspaces) => [...workspaces, nextWorkspace]);
+    setNextSaleWorkspaceNumber((value) => value + 1);
     setActiveSaleWorkspaceId(nextWorkspace.id);
     setSaleTab("new");
   }
