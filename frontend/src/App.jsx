@@ -2470,7 +2470,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
             <span><span className="alert-icon danger" aria-hidden="true" />Some batch medicines are <strong>expired.</strong></span>
             <span><span className="alert-icon warning" aria-hidden="true" />Some batch medicines are <strong>near expiration.</strong></span>
           </div>
-          <label className="batch-search"><input placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /><Search size={24} /></label>
+          <label className="batch-search"><input placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /><Search size={20} /></label>
         </div>
         <div className="batch-toolbar-right">
           <div className="batch-alert-filter">
@@ -2478,7 +2478,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
             <label><input type="checkbox" checked={alertFilter === "near"} onChange={showNearExpiry} /> Near Expiry Medicines ({nearExpiryCount})</label>
           </div>
           <button className="primary" onClick={() => openModal(null)}>Add New Batch</button>
-          <button className="batch-print-button" type="button" onClick={printBatchHistory}>Print Batch History <Printer size={32} /></button>
+          <button className="batch-print-button" type="button" onClick={printBatchHistory}>Print Batch History <Printer size={24} /></button>
         </div>
       </div>
       <div className="batch-table-wrap">

@@ -1229,6 +1229,8 @@ main {
 
 .alert-icon {
   align-items: center;
+  border: 0;
+  border-radius: 0;
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
   color: #fff;
   display: inline-flex;
@@ -1237,7 +1239,8 @@ main {
   height: 16px;
   justify-content: center;
   line-height: 1;
-  padding-top: 2px;
+  min-height: 0;
+  padding: 2px 0 0;
   width: 18px;
 }
 
@@ -2359,14 +2362,14 @@ main {
 }
 
 .batch-page .batch-filters label {
-  font-size: 16px;
-  min-height: 28px;
+  font-size: 15px;
+  min-height: 24px;
 }
 
 .batch-page .batch-filters input[type="radio"],
 .batch-page .batch-filters input[type="checkbox"] {
-  min-height: 18px;
-  width: 18px;
+  min-height: 16px;
+  width: 16px;
 }
 
 .batch-actor-row {
@@ -2409,8 +2412,8 @@ main {
   background: #fff;
   border: 1px solid #c9ced4;
   border-radius: 4px;
-  font-size: 16px;
-  height: 44px;
+  font-size: 15px;
+  height: 40px;
   min-width: 0;
   padding: 0 14px;
   width: 100%;
@@ -2429,9 +2432,9 @@ main {
 .batch-page .batch-filter-picker input {
   border-color: #c9ced4;
   border-radius: 4px;
-  font-size: 16px;
-  height: 44px;
-  min-height: 44px;
+  font-size: 15px;
+  height: 40px;
+  min-height: 40px;
   width: 100%;
 }
 
@@ -2465,9 +2468,16 @@ main {
 .batch-page .batch-alert-messages > span {
   align-items: center;
   display: inline-flex;
-  font-size: 16px;
+  font-size: 15px;
   gap: 10px;
-  min-height: 24px;
+  min-height: 22px;
+}
+
+.batch-page .alert-icon {
+  font-size: 9px;
+  height: 14px;
+  padding-top: 1px;
+  width: 16px;
 }
 
 .batch-page .batch-alert-filter {
@@ -2481,15 +2491,15 @@ main {
 .batch-page .batch-alert-filter label {
   background: transparent;
   border: 0;
-  font-size: 16px;
-  min-height: 28px;
+  font-size: 15px;
+  min-height: 24px;
   min-width: auto;
   padding: 0;
 }
 
 .batch-page .batch-alert-filter input {
-  min-height: 18px;
-  width: 18px;
+  min-height: 16px;
+  width: 16px;
 }
 
 .batch-page .batch-search {
@@ -2498,7 +2508,7 @@ main {
   border: 1px solid #c9ced4;
   border-radius: 4px;
   display: flex;
-  height: 44px;
+  height: 40px;
   max-width: 390px;
   padding: 0 12px 0 16px;
   width: 100%;
@@ -2506,9 +2516,9 @@ main {
 
 .batch-page .batch-search input {
   border: 0;
-  font-size: 16px;
-  height: 40px;
-  min-height: 40px;
+  font-size: 15px;
+  height: 36px;
+  min-height: 36px;
   padding: 0;
 }
 
@@ -2519,8 +2529,8 @@ main {
 
 .batch-page .batch-toolbar-right .primary {
   border-radius: 4px;
-  font-size: 16px;
-  min-height: 44px;
+  font-size: 15px;
+  min-height: 40px;
   padding: 0 22px;
 }
 
@@ -2530,7 +2540,7 @@ main {
   border: 0;
   color: #1f2329;
   display: inline-flex;
-  font-size: 16px;
+  font-size: 15px;
   gap: 12px;
   grid-column: 1 / -1;
   justify-self: end;
@@ -2539,9 +2549,10 @@ main {
 
 .batch-print-button svg {
   color: #63728a;
-  fill: #63728a;
-  stroke-width: 1.8;
-  width: 28px;
+  fill: none;
+  stroke: #63728a;
+  stroke-width: 2.4;
+  width: 24px;
 }
 
 .batch-page .batch-table-wrap {
