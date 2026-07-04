@@ -19,6 +19,8 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 @router.post("/register", response_model=UserResponse)
 def register(user_in: UserCreate, db: Annotated[Session, Depends(get_db)]):
+    if db.query(User.id).first():
+        raise HTTPException(status_code=403, detail="Registration is disabled")
     existing = db.query(User).filter(User.email == user_in.email).first()
     if existing:
         raise HTTPException(status_code=400, detail="Email already registered")

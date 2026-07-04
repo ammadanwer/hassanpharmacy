@@ -138,95 +138,6 @@ const routePaths = {
   technicalhelp: "/pms/dashboard/technicalhelp",
 };
 
-const referenceBatchAlertCounts = {
-  expired: 74,
-  nearExpiry: 35,
-};
-
-const referenceDashboard = {
-  productTotal: "35,64,035",
-  medicalProducts: "35,63,065",
-  nonMedicalProducts: "970",
-  totalCost: "12,72,86,41,121.007",
-  shortage: "10",
-  currentMonthRevenue: 236.18,
-  currentMonthPending: 0,
-  monthOptions: ["2026-07", "2026-06", "2026-05", "2026-04", "2026-03", "2026-02", "2026-01"],
-  monthlyReports: {
-    "2026-07": { sold: 50, invoices: 5 },
-    "2026-06": { sold: 798, invoices: 42 },
-    "2026-05": { sold: 632, invoices: 38 },
-    "2026-04": { sold: 793, invoices: 39 },
-    "2026-03": { sold: 473, invoices: 38 },
-    "2026-02": { sold: 557, invoices: 49 },
-    "2026-01": { sold: 1151, invoices: 12 },
-  },
-  batchesInStock: "168",
-  batchesOutOfStock: "42",
-  expiredBatches: "59",
-  frequentItems: "Panadol CF, selanz, Adalat",
-};
-
-const referenceDashboardExpiredRows = [
-  ["74hh", "W LEVO 250MG TABS", "24/05/2026"],
-  ["12365po", "TERBISIL", "31/01/2026"],
-  ["7378m", "B BRAUN 22G", "04/02/2025"],
-  ["gh899", "R PRO TAB 30'S", "04/02/2026"],
-  ["kk8999", "WEBBOX BEAF DOG FOOD 2KG", "05/02/2025"],
-  ["1245", "B ACTIVE DROP 20ML", "17/06/2026"],
-  ["896547", "Actifed P", "28/09/2025"],
-  ["2856", "Lotion", "24/11/2025"],
-  ["423654", "Disprin", "01/07/2025"],
-  ["622", "10CC SYRINGE", "09/01/2026"],
-  ["41256", "Loprot", "10/06/2024"],
-  ["47858", "Actrac", "01/10/2024"],
-  ["954788", "Betaderm", "01/07/2025"],
-  ["18887", "Lofexidine", "01/02/2025"],
-  ["8989", "Siniry", "21/12/2024"],
-  ["123456", "Gripe water", "30/09/2025"],
-  ["11227p", "T DAY 5MG TAB 30S", "23/07/2025"],
-  ["11227", "T DAY 5MG TAB", "23/05/2026"],
-  ["133y", "PANADOL", "23/06/2025"],
-  ["12557p", "Baby Lotion X", "23/08/2025"],
-  ["02", "CORELEX 4MG", "27/12/2025"],
-  ["7575", "Calpol", "28/12/2025"],
-  ["45poo", "O CID 20MG TAB", "10/05/2026"],
-  ["87451", "Dopamine", "08/05/2026"],
-  ["10235", "Caflam", "19/11/2025"],
-  ["88888kkk", "Sulphur", "08/08/2025"],
-  ["pppcvx", "Panadol", "01/11/2025"],
-  ["152578", "Transamin", "01/12/2025"],
-  ["4555", "flygel", "14/03/2026"],
-  ["457iiuu", "PANADOL EXTRA", "24/06/2026"],
-  ["121", "Gripe water", "30/09/2025"],
-  ["47856", "Flagyl", "09/06/2026"],
-  ["ghh111", "0.9% SODIUM CHLORIDE 25ML", "26/12/2025"],
-  ["1111", "Omeprazole risek 20", "01/09/2025"],
-  ["1", "Pandol m", "24/09/2025"],
-  ["45kikhgjj", "AIREEZ 5MG TAB", "31/12/2025"],
-  ["45kik", "EFLOGEN CREAM 15GM", "28/02/2026"],
-  ["gh899", "R PRO TAB 30'S", "06/03/2026"],
-  ["34789", "Acneez", "26/09/2025"],
-  ["1122", "7.5 GLOVES", "21/09/2025"],
-  ["23655", "Fair and Lovely", "23/10/2025"],
-  ["1222", "CRAN BEE SACH", "26/09/2025"],
-  ["47856", "Flagyl", "09/06/2026"],
-  ["bb123", "BBA", "02/12/2025"],
-  ["12345", "Gripe water", "12/12/2025"],
-  ["bb123", "BBA", "02/12/2025"],
-  ["25-12-11 (1)", "Panadol CF", "22/01/2025"],
-  ["897456", "TERBIDERM 125MG TAB N", "21/01/2026"],
-  ["", "A DROP 10ML", "11/03/2026"],
-  ["45kik", "EFLOGEN CREAM 15GM", "28/02/2026"],
-  ["", "BBA", "02/12/2025"],
-  ["147poutt", "Panadol", "16/05/2026"],
-  ["123365", "Disprin", "12/03/2026"],
-  ["56", "212 MEN NYC BODY SPRAY", "21/04/2026"],
-  ["14kkkk", "aerofen 100", "21/05/2026"],
-  ["47147lll", "JACK 3D PRE WORK OUT", "30/05/2026"],
-  ["12544", "Toot Siah", "19/05/2026"],
-];
-
 const referenceMedicalOrderPurchaseOrder = [
   ["10 cc s", "00mg", 200, 10, "Shifa"],
   ["10cc Syringe", "10 Milliliter (mL)", 48, 0, "Shifa"],
@@ -288,6 +199,13 @@ const today = () => {
   const date = new Date();
   date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
   return date.toISOString().slice(0, 10);
+};
+const recentMonthOptions = (months = 7) => {
+  const base = new Date(`${today()}T00:00:00`);
+  return Array.from({ length: months }, (_, index) => {
+    const date = new Date(base.getFullYear(), base.getMonth() - index, 1);
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+  });
 };
 const nowTime = () => new Date().toTimeString().slice(0, 5);
 const localReturnInvoiceNumber = () => {
@@ -1014,18 +932,23 @@ function Sidebar({ routes, route, setRoute, openGroups, setOpenGroups, collapsed
 }
 
 function Dashboard({ data, setRoute, apiCall, onError }) {
-  const [reportMonth, setReportMonth] = useState(referenceDashboard.monthOptions[0]);
+  const [reportMonth, setReportMonth] = useState(() => today().slice(0, 7));
   const [todaySummary, setTodaySummary] = useState(null);
   const [monthSummary, setMonthSummary] = useState(null);
   const activeSales = data.sales.filter((sale) => sale.status !== "draft");
   const activeProducts = data.products.filter((product) => product.status !== "reported");
+  const activeBatches = data.batches.filter((batch) => batch.status !== "reported");
   const todaySales = activeSales.filter((sale) => sale.date === today());
   const monthSales = activeSales.filter((sale) => String(sale.date || "").startsWith(reportMonth));
-  const monthOptions = referenceDashboard.monthOptions;
+  const monthOptions = useMemo(() => {
+    const fromSales = activeSales.map((sale) => String(sale.date || "").slice(0, 7)).filter(Boolean);
+    return [...new Set([...recentMonthOptions(), ...fromSales])].sort().reverse();
+  }, [activeSales]);
   const monthSelectOptions = monthOptions.map((month) => ({ id: month, name: formatMonth(month) }));
   const currentMonth = today().slice(0, 7);
   const currentMonthStart = `${currentMonth}-01`;
   const currentMonthEnd = `${currentMonth}-${String(new Date(Number(currentMonth.slice(0, 4)), Number(currentMonth.slice(5, 7)), 0).getDate()).padStart(2, "0")}`;
+  const todayDate = today();
   useEffect(() => {
     if (!apiCall) return;
     const timer = setTimeout(async () => {
@@ -1045,26 +968,42 @@ function Dashboard({ data, setRoute, apiCall, onError }) {
     return () => clearTimeout(timer);
   }, [apiCall, currentMonthEnd, currentMonthStart, onError]);
   const todayRevenue = todaySummary ? Number(todaySummary.net_sales || 0) : todaySales.reduce((sum, row) => sum + Number(row.total_payable || 0), 0);
-  const monthRevenue = referenceDashboard.currentMonthRevenue ?? (monthSummary ? Number(monthSummary.net_sales || 0) : activeSales.filter((sale) => String(sale.date || "").startsWith(currentMonth)).reduce((sum, row) => sum + Number(row.total_payable || 0), 0));
-  const monthPending = referenceDashboard.currentMonthPending ?? (monthSummary ? Number(monthSummary.pending || 0) : activeSales.filter((sale) => String(sale.date || "").startsWith(currentMonth)).reduce((sum, row) => sum + Number(row.due || 0), 0));
+  const monthRevenue = monthSummary ? Number(monthSummary.net_sales || 0) : activeSales.filter((sale) => String(sale.date || "").startsWith(currentMonth)).reduce((sum, row) => sum + Number(row.total_payable || 0), 0);
+  const monthPending = monthSummary ? Number(monthSummary.pending || 0) : activeSales.filter((sale) => String(sale.date || "").startsWith(currentMonth)).reduce((sum, row) => sum + Number(row.due || 0), 0);
   const soldThisMonth = monthSales.reduce((sum, sale) => sum + (sale.items || []).reduce((itemSum, item) => itemSum + Number(item.total_qty || 0), 0), 0);
-  const capturedMonthlyReport = referenceDashboard.monthlyReports[reportMonth];
-  const reportSold = capturedMonthlyReport ? capturedMonthlyReport.sold : soldThisMonth;
-  const reportInvoices = capturedMonthlyReport ? capturedMonthlyReport.invoices : monthSales.length;
+  const reportSold = soldThisMonth;
+  const reportInvoices = monthSales.length;
+  const medicalProducts = activeProducts.filter((product) => product.type === "medical").length;
+  const nonMedicalProducts = activeProducts.filter((product) => product.type === "non-medical").length;
+  const totalCost = activeBatches.reduce((sum, batch) => sum + Number(batch.total_cost || 0), 0);
+  const shortage = activeProducts.filter((product) => Number(product.remaining_quantity || 0) <= 0).length;
+  const expiredBatches = activeBatches.filter((batch) => batch.expire_date && batch.expire_date < todayDate);
+  const batchesInStock = activeBatches.filter((batch) => Number(batch.stock_remaining || 0) > 0).length;
+  const batchesOutOfStock = activeBatches.filter((batch) => Number(batch.stock_remaining || 0) <= 0).length;
+  const expiredRows = expiredBatches
+    .slice()
+    .sort((left, right) => String(left.expire_date || "").localeCompare(String(right.expire_date || "")))
+    .slice(0, 5);
+  const soldCounts = new Map();
+  activeSales.forEach((sale) => (sale.items || []).forEach((item) => {
+    const name = item.product_name || item.reference_receipt_name || item.reference_product_name;
+    if (name) soldCounts.set(name, (soldCounts.get(name) || 0) + Number(item.total_qty || 0));
+  }));
+  const frequentItems = [...soldCounts.entries()].sort((left, right) => right[1] - left[1]).slice(0, 3).map(([name]) => name).join(", ") || "-";
   return (
     <>
       <section className="kpis">
         <Kpi tone="mint" icon={<CircleDollarSign />} value={`Rs. ${referenceMoney(todayRevenue)}`} label="Today's Net Sale" />
         <Kpi tone="cream" icon={<Calendar />} value={`Rs. ${referenceMoney(monthRevenue)}`} label="Monthly Revenue" sub={`Pending: ${referenceMoney(monthPending)}`} actionLabel="VIEW DETAILS" onAction={() => setRoute("saleshistory")} />
-        <Kpi tone="lavender" icon={<Grid2X2 />} value={referenceDashboard.productTotal} label="All Products" sub={`Medical: ${referenceDashboard.medicalProducts} | Non-Medical: ${referenceDashboard.nonMedicalProducts}`} />
-        <Kpi tone="peach" icon={<Plus />} value={referenceDashboard.totalCost} label="Total Cost" />
-        <article className="shortage"><strong>{referenceDashboard.shortage}</strong><span>Medicine Shortage</span><button onClick={() => setRoute("medicines", { stockFilter: "low_stock" })}>Resolve Now &raquo;</button></article>
+        <Kpi tone="lavender" icon={<Grid2X2 />} value={formatCompactNumber(activeProducts.length)} label="All Products" sub={`Medical: ${formatCompactNumber(medicalProducts)} | Non-Medical: ${formatCompactNumber(nonMedicalProducts)}`} />
+        <Kpi tone="peach" icon={<Plus />} value={referenceMoney(totalCost)} label="Total Cost" />
+        <article className="shortage"><strong>{formatCompactNumber(shortage)}</strong><span>Medicine Shortage</span><button onClick={() => setRoute("medicines", { stockFilter: "low_stock" })}>Resolve Now &raquo;</button></article>
       </section>
       <section className="dashboard-grid">
         <Panel title="List of Expired Medicine Batch">
           <div className="panel-link-row"><button className="text-button" type="button" onClick={() => setRoute("batch", { alertFilter: "expired" })}>View Expired Batches &raquo;</button></div>
-          {referenceDashboardExpiredRows.length ? <div className="mini-table-wrap"><table className="mini-table"><tbody>{referenceDashboardExpiredRows.map(([batchNo, productName, expireDate], index) => (
-            <tr key={`${batchNo || "blank"}-${index}`}><td>{batchNo}</td><td>{productName}</td><td>{expireDate}</td></tr>
+          {expiredRows.length ? <div className="mini-table-wrap"><table className="mini-table"><tbody>{expiredRows.map((batch) => (
+            <tr key={batch.id}><td>{batch.batch_no || "-"}</td><td>{batch.product_name || "-"}</td><td>{formatTableDate(batch.expire_date)}</td></tr>
           ))}</tbody></table></div> : <p className="empty">No expired batches found.</p>}
         </Panel>
         <Panel title="Quick Monthly Report">
@@ -1077,10 +1016,10 @@ function Dashboard({ data, setRoute, apiCall, onError }) {
         <Panel title="Medicine Batches Overview" className="dashboard-wide">
           <div className="panel-link-row"><button className="text-button" type="button" onClick={() => setRoute("batch")}>Go To Batch Management &raquo;</button></div>
           <div className="quick-report four">
-            <div><strong>{referenceDashboard.batchesInStock}</strong><span>Batches in Stock</span></div>
-            <div><strong>{referenceDashboard.batchesOutOfStock}</strong><span>Batches out of Stock</span></div>
-            <div><strong>{referenceDashboard.expiredBatches}</strong><span>Expired Batches</span></div>
-            <div><strong>{referenceDashboard.frequentItems}</strong><span>Frequently bought Item(s)</span></div>
+            <div><strong>{formatCompactNumber(batchesInStock)}</strong><span>Batches in Stock</span></div>
+            <div><strong>{formatCompactNumber(batchesOutOfStock)}</strong><span>Batches out of Stock</span></div>
+            <div><strong>{formatCompactNumber(expiredBatches.length)}</strong><span>Expired Batches</span></div>
+            <div><strong>{frequentItems}</strong><span>Frequently bought Item(s)</span></div>
           </div>
         </Panel>
       </section>
@@ -2230,8 +2169,9 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   const [totalRows, setTotalRows] = useState(rows.length);
   const todayDate = today();
   const nearExpiryDate = addDays(todayDate, 180);
-  const expiredCount = referenceBatchAlertCounts.expired;
-  const nearExpiryCount = referenceBatchAlertCounts.nearExpiry;
+  const activeBatches = data.batches.filter((batch) => batch.status !== "reported");
+  const expiredCount = activeBatches.filter((batch) => batch.expire_date && batch.expire_date < todayDate).length;
+  const nearExpiryCount = activeBatches.filter((batch) => batch.expire_date && batch.expire_date >= todayDate && batch.expire_date <= nearExpiryDate).length;
   function batchQueryParams(overrides = {}) {
     const dataPageSize = overrides.limit ?? pageSize;
     const params = new URLSearchParams({
