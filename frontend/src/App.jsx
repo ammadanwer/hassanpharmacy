@@ -2418,66 +2418,68 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   const tableRows = useMemo(() => rows.length ? [...displayedBatchRows, batchSummaryRow] : rows, [rows, displayedBatchRows, batchSummaryRow]);
   return (
     <section className="batch-page">
-      <div className="batch-filters">
-        <label><input type="radio" checked={statusTab === "active"} onChange={() => { setStatusTab("active"); setPage(1); }} /> Active</label>
-        <label><input type="radio" checked={statusTab === "reported"} onChange={() => { setStatusTab("reported"); setPage(1); }} /> Reported</label>
-        <label><input type="checkbox" checked={filterAddedBy} onChange={(event) => { setFilterAddedBy(event.target.checked); setPage(1); }} /> Added By</label>
-        <label><input type="checkbox" checked={filterUpdatedBy} onChange={(event) => { setFilterUpdatedBy(event.target.checked); setPage(1); }} /> Updated By</label>
-        <TextOptionPicker
-          className="batch-filter-picker"
-          ariaLabel="Batch actor"
-          value={actorId}
-          options={[{ value: "", label: "All" }, ...data.staff.map((user) => ({ value: user.id, label: user.name }))]}
-          onChange={(value) => { setActorId(value); setPage(1); }}
-        />
-        <label><input type="radio" checked={dateMode === "single"} onChange={() => { setDateMode("single"); setPage(1); }} /> Date</label>
-        <label><input type="radio" checked={dateMode === "range"} onChange={() => { setDateMode("range"); setPage(1); }} /> Date Range</label>
-        <button className="primary" onClick={() => openModal(null)}>Add New Batch</button>
-      </div>
-      <div className="batch-alerts">
-        <div className="batch-alert-messages">
-          <span><span className="alert-icon danger">!</span>Some batch medicines are <strong>expired.</strong></span>
-          <span><span className="alert-icon warning">!</span>Some batch medicines are <strong>near expiration.</strong></span>
+      <div className="batch-control-grid">
+        <div className="batch-control-left">
+          <div className="batch-filters batch-status-row">
+            <label><input type="radio" checked={statusTab === "active"} onChange={() => { setStatusTab("active"); setPage(1); }} /> Active</label>
+            <label><input type="radio" checked={statusTab === "reported"} onChange={() => { setStatusTab("reported"); setPage(1); }} /> Reported</label>
+          </div>
+          <div className="batch-filters batch-date-mode-row">
+            <label><input type="radio" checked={dateMode === "single"} onChange={() => { setDateMode("single"); setPage(1); }} /> Date</label>
+            <label><input type="radio" checked={dateMode === "range"} onChange={() => { setDateMode("range"); setPage(1); }} /> Date Range</label>
+          </div>
+          <div className="batch-date-controls">
+            {dateMode === "range" ? <>
+              <label><span className="field-title">From Date</span><input type="date" value={dateFrom} onChange={(event) => { setDateFrom(event.target.value); setPage(1); }} /></label>
+              <label><span className="field-title">To Date</span><input type="date" value={dateTo} onChange={(event) => { setDateTo(event.target.value); setPage(1); }} /></label>
+            </> : <label><span className="field-title">Date</span><input type="date" value={date} onChange={(event) => { setDate(event.target.value); setPage(1); }} /></label>}
+          </div>
         </div>
-        <div className="batch-alert-filter">
-          <label><input type="checkbox" checked={alertFilter === "expired"} onChange={showExpired} /> Expired Medicines ({expiredCount})</label>
-          <label><input type="checkbox" checked={alertFilter === "near"} onChange={showNearExpiry} /> Near Expiry Medicines ({nearExpiryCount})</label>
+        <div className="batch-control-right">
+          <div className="batch-filters batch-actor-row">
+            <label><input type="checkbox" checked={filterAddedBy} onChange={(event) => { setFilterAddedBy(event.target.checked); setPage(1); }} /> Added By</label>
+            <label><input type="checkbox" checked={filterUpdatedBy} onChange={(event) => { setFilterUpdatedBy(event.target.checked); setPage(1); }} /> Updated By</label>
+            <TextOptionPicker
+              className="batch-filter-picker"
+              ariaLabel="Batch actor"
+              value={actorId}
+              options={[{ value: "", label: "All" }, ...data.staff.map((user) => ({ value: user.id, label: user.name }))]}
+              onChange={(value) => { setActorId(value); setPage(1); }}
+            />
+          </div>
+          <label className="batch-stock-picker-label">
+            <span className="field-title">Stock Status</span>
+            <TextOptionPicker
+              className="batch-toolbar-picker"
+              ariaLabel="Stock Status"
+              value={stockFilter}
+              options={[
+                { value: "in_stock", label: "In Stock" },
+                { value: "", label: "All Stock" },
+                { value: "shortage", label: "Shortage" },
+                { value: "out_of_stock", label: "Out of Stock" },
+              ]}
+              onChange={(value) => { setStockFilter(value); setPage(1); }}
+            />
+          </label>
         </div>
       </div>
       <div className="batch-toolbar">
-        {dateMode === "range" ? <>
-          <label><span className="field-title">From Date</span><input type="date" value={dateFrom} onChange={(event) => { setDateFrom(event.target.value); setPage(1); }} /></label>
-          <label><span className="field-title">To Date</span><input type="date" value={dateTo} onChange={(event) => { setDateTo(event.target.value); setPage(1); }} /></label>
-        </> : <label><span className="field-title">Date</span><input type="date" value={date} onChange={(event) => { setDate(event.target.value); setPage(1); }} /></label>}
-        <TextOptionPicker
-          className="batch-toolbar-picker"
-          ariaLabel="Batch date field"
-          value={dateField}
-          options={[
-            { value: "created_at", label: "Created at" },
-            { value: "expire_date", label: "Expire Date" },
-            { value: "production_date", label: "Production Date" },
-            { value: "purchase_date", label: "Purchase Date" },
-          ]}
-          onChange={(value) => { setDateField(value); setPage(1); }}
-        />
-        <label className="batch-stock-picker-label">
-          <span className="field-title">Stock Status</span>
-          <TextOptionPicker
-            className="batch-toolbar-picker"
-            ariaLabel="Stock Status"
-            value={stockFilter}
-            options={[
-              { value: "in_stock", label: "In Stock" },
-              { value: "", label: "All Stock" },
-              { value: "shortage", label: "Shortage" },
-              { value: "out_of_stock", label: "Out of Stock" },
-            ]}
-            onChange={(value) => { setStockFilter(value); setPage(1); }}
-          />
-        </label>
-        <label><Search size={18} /><input placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /></label>
-        <button className="text-button" onClick={printBatchHistory}>Print Batch History</button>
+        <div className="batch-toolbar-left">
+          <div className="batch-alert-messages">
+            <span><span className="alert-icon danger" aria-hidden="true" />Some batch medicines are <strong>expired.</strong></span>
+            <span><span className="alert-icon warning" aria-hidden="true" />Some batch medicines are <strong>near expiration.</strong></span>
+          </div>
+          <label className="batch-search"><input placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} /><Search size={24} /></label>
+        </div>
+        <div className="batch-toolbar-right">
+          <div className="batch-alert-filter">
+            <label><input type="checkbox" checked={alertFilter === "expired"} onChange={showExpired} /> Expired Medicines ({expiredCount})</label>
+            <label><input type="checkbox" checked={alertFilter === "near"} onChange={showNearExpiry} /> Near Expiry Medicines ({nearExpiryCount})</label>
+          </div>
+          <button className="primary" onClick={() => openModal(null)}>Add New Batch</button>
+          <button className="batch-print-button" type="button" onClick={printBatchHistory}>Print Batch History <Printer size={32} /></button>
+        </div>
       </div>
       <div className="batch-table-wrap">
         <DataTable columns={columns} rows={tableRows} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
