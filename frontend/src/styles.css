@@ -2335,13 +2335,13 @@ main {
   align-items: start;
   display: grid;
   gap: 22px;
-  grid-template-columns: minmax(360px, 1fr) minmax(460px, 1fr);
+  grid-template-columns: minmax(340px, 1fr) minmax(560px, 1.25fr);
 }
 
 .batch-control-left,
 .batch-control-right {
   display: grid;
-  gap: 26px;
+  gap: 22px;
 }
 
 .batch-control-right {
@@ -2355,25 +2355,29 @@ main {
 }
 
 .batch-page .batch-filters {
-  gap: 26px;
+  gap: 24px;
 }
 
 .batch-page .batch-filters label {
-  font-size: 18px;
-  min-height: 32px;
+  font-size: 16px;
+  min-height: 28px;
 }
 
-.batch-page .batch-filters input {
-  min-height: 20px;
-  width: 20px;
+.batch-page .batch-filters input[type="radio"],
+.batch-page .batch-filters input[type="checkbox"] {
+  min-height: 18px;
+  width: 18px;
 }
 
 .batch-actor-row {
+  flex-wrap: nowrap;
   justify-content: flex-end;
 }
 
 .batch-page .batch-filter-picker {
   flex: 0 0 270px;
+  min-width: 270px;
+  width: 270px;
 }
 
 .batch-date-controls {
@@ -2389,10 +2393,15 @@ main {
   gap: 5px;
 }
 
+.batch-date-controls label {
+  flex: 0 0 270px;
+  width: 270px;
+}
+
 .batch-date-controls .field-title,
 .batch-page .batch-stock-picker-label .field-title {
   color: #2b3037;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -2400,10 +2409,11 @@ main {
   background: #fff;
   border: 1px solid #c9ced4;
   border-radius: 4px;
-  font-size: 18px;
-  height: 58px;
-  min-width: 322px;
-  padding: 0 18px;
+  font-size: 16px;
+  height: 44px;
+  min-width: 0;
+  padding: 0 14px;
+  width: 100%;
 }
 
 .batch-page .batch-stock-picker-label {
@@ -2419,16 +2429,17 @@ main {
 .batch-page .batch-filter-picker input {
   border-color: #c9ced4;
   border-radius: 4px;
-  font-size: 18px;
-  height: 58px;
-  min-height: 58px;
+  font-size: 16px;
+  height: 44px;
+  min-height: 44px;
+  width: 100%;
 }
 
 .batch-page .batch-toolbar {
   align-items: start;
   display: grid;
   gap: 22px;
-  grid-template-columns: minmax(380px, 520px) minmax(520px, 1fr);
+  grid-template-columns: minmax(360px, 450px) minmax(560px, 1fr);
   justify-content: stretch;
 }
 
@@ -2440,7 +2451,7 @@ main {
 .batch-toolbar-right {
   align-items: center;
   display: grid;
-  gap: 26px 28px;
+  gap: 22px 28px;
   grid-template-columns: 1fr auto;
   justify-items: end;
 }
@@ -2454,9 +2465,9 @@ main {
 .batch-page .batch-alert-messages > span {
   align-items: center;
   display: inline-flex;
-  font-size: 18px;
-  gap: 12px;
-  min-height: 28px;
+  font-size: 16px;
+  gap: 10px;
+  min-height: 24px;
 }
 
 .batch-page .batch-alert-filter {
@@ -2468,12 +2479,17 @@ main {
 }
 
 .batch-page .batch-alert-filter label {
-  font-size: 18px;
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  min-height: 28px;
+  min-width: auto;
+  padding: 0;
 }
 
 .batch-page .batch-alert-filter input {
-  min-height: 20px;
-  width: 20px;
+  min-height: 18px;
+  width: 18px;
 }
 
 .batch-page .batch-search {
@@ -2482,17 +2498,17 @@ main {
   border: 1px solid #c9ced4;
   border-radius: 4px;
   display: flex;
-  height: 58px;
-  max-width: 520px;
-  padding: 0 14px 0 20px;
+  height: 44px;
+  max-width: 390px;
+  padding: 0 12px 0 16px;
   width: 100%;
 }
 
 .batch-page .batch-search input {
   border: 0;
-  font-size: 18px;
-  height: 54px;
-  min-height: 54px;
+  font-size: 16px;
+  height: 40px;
+  min-height: 40px;
   padding: 0;
 }
 
@@ -2503,9 +2519,9 @@ main {
 
 .batch-page .batch-toolbar-right .primary {
   border-radius: 4px;
-  font-size: 18px;
-  min-height: 52px;
-  padding: 0 24px;
+  font-size: 16px;
+  min-height: 44px;
+  padding: 0 22px;
 }
 
 .batch-print-button {
@@ -2514,7 +2530,7 @@ main {
   border: 0;
   color: #1f2329;
   display: inline-flex;
-  font-size: 19px;
+  font-size: 16px;
   gap: 12px;
   grid-column: 1 / -1;
   justify-self: end;
@@ -2525,6 +2541,7 @@ main {
   color: #63728a;
   fill: #63728a;
   stroke-width: 1.8;
+  width: 28px;
 }
 
 .batch-page .batch-table-wrap {
