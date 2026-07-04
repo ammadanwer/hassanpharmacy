@@ -6240,9 +6240,48 @@ function productStock(batches, productId, remaining) {
   return batches.filter((batch) => Number(batch.product_id) === Number(productId)).reduce((sum, batch) => sum + Number(remaining ? batch.stock_remaining : batch.stock_in || 0), 0);
 }
 
+const ADD_BATCH_DRAFT_STORAGE_KEY = "hassan-pharmacy:add-batch-draft";
+
+function readAddBatchDraft() {
+  try {
+    return JSON.parse(localStorage.getItem(ADD_BATCH_DRAFT_STORAGE_KEY) || "null");
+  } catch {
+    return null;
+  }
+}
+
+function clearAddBatchDraft() {
+  try {
+    localStorage.removeItem(ADD_BATCH_DRAFT_STORAGE_KEY);
+  } catch {
+    // Browser storage is optional; failing to clear should not block the form.
+  }
+}
+
+function hasAddBatchDraftContent(form, supplierQuery, productQuery) {
+  const meaningfulKeys = [
+    "supplier_invoice_no",
+    "supplier_id",
+    "product_id",
+    "box_quantity",
+    "units_per_box",
+    "items_per_unit",
+    "stock_in",
+    "cost_price",
+    "sell_price",
+    "shelf_id",
+    "expire_date",
+  ];
+  return Boolean(
+    supplierQuery?.trim()
+    || productQuery?.trim()
+    || meaningfulKeys.some((key) => String(form?.[key] ?? "").trim()),
+  );
+}
+
 function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError }) {
   const editing = !!row;
-  const [form, setForm] = useState(() => {
+  const defaultForm = () => {
     const product = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
     return {
       stock_out: 0,
@@ -6251,15 +6290,41 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       ...(row || {}),
       product_type: product?.type || row?.product_type || "medical",
     };
-  });
+  };
+  const storedDraft = !editing ? readAddBatchDraft() : null;
+  const [form, setForm] = useState(() => storedDraft?.form ? { ...defaultForm(), ...storedDraft.form } : defaultForm());
   const initialSupplier = data.suppliers.find((item) => Number(item.id) === Number(row?.supplier_id));
   const selectedInitialProduct = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
-  const [supplierQuery, setSupplierQuery] = useState(initialSupplier?.name || row?.supplier_name || "");
-  const [productQuery, setProductQuery] = useState(selectedInitialProduct?.name || row?.product_name || "");
-  const [invoiceTouched, setInvoiceTouched] = useState(Boolean(row?.supplier_invoice_no));
+  const [supplierQuery, setSupplierQuery] = useState(storedDraft?.supplierQuery ?? initialSupplier?.name ?? row?.supplier_name ?? "");
+  const [productQuery, setProductQuery] = useState(storedDraft?.productQuery ?? selectedInitialProduct?.name ?? row?.product_name ?? "");
+  const [invoiceTouched, setInvoiceTouched] = useState(storedDraft?.invoiceTouched ?? Boolean(row?.supplier_invoice_no));
   const [quickAdd, setQuickAdd] = useState(null);
   const set = (key, value) => setForm((current) => ({ ...current, [key]: value }));
   const productOptions = data.products;
+
+  useEffect(() => {
+    if (editing) return;
+    try {
+      if (!hasAddBatchDraftContent(form, supplierQuery, productQuery)) {
+        localStorage.removeItem(ADD_BATCH_DRAFT_STORAGE_KEY);
+        return;
+      }
+      localStorage.setItem(ADD_BATCH_DRAFT_STORAGE_KEY, JSON.stringify({
+        form,
+        supplierQuery,
+        productQuery,
+        invoiceTouched,
+      }));
+    } catch {
+      // Keep Add Batch usable if browser storage is unavailable.
+    }
+  }, [editing, form, supplierQuery, productQuery, invoiceTouched]);
+
+  function discardDraft() {
+    if (!window.confirm("Discard this Add Batch draft?")) return;
+    clearAddBatchDraft();
+    close();
+  }
 
   function generatedBatchNo(productId, invoiceNo) {
     const prefix = String(invoiceNo || "BATCH").replace(/[^a-z0-9]+/gi, "").slice(0, 12) || "BATCH";
@@ -6329,6 +6394,7 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     };
     try {
       await apiCall(editing ? `/api/batches/${row.id}` : "/api/batches", { method: editing ? "PUT" : "POST", body: JSON.stringify(normalizedPayload) });
+      if (!editing) clearAddBatchDraft();
       close();
       await reload();
     } catch (error) {
@@ -6360,7 +6426,7 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
           <Field label="Expire Date" type="date" value={form.expire_date || ""} onChange={(v) => set("expire_date", v)} />
         </div>
         <div className="modal-actions">
-          <span />
+          {!editing && hasAddBatchDraftContent(form, supplierQuery, productQuery) ? <button className="outline" type="button" onClick={discardDraft}>Discard Draft</button> : <span />}
           <div className="modal-submit"><button className="primary">{editing ? "Save" : "Add"}</button></div>
         </div>
       </form>
