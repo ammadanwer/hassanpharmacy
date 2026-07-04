@@ -1183,11 +1183,64 @@ function createSaleWorkspace(index = 1, overrides = {}) {
   };
 }
 
+const NEW_SALE_WORKSPACES_STORAGE_KEY = "hassan-pharmacy:new-sale-workspaces";
+
+function saleWorkspaceNumber(workspace) {
+  const match = String(workspace?.label || "").match(/^Sale\s+(\d+)$/);
+  return match ? Number(match[1]) : null;
+}
+
+function nextAvailableSaleWorkspaceNumber(workspaces) {
+  const used = new Set(workspaces.map(saleWorkspaceNumber).filter((value) => Number.isInteger(value) && value > 0));
+  let next = 1;
+  while (used.has(next)) next += 1;
+  return next;
+}
+
+function serializeSaleWorkspace(workspace) {
+  const { selectedBatch, showSuggestions, ...rest } = workspace;
+  return {
+    ...rest,
+    selectedBatchId: selectedBatch?.id || workspace.selectedBatchId || null,
+    selectedBatch: null,
+    showSuggestions: false,
+  };
+}
+
+function normalizeStoredSaleWorkspace(workspace, index) {
+  const selectedBatchId = workspace.selectedBatchId || workspace.selectedBatch?.id || null;
+  return createSaleWorkspace(index + 1, {
+    ...workspace,
+    selectedBatch: null,
+    selectedBatchId,
+    showSuggestions: false,
+    customer: { name: "Walk-in", phone: "", ...(workspace.customer || {}) },
+    saleItems: Array.isArray(workspace.saleItems) ? workspace.saleItems : [],
+  });
+}
+
+function readStoredSaleWorkspaces() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(NEW_SALE_WORKSPACES_STORAGE_KEY) || "null");
+    const storedWorkspaces = Array.isArray(parsed?.workspaces) ? parsed.workspaces : [];
+    const workspaces = storedWorkspaces.map(normalizeStoredSaleWorkspace).filter(Boolean);
+    if (!workspaces.length) {
+      const first = createSaleWorkspace(1);
+      return { workspaces: [first], activeWorkspaceId: first.id };
+    }
+    const activeWorkspaceId = workspaces.some((workspace) => workspace.id === parsed?.activeWorkspaceId) ? parsed.activeWorkspaceId : workspaces[0].id;
+    return { workspaces, activeWorkspaceId };
+  } catch {
+    const first = createSaleWorkspace(1);
+    return { workspaces: [first], activeWorkspaceId: first.id };
+  }
+}
+
 function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const [saleTab, setSaleTab] = useState("new");
-  const [saleWorkspaces, setSaleWorkspaces] = useState(() => [createSaleWorkspace(1)]);
-  const [activeSaleWorkspaceId, setActiveSaleWorkspaceId] = useState(() => saleWorkspaces[0]?.id);
-  const [nextSaleWorkspaceNumber, setNextSaleWorkspaceNumber] = useState(2);
+  const [initialSaleWorkspaceState] = useState(readStoredSaleWorkspaces);
+  const [saleWorkspaces, setSaleWorkspaces] = useState(() => initialSaleWorkspaceState.workspaces);
+  const [activeSaleWorkspaceId, setActiveSaleWorkspaceId] = useState(() => initialSaleWorkspaceState.activeWorkspaceId);
   const [validationMessage, setValidationMessage] = useState("");
   const [invoiceSale, setInvoiceSale] = useState(null);
   const [saleListPage, setSaleListPage] = useState(1);
@@ -1229,7 +1282,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const showSuggestions = activeWorkspace.showSuggestions;
   const setShowSuggestions = makeWorkspaceSetter("showSuggestions");
   const selectedBatch = activeWorkspace.selectedBatch;
-  const setSelectedBatch = makeWorkspaceSetter("selectedBatch");
   const saleType = activeWorkspace.saleType;
   const setSaleType = makeWorkspaceSetter("saleType");
   const qty = activeWorkspace.qty;
@@ -1314,12 +1366,33 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   useEffect(() => {
     window.addEventListener("new-sale-workspace", addSaleWorkspace);
     return () => window.removeEventListener("new-sale-workspace", addSaleWorkspace);
-  }, [nextSaleWorkspaceNumber]);
+  }, [saleWorkspaces]);
+
+  useEffect(() => {
+    try {
+      const payload = {
+        activeWorkspaceId: activeSaleWorkspaceId,
+        workspaces: saleWorkspaces.map(serializeSaleWorkspace),
+      };
+      localStorage.setItem(NEW_SALE_WORKSPACES_STORAGE_KEY, JSON.stringify(payload));
+    } catch {
+      // Keep the sale screen usable if browser storage is unavailable.
+    }
+  }, [saleWorkspaces, activeSaleWorkspaceId]);
+
+  useEffect(() => {
+    if (!data.batches.length) return;
+    setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
+      if (!workspace.selectedBatchId) return workspace;
+      const selectedBatch = data.batches.find((batch) => Number(batch.id) === Number(workspace.selectedBatchId)) || null;
+      if (workspace.selectedBatch === selectedBatch) return workspace;
+      return { ...workspace, selectedBatch };
+    }));
+  }, [data.batches]);
 
   function addSaleWorkspace() {
-    const nextWorkspace = createSaleWorkspace(nextSaleWorkspaceNumber);
+    const nextWorkspace = createSaleWorkspace(nextAvailableSaleWorkspaceNumber(saleWorkspaces));
     setSaleWorkspaces((workspaces) => [...workspaces, nextWorkspace]);
-    setNextSaleWorkspaceNumber((value) => value + 1);
     setActiveSaleWorkspaceId(nextWorkspace.id);
     setSaleTab("new");
   }
@@ -1359,7 +1432,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
 
   function selectBatch(batch) {
     const product = data.products.find((p) => p.id === batch.product_id);
-    setSelectedBatch(batch);
+    updateActiveWorkspace({ selectedBatch: batch, selectedBatchId: batch.id });
     setQuery(product?.name || "");
     setBarcode(batch.barcode || product?.barcode || "");
     setShowSuggestions(false);
@@ -1369,10 +1442,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setBarcode(value);
     const q = value.trim().toLowerCase();
     if (!q) {
-      setSelectedBatch(null);
+      updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
       return;
     }
-    setSelectedBatch(null);
+    updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
     const directBatchMatch = data.batches.find((batch) => Number(batch.stock_remaining || 0) > 0 && batch.barcode && String(batch.barcode).toLowerCase() === q);
     const productMatch = data.products.find((product) => product.barcode && String(product.barcode).toLowerCase() === q);
     const productBatchMatch = productMatch ? data.batches.find((batch) => Number(batch.product_id) === Number(productMatch.id) && Number(batch.stock_remaining || 0) > 0 && batch.status !== "reported") : null;
@@ -1451,7 +1524,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setBarcode("");
     setNotice?.("");
     setShowSuggestions(false);
-    setSelectedBatch(null);
+    updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
     setSaleType("Goli");
     setQty("");
   }
@@ -1659,7 +1732,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           <thead><tr><th>Product Name</th><th>Bar Code</th><th>Sale Type</th><th>Quantity</th><th>Action</th></tr></thead>
           <tbody><tr>
             <td className="suggest-cell">
-              <input placeholder="Enter Product Name" value={query} onFocus={() => setShowSuggestions(Boolean(query))} onChange={(event) => { setQuery(event.target.value); setSelectedBatch(null); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
+              <input placeholder="Enter Product Name" value={query} onFocus={() => setShowSuggestions(Boolean(query))} onChange={(event) => { setQuery(event.target.value); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
               {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch) => {
                 const product = data.products.find((p) => p.id === batch.product_id);
                 return <button type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onClick={() => selectBatch(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;

@@ -74,7 +74,7 @@ function decodeFrames(buffer) {
   return { frames, rest: buffer.subarray(offset) };
 }
 
-async function connect(wsUrl) {
+async function connect(wsUrl, onEvent = () => {}) {
   const url = new URL(wsUrl);
   const key = crypto.randomBytes(16).toString("base64");
   const socket = net.createConnection({ host: url.hostname, port: Number(url.port) });
@@ -125,6 +125,8 @@ async function connect(wsUrl) {
             pending.delete(message.id);
             if (message.error) fail(new Error(JSON.stringify(message.error)));
             else done(message);
+          } else if (message.method) {
+            onEvent(message);
           }
         }
       }
@@ -140,10 +142,24 @@ async function inspect({ match, navigate }) {
   const target = tabs.find((tab) => tab.url.includes(match));
   if (!target) throw new Error(`No Chrome tab matched ${match}`);
   const client = await connect(target.webSocketDebuggerUrl);
+  const capturedEvents = [];
+  let eventClient = null;
+  if (process.env.CDP_CAPTURE_EVENTS) {
+    eventClient = await connect(target.webSocketDebuggerUrl, (message) => {
+      if (["Runtime.exceptionThrown", "Runtime.consoleAPICalled", "Log.entryAdded"].includes(message.method)) {
+        capturedEvents.push(message);
+      }
+    });
+  }
   let scrapedTables;
   const evalResults = {};
   await client.send("Runtime.enable");
   await client.send("Page.enable");
+  if (process.env.CDP_CAPTURE_EVENTS) {
+    await eventClient.send("Runtime.enable");
+    await eventClient.send("Log.enable");
+    await eventClient.send("Page.enable");
+  }
   if (navigate) {
     await client.send("Page.navigate", { url: navigate });
     await new Promise((resolve) => setTimeout(resolve, 1400));
@@ -245,9 +261,11 @@ async function inspect({ match, navigate }) {
   }))()`;
   const result = await client.send("Runtime.evaluate", { expression, returnByValue: true, awaitPromise: true });
   client.close();
+  if (eventClient) eventClient.close();
   const value = result.result.result.value;
   if (Object.keys(evalResults).length) value.evalResults = evalResults;
   if (scrapedTables) value.scrapedTables = scrapedTables;
+  if (process.env.CDP_CAPTURE_EVENTS) value.events = capturedEvents.slice(0, 30);
   return value;
 }
 
