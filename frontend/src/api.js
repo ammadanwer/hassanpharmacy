@@ -1,5 +1,11 @@
 const TOKEN_KEY = "hassanPharmacyToken";
 const USER_KEY = "hassanPharmacyUser";
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+
+function apiUrl(path) {
+  if (!API_BASE_URL || /^https?:\/\//.test(path)) return path;
+  return `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export function getStoredSession() {
   return {
@@ -22,7 +28,7 @@ export async function api(path, options = {}, token = "") {
   const headers = { ...(options.headers || {}) };
   if (!(options.body instanceof FormData)) headers["Content-Type"] = "application/json";
   if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetch(path, { ...options, headers });
+  const response = await fetch(apiUrl(path), { ...options, headers });
   const text = await response.text();
   let body = null;
   try {

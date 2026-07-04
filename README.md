@@ -41,4 +41,6 @@ npm run dev
 
 Feature tracking: [FEATURES.md](FEATURES.md)
 
+Deployment: [DEPLOYMENT.md](DEPLOYMENT.md)
+
 Docs: /Users/ammad/docs/pharmacy-management-design.md
