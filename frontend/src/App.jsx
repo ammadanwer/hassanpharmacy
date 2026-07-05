@@ -3,7 +3,6 @@ import {
   ArrowLeft,
   Archive,
   Ban,
-  BadgeDollarSign,
   Bell,
   Boxes,
   Calendar,
@@ -11,13 +10,10 @@ import {
   ChevronDown,
   CircleDollarSign,
   ClipboardCheck,
-  ClipboardList,
   Download,
   Eye,
   EyeOff,
-  Factory,
   FileText,
-  FlaskConical,
   Grid2X2,
   History,
   KeyRound,
@@ -25,12 +21,9 @@ import {
   Menu,
   MoreVertical,
   Package,
-  PackagePlus,
   Pencil,
-  Pill,
   Plus,
   Printer,
-  ReceiptText,
   RotateCcw,
   Search,
   Settings,
@@ -39,7 +32,6 @@ import {
   Stethoscope,
   Tags,
   Trash2,
-  Truck,
   Undo2,
   UserCog,
   UserRound,
@@ -61,7 +53,6 @@ const routes = [
       { id: "return-item", label: "Return Item", icon: Undo2 },
       { id: "saleshistory", label: "Sales History", icon: History },
       { id: "returnhistory", label: "Return History", icon: RotateCcw },
-      { id: "productsaleshistory", label: "Product Sales History", icon: ReceiptText },
       { id: "customer-history", label: "Customer History", icon: UserRound },
     ],
   },
@@ -71,16 +62,9 @@ const routes = [
     icon: Boxes,
     children: [
       { id: "batch", label: "Batch", icon: Package },
-      { id: "demand", label: "Demand/Order", icon: ClipboardList },
       { id: "stock-audit", label: "Stock Audit", icon: ClipboardCheck },
-      { id: "order-purchase", label: "Order Purchase", icon: Truck },
-      { id: "medicines", label: "Medical Products", icon: Pill },
-      { id: "nonmedicines", label: "Non Medical Products", icon: PackagePlus },
       { id: "supplier", label: "Supplier", icon: Users },
       { id: "category", label: "Category", icon: Tags },
-      { id: "medicineformula", label: "Medicine Formula", icon: FlaskConical },
-      { id: "manufacturer", label: "Manufacturer", icon: Factory },
-      { id: "purchases", label: "Stock Purchase", icon: BadgeDollarSign },
       { id: "shelf", label: "Shelf", icon: Archive },
     ],
   },
@@ -1195,6 +1179,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const [recentSearch, setRecentSearch] = useState("");
   const activeWorkspace = saleWorkspaces.find((workspace) => workspace.id === activeSaleWorkspaceId) || saleWorkspaces[0] || createSaleWorkspace(1);
   const workspaceIndex = Math.max(0, saleWorkspaces.findIndex((workspace) => workspace.id === activeWorkspace.id));
+  const saleEntryRefs = useRef({});
 
   function updateActiveWorkspace(updater) {
     setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
@@ -1264,6 +1249,67 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const returnedCash = Math.max(0, checkoutReceived - checkoutPayable);
   const salesPinRequired = Boolean(data.pharmacyProfile?.pin_required ?? data.pharmacyProfile?.pinRequired);
   const canGenerateInvoice = receiveNow !== "" && (!salesPinRequired || salesPin.trim().length > 0);
+  const saleEntryFieldOrder = ["product", "barcode", "saleType", "qty", "add"];
+  function focusSaleEntryField(field) {
+    requestAnimationFrame(() => saleEntryRefs.current[field]?.focus?.());
+  }
+  function moveSaleEntryFocus(field, direction) {
+    const currentIndex = saleEntryFieldOrder.indexOf(field);
+    if (currentIndex < 0) return;
+    const nextIndex = Math.max(0, Math.min(saleEntryFieldOrder.length - 1, currentIndex + direction));
+    focusSaleEntryField(saleEntryFieldOrder[nextIndex]);
+  }
+  function shouldMoveHorizontal(event, direction) {
+    const target = event.target;
+    if (!["INPUT", "TEXTAREA"].includes(target?.tagName)) return true;
+    if (typeof target.selectionStart !== "number") return true;
+    if (direction > 0) return target.selectionStart >= String(target.value || "").length;
+    return target.selectionStart <= 0;
+  }
+  function handleSaleEntryKeyDown(event, field) {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      moveSaleEntryFocus(field, 1);
+      return;
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      moveSaleEntryFocus(field, -1);
+      return;
+    }
+    if (event.key === "ArrowRight" && shouldMoveHorizontal(event, 1)) {
+      event.preventDefault();
+      moveSaleEntryFocus(field, 1);
+      return;
+    }
+    if (event.key === "ArrowLeft" && shouldMoveHorizontal(event, -1)) {
+      event.preventDefault();
+      moveSaleEntryFocus(field, -1);
+      return;
+    }
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    if (field === "product") {
+      if (!selectedBatch && suggestions[0]) {
+        selectBatch(suggestions[0]);
+        focusSaleEntryField("qty");
+      } else {
+        focusSaleEntryField(selectedBatch ? "qty" : "barcode");
+      }
+      return;
+    }
+    if (field === "barcode") {
+      focusSaleEntryField(selectedBatch ? "qty" : "saleType");
+      return;
+    }
+    if (field === "saleType") {
+      focusSaleEntryField("qty");
+      return;
+    }
+    if ((field === "qty" || field === "add") && addItem()) {
+      focusSaleEntryField("product");
+    }
+  }
   const loadSaleList = useCallback(async () => {
     const params = new URLSearchParams({
       skip: String((saleListPage - 1) * saleListPageSize),
@@ -1422,13 +1468,13 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     if (!batch || !String(qty || "").trim()) {
       setNotice?.("");
       setValidationMessage("Please complete all fields");
-      return;
+      return false;
     }
     const product = data.products.find((p) => p.id === batch.product_id);
     const quantity = Number(qty || 1);
     if (quantity <= 0) {
       onError(new Error("Enter a valid quantity."));
-      return;
+      return false;
     }
     const selectedSaleType = normalizeQuantityType(saleType);
     const itemsPerUnit = batchItemsPerPatta(batch);
@@ -1437,7 +1483,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     const totalQty = quantity * saleMultiplier;
     if (totalQty > Number(batch.stock_remaining || 0)) {
       onError(new Error(`Only ${formatCompactNumber(batch.stock_remaining)} goli are available in this batch.`));
-      return;
+      return false;
     }
     const goliRate = Number(batch.sell_price || 0);
     const pattaRate = goliRate * itemsPerUnit;
@@ -1462,10 +1508,12 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setQuery("");
     setBarcode("");
     setNotice?.("");
+    setValidationMessage("");
     setShowSuggestions(false);
     updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
     setSaleType("Goli");
     setQty("");
+    return true;
   }
 
   function updateSaleItem(index, patch, discountSource) {
@@ -1671,13 +1719,13 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           <thead><tr><th>Product Name</th><th>Bar Code</th><th>Sale Type</th><th>Quantity</th><th>Action</th></tr></thead>
           <tbody><tr>
             <td className="suggest-cell">
-              <input placeholder="Enter Product Name" value={query} onFocus={() => setShowSuggestions(Boolean(query))} onChange={(event) => { setQuery(event.target.value); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
+              <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => setShowSuggestions(Boolean(query))} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
               {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch) => {
                 const product = data.products.find((p) => p.id === batch.product_id);
                 return <button type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onClick={() => selectBatch(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
               }) : <div className="empty-small">No products found</div>}</div> : null}
             </td>
-            <td><input placeholder="Enter Barcode" value={barcode} onChange={(event) => changeBarcode(event.target.value)} /></td>
+            <td><input ref={(node) => { saleEntryRefs.current.barcode = node; }} placeholder="Enter Barcode" value={barcode} onKeyDown={(event) => handleSaleEntryKeyDown(event, "barcode")} onChange={(event) => changeBarcode(event.target.value)} /></td>
             <td>
               <TextOptionPicker
                 className="sale-type-picker"
@@ -1686,10 +1734,12 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
                 value={saleType}
                 options={SALE_QUANTITY_TYPE_OPTIONS}
                 onChange={setSaleType}
+                inputRef={(node) => { saleEntryRefs.current.saleType = node; }}
+                onKeyDown={(event) => handleSaleEntryKeyDown(event, "saleType")}
               />
             </td>
-            <td><input type="number" min="1" placeholder="Enter quantity" value={qty} onChange={(event) => setQty(event.target.value)} /></td>
-            <td><button className="primary" onClick={addItem}>Add to List</button></td>
+            <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
+            <td><button ref={(node) => { saleEntryRefs.current.add = node; }} className="primary" type="button" onKeyDown={(event) => handleSaleEntryKeyDown(event, "add")} onClick={() => { if (addItem()) focusSaleEntryField("product"); }}>Add to List</button></td>
           </tr></tbody>
         </table>
         <section className={`panel sale-items-panel${inline ? " inline-sale-editor" : ""}`}>
@@ -5603,7 +5653,7 @@ function PageSizePicker({ value, options = [50, 100], onChange }) {
   );
 }
 
-function TextOptionPicker({ value, options = [], onChange, className = "", ariaLabel = "Select option", placeholder = "" }) {
+function TextOptionPicker({ value, options = [], onChange, className = "", ariaLabel = "Select option", placeholder = "", inputRef, onKeyDown }) {
   const [open, setOpen] = useState(false);
   const selected = options.find((option) => String(option.value) === String(value)) || options[0];
   function choose(option) {
@@ -5614,9 +5664,11 @@ function TextOptionPicker({ value, options = [], onChange, className = "", ariaL
     <div className={`text-option-picker ${className}`.trim()}>
       <input
         aria-label={ariaLabel}
+        ref={inputRef}
         placeholder={placeholder}
         readOnly
         value={selected?.label || ""}
+        onKeyDown={onKeyDown}
         onFocus={() => setOpen(true)}
         onClick={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 120)}
@@ -6200,6 +6252,37 @@ function clearAddBatchDraft() {
   }
 }
 
+const priceBasisOptions = [
+  { id: "box", name: "Box" },
+  { id: "patta", name: "Patta" },
+  { id: "goli", name: "Goli" },
+];
+
+function normalizedPriceBasis(value) {
+  const normalized = String(value || "goli").trim().toLowerCase();
+  return ["box", "patta", "goli"].includes(normalized) ? normalized : "goli";
+}
+
+function priceBasisMultiplier(form, basis = form?.price_basis) {
+  const unitsPerBox = Number(form?.units_per_box || 0) || 1;
+  const itemsPerUnit = Number(form?.items_per_unit || 0) || 1;
+  const normalized = normalizedPriceBasis(basis);
+  if (normalized === "box") return unitsPerBox * itemsPerUnit;
+  if (normalized === "patta") return itemsPerUnit;
+  return 1;
+}
+
+function normalizeEnteredPrice(value, form, basis = form?.price_basis) {
+  if (value === "" || value == null) return null;
+  return roundMoney(Number(value || 0) / priceBasisMultiplier(form, basis));
+}
+
+function displayEnteredPrice(row, field, normalizedField) {
+  if (row?.[field] != null && row?.[field] !== "") return row[field];
+  const multiplier = priceBasisMultiplier(row, row?.price_basis);
+  return row?.[normalizedField] != null ? roundMoney(Number(row[normalizedField] || 0) * multiplier) : "";
+}
+
 function hasAddBatchDraftContent(form, supplierQuery, productQuery) {
   const meaningfulKeys = [
     "supplier_invoice_no",
@@ -6209,8 +6292,8 @@ function hasAddBatchDraftContent(form, supplierQuery, productQuery) {
     "units_per_box",
     "items_per_unit",
     "stock_in",
-    "cost_price",
-    "sell_price",
+    "entered_cost_price",
+    "entered_sell_price",
     "shelf_id",
     "expire_date",
   ];
@@ -6230,6 +6313,9 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       product_id: product?.id || "",
       items_per_unit: row?.items_per_unit || "",
       ...(row || {}),
+      price_basis: normalizedPriceBasis(row?.price_basis),
+      entered_cost_price: displayEnteredPrice(row, "entered_cost_price", "cost_price"),
+      entered_sell_price: displayEnteredPrice(row, "entered_sell_price", "sell_price"),
       product_type: product?.type || row?.product_type || "medical",
     };
   };
@@ -6316,6 +6402,15 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       onError(new Error("Total stock cannot be less than already sold stock."));
       return;
     }
+    const price_basis = normalizedPriceBasis(form.price_basis);
+    const priceForm = { ...form, units_per_box: units, items_per_unit: items, price_basis };
+    const enteredCostPrice = nullableNumber(form.entered_cost_price);
+    const enteredSellPrice = nullableNumber(form.entered_sell_price);
+    const normalizedCostPrice = normalizeEnteredPrice(form.entered_cost_price, priceForm, price_basis);
+    const normalizedSellPrice = normalizeEnteredPrice(form.entered_sell_price, priceForm, price_basis);
+    const boxMultiplier = priceBasisMultiplier(priceForm, "box");
+    const costPricePerBox = normalizedCostPrice == null ? null : roundMoney(normalizedCostPrice * boxMultiplier);
+    const sellPricePerBox = normalizedSellPrice == null ? null : roundMoney(normalizedSellPrice * boxMultiplier);
     const normalizedPayload = {
       product_id: Number(productId),
       batch_no: batchNo,
@@ -6328,8 +6423,14 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       stock_in: stock,
       stock_remaining: stockRemaining,
       stock_out: stockOut,
-      cost_price: nullableNumber(form.cost_price),
-      sell_price: nullableNumber(form.sell_price),
+      price_basis,
+      entered_cost_price: enteredCostPrice,
+      entered_sell_price: enteredSellPrice,
+      cost_price: normalizedCostPrice,
+      sell_price: normalizedSellPrice,
+      cost_price_per_box: costPricePerBox,
+      boxes_price: sellPricePerBox,
+      total_cost: normalizedCostPrice == null ? null : roundMoney(normalizedCostPrice * stock),
       shelf_id: nullableNumber(form.shelf_id),
       expire_date: form.expire_date || null,
       status: form.status || "active",
@@ -6343,6 +6444,18 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       onError(error);
     }
   }
+  const currentPriceBasis = normalizedPriceBasis(form.price_basis);
+  const pricePreviewForm = { ...form, price_basis: currentPriceBasis };
+  const previewCostGoli = normalizeEnteredPrice(form.entered_cost_price, pricePreviewForm, currentPriceBasis);
+  const previewSellGoli = normalizeEnteredPrice(form.entered_sell_price, pricePreviewForm, currentPriceBasis);
+  const pattaMultiplier = priceBasisMultiplier(pricePreviewForm, "patta");
+  const boxMultiplier = priceBasisMultiplier(pricePreviewForm, "box");
+  const hasPricePreview = previewCostGoli != null || previewSellGoli != null;
+  const previewLine = (label, multiplier) => (
+    <span>
+      {label}: Cost Rs. {previewCostGoli == null ? "-" : plainMoney(previewCostGoli * multiplier)}, Sell Rs. {previewSellGoli == null ? "-" : plainMoney(previewSellGoli * multiplier)}
+    </span>
+  );
   return (
     <div className="modal-backdrop">
       <form className="batch-modal" onSubmit={submit}>
@@ -6362,8 +6475,14 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
           <Field label="Units per box (Patta)" type="number" value={form.units_per_box || ""} onChange={(v) => setStockDimension("units_per_box", v)} placeholder="Add no. of pattas per box" />
           <Field label="Items per unit (Goli)" type="number" value={form.items_per_unit || ""} onChange={(v) => setStockDimension("items_per_unit", v)} placeholder="Goli per patta" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
-          <Field label="Cost Price" type="number" value={form.cost_price || ""} onChange={(v) => set("cost_price", v)} placeholder="Cost price" />
-          <Field label="Sell Price" type="number" value={form.sell_price || ""} onChange={(v) => set("sell_price", v)} placeholder="Sell price" />
+          <SelectField label="Price entered per" value={currentPriceBasis} onChange={(v) => set("price_basis", v || "goli")} options={priceBasisOptions} placeholder="Goli" openDirection="up" />
+          <Field label={`Cost Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Goli"}`} type="number" value={form.entered_cost_price || ""} onChange={(v) => set("entered_cost_price", v)} placeholder="Cost price" />
+          <Field label={`Sell Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Goli"}`} type="number" value={form.entered_sell_price || ""} onChange={(v) => set("entered_sell_price", v)} placeholder="Sell price" />
+          {hasPricePreview ? <div className="batch-price-preview">
+            {previewLine("Per goli", 1)}
+            {previewLine("Per patta", pattaMultiplier)}
+            {previewLine("Per box", boxMultiplier)}
+          </div> : null}
           <SelectField label="Shelf" value={form.shelf_id || ""} onChange={(v) => set("shelf_id", v)} options={data.shelves} placeholder="Select Shelf" action={() => setQuickAdd({ type: "shelf" })} />
           <Field label="Expire Date" type="date" value={form.expire_date || ""} onChange={(v) => set("expire_date", v)} />
         </div>
@@ -6414,27 +6533,29 @@ function TextareaField({ label, optional, value, onChange, placeholder, required
   return <label><span className="field-title">{label} {optional ? <small>(Optional)</small> : null}</span><textarea required={required} value={value} placeholder={placeholder} onChange={(event) => onChange(event.target.value)} /></label>;
 }
 
-function SelectField({ label, optional, value, onChange, options, placeholder, action, required, hideLabel = false }) {
+function SelectField({ label, optional, value, onChange, options, placeholder, action, required, hideLabel = false, openDirection = "down" }) {
   const [open, setOpen] = useState(false);
   const actionHandler = typeof action === "function" ? action : action?.onClick;
   const selected = options.find((option) => String(option.id) === String(value));
+  const placeholderLabel = placeholder || label;
+  const showPlaceholderOption = placeholderLabel && !options.some((option) => option.name.toLowerCase() === String(placeholderLabel).toLowerCase());
   return (
     <label className="lookup-field select-field">
       {hideLabel ? null : <span className="field-title">{label} {optional ? <small>(Optional)</small> : null}</span>}
-      <div className={`input-action lookup-action ${action ? "" : "no-action"}`}>
+      <div className={`input-action lookup-action ${action ? "" : "no-action"} ${openDirection === "up" ? "open-up" : ""}`}>
         <input
           aria-label={label}
           required={required}
           readOnly
           value={selected?.name || value || ""}
-          placeholder={placeholder || label}
+          placeholder={placeholderLabel}
           onClick={() => setOpen((current) => !current)}
           onFocus={() => setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 120)}
         />
         {action ? <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={actionHandler}>+ Add as New</button> : null}
         {open ? <div className="lookup-menu">
-          <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => { onChange(""); setOpen(false); }}>{placeholder || label}</button>
+          {showPlaceholderOption ? <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => { onChange(""); setOpen(false); }}>{placeholderLabel}</button> : null}
           {options.map((option) => <button type="button" key={option.id} onMouseDown={(event) => event.preventDefault()} onClick={() => { onChange(option.id); setOpen(false); }}>{option.name}</button>)}
         </div> : null}
       </div>
