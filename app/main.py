@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, RedirectResponse, Response
@@ -124,8 +126,9 @@ app.include_router(stock_audits.router)
 app.include_router(return_policies.router)
 app.include_router(return_notes.router)
 
-Base.metadata.create_all(bind=engine)
-sync_batch_columns(engine)
+if os.getenv("RUN_SCHEMA_SYNC") == "1" or not os.getenv("VERCEL"):
+    Base.metadata.create_all(bind=engine)
+    sync_batch_columns(engine)
 
 
 @app.get("/health")

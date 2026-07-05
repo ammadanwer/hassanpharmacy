@@ -4,6 +4,9 @@ version = "0.1.0"
 requires-python = ">=3.11"
 description = "Hassan Pharmacy Management System"
 
+[tool.vercel]
+entrypoint = "app.main:app"
+
 [tool.pdm.dev-dependencies]
 dev = [
     "fastapi>=0.110.0",

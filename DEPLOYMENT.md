@@ -1,70 +1,73 @@
 # Deployment
 
-This project is set up for a free-tier deployment split:
+This project is now set up for a single Vercel deployment plus Neon Postgres:
 
-- Frontend: Vercel
-- Backend: Render Web Service
+- Web app and API: Vercel
 - Database: Neon Postgres
 
 ## 1. Neon Postgres
 
-1. Create a Neon project.
-2. Copy the pooled Postgres connection string.
-3. Keep `sslmode=require` in the URL if Neon includes it.
+Use the Neon pooled Postgres connection string.
 
-The app accepts Neon URLs in the normal `postgresql://...` format and converts them to the `psycopg` SQLAlchemy driver at runtime.
+Keep `sslmode=require` in the URL if Neon includes it. The app accepts Neon URLs in the normal `postgresql://...` format and converts them to the `psycopg` SQLAlchemy driver at runtime.
 
-## 2. Render Backend
+## 2. Vercel Project
 
-Create a Render Web Service from this repository.
+Create or update the Vercel project from this repository.
 
-Use the root directory as the service root. Render can use `render.yaml`, or you can configure the service manually:
+Important project settings:
 
-- Runtime: Docker
-- Dockerfile: `Dockerfile`
-- Plan: Free
-- Health check path: `/health`
+- Root Directory: repository root
+- Build Command: leave default from `vercel.json`
+- Output Directory: leave default from `vercel.json`
+- Install Command: leave default from `vercel.json`
 
-Environment variables:
+Do not use `frontend` as the Vercel root directory anymore. The root deployment is required so Vercel can build both:
+
+- `frontend/dist` for the React app
+- `app/main.py` for the FastAPI serverless API
+
+## 3. Vercel Environment Variables
+
+Set these in Vercel:
 
 ```env
 DATABASE_URL=<neon pooled connection string>
 SECRET_KEY=<strong random secret>
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=1440
-FRONTEND_URL=https://<your-vercel-app>.vercel.app
+FRONTEND_URL=https://hassanpharmacy.vercel.app
 ```
 
-The backend URL will look like:
-
-```text
-https://hassan-pharmacy-api.onrender.com
-```
-
-Render free web services can sleep when idle. The first request after sleep may be slow.
-
-## 3. Vercel Frontend
-
-Create a Vercel project from this repository.
-
-Settings:
-
-- Root Directory: `frontend`
-- Framework Preset: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
-
-Environment variables:
+Remove this old variable from Vercel if it exists:
 
 ```env
-VITE_API_BASE_URL=https://<your-render-api>.onrender.com
+VITE_API_BASE_URL
 ```
 
-After Vercel gives you the frontend URL, update Render's `FRONTEND_URL` to that Vercel URL and redeploy the backend.
+With the backend on the same Vercel domain, the frontend should call relative `/api/...` URLs.
 
-## 4. Import Initial Data
+Do not set this for normal Vercel deploys:
 
-After Render has started once, the database tables should exist. To import the captured seed data into Neon from your local machine:
+```env
+RUN_SCHEMA_SYNC=1
+```
+
+Schema sync is intentionally skipped on Vercel cold starts. Run schema/index changes manually or from a one-off local command against Neon.
+
+## 4. Vercel Routing
+
+`vercel.json` routes:
+
+- `/api/*` to FastAPI in `app/main.py`
+- `/health` to FastAPI
+- all other paths to the React SPA
+
+This keeps refreshes such as `/pms/dashboard/batch` working.
+
+## 5. Import Initial Data
+
+To import seed/reference data into Neon from your local machine:
 
 ```bash
 python3 -m venv .venv
@@ -82,15 +85,29 @@ Password: admin123
 
 Change the password after first login.
 
-## 5. Local Production-Style Test
+## 6. Local Development
 
-To test the frontend against a deployed backend locally:
+Backend:
+
+```bash
+cp .env.example .env
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+Frontend:
 
 ```bash
 cd frontend
-cp .env.example .env
-# set VITE_API_BASE_URL to the Render backend URL
 npm install
-npm run build
-npm run preview
+cp .env.example .env
+npm run dev
+```
+
+For local development, keep `frontend/.env` pointing at the local backend:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
 ```

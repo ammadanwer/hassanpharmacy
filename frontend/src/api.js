@@ -1,6 +1,11 @@
 const TOKEN_KEY = "hassanPharmacyToken";
 const USER_KEY = "hassanPharmacyUser";
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const CONFIGURED_API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const API_BASE_URL = typeof window !== "undefined"
+  && window.location.hostname.endsWith("vercel.app")
+  && CONFIGURED_API_BASE_URL.includes("onrender.com")
+  ? ""
+  : CONFIGURED_API_BASE_URL;
 const REQUEST_TIMEOUT_MS = 75000;
 const GET_RETRY_ATTEMPTS = 2;
 const GET_RETRY_DELAY_MS = 1000;
