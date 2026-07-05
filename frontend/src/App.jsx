@@ -394,8 +394,8 @@ export default function App() {
 
   useEffect(() => {
     if (!token) return;
-    loadCoreData().catch((error) => handleApiError(error));
-  }, [token]);
+    loadCoreData({ scope: route === "batch" ? "batch" : "full" }).catch((error) => handleApiError(error));
+  }, [token, route]);
 
   useEffect(() => {
     function closeAccountMenu(event) {
@@ -405,8 +405,8 @@ export default function App() {
     return () => document.removeEventListener("mousedown", closeAccountMenu);
   }, []);
 
-  async function loadCoreData() {
-    const calls = {
+  async function loadCoreData(options = {}) {
+    const allCalls = {
       products: "/api/products?limit=5000",
       batches: "/api/batches?limit=5000",
       sales: "/api/sales?limit=500",
@@ -428,6 +428,12 @@ export default function App() {
       returnNotes: "/api/return-notes?limit=500",
       pharmacyProfile: "/api/pharmacy-profile",
     };
+    const calls = options.scope === "batch"
+      ? {
+          staff: allCalls.staff,
+          pharmacyProfile: allCalls.pharmacyProfile,
+        }
+      : allCalls;
     const fallback = emptyData();
     const entries = await Promise.all(Object.entries(calls).map(async ([key, path]) => {
       try {
@@ -437,10 +443,15 @@ export default function App() {
         throw error;
       }
     }));
-    const nextData = { ...fallback, ...Object.fromEntries(entries) };
+    const entryData = Object.fromEntries(entries);
+    const nextData = options.scope === "batch" ? { ...data, ...entryData } : { ...fallback, ...entryData };
     const normalizedProfile = normalizePharmacyProfile(nextData.pharmacyProfile);
     setPharmacyProfile(normalizedProfile);
-    setData({ ...nextData, pharmacyProfile: normalizedProfile });
+    setData((current) => ({
+      ...(options.scope === "batch" ? current : nextData),
+      ...entryData,
+      pharmacyProfile: normalizedProfile,
+    }));
   }
 
   function savePharmacyProfile(nextProfile) {
