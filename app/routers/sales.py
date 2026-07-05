@@ -1,4 +1,4 @@
-from datetime import date, datetime, time
+from datetime import date, time
 from typing import Annotated, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -61,8 +61,19 @@ def sale_item_payable(amount: float, discount_amount: Optional[float], discount_
     return max(0, amount_value - discount_value)
 
 
-def invoice_number(prefix: str, user_id: int) -> str:
-    return f"{prefix}-{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}-{user_id}"
+def invoice_number(db: Session, prefix: str) -> str:
+    lookup_prefix = prefix.lower()
+    next_number = 1
+    existing_numbers = (
+        db.query(Sale.invoice_number)
+        .filter(Sale.invoice_number.ilike(f"{lookup_prefix}-%"))
+        .all()
+    )
+    for (value,) in existing_numbers:
+        parts = str(value or "").rsplit("-", 1)
+        if len(parts) == 2 and parts[0].lower() == lookup_prefix and parts[1].isdigit():
+            next_number = max(next_number, int(parts[1]) + 1)
+    return f"{prefix}-{next_number}"
 
 
 def attach_customer_due(db: Session, sale_in: SaleCreate, customer_due: float) -> Optional[int]:
@@ -202,7 +213,7 @@ def create_sale(
     current_user: CurrentUser,
 ):
     require_sales_pin_if_enabled(db, sale_in, current_user)
-    new_invoice_number = invoice_number("INV", current_user.id)
+    new_invoice_number = invoice_number(db, "Invoice")
     customer_due = max(0, sale_in.total_payable - sale_in.paid)
     customer_id = attach_customer_due(db, sale_in, customer_due)
     sale = Sale(
@@ -262,7 +273,7 @@ def create_draft_sale(
     db: Annotated[Session, Depends(get_db)],
     current_user: CurrentUser,
 ):
-    new_invoice_number = invoice_number("DRAFT", current_user.id)
+    new_invoice_number = invoice_number(db, "draft")
     sale = Sale(
         invoice_number=new_invoice_number,
         user_id=current_user.id,
@@ -320,7 +331,7 @@ def checkout_draft_sale(
 
     customer_due = max(0, sale_in.total_payable - sale_in.paid)
     customer_id = attach_customer_due(db, sale_in, customer_due)
-    sale.invoice_number = invoice_number("INV", current_user.id)
+    sale.invoice_number = invoice_number(db, "Invoice")
     apply_sale_payload(
         sale,
         sale_in,

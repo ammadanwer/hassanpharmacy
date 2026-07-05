@@ -2314,7 +2314,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
     return () => clearTimeout(timer);
   }, [apiCall, onError, statusTab, dateMode, date, dateFrom, dateTo, dateField, stockFilter, search, filterAddedBy, filterUpdatedBy, actorId, page, pageSize]);
   const columns = [
-    ["batch_no", "Batch No."],
+    ["supplier_invoice_no", "Supplier Invoice no."],
     ["shelf_name", "Shelf No."],
     ["product_name", "Name"],
     ["medicine_formula", "Medicine Formula"],
@@ -2332,7 +2332,6 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
     ["supplier_name", "Supplier Name"],
     ["paid_amount", "Paid Amount"],
     ["supplier_outstanding", "Supplier Outstanding"],
-    ["supplier_invoice_no", "Supplier Invoice no."],
     ["actions", "Actions"],
   ];
   async function deleteBatch(row) {
@@ -2395,7 +2394,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   function formatBatchCell(row, key) {
     const moneyColumns = ["purchase_price", "purchase_price_before_tax", "total_cost", "paid_amount", "supplier_outstanding"];
     if (row.__summary) {
-      if (key === "batch_no") return "Total";
+      if (key === "batch_no" || key === "supplier_invoice_no") return "Total";
       if (["stock_in", "stock_out", "stock_remaining"].includes(key)) return formatIndianInteger(row[key]);
       if (moneyColumns.includes(key)) return plainMoney(row[key]);
       return "-";
@@ -2509,6 +2508,7 @@ function makeBatchSummaryRow(rows = []) {
     id: "__batch-summary",
     __summary: true,
     batch_no: "Total",
+    supplier_invoice_no: "Total",
     stock_in: sum("stock_in"),
     stock_out: sum("stock_out"),
     stock_remaining: sum("stock_remaining"),
@@ -2531,7 +2531,7 @@ function ExpiredBatchesPage({ apiCall, onError, setRoute }) {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
   const columns = [
-    ["batch_no", "Batch No."],
+    ["supplier_invoice_no", "Supplier Invoice no."],
     ["shelf_name", "Shelf No."],
     ["product_name", "Name"],
     ["medicine_formula", "Medicine Formula"],
@@ -2549,7 +2549,6 @@ function ExpiredBatchesPage({ apiCall, onError, setRoute }) {
     ["supplier_name", "Supplier Name"],
     ["paid_amount", "Paid Amount"],
     ["supplier_outstanding", "Supplier Outstanding"],
-    ["supplier_invoice_no", "Supplier Invoice no."],
   ];
   useEffect(() => {
     const timer = setTimeout(async () => {
@@ -2571,7 +2570,7 @@ function ExpiredBatchesPage({ apiCall, onError, setRoute }) {
   }, [apiCall, onError, page, pageSize, search]);
   function formatBatchCell(row, key) {
     if (row.__summary) {
-      if (key === "batch_no") return "Total";
+      if (key === "batch_no" || key === "supplier_invoice_no") return "Total";
       if (["stock_in", "stock_out", "stock_remaining", "purchase_price", "purchase_price_before_tax", "total_cost", "paid_amount", "supplier_outstanding"].includes(key)) return formatCell(row[key]);
       return "-";
     }
