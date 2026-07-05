@@ -1180,6 +1180,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const activeWorkspace = saleWorkspaces.find((workspace) => workspace.id === activeSaleWorkspaceId) || saleWorkspaces[0] || createSaleWorkspace(1);
   const workspaceIndex = Math.max(0, saleWorkspaces.findIndex((workspace) => workspace.id === activeWorkspace.id));
   const saleEntryRefs = useRef({});
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
 
   function updateActiveWorkspace(updater) {
     setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
@@ -1237,6 +1238,9 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       return Number(batch.stock_remaining || 0) > 0 && (!q || product?.name?.toLowerCase().includes(q) || product?.barcode?.toLowerCase().includes(q) || batch.batch_no?.toLowerCase().includes(q) || batch.barcode?.toLowerCase().includes(q));
     }).slice(0, 8);
   }, [data, query]);
+  useEffect(() => {
+    setActiveSuggestionIndex((index) => Math.max(0, Math.min(index, Math.max(suggestions.length - 1, 0))));
+  }, [suggestions.length]);
   const grossAmount = saleItems.reduce((sum, item) => sum + Number(item.amount || 0), 0);
   const payable = saleItems.reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
   const lineDiscount = Math.max(0, grossAmount - payable);
@@ -1266,7 +1270,28 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     if (direction > 0) return target.selectionStart >= String(target.value || "").length;
     return target.selectionStart <= 0;
   }
+  function chooseSaleSuggestion(batch) {
+    if (!batch) return;
+    selectBatch(batch);
+    focusSaleEntryField("barcode");
+  }
   function handleSaleEntryKeyDown(event, field) {
+    const productSuggestionsOpen = field === "product" && showSuggestions && suggestions.length > 0;
+    if (productSuggestionsOpen && event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveSuggestionIndex((index) => Math.min(index + 1, suggestions.length - 1));
+      return;
+    }
+    if (productSuggestionsOpen && event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveSuggestionIndex((index) => Math.max(index - 1, 0));
+      return;
+    }
+    if (productSuggestionsOpen && event.key === "Enter") {
+      event.preventDefault();
+      chooseSaleSuggestion(suggestions[activeSuggestionIndex] || suggestions[0]);
+      return;
+    }
     if (event.key === "ArrowDown") {
       event.preventDefault();
       moveSaleEntryFocus(field, 1);
@@ -1277,12 +1302,12 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       moveSaleEntryFocus(field, -1);
       return;
     }
-    if (event.key === "ArrowRight" && shouldMoveHorizontal(event, 1)) {
+    if (event.key === "ArrowRight" && (field === "saleType" || shouldMoveHorizontal(event, 1))) {
       event.preventDefault();
       moveSaleEntryFocus(field, 1);
       return;
     }
-    if (event.key === "ArrowLeft" && shouldMoveHorizontal(event, -1)) {
+    if (event.key === "ArrowLeft" && (field === "saleType" || shouldMoveHorizontal(event, -1))) {
       event.preventDefault();
       moveSaleEntryFocus(field, -1);
       return;
@@ -1291,8 +1316,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     event.preventDefault();
     if (field === "product") {
       if (!selectedBatch && suggestions[0]) {
-        selectBatch(suggestions[0]);
-        focusSaleEntryField("qty");
+        chooseSaleSuggestion(suggestions[0]);
       } else {
         focusSaleEntryField(selectedBatch ? "qty" : "barcode");
       }
@@ -1719,10 +1743,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           <thead><tr><th>Product Name</th><th>Bar Code</th><th>Sale Type</th><th>Quantity</th><th>Action</th></tr></thead>
           <tbody><tr>
             <td className="suggest-cell">
-              <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => setShowSuggestions(Boolean(query))} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
-              {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch) => {
+              <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
+              {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
                 const product = data.products.find((p) => p.id === batch.product_id);
-                return <button type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onClick={() => selectBatch(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
+                return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
               }) : <div className="empty-small">No products found</div>}</div> : null}
             </td>
             <td><input ref={(node) => { saleEntryRefs.current.barcode = node; }} placeholder="Enter Barcode" value={barcode} onKeyDown={(event) => handleSaleEntryKeyDown(event, "barcode")} onChange={(event) => changeBarcode(event.target.value)} /></td>
@@ -5656,9 +5680,34 @@ function PageSizePicker({ value, options = [50, 100], onChange }) {
 function TextOptionPicker({ value, options = [], onChange, className = "", ariaLabel = "Select option", placeholder = "", inputRef, onKeyDown }) {
   const [open, setOpen] = useState(false);
   const selected = options.find((option) => String(option.value) === String(value)) || options[0];
+  const selectedIndex = Math.max(0, options.findIndex((option) => String(option.value) === String(selected?.value)));
+  const [activeIndex, setActiveIndex] = useState(selectedIndex);
+  useEffect(() => {
+    setActiveIndex(selectedIndex);
+  }, [selectedIndex, open]);
   function choose(option) {
     onChange?.(option.value);
     setOpen(false);
+  }
+  function handleKeyDown(event) {
+    if (open && ["ArrowLeft", "ArrowRight"].includes(event.key)) {
+      onKeyDown?.(event);
+      return;
+    }
+    if (open && ["ArrowDown", "ArrowUp", "Enter", "Escape"].includes(event.key)) {
+      event.preventDefault();
+      if (event.key === "ArrowDown") {
+        setActiveIndex((index) => Math.min(index + 1, options.length - 1));
+      } else if (event.key === "ArrowUp") {
+        setActiveIndex((index) => Math.max(index - 1, 0));
+      } else if (event.key === "Enter") {
+        choose(options[activeIndex] || selected);
+      } else if (event.key === "Escape") {
+        setOpen(false);
+      }
+      return;
+    }
+    onKeyDown?.(event);
   }
   return (
     <div className={`text-option-picker ${className}`.trim()}>
@@ -5668,13 +5717,13 @@ function TextOptionPicker({ value, options = [], onChange, className = "", ariaL
         placeholder={placeholder}
         readOnly
         value={selected?.label || ""}
-        onKeyDown={onKeyDown}
-        onFocus={() => setOpen(true)}
-        onClick={() => setOpen(true)}
+        onKeyDown={handleKeyDown}
+        onFocus={() => { setActiveIndex(selectedIndex); setOpen(true); }}
+        onClick={() => { setActiveIndex(selectedIndex); setOpen(true); }}
         onBlur={() => setTimeout(() => setOpen(false), 120)}
       />
       {open ? <div className="text-option-menu">
-        {options.map((option) => <button key={option.value} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => choose(option)}>{option.label}</button>)}
+        {options.map((option, index) => <button className={index === activeIndex ? "active" : ""} key={option.value} type="button" onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveIndex(index)} onClick={() => choose(option)}>{option.label}</button>)}
       </div> : null}
     </div>
   );

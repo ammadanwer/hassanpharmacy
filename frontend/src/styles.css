@@ -1514,8 +1514,9 @@ main {
   width: 100%;
 }
 
-.text-option-menu button:hover {
-  background: #f0f2f5;
+.text-option-menu button:hover,
+.text-option-menu button.active {
+  background: #e8f6ef;
 }
 
 .sales-history-report .report-search {
@@ -2041,8 +2042,9 @@ main {
   width: 100%;
 }
 
-.suggestions button:hover {
-  background: #eef7ff;
+.suggestions button:hover,
+.suggestions button.active {
+  background: #e8f6ef;
 }
 
 .suggestions span {
