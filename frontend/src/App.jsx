@@ -2332,15 +2332,16 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [dateField, setDateField] = useState("created_at");
-  const [stockFilter, setStockFilter] = useState("in_stock");
+  const [stockFilter, setStockFilter] = useState("");
   const [filterAddedBy, setFilterAddedBy] = useState(false);
   const [filterUpdatedBy, setFilterUpdatedBy] = useState(false);
   const [alertFilter, setAlertFilter] = useState("");
   const [actorId, setActorId] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
-  const [rows, setRows] = useState(() => data.batches.filter((batch) => batch.status !== "reported"));
-  const [totalRows, setTotalRows] = useState(rows.length);
+  const [rows, setRows] = useState([]);
+  const [totalRows, setTotalRows] = useState(0);
+  const [loading, setLoading] = useState(true);
   const todayDate = today();
   const nearExpiryDate = addDays(todayDate, 180);
   const activeBatches = data.batches.filter((batch) => batch.status !== "reported");
@@ -2397,21 +2398,25 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
     setPage(1);
   }, [initialAlertFilter, nearExpiryDate, todayDate]);
   useEffect(() => {
-    const localRows = data.batches.filter((batch) => statusTab === "active" ? batch.status !== "reported" : batch.status === "reported");
-    setRows(localRows);
-    setTotalRows(localRows.length);
-  }, [data.batches, statusTab]);
-  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
     const timer = setTimeout(async () => {
       try {
         const pageData = unpackPaged(await apiCall(`/api/batches?${batchQueryParams().toString()}`));
+        if (cancelled) return;
         setRows(pageData.items);
         setTotalRows(pageData.total);
       } catch (error) {
+        if (cancelled) return;
         onError(error);
+      } finally {
+        if (!cancelled) setLoading(false);
       }
-    }, 150);
-    return () => clearTimeout(timer);
+    }, 50);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [apiCall, onError, statusTab, dateMode, date, dateFrom, dateTo, dateField, stockFilter, search, filterAddedBy, filterUpdatedBy, actorId, page, pageSize]);
   const columns = [
     ["supplier_invoice_no", "Supplier Invoice no."],
@@ -2524,6 +2529,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   const displayedBatchRows = useMemo(() => rows.slice(0, Math.max(pageSize - 1, 0)), [rows, pageSize]);
   const batchSummaryRow = useMemo(() => makeBatchSummaryRow(displayedBatchRows), [displayedBatchRows]);
   const tableRows = useMemo(() => rows.length ? [...displayedBatchRows, batchSummaryRow] : rows, [rows, displayedBatchRows, batchSummaryRow]);
+  const initialBatchLoad = loading && !rows.length;
   return (
     <section className="batch-page">
       <div className="batch-control-grid">
@@ -2590,7 +2596,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
         </div>
       </div>
       <div className="batch-table-wrap">
-        <DataTable columns={columns} rows={tableRows} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
+        <DataTable columns={columns} rows={initialBatchLoad ? [] : tableRows} emptyText={initialBatchLoad ? "Loading batches..." : "No Data Found"} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
       </div>
       <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
     </section>

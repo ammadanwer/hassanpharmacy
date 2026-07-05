@@ -36,7 +36,9 @@ def list_batches(
     paged: bool = False,
 ):
     query = db.query(Batch)
-    if status:
+    if status == BatchStatus.active:
+        query = query.filter(or_(Batch.status == BatchStatus.active, Batch.status.is_(None)))
+    elif status:
         query = query.filter(Batch.status == status)
     if added_by is not None:
         query = query.filter(Batch.added_by == added_by)
