@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy import inspect, text
 from sqlalchemy.engine import Engine
 from sqlalchemy.exc import SQLAlchemyError
@@ -249,4 +251,5 @@ def sync_batch_columns(engine: Engine) -> None:
     })
     add_missing_columns(engine, "returns", RETURN_COLUMNS)
     add_missing_columns(engine, "pharmacy_profiles", PHARMACY_PROFILE_COLUMNS)
-    create_indexes(engine)
+    if os.getenv("RUN_SCHEMA_INDEX_SYNC") == "1":
+        create_indexes(engine)
