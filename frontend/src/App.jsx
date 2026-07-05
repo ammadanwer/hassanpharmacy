@@ -1086,6 +1086,7 @@ function createSaleWorkspace(index = 1, overrides = {}) {
     currentDraftId: null,
     editingSaleId: null,
     editingSaleSnapshot: null,
+    entryMode: "product",
     query: "",
     barcode: "",
     showSuggestions: false,
@@ -1101,6 +1102,8 @@ function createSaleWorkspace(index = 1, overrides = {}) {
     checkoutDiscountPercent: "",
     receiveNow: "",
     salesPin: "",
+    customDescription: "",
+    customAmount: "",
     saleItems: [],
     ...overrides,
   };
@@ -1200,6 +1203,8 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const setEditingSaleId = makeWorkspaceSetter("editingSaleId");
   const editingSaleSnapshot = activeWorkspace.editingSaleSnapshot;
   const setEditingSaleSnapshot = makeWorkspaceSetter("editingSaleSnapshot");
+  const entryMode = activeWorkspace.entryMode || "product";
+  const setEntryMode = makeWorkspaceSetter("entryMode");
   const query = activeWorkspace.query;
   const setQuery = makeWorkspaceSetter("query");
   const barcode = activeWorkspace.barcode;
@@ -1229,6 +1234,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const setReceiveNow = makeWorkspaceSetter("receiveNow");
   const salesPin = activeWorkspace.salesPin;
   const setSalesPin = makeWorkspaceSetter("salesPin");
+  const customDescription = activeWorkspace.customDescription || "";
+  const setCustomDescription = makeWorkspaceSetter("customDescription");
+  const customAmount = activeWorkspace.customAmount || "";
+  const setCustomAmount = makeWorkspaceSetter("customAmount");
   const saleItems = activeWorkspace.saleItems;
   const setSaleItems = makeWorkspaceSetter("saleItems");
   const suggestions = useMemo(() => {
@@ -1333,6 +1342,26 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     if ((field === "qty" || field === "add") && addItem()) {
       focusSaleEntryField("product");
     }
+  }
+
+  function handleCustomEntryKeyDown(event, field) {
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault();
+      focusSaleEntryField(field === "customDescription" ? "customAmount" : "customAdd");
+      return;
+    }
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault();
+      focusSaleEntryField(field === "customAdd" ? "customAmount" : "customDescription");
+      return;
+    }
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    if (field === "customDescription") {
+      focusSaleEntryField("customAmount");
+      return;
+    }
+    addCustomItem();
   }
   const loadSaleList = useCallback(async () => {
     const params = new URLSearchParams({
@@ -1540,6 +1569,39 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     return true;
   }
 
+  function addCustomItem() {
+    const description = customDescription.trim();
+    const amount = Number(customAmount || 0);
+    if (!description || amount <= 0) {
+      setNotice?.("");
+      setValidationMessage("Enter a service description and amount");
+      return false;
+    }
+    setSaleItems([...saleItems, calculateItem({
+      item_type: "custom",
+      batch_id: null,
+      product_id: null,
+      product_name: description,
+      batch_no: "Custom",
+      sale_type: "Custom",
+      qt_in_box: 0,
+      qt_in_patta: 0,
+      qt_in_units: 1,
+      total_qty: 1,
+      pricing_qty: 1,
+      cost_price: 0,
+      rate: amount,
+      discount_percent: "",
+      discount_amount: "",
+    })]);
+    setCustomDescription("");
+    setCustomAmount("");
+    setNotice?.("");
+    setValidationMessage("");
+    requestAnimationFrame(() => saleEntryRefs.current.customDescription?.focus?.());
+    return true;
+  }
+
   function updateSaleItem(index, patch, discountSource) {
     setSaleItems((items) => items.map((item, itemIndex) => itemIndex === index ? calculateItem({ ...item, ...patch }, discountSource) : item));
   }
@@ -1582,8 +1644,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       payment_method: "cash",
       sales_pin: salesPinRequired ? salesPin.trim() : null,
       items: saleItems.map((item) => ({
+        item_type: item.item_type || "product",
         product_id: item.product_id,
         batch_id: item.batch_id,
+        product_name: item.item_type === "custom" ? item.product_name : undefined,
         sale_type: normalizeQuantityType(item.sale_type),
         qt_in_box: Number(item.qt_in_box || 0),
         qt_in_units: Number(item.qt_in_units || 0),
@@ -1661,6 +1725,27 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
 
   function loadSaleItems(sale) {
     setSaleItems((sale.items || []).map((item) => {
+      if ((item.item_type || "").toLowerCase() === "custom") {
+        return {
+          item_type: "custom",
+          batch_id: null,
+          product_id: null,
+          product_name: item.product_name,
+          batch_no: item.batch_no || "Custom",
+          sale_type: "Custom",
+          qt_in_box: 0,
+          qt_in_patta: 0,
+          qt_in_units: Number(item.qt_in_units || item.total_qty || 1),
+          total_qty: Number(item.total_qty || 1),
+          pricing_qty: Number(item.qt_in_units || item.total_qty || 1),
+          cost_price: Number(item.cost_price || 0),
+          rate: Number(item.rate || 0),
+          amount: Number(item.amount || item.payable_amount || 0),
+          payable_amount: Number(item.payable_amount || item.amount || 0),
+          discount_percent: item.discount_percent || "",
+          discount_amount: item.discount_amount || "",
+        };
+      }
       const batch = data.batches.find((batchRow) => Number(batchRow.id) === Number(item.batch_id));
       const saleItemType = normalizeQuantityType(item.sale_type || (Number(item.qt_in_box || 0) > 0 && Number(item.qt_in_units || 0) === 0 ? "Box" : "Goli"));
       const totalQty = Number(item.total_qty || 0);
@@ -1739,45 +1824,60 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     return (
       <>
         {!inline && editingSaleId ? <div className="edit-sale-notice">Editing existing invoice. Checkout will update this sale.</div> : null}
-        <table className="entry-table">
-          <thead><tr><th>Product Name</th><th>Bar Code</th><th>Sale Type</th><th>Quantity</th><th>Action</th></tr></thead>
-          <tbody><tr>
-            <td className="suggest-cell">
-              <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
-              {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
-                const product = data.products.find((p) => p.id === batch.product_id);
-                return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
-              }) : <div className="empty-small">No products found</div>}</div> : null}
-            </td>
-            <td><input ref={(node) => { saleEntryRefs.current.barcode = node; }} placeholder="Enter Barcode" value={barcode} onKeyDown={(event) => handleSaleEntryKeyDown(event, "barcode")} onChange={(event) => changeBarcode(event.target.value)} /></td>
-            <td>
-              <TextOptionPicker
-                className="sale-type-picker"
-                ariaLabel="Sale Type"
-                placeholder="Select Sale Type"
-                value={saleType}
-                options={SALE_QUANTITY_TYPE_OPTIONS}
-                onChange={setSaleType}
-                inputRef={(node) => { saleEntryRefs.current.saleType = node; }}
-                onKeyDown={(event) => handleSaleEntryKeyDown(event, "saleType")}
-              />
-            </td>
-            <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
-            <td><button ref={(node) => { saleEntryRefs.current.add = node; }} className="primary" type="button" onKeyDown={(event) => handleSaleEntryKeyDown(event, "add")} onClick={() => { if (addItem()) focusSaleEntryField("product"); }}>Add to List</button></td>
-          </tr></tbody>
-        </table>
+        <div className="sale-entry-mode">
+          <button className={entryMode === "product" ? "active" : ""} type="button" onClick={() => setEntryMode("product")}>Product</button>
+          <button className={entryMode === "custom" ? "active" : ""} type="button" onClick={() => { setEntryMode("custom"); requestAnimationFrame(() => saleEntryRefs.current.customDescription?.focus?.()); }}>Service Charge</button>
+        </div>
+        {entryMode === "custom" ? (
+          <table className="entry-table">
+            <thead><tr><th>Description</th><th>Amount</th><th>Action</th></tr></thead>
+            <tbody><tr>
+              <td><input ref={(node) => { saleEntryRefs.current.customDescription = node; }} placeholder="Service description" value={customDescription} onKeyDown={(event) => handleCustomEntryKeyDown(event, "customDescription")} onChange={(event) => setCustomDescription(event.target.value)} /></td>
+              <td><input ref={(node) => { saleEntryRefs.current.customAmount = node; }} type="number" min="0" placeholder="Amount" value={customAmount} onKeyDown={(event) => handleCustomEntryKeyDown(event, "customAmount")} onChange={(event) => setCustomAmount(event.target.value)} /></td>
+              <td><button ref={(node) => { saleEntryRefs.current.customAdd = node; }} className="primary" type="button" onKeyDown={(event) => handleCustomEntryKeyDown(event, "customAdd")} onClick={addCustomItem}>Add to List</button></td>
+            </tr></tbody>
+          </table>
+        ) : (
+          <table className="entry-table">
+            <thead><tr><th>Product Name</th><th>Bar Code</th><th>Sale Type</th><th>Quantity</th><th>Action</th></tr></thead>
+            <tbody><tr>
+              <td className="suggest-cell">
+                <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
+                {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
+                  const product = data.products.find((p) => p.id === batch.product_id);
+                  return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
+                }) : <div className="empty-small">No products found</div>}</div> : null}
+              </td>
+              <td><input ref={(node) => { saleEntryRefs.current.barcode = node; }} placeholder="Enter Barcode" value={barcode} onKeyDown={(event) => handleSaleEntryKeyDown(event, "barcode")} onChange={(event) => changeBarcode(event.target.value)} /></td>
+              <td>
+                <TextOptionPicker
+                  className="sale-type-picker"
+                  ariaLabel="Sale Type"
+                  placeholder="Select Sale Type"
+                  value={saleType}
+                  options={SALE_QUANTITY_TYPE_OPTIONS}
+                  onChange={setSaleType}
+                  inputRef={(node) => { saleEntryRefs.current.saleType = node; }}
+                  onKeyDown={(event) => handleSaleEntryKeyDown(event, "saleType")}
+                />
+              </td>
+              <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
+              <td><button ref={(node) => { saleEntryRefs.current.add = node; }} className="primary" type="button" onKeyDown={(event) => handleSaleEntryKeyDown(event, "add")} onClick={() => { if (addItem()) focusSaleEntryField("product"); }}>Add to List</button></td>
+            </tr></tbody>
+          </table>
+        )}
         <section className={`panel sale-items-panel${inline ? " inline-sale-editor" : ""}`}>
           <div className="sale-items-title">{inline ? "Sales Items List" : "Purchased Items List"}</div>
           {inline && editingSaleSnapshot?.date ? <div className="sale-edit-date">{formatDisplayDate(editingSaleSnapshot.date)}</div> : null}
           <div className="sale-items-table-wrap">
             <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Batch no.</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
-              <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.batch_id}-${index}`}>
+              <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.item_type || "product"}-${item.batch_id || "custom"}-${index}`}>
                 <td>{item.product_name}</td>
-                <td>{item.batch_no}</td>
-                <td>{item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
-                <td>{formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
-                <td>{formatCompactNumber(item.qt_in_units)}</td>
-                <td>{formatCompactNumber(item.total_qty)}</td>
+                <td>{item.item_type === "custom" ? "-" : item.batch_no}</td>
+                <td>{item.item_type === "custom" ? "-" : item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
+                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
+                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_units)}</td>
+                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.total_qty)}</td>
                 {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
                 <td><input className="table-input" type="number" min="0" value={item.rate} onChange={(event) => updateSaleItem(index, { rate: event.target.value })} /></td>
                 <td>{plainMoney(item.amount)}</td>
@@ -5463,7 +5563,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
   const [sale, setSale] = useState(null);
   const [returnQty, setReturnQty] = useState({});
   const [returnInvoice, setReturnInvoice] = useState(null);
-  const returnRows = useMemo(() => (sale?.items || []).map((item) => {
+  const returnRows = useMemo(() => (sale?.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => {
     const returned = Number(item.qty_returned || 0);
     const remaining = Math.max(0, Number(item.total_qty || 0) - returned);
     const originalLineAmount = Number(item.payable_amount ?? item.amount ?? 0);
@@ -5497,7 +5597,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
         match = await apiCall(`/api/sales/${query}`);
       }
       setSale(match);
-      setReturnQty(Object.fromEntries((match.items || []).map((item) => [item.batch_id, ""])));
+      setReturnQty(Object.fromEntries((match.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => [item.batch_id, ""])));
     } catch (error) {
       setSale(null);
       onError(error.status === 404 ? new Error("Invoice not found.") : error);
@@ -5538,7 +5638,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
       await reload();
       const refreshed = await apiCall(`/api/sales/${sale.id}`);
       setSale(refreshed);
-      setReturnQty(Object.fromEntries((refreshed.items || []).map((item) => [item.batch_id, ""])));
+      setReturnQty(Object.fromEntries((refreshed.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => [item.batch_id, ""])));
       setReturnInvoice({ sale: refreshed, returns: createdReturns });
     } catch (error) {
       onError(error);

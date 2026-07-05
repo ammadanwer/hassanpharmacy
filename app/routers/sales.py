@@ -98,30 +98,50 @@ def attach_customer_due(db: Session, sale_in: SaleCreate, customer_due: float) -
 
 def add_sale_items(db: Session, sale: Sale, sale_in: SaleCreate, *, decrement_stock: bool) -> None:
     for item_in in sale_in.items:
-        batch = db.get(Batch, item_in.batch_id)
-        if not batch:
-            raise HTTPException(status_code=400, detail=f"Batch {item_in.batch_id} not found")
-        if batch.stock_remaining < item_in.total_qty:
-            raise HTTPException(status_code=400, detail="Insufficient stock")
-        if decrement_stock:
-            batch.stock_remaining -= item_in.total_qty
-            batch.stock_out += item_in.total_qty
-            adjust_reference_product_stock(db, batch.product_id, remaining_delta=-float(item_in.total_qty or 0))
+        item_type = (item_in.item_type or "product").lower()
         item_data = item_in.model_dump()
         item_data["sale_id"] = sale.id
-        item_data["product_name"] = batch.product.name
-        item_data["batch_no"] = batch.batch_no
         item_data["payable_amount"] = sale_item_payable(
             item_in.amount,
             item_in.discount_amount,
             item_in.discount_percent,
         )
+        if item_type == "custom":
+            description = (item_in.product_name or "").strip()
+            if not description:
+                raise HTTPException(status_code=400, detail="Custom sale item description is required")
+            item_data["item_type"] = "custom"
+            item_data["product_id"] = None
+            item_data["batch_id"] = None
+            item_data["product_name"] = description
+            item_data["batch_no"] = "Custom"
+            item_data["sale_type"] = "Custom"
+            item_data["qt_in_box"] = 0
+            item_data["qt_in_units"] = item_in.qt_in_units or 1
+            item_data["total_qty"] = item_in.total_qty or 1
+            item_data["cost_price"] = item_in.cost_price or 0
+        else:
+            if item_in.batch_id is None:
+                raise HTTPException(status_code=400, detail="Batch is required for product sale items")
+            batch = db.get(Batch, item_in.batch_id)
+            if not batch:
+                raise HTTPException(status_code=400, detail=f"Batch {item_in.batch_id} not found")
+            if batch.stock_remaining < item_in.total_qty:
+                raise HTTPException(status_code=400, detail="Insufficient stock")
+            if decrement_stock:
+                batch.stock_remaining -= item_in.total_qty
+                batch.stock_out += item_in.total_qty
+                adjust_reference_product_stock(db, batch.product_id, remaining_delta=-float(item_in.total_qty or 0))
+            item_data["item_type"] = "product"
+            item_data["product_id"] = batch.product_id
+            item_data["product_name"] = batch.product.name
+            item_data["batch_no"] = batch.batch_no
         db.add(SaleItem(**item_data))
 
 
 def restore_sale_stock_and_items(db: Session, sale: Sale) -> None:
     for item in list(sale.items):
-        batch = db.get(Batch, item.batch_id)
+        batch = db.get(Batch, item.batch_id) if item.batch_id is not None else None
         if batch:
             batch.stock_remaining = float(batch.stock_remaining or 0) + float(item.total_qty or 0)
             batch.stock_out = max(0, float(batch.stock_out or 0) - float(item.total_qty or 0))

@@ -11,8 +11,9 @@ class SaleItem(Base, IdIntPK):
     __tablename__ = "sale_items"
 
     sale_id: Mapped[int] = mapped_column(ForeignKey("sales.id"), nullable=False)
-    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
-    batch_id: Mapped[int] = mapped_column(ForeignKey("batches.id"), nullable=False)
+    item_type: Mapped[str] = mapped_column(String(30), nullable=False, default="product")
+    product_id: Mapped[Optional[int]] = mapped_column(ForeignKey("products.id"), nullable=True)
+    batch_id: Mapped[Optional[int]] = mapped_column(ForeignKey("batches.id"), nullable=True)
     product_name: Mapped[str] = mapped_column(String(255), nullable=False)
     batch_no: Mapped[str] = mapped_column(String(100), nullable=False)
     sale_type: Mapped[Optional[str]] = mapped_column(String(30), nullable=True)
@@ -30,8 +31,8 @@ class SaleItem(Base, IdIntPK):
     reference_qt_in_box_display: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
 
     sale: Mapped["Sale"] = relationship("Sale", back_populates="items", lazy="select")
-    product: Mapped["Product"] = relationship("Product", lazy="select")
-    batch: Mapped["Batch"] = relationship("Batch", back_populates="sale_items", lazy="select")
+    product: Mapped[Optional["Product"]] = relationship("Product", lazy="select")
+    batch: Mapped[Optional["Batch"]] = relationship("Batch", back_populates="sale_items", lazy="select")
 
     @property
     def qty_returned(self) -> float:

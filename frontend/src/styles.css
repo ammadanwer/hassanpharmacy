@@ -1014,6 +1014,35 @@ main {
   padding: 0 12px;
 }
 
+.sale-entry-mode {
+  display: inline-flex;
+  margin: 14px 0;
+}
+
+.sale-entry-mode button {
+  background: #fff;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 800;
+  min-height: 40px;
+  padding: 0 18px;
+}
+
+.sale-entry-mode button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.sale-entry-mode button:last-child {
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.sale-entry-mode button.active {
+  background: var(--blue);
+  color: #fff;
+}
+
 .sale-list-view {
   display: grid;
   gap: 16px;

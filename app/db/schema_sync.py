@@ -109,6 +109,7 @@ SALE_COLUMNS = {
 }
 
 SALE_ITEM_COLUMNS = {
+    "item_type": "VARCHAR(30) NOT NULL DEFAULT 'product'",
     "sale_type": "VARCHAR(30)",
     "reference_qty_returned": "NUMERIC(12, 2)",
     "reference_receipt_name": "VARCHAR(255)",
@@ -151,6 +152,19 @@ def alter_numeric_columns(engine: Engine, table_name: str, columns: dict[str, st
                 connection.execute(text(f"ALTER TABLE {table_name} ALTER COLUMN {name} TYPE {ddl_type}"))
 
 
+def drop_not_null_constraints(engine: Engine, table_name: str, columns: list[str]) -> None:
+    if engine.dialect.name != "postgresql":
+        return
+    inspector = inspect(engine)
+    if table_name not in inspector.get_table_names():
+        return
+    existing = {column["name"] for column in inspector.get_columns(table_name)}
+    with engine.begin() as connection:
+        for name in columns:
+            if name in existing:
+                connection.execute(text(f"ALTER TABLE {table_name} ALTER COLUMN {name} DROP NOT NULL"))
+
+
 def sync_batch_columns(engine: Engine) -> None:
     add_missing_columns(engine, "batches", BATCH_COLUMNS)
     add_missing_columns(engine, "products", PRODUCT_COLUMNS)
@@ -167,6 +181,7 @@ def sync_batch_columns(engine: Engine) -> None:
     add_missing_columns(engine, "expense_categories", EXPENSE_CATEGORY_COLUMNS)
     add_missing_columns(engine, "sales", SALE_COLUMNS)
     add_missing_columns(engine, "sale_items", SALE_ITEM_COLUMNS)
+    drop_not_null_constraints(engine, "sale_items", ["product_id", "batch_id"])
     alter_numeric_columns(engine, "sales", {
         "total_amount": "NUMERIC(14, 3)",
         "discount_amount": "NUMERIC(12, 3)",
