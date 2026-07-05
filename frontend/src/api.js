@@ -4,6 +4,7 @@ const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, ""
 const REQUEST_TIMEOUT_MS = 75000;
 const GET_RETRY_ATTEMPTS = 2;
 const GET_RETRY_DELAY_MS = 1000;
+const RETRYABLE_POST_PATHS = ["/api/auth/login"];
 
 function apiUrl(path) {
   if (!API_BASE_URL || /^https?:\/\//.test(path)) return path;
@@ -33,7 +34,8 @@ export async function api(path, options = {}, token = "") {
   if (token) headers.Authorization = `Bearer ${token}`;
   let response;
   const method = (options.method || "GET").toUpperCase();
-  const maxAttempts = method === "GET" && !options.signal ? GET_RETRY_ATTEMPTS + 1 : 1;
+  const allowRetry = method === "GET" || (method === "POST" && RETRYABLE_POST_PATHS.some((retryPath) => path.startsWith(retryPath)));
+  const maxAttempts = allowRetry && !options.signal ? GET_RETRY_ATTEMPTS + 1 : 1;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);

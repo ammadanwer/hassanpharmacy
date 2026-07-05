@@ -500,16 +500,6 @@ export default function App() {
     }
   }
 
-  async function onRegister(payload) {
-    setNotice("");
-    try {
-      await api("/api/auth/register", { method: "POST", body: JSON.stringify(payload) });
-      setNotice("Account created. Sign in with that email and password.");
-    } catch (error) {
-      setNotice(error.message);
-    }
-  }
-
   async function onForgotPassword(identifier) {
     return api("/api/auth/forgot-password", { method: "POST", body: JSON.stringify({ identifier }) });
   }
@@ -528,7 +518,7 @@ export default function App() {
   }
 
   if (!token) {
-    return <AuthScreen notice={notice} onLogin={onLogin} onRegister={onRegister} onForgotPassword={onForgotPassword} onResetPassword={onResetPassword} />;
+    return <AuthScreen notice={notice} onLogin={onLogin} onForgotPassword={onForgotPassword} onResetPassword={onResetPassword} />;
   }
 
   if (route === "not-found") {
@@ -772,10 +762,9 @@ function Brand({ compact = false }) {
   );
 }
 
-function AuthScreen({ notice, onLogin, onRegister, onForgotPassword, onResetPassword }) {
+function AuthScreen({ notice, onLogin, onForgotPassword, onResetPassword }) {
   const [mode, setMode] = useState("login");
   const [login, setLogin] = useState({ username: "", password: "" });
-  const [register, setRegister] = useState({ name: "", email: "", password: "", role: "owner" });
   const [forgot, setForgot] = useState({ identifier: "", code: "", newPassword: "", verifyPassword: "", error: "", message: "", resetCode: "", step: "request", done: false, loading: false });
   function showMode(nextMode) {
     setMode(nextMode);
@@ -845,15 +834,6 @@ function AuthScreen({ notice, onLogin, onRegister, onForgotPassword, onResetPass
             <AuthPasswordInput placeholder="Password" value={login.password} onChange={(value) => setLogin({ ...login, password: value })} />
             <button className="primary">Login</button>
             <button className="text-button" type="button" onClick={() => showMode("forgot")}>Forgot Password ?</button>
-            <p>Don't have an account yet? <button className="link-button" type="button" onClick={() => showMode("register")}>Signup</button></p>
-          </form>
-        ) : mode === "register" ? (
-          <form className="auth-form" onSubmit={(event) => { event.preventDefault(); onRegister(register); }}>
-            <input placeholder="Name" value={register.name} onChange={(event) => setRegister({ ...register, name: event.target.value })} />
-            <input placeholder="Email" value={register.email} onChange={(event) => setRegister({ ...register, email: event.target.value })} />
-            <AuthPasswordInput placeholder="Password" value={register.password} onChange={(value) => setRegister({ ...register, password: value })} />
-            <button className="primary">Create account</button>
-            <p>Already have an account? <button className="link-button" type="button" onClick={() => showMode("login")}>Login</button></p>
           </form>
         ) : (
           <form className="auth-form forgot-form" onSubmit={submitForgot} noValidate>
@@ -881,7 +861,6 @@ function AuthScreen({ notice, onLogin, onRegister, onForgotPassword, onResetPass
             </> : null}
             {forgot.done ? <div className="forgot-success">{forgot.message}</div> : forgot.step === "request" ? <div className="forgot-spacer" /> : null}
             {forgot.done ? <button className="primary" type="button" onClick={() => showMode("login")}>Login</button> : <button className="primary" type="submit" disabled={forgot.loading}>{forgot.loading ? "Please wait..." : forgot.step === "request" ? "Continue" : "Reset Password"}</button>}
-            <p>Don't have an account yet? <button className="link-button" type="button" onClick={() => showMode("register")}>Signup</button></p>
           </form>
         )}
       </div>

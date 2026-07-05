@@ -12,30 +12,14 @@ from app.db.session import get_db
 from app.models.user import User
 from app.models.password_reset import PasswordResetToken
 from app.schemas.common import Message
-from app.schemas.user import ForgotPasswordRequest, ForgotPasswordResponse, ResetPasswordRequest, UserCreate, UserUpdate, UserResponse
+from app.schemas.user import ForgotPasswordRequest, ForgotPasswordResponse, ResetPasswordRequest, UserUpdate, UserResponse
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
-@router.post("/register", response_model=UserResponse)
-def register(user_in: UserCreate, db: Annotated[Session, Depends(get_db)]):
-    if db.query(User.id).first():
-        raise HTTPException(status_code=403, detail="Registration is disabled")
-    existing = db.query(User).filter(User.email == user_in.email).first()
-    if existing:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    user = User(
-        name=user_in.name,
-        phone=user_in.phone,
-        email=user_in.email,
-        address=user_in.address,
-        role=user_in.role,
-        hashed_password=get_password_hash(user_in.password),
-    )
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user
+@router.post("/register", response_model=Message)
+def register():
+    raise HTTPException(status_code=403, detail="Registration is disabled. Ask an admin to add users from Staff Management.")
 
 
 @router.post("/login")
