@@ -4,7 +4,7 @@
   "buildCommand": "npm --prefix frontend run build",
   "outputDirectory": "frontend/dist",
   "functions": {
-    "app/main.py": {
+    "api/index.py": {
       "maxDuration": 60,
       "excludeFiles": "{frontend/node_modules/**,frontend/dist/**,reference-captures/**,live-capture/**,tmp/**,*.png}"
     }
@@ -12,11 +12,11 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/app/main.py"
+      "destination": "/api/index.py"
     },
     {
       "source": "/health",
-      "destination": "/app/main.py"
+      "destination": "/api/index.py"
     },
     {
       "source": "/(.*)",

@@ -5,7 +5,7 @@ requires-python = ">=3.11"
 description = "Hassan Pharmacy Management System"
 
 [tool.vercel]
-entrypoint = "app.main:app"
+entrypoint = "api.index:app"
 
 [tool.pdm.dev-dependencies]
 dev = [
