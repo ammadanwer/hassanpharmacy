@@ -168,6 +168,25 @@ const referenceNonMedicalOrderPurchaseDose = new Map([
 
 const pathRoutes = Object.fromEntries(Object.entries(routePaths).map(([route, path]) => [path, route]));
 
+const routeCoreDataKeys = {
+  batch: ["staff", "pharmacyProfile"],
+  saleshistory: ["pharmacyProfile"],
+  returnhistory: ["pharmacyProfile"],
+  productsaleshistory: ["pharmacyProfile"],
+  "customer-history": ["pharmacyProfile"],
+  purchases: ["pharmacyProfile"],
+  supplier: ["pharmacyProfile"],
+  category: ["pharmacyProfile"],
+  medicineformula: ["pharmacyProfile"],
+  manufacturer: ["pharmacyProfile"],
+  shelf: ["pharmacyProfile"],
+  "staff-management": ["pharmacyProfile"],
+  "shift-management": ["pharmacyProfile"],
+  "expense-category": ["pharmacyProfile"],
+  "change-password": ["pharmacyProfile"],
+  technicalhelp: ["pharmacyProfile"],
+};
+
 const money = (value) => Number(value || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const plainMoney = (value) => Number(value || 0).toFixed(2);
 const fixedMoney = (value) => Number(value || 0).toFixed(2);
@@ -394,7 +413,7 @@ export default function App() {
 
   useEffect(() => {
     if (!token) return;
-    loadCoreData({ scope: route === "batch" ? "batch" : "full" }).catch((error) => handleApiError(error));
+    loadCoreData({ keys: routeCoreDataKeys[route] }).catch((error) => handleApiError(error));
   }, [token, route]);
 
   useEffect(() => {
@@ -428,11 +447,8 @@ export default function App() {
       returnNotes: "/api/return-notes?limit=500",
       pharmacyProfile: "/api/pharmacy-profile",
     };
-    const calls = options.scope === "batch"
-      ? {
-          staff: allCalls.staff,
-          pharmacyProfile: allCalls.pharmacyProfile,
-        }
+    const calls = options.keys
+      ? Object.fromEntries(options.keys.map((key) => [key, allCalls[key]]).filter((entry) => entry[1]))
       : allCalls;
     const fallback = emptyData();
     const entries = await Promise.all(Object.entries(calls).map(async ([key, path]) => {
@@ -444,11 +460,11 @@ export default function App() {
       }
     }));
     const entryData = Object.fromEntries(entries);
-    const nextData = options.scope === "batch" ? { ...data, ...entryData } : { ...fallback, ...entryData };
+    const nextData = options.keys ? { ...data, ...entryData } : { ...fallback, ...entryData };
     const normalizedProfile = normalizePharmacyProfile(nextData.pharmacyProfile);
     setPharmacyProfile(normalizedProfile);
     setData((current) => ({
-      ...(options.scope === "batch" ? current : nextData),
+      ...(options.keys ? current : nextData),
       ...entryData,
       pharmacyProfile: normalizedProfile,
     }));

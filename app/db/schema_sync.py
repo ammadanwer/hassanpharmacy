@@ -1,5 +1,6 @@
 from sqlalchemy import inspect, text
 from sqlalchemy.engine import Engine
+from sqlalchemy.exc import SQLAlchemyError
 
 
 BATCH_COLUMNS = {
@@ -124,6 +125,32 @@ PHARMACY_PROFILE_COLUMNS = {
     "logo_data_url": "TEXT",
 }
 
+BASIC_INDEXES = (
+    ("batches", "idx_batches_status_created", "CREATE INDEX IF NOT EXISTS idx_batches_status_created ON batches (status, created_at DESC)"),
+    ("batches", "idx_batches_status_expire", "CREATE INDEX IF NOT EXISTS idx_batches_status_expire ON batches (status, expire_date)"),
+    ("batches", "idx_batches_supplier_invoice", "CREATE INDEX IF NOT EXISTS idx_batches_supplier_invoice ON batches (supplier_id, supplier_invoice_no)"),
+    ("batches", "idx_batches_supplier_id", "CREATE INDEX IF NOT EXISTS idx_batches_supplier_id ON batches (supplier_id)"),
+    ("batches", "idx_batches_product_id", "CREATE INDEX IF NOT EXISTS idx_batches_product_id ON batches (product_id)"),
+    ("batches", "idx_batches_stock_remaining", "CREATE INDEX IF NOT EXISTS idx_batches_stock_remaining ON batches (stock_remaining)"),
+    ("batches", "idx_batches_barcode", "CREATE INDEX IF NOT EXISTS idx_batches_barcode ON batches (barcode)"),
+    ("products", "idx_products_name_lower", "CREATE INDEX IF NOT EXISTS idx_products_name_lower ON products (lower(name))"),
+    ("suppliers", "idx_suppliers_name_lower", "CREATE INDEX IF NOT EXISTS idx_suppliers_name_lower ON suppliers (lower(name))"),
+    ("sales", "idx_sales_date_time", "CREATE INDEX IF NOT EXISTS idx_sales_date_time ON sales (date, time)"),
+    ("sales", "idx_sales_status_date", "CREATE INDEX IF NOT EXISTS idx_sales_status_date ON sales (status, date)"),
+    ("sale_items", "idx_sale_items_sale_id", "CREATE INDEX IF NOT EXISTS idx_sale_items_sale_id ON sale_items (sale_id)"),
+    ("sale_items", "idx_sale_items_batch_id", "CREATE INDEX IF NOT EXISTS idx_sale_items_batch_id ON sale_items (batch_id)"),
+    ("sale_items", "idx_sale_items_product_id", "CREATE INDEX IF NOT EXISTS idx_sale_items_product_id ON sale_items (product_id)"),
+    ("returns", "idx_returns_sale_id", "CREATE INDEX IF NOT EXISTS idx_returns_sale_id ON returns (sale_id)"),
+    ("returns", "idx_returns_batch_id", "CREATE INDEX IF NOT EXISTS idx_returns_batch_id ON returns (batch_id)"),
+)
+
+POSTGRES_SEARCH_INDEXES = (
+    ("products", "idx_products_name_trgm", "CREATE INDEX IF NOT EXISTS idx_products_name_trgm ON products USING gin (name gin_trgm_ops)"),
+    ("batches", "idx_batches_invoice_trgm", "CREATE INDEX IF NOT EXISTS idx_batches_invoice_trgm ON batches USING gin (supplier_invoice_no gin_trgm_ops)"),
+    ("batches", "idx_batches_barcode_trgm", "CREATE INDEX IF NOT EXISTS idx_batches_barcode_trgm ON batches USING gin (barcode gin_trgm_ops)"),
+    ("suppliers", "idx_suppliers_name_trgm", "CREATE INDEX IF NOT EXISTS idx_suppliers_name_trgm ON suppliers USING gin (name gin_trgm_ops)"),
+)
+
 
 def add_missing_columns(engine: Engine, table_name: str, columns: dict[str, str]) -> None:
     inspector = inspect(engine)
@@ -165,6 +192,27 @@ def drop_not_null_constraints(engine: Engine, table_name: str, columns: list[str
                 connection.execute(text(f"ALTER TABLE {table_name} ALTER COLUMN {name} DROP NOT NULL"))
 
 
+def create_indexes(engine: Engine) -> None:
+    inspector = inspect(engine)
+    tables = set(inspector.get_table_names())
+    with engine.begin() as connection:
+        for table_name, _index_name, statement in BASIC_INDEXES:
+            if table_name in tables:
+                connection.execute(text(statement))
+
+    if engine.dialect.name == "postgresql":
+        try:
+            with engine.begin() as connection:
+                connection.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm"))
+                for table_name, _index_name, statement in POSTGRES_SEARCH_INDEXES:
+                    if table_name in tables:
+                        connection.execute(text(statement))
+        except SQLAlchemyError:
+            # Search remains functional without trigram indexes; avoid blocking app startup
+            # on hosts that do not allow extension creation.
+            return
+
+
 def sync_batch_columns(engine: Engine) -> None:
     add_missing_columns(engine, "batches", BATCH_COLUMNS)
     add_missing_columns(engine, "products", PRODUCT_COLUMNS)
@@ -201,3 +249,4 @@ def sync_batch_columns(engine: Engine) -> None:
     })
     add_missing_columns(engine, "returns", RETURN_COLUMNS)
     add_missing_columns(engine, "pharmacy_profiles", PHARMACY_PROFILE_COLUMNS)
+    create_indexes(engine)
