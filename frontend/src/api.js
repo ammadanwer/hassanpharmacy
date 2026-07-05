@@ -2,6 +2,8 @@ const TOKEN_KEY = "hassanPharmacyToken";
 const USER_KEY = "hassanPharmacyUser";
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 const REQUEST_TIMEOUT_MS = 75000;
+const GET_RETRY_ATTEMPTS = 2;
+const GET_RETRY_DELAY_MS = 1000;
 
 function apiUrl(path) {
   if (!API_BASE_URL || /^https?:\/\//.test(path)) return path;
@@ -29,16 +31,26 @@ export async function api(path, options = {}, token = "") {
   const headers = { ...(options.headers || {}) };
   if (!(options.body instanceof FormData)) headers["Content-Type"] = "application/json";
   if (token) headers.Authorization = `Bearer ${token}`;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   let response;
-  try {
-    response = await fetch(apiUrl(path), { ...options, headers, signal: options.signal || controller.signal });
-  } catch (error) {
-    if (error.name === "AbortError") throw new Error("Server is taking too long to respond. Please try again in a moment.");
-    throw error;
-  } finally {
-    clearTimeout(timeout);
+  const method = (options.method || "GET").toUpperCase();
+  const maxAttempts = method === "GET" && !options.signal ? GET_RETRY_ATTEMPTS + 1 : 1;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      response = await fetch(apiUrl(path), { ...options, headers, signal: options.signal || controller.signal });
+      break;
+    } catch (error) {
+      const retryable = (error.name === "AbortError" || error instanceof TypeError) && attempt < maxAttempts;
+      if (retryable) {
+        await new Promise((resolve) => setTimeout(resolve, GET_RETRY_DELAY_MS * attempt));
+        continue;
+      }
+      if (error.name === "AbortError") throw new Error("Server is taking too long to respond. Please try again in a moment.");
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+    }
   }
   const text = await response.text();
   let body = null;
