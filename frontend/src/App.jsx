@@ -355,7 +355,7 @@ export default function App() {
   const accountMenuRef = useRef(null);
   const visibleRoutes = useMemo(() => filterRoutesForUser(user), [user]);
 
-  const apiCall = (path, options) => api(path, options, token);
+  const apiCall = useCallback((path, options) => api(path, options, token), [token]);
 
   function setRoute(nextRoute, options = {}) {
     const requestedRoute = routePaths[nextRoute] ? nextRoute : "dashboard";

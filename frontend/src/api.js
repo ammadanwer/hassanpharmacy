@@ -1,6 +1,7 @@
 const TOKEN_KEY = "hassanPharmacyToken";
 const USER_KEY = "hassanPharmacyUser";
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const REQUEST_TIMEOUT_MS = 75000;
 
 function apiUrl(path) {
   if (!API_BASE_URL || /^https?:\/\//.test(path)) return path;
@@ -28,7 +29,17 @@ export async function api(path, options = {}, token = "") {
   const headers = { ...(options.headers || {}) };
   if (!(options.body instanceof FormData)) headers["Content-Type"] = "application/json";
   if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetch(apiUrl(path), { ...options, headers });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let response;
+  try {
+    response = await fetch(apiUrl(path), { ...options, headers, signal: options.signal || controller.signal });
+  } catch (error) {
+    if (error.name === "AbortError") throw new Error("Server is taking too long to respond. Please try again in a moment.");
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
   const text = await response.text();
   let body = null;
   try {

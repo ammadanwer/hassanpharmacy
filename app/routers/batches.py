@@ -3,7 +3,7 @@ from typing import Annotated, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import desc, func, or_
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from app.core.security import CurrentUser
 from app.core.reference_stock import adjust_reference_product_stock
@@ -15,6 +15,16 @@ from app.models.supplier import Supplier
 from app.schemas.batch import BatchCreate, BatchUpdate, BatchResponse, PagedBatchResponse
 
 router = APIRouter()
+
+
+def batch_response_options():
+    return (
+        selectinload(Batch.product).selectinload(Product.formula),
+        selectinload(Batch.shelf),
+        selectinload(Batch.supplier),
+        selectinload(Batch.added_by_user),
+        selectinload(Batch.updated_by_user),
+    )
 
 
 @router.get("/api/batches", response_model=list[BatchResponse] | PagedBatchResponse)
@@ -83,7 +93,7 @@ def list_batches(
             )
         )
     total = query.count() if paged else 0
-    items = query.order_by(Batch.reference_sort_order.is_(None), Batch.reference_sort_order.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
+    items = query.options(*batch_response_options()).order_by(Batch.reference_sort_order.is_(None), Batch.reference_sort_order.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
     if paged:
         return PagedBatchResponse(items=items, total=total, skip=skip, limit=limit)
     return items
@@ -124,7 +134,7 @@ def expired_batches(
     query = db.query(Batch).filter(Batch.expire_date < today, Batch.status == BatchStatus.active)
     query = apply_batch_search(query, query_text)
     total = query.count() if paged else 0
-    items = query.order_by(Batch.expire_date.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
+    items = query.options(*batch_response_options()).order_by(Batch.expire_date.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
     if paged:
         return PagedBatchResponse(items=items, total=total, skip=skip, limit=limit)
     return items
@@ -145,7 +155,7 @@ def near_expiry_batches(
     query = db.query(Batch).filter(Batch.expire_date >= today, Batch.expire_date <= deadline, Batch.status == BatchStatus.active)
     query = apply_batch_search(query, query_text)
     total = query.count() if paged else 0
-    items = query.order_by(Batch.expire_date.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
+    items = query.options(*batch_response_options()).order_by(Batch.expire_date.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
     if paged:
         return PagedBatchResponse(items=items, total=total, skip=skip, limit=limit)
     return items
@@ -153,7 +163,7 @@ def near_expiry_batches(
 
 @router.get("/api/batches/{batch_id}", response_model=BatchResponse)
 def get_batch(batch_id: int, db: Annotated[Session, Depends(get_db)], current_user: CurrentUser):
-    batch = db.get(Batch, batch_id)
+    batch = db.query(Batch).options(*batch_response_options()).filter(Batch.id == batch_id).first()
     if not batch:
         raise HTTPException(status_code=404, detail="Batch not found")
     return batch
