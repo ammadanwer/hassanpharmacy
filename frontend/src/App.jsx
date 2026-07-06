@@ -1558,6 +1558,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       product_id: batch.product_id,
       product_name: product?.name || "-",
       batch_no: batch.batch_no,
+      shelf_name: batch.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch.shelf_id))?.name || "-",
       sale_type: selectedSaleType,
       qt_in_box: selectedSaleType === "Box" ? quantity : boxUnitMultiplier ? Number((totalQty / boxUnitMultiplier).toFixed(2)) : 0,
       qt_in_patta: selectedSaleType === "Patta" ? quantity : itemsPerUnit ? Number((totalQty / itemsPerUnit).toFixed(2)) : 0,
@@ -1741,6 +1742,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           product_id: null,
           product_name: item.product_name,
           batch_no: item.batch_no || "Custom",
+          shelf_name: "-",
           sale_type: "Custom",
           qt_in_box: 0,
           qt_in_patta: 0,
@@ -1766,6 +1768,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
         product_id: item.product_id,
         product_name: item.product_name,
         batch_no: item.batch_no,
+        shelf_name: batch?.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch?.shelf_id))?.name || "-",
         reference_qt_in_box_display: item.reference_qt_in_box_display || "",
         sale_type: saleItemType,
         qt_in_box: Number(item.qt_in_box || boxQty || 0),
@@ -1826,6 +1829,13 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
 
   function printSale(sale) {
     setInvoiceSale(sale);
+  }
+
+  function saleItemShelf(item) {
+    if (item.item_type === "custom") return "-";
+    if (item.shelf_name) return item.shelf_name;
+    const batch = data.batches.find((batchRow) => Number(batchRow.id) === Number(item.batch_id));
+    return batch?.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch?.shelf_id))?.name || "-";
   }
 
   useEffect(() => {
@@ -1923,10 +1933,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           <div className="sale-items-title">{inline ? "Sales Items List" : "Purchased Items List"}</div>
           {inline && editingSaleSnapshot?.date ? <div className="sale-edit-date">{formatDisplayDate(editingSaleSnapshot.date)}</div> : null}
           <div className="sale-items-table-wrap">
-            <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Batch no.</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
+            <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Shelf</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
               <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.item_type || "product"}-${item.batch_id || "custom"}-${index}`}>
                 <td>{item.product_name}</td>
-                <td>{item.item_type === "custom" ? "-" : item.batch_no}</td>
+                <td>{saleItemShelf(item)}</td>
                 <td>{item.item_type === "custom" ? "-" : item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
                 <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
                 <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_units)}</td>
