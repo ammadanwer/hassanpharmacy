@@ -6439,8 +6439,8 @@ const priceBasisOptions = [
 ];
 
 function normalizedPriceBasis(value) {
-  const normalized = String(value || "goli").trim().toLowerCase();
-  return ["box", "patta", "goli"].includes(normalized) ? normalized : "goli";
+  const normalized = String(value || "box").trim().toLowerCase();
+  return ["box", "patta", "goli"].includes(normalized) ? normalized : "box";
 }
 
 function priceBasisMultiplier(form, basis = form?.price_basis) {
@@ -6663,9 +6663,9 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
           <Field label="Units per box (Patta)" type="number" value={form.units_per_box || ""} onChange={(v) => setStockDimension("units_per_box", v)} placeholder="Add no. of pattas per box" />
           <Field label="Items per unit (Goli)" type="number" value={form.items_per_unit || ""} onChange={(v) => setStockDimension("items_per_unit", v)} placeholder="Goli per patta" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
-          <SelectField label="Price entered per" value={currentPriceBasis} onChange={(v) => set("price_basis", v || "goli")} options={priceBasisOptions} placeholder="Goli" openDirection="up" />
-          <Field label={`Cost Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Goli"}`} type="number" value={form.entered_cost_price || ""} onChange={(v) => set("entered_cost_price", v)} placeholder="Cost price" />
-          <Field label={`Sell Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Goli"}`} type="number" value={form.entered_sell_price || ""} onChange={(v) => set("entered_sell_price", v)} placeholder="Sell price" />
+          <SelectField label="Price entered per" value={currentPriceBasis} onChange={(v) => set("price_basis", v || "box")} options={priceBasisOptions} placeholder="Box" openDirection="up" />
+          <Field label={`Cost Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_cost_price || ""} onChange={(v) => set("entered_cost_price", v)} placeholder="Cost price" />
+          <Field label={`Sell Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_sell_price || ""} onChange={(v) => set("entered_sell_price", v)} placeholder="Sell price" />
           {hasPricePreview ? <div className="batch-price-preview">
             {previewLine("Per goli", 1)}
             {previewLine("Per patta", pattaMultiplier)}
