@@ -6588,6 +6588,14 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     const enteredSellPrice = nullableNumber(form.entered_sell_price);
     const normalizedCostPrice = normalizeEnteredPrice(form.entered_cost_price, priceForm, price_basis);
     const normalizedSellPrice = normalizeEnteredPrice(form.entered_sell_price, priceForm, price_basis);
+    if (
+      normalizedCostPrice != null
+      && normalizedSellPrice != null
+      && normalizedCostPrice > normalizedSellPrice
+      && !window.confirm("Cost price is higher than sell price. Continue anyway?")
+    ) {
+      return;
+    }
     const boxMultiplier = priceBasisMultiplier(priceForm, "box");
     const costPricePerBox = normalizedCostPrice == null ? null : roundMoney(normalizedCostPrice * boxMultiplier);
     const sellPricePerBox = normalizedSellPrice == null ? null : roundMoney(normalizedSellPrice * boxMultiplier);
