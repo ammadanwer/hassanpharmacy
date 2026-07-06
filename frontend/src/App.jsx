@@ -966,6 +966,7 @@ function Dashboard({ data, setRoute, apiCall, onError }) {
   const medicalProducts = activeProducts.filter((product) => product.type === "medical").length;
   const nonMedicalProducts = activeProducts.filter((product) => product.type === "non-medical").length;
   const totalCost = activeBatches.reduce((sum, batch) => sum + Number(batch.total_cost || 0), 0);
+  const totalExpectedProfit = activeBatches.reduce((sum, batch) => sum + batchExpectedProfit(batch), 0);
   const shortage = activeProducts.filter((product) => Number(product.remaining_quantity || 0) <= 0).length;
   const expiredBatches = activeBatches.filter((batch) => batch.expire_date && batch.expire_date < todayDate);
   const batchesInStock = activeBatches.filter((batch) => Number(batch.stock_remaining || 0) > 0).length;
@@ -987,6 +988,7 @@ function Dashboard({ data, setRoute, apiCall, onError }) {
         <Kpi tone="cream" icon={<Calendar />} value={`Rs. ${referenceMoney(monthRevenue)}`} label="Monthly Revenue" sub={`Pending: ${referenceMoney(monthPending)}`} actionLabel="VIEW DETAILS" onAction={() => setRoute("saleshistory")} />
         <Kpi tone="lavender" icon={<Grid2X2 />} value={formatCompactNumber(activeProducts.length)} label="All Products" sub={`Medical: ${formatCompactNumber(medicalProducts)} | Non-Medical: ${formatCompactNumber(nonMedicalProducts)}`} />
         <Kpi tone="peach" icon={<Plus />} value={referenceMoney(totalCost)} label="Total Cost" />
+        <Kpi tone="mint" icon={<CircleDollarSign />} value={`Rs. ${referenceMoney(totalExpectedProfit)}`} label="Total Expected Profit" />
         <article className="shortage"><strong>{formatCompactNumber(shortage)}</strong><span>Medicine Shortage</span><button onClick={() => setRoute("medicines", { stockFilter: "low_stock" })}>Resolve Now &raquo;</button></article>
       </section>
       <section className="dashboard-grid">
@@ -1097,7 +1099,7 @@ function createSaleWorkspace(index = 1, overrides = {}) {
     barcode: "",
     showSuggestions: false,
     selectedBatch: null,
-    saleType: "Goli",
+    saleType: "Box",
     qty: "",
     paid: "",
     checkoutOpen: false,
@@ -1141,10 +1143,12 @@ function serializeSaleWorkspace(workspace) {
 
 function normalizeStoredSaleWorkspace(workspace, index) {
   const selectedBatchId = workspace.selectedBatchId || workspace.selectedBatch?.id || null;
+  const hasActiveEntry = Boolean(workspace.saleItems?.length || workspace.qty || selectedBatchId);
   return createSaleWorkspace(index + 1, {
     ...workspace,
     selectedBatch: null,
     selectedBatchId,
+    saleType: hasActiveEntry && workspace.saleType ? workspace.saleType : "Box",
     showSuggestions: false,
     customer: { name: "Walk-in", phone: "", ...(workspace.customer || {}) },
     saleItems: Array.isArray(workspace.saleItems) ? workspace.saleItems : [],
@@ -1190,6 +1194,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const workspaceIndex = Math.max(0, saleWorkspaces.findIndex((workspace) => workspace.id === activeWorkspace.id));
   const saleEntryRefs = useRef({});
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
+  const invoicePolicy = data.returnPolicies?.[0]?.description || "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable";
 
   function updateActiveWorkspace(updater) {
     setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
@@ -1225,7 +1230,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const paid = activeWorkspace.paid;
   const setPaid = makeWorkspaceSetter("paid");
   const checkoutOpen = activeWorkspace.checkoutOpen;
-  const setCheckoutOpen = makeWorkspaceSetter("checkoutOpen");
   const doctorName = activeWorkspace.doctorName;
   const setDoctorName = makeWorkspaceSetter("doctorName");
   const showCustomer = activeWorkspace.showCustomer;
@@ -1264,11 +1268,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const totalDiscountPercent = grossAmount ? roundPercent((totalDiscount / grossAmount) * 100) : 0;
   const checkoutPayable = Math.max(0, payable - checkoutDiscount);
   const checkoutReceived = Number(receiveNow || 0);
-  const duePayment = 0;
   const returnedCash = Math.max(0, checkoutReceived - checkoutPayable);
   const salesPinRequired = Boolean(data.pharmacyProfile?.pin_required ?? data.pharmacyProfile?.pinRequired);
   const canGenerateInvoice = receiveNow !== "" && (!salesPinRequired || salesPin.trim().length > 0);
-  const saleEntryFieldOrder = ["product", "barcode", "saleType", "qty", "add"];
+  const saleEntryFieldOrder = ["customerName", "product", "qty", "add"];
   function focusSaleEntryField(field) {
     requestAnimationFrame(() => saleEntryRefs.current[field]?.focus?.());
   }
@@ -1288,10 +1291,15 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   function chooseSaleSuggestion(batch) {
     if (!batch) return;
     selectBatch(batch);
-    focusSaleEntryField("barcode");
+    focusSaleEntryField("qty");
   }
   function handleSaleEntryKeyDown(event, field) {
     const productSuggestionsOpen = field === "product" && showSuggestions && suggestions.length > 0;
+    if (field === "customerName" && event.key === "Enter") {
+      event.preventDefault();
+      focusSaleEntryField("product");
+      return;
+    }
     if (productSuggestionsOpen && event.key === "ArrowDown") {
       event.preventDefault();
       setActiveSuggestionIndex((index) => Math.min(index + 1, suggestions.length - 1));
@@ -1307,6 +1315,11 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       chooseSaleSuggestion(suggestions[activeSuggestionIndex] || suggestions[0]);
       return;
     }
+    if (field === "product" && event.key === "ArrowDown") {
+      event.preventDefault();
+      focusSaleEntryField("receiveNow");
+      return;
+    }
     if (event.key === "ArrowDown") {
       event.preventDefault();
       moveSaleEntryFocus(field, 1);
@@ -1317,12 +1330,12 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       moveSaleEntryFocus(field, -1);
       return;
     }
-    if (event.key === "ArrowRight" && (field === "saleType" || shouldMoveHorizontal(event, 1))) {
+    if (event.key === "ArrowRight" && shouldMoveHorizontal(event, 1)) {
       event.preventDefault();
       moveSaleEntryFocus(field, 1);
       return;
     }
-    if (event.key === "ArrowLeft" && (field === "saleType" || shouldMoveHorizontal(event, -1))) {
+    if (event.key === "ArrowLeft" && shouldMoveHorizontal(event, -1)) {
       event.preventDefault();
       moveSaleEntryFocus(field, -1);
       return;
@@ -1333,16 +1346,8 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       if (!selectedBatch && suggestions[0]) {
         chooseSaleSuggestion(suggestions[0]);
       } else {
-        focusSaleEntryField(selectedBatch ? "qty" : "barcode");
+        focusSaleEntryField("qty");
       }
-      return;
-    }
-    if (field === "barcode") {
-      focusSaleEntryField(selectedBatch ? "qty" : "saleType");
-      return;
-    }
-    if (field === "saleType") {
-      focusSaleEntryField("qty");
       return;
     }
     if ((field === "qty" || field === "add") && addItem()) {
@@ -1570,7 +1575,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setValidationMessage("");
     setShowSuggestions(false);
     updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
-    setSaleType("Goli");
+    setSaleType("Box");
     setQty("");
     return true;
   }
@@ -1622,12 +1627,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setCheckoutDiscountPercent(value === "" ? "" : roundPercent(payable ? (Number(value || 0) / payable) * 100 : 0));
   }
 
-  function openCheckout() {
-    if (!saleItems.length) return;
-    setReceiveNow("");
-    setCheckoutOpen(true);
-  }
-
   function salePayload(overrides = {}) {
     const totalAmount = Number(overrides.totalAmount ?? grossAmount);
     const discountAmount = Number(overrides.discountAmount ?? 0);
@@ -1669,6 +1668,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
 
   async function generateInvoice() {
     if (!saleItems.length) return;
+    if (!canGenerateInvoice) {
+      setValidationMessage(salesPinRequired && !salesPin.trim() ? "Enter sales PIN before printing invoice" : "Enter received amount before printing invoice");
+      return;
+    }
     try {
       const endpoint = currentDraftId ? `/api/draft-sales/${currentDraftId}/checkout` : editingSaleId ? `/api/sales/${editingSaleId}` : "/api/sales";
       const method = editingSaleId && !currentDraftId ? "PUT" : "POST";
@@ -1690,7 +1693,8 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       setSaleItems([]);
       setPaid("");
       setDoctorName("");
-      setCheckoutOpen(false);
+      setCustomer({ name: "Walk-in", phone: "" });
+      setShowCustomer(false);
       setCheckoutDiscountAmount("");
       setCheckoutDiscountPercent("");
       setReceiveNow("");
@@ -1718,7 +1722,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       setEditingSaleSnapshot(null);
       setSaleItems([]);
       setPaid("");
-      setCheckoutOpen(false);
       setSalesPin("");
       setSaleTab("draft");
       setSaleListPage(1);
@@ -1825,8 +1828,50 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setInvoiceSale(sale);
   }
 
+  useEffect(() => {
+    function handlePrintShortcut(event) {
+      if (!(event.ctrlKey || event.metaKey)) return;
+      const shortcutKey = event.key.toLowerCase();
+      if (!["p", "s"].includes(shortcutKey)) return;
+      if (saleTab !== "new") return;
+      event.preventDefault();
+      if (!saleItems.length) {
+        setValidationMessage(shortcutKey === "s" ? "Add at least one item before saving draft" : "Add at least one item before printing invoice");
+        return;
+      }
+      if (shortcutKey === "s") {
+        saveDraft({
+          totalAmount: grossAmount,
+          discountAmount: totalDiscount,
+          discountPercent: totalDiscount ? totalDiscountPercent : null,
+          totalPayable: checkoutPayable,
+          paidAmount: checkoutReceived,
+        });
+        return;
+      }
+      if (invoiceSale) {
+        printInvoiceReceipt(invoiceSale, invoicePolicy, data);
+        return;
+      }
+      if (!canGenerateInvoice) {
+        setValidationMessage(salesPinRequired && !salesPin.trim() ? "Enter sales PIN before printing invoice" : "Enter received amount before printing invoice");
+        return;
+      }
+      generateInvoice();
+    }
+    window.addEventListener("keydown", handlePrintShortcut);
+    return () => window.removeEventListener("keydown", handlePrintShortcut);
+  }, [saleTab, saleItems, invoiceSale, invoicePolicy, data, canGenerateInvoice, salesPinRequired, salesPin, generateInvoice, saveDraft, grossAmount, totalDiscount, totalDiscountPercent, checkoutPayable, checkoutReceived]);
+
   function renderSaleEditor({ inline = false, showCost = !inline } = {}) {
     const tableColSpan = showCost ? 13 : 12;
+    const draftOverrides = {
+      totalAmount: grossAmount,
+      discountAmount: totalDiscount,
+      discountPercent: totalDiscount ? totalDiscountPercent : null,
+      totalPayable: checkoutPayable,
+      paidAmount: checkoutReceived,
+    };
     return (
       <>
         {!inline && editingSaleId ? <div className="edit-sale-notice">Editing existing invoice. Checkout will update this sale.</div> : null}
@@ -1834,6 +1879,10 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           <button className={entryMode === "product" ? "active" : ""} type="button" onClick={() => setEntryMode("product")}>Product</button>
           <button className={entryMode === "custom" ? "active" : ""} type="button" onClick={() => { setEntryMode("custom"); requestAnimationFrame(() => saleEntryRefs.current.customDescription?.focus?.()); }}>Service Charge</button>
         </div>
+        <label className="sale-customer-inline">
+          <span>Customer Name <small>(Optional)</small></span>
+          <input ref={(node) => { saleEntryRefs.current.customerName = node; }} placeholder="Customer Name" value={customer.name === "Walk-in" ? "" : customer.name} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerName")} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value || "Walk-in" }))} />
+        </label>
         {entryMode === "custom" ? (
           <table className="entry-table">
             <thead><tr><th>Description</th><th>Amount</th><th>Action</th></tr></thead>
@@ -1845,7 +1894,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
           </table>
         ) : (
           <table className="entry-table">
-            <thead><tr><th>Product Name</th><th>Bar Code</th><th>Sale Type</th><th>Quantity</th><th>Action</th></tr></thead>
+            <thead><tr><th>Product Name</th><th>Quantity</th><th>Sale Type</th><th>Action</th></tr></thead>
             <tbody><tr>
               <td className="suggest-cell">
                 <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
@@ -1854,7 +1903,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
                   return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
                 }) : <div className="empty-small">No products found</div>}</div> : null}
               </td>
-              <td><input ref={(node) => { saleEntryRefs.current.barcode = node; }} placeholder="Enter Barcode" value={barcode} onKeyDown={(event) => handleSaleEntryKeyDown(event, "barcode")} onChange={(event) => changeBarcode(event.target.value)} /></td>
+              <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
               <td>
                 <TextOptionPicker
                   className="sale-type-picker"
@@ -1864,10 +1913,8 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
                   options={SALE_QUANTITY_TYPE_OPTIONS}
                   onChange={setSaleType}
                   inputRef={(node) => { saleEntryRefs.current.saleType = node; }}
-                  onKeyDown={(event) => handleSaleEntryKeyDown(event, "saleType")}
                 />
               </td>
-              <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
               <td><button ref={(node) => { saleEntryRefs.current.add = node; }} className="primary" type="button" onKeyDown={(event) => handleSaleEntryKeyDown(event, "add")} onClick={() => { if (addItem()) focusSaleEntryField("product"); }}>Add to List</button></td>
             </tr></tbody>
           </table>
@@ -1894,60 +1941,34 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
               </tr>) : <tr><td colSpan={tableColSpan} className="empty">No Data Found</td></tr>}</tbody></table>
           </div>
           {saleItems.length ? <>
-            <div className="sale-total"><span>Payable Amt.</span><strong>Rs. {plainMoney(payable)}</strong></div>
-            <div className="sale-actions">{!editingSaleId ? <button className="outline" onClick={() => saveDraft()}>Save as a Draft</button> : null}<button className="primary" onClick={openCheckout}>Proceed to Checkout</button></div>
+            <section className="sale-payment-panel">
+              <div className="sale-payment-left">
+                <label className="doctor-field compact">
+                  <span>Doctor Name(Optional)</span>
+                  <input value={doctorName} placeholder="Doctor Name" onChange={(event) => setDoctorName(event.target.value)} />
+                </label>
+                <button className="customer-toggle compact" type="button" onClick={() => setShowCustomer((value) => !value)}><Plus size={18} /> Add Customer Phone</button>
+                {showCustomer ? <div className="customer-details compact">
+                  <input placeholder="Phone" value={customer.phone} onChange={(event) => setCustomer((current) => ({ ...current, phone: event.target.value }))} />
+                </div> : null}
+                <div className="checkout-discount">
+                  <span>Add Discount</span>
+                  <input type="number" min="0" placeholder="RS." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
+                  <div className="percent-input"><input type="number" min="0" placeholder="0" value={checkoutDiscountPercent} onChange={(event) => updateCheckoutDiscountPercent(event.target.value)} /><span>%</span></div>
+                </div>
+              </div>
+              <div className="sale-payment-right">
+                <div className="sale-total"><span>Total Amount</span><strong>Rs. {plainMoney(payable)}</strong></div>
+                <div className="payable-line"><span>Payable Amount</span><strong>RS. {money(checkoutPayable)}</strong></div>
+                <label className="receive-now"><span>Receive Now:</span><input ref={(node) => { saleEntryRefs.current.receiveNow = node; }} type="number" min="0" placeholder="Payment" value={receiveNow} onChange={(event) => setReceiveNow(event.target.value)} /></label>
+                {salesPinRequired ? <label className="receive-now"><span>Sales PIN:</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
+                <div className="returned-cash"><strong>Returned Cash:</strong> RS. {money(returnedCash)}</div>
+                <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" onClick={() => saveDraft(draftOverrides)}>Save as a Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice} onClick={generateInvoice}>Generate Invoice</button></div>
+              </div>
+            </section>
           </> : null}
         </section>
       </>
-    );
-  }
-
-  if (checkoutOpen) {
-    const draftOverrides = {
-      totalAmount: grossAmount,
-      discountAmount: totalDiscount,
-      discountPercent: totalDiscount ? totalDiscountPercent : null,
-      totalPayable: checkoutPayable,
-      paidAmount: checkoutReceived,
-    };
-    return (
-      <section className="checkout-page">
-        {renderSaleWorkspaceTabs()}
-        <button className="back-button" type="button" onClick={() => setCheckoutOpen(false)}>&lsaquo; Back</button>
-        <label className="doctor-field">
-          <span>Doctor Name(Optional)</span>
-          <input value={doctorName} placeholder="Doctor Name" onChange={(event) => setDoctorName(event.target.value)} />
-        </label>
-        <div className="checkout-heading">
-          <h2>Payments &amp; Receivables</h2>
-          <button className="customer-toggle" type="button" onClick={() => setShowCustomer((value) => !value)}><Plus size={20} /> Add Customer Details</button>
-        </div>
-        {showCustomer ? <div className="customer-details">
-          <input placeholder="Customer Name" value={customer.name === "Walk-in" ? "" : customer.name} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value || "Walk-in" }))} />
-          <input placeholder="Phone" value={customer.phone} onChange={(event) => setCustomer((current) => ({ ...current, phone: event.target.value }))} />
-        </div> : null}
-        <section className="payments-box">
-          <div className="payment-left">
-            <strong className="total-amount">Total Amount: RS. {money(payable)}</strong>
-            <div className="checkout-discount">
-              <span>Add Discount</span>
-              <input type="number" min="0" placeholder="RS." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
-              <div className="percent-input"><input type="number" min="0" placeholder="0" value={checkoutDiscountPercent} onChange={(event) => updateCheckoutDiscountPercent(event.target.value)} /><span>%</span></div>
-            </div>
-          </div>
-          <div className="payment-right">
-            <div className="due-payment"><span>Due Payment</span><strong>RS. {money(duePayment)}</strong></div>
-            <div className="payable-line"><span>Payable Amount</span><strong>RS. {money(checkoutPayable)}</strong></div>
-            <label className="receive-now"><span>Receive Now:</span><input type="number" min="0" placeholder="Payment" value={receiveNow} onChange={(event) => setReceiveNow(event.target.value)} /></label>
-            {salesPinRequired ? <label className="receive-now"><span>Sales PIN:</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
-            <div className="returned-cash"><strong>Returned Cash:</strong> RS. {money(returnedCash)}</div>
-          </div>
-        </section>
-        <div className="checkout-actions">
-          {!editingSaleId ? <button className="outline draft-outline" type="button" onClick={() => saveDraft(draftOverrides)}>Save as a Draft</button> : null}
-          <button className="primary" type="button" disabled={!canGenerateInvoice} onClick={generateInvoice}>Generate Invoice</button>
-        </div>
-      </section>
     );
   }
 
@@ -2161,6 +2182,15 @@ function InvoiceModal({ sale, data, close }) {
   const profile = receiptPharmacyProfile(data);
   const totals = invoiceReceiptTotals(sale);
   const showPaymentRows = sale.reference_original_due_display !== "";
+  useEffect(() => {
+    function handleInvoiceKeyDown(event) {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      printInvoiceReceipt(sale, policy, data);
+    }
+    window.addEventListener("keydown", handleInvoiceKeyDown);
+    return () => window.removeEventListener("keydown", handleInvoiceKeyDown);
+  }, [sale, policy, data]);
   return (
     <div className="modal-backdrop invoice-backdrop">
       <section className="invoice-modal">
@@ -6051,7 +6081,7 @@ function formatTimeInput(value, fallback) {
   return minutes == null ? fallback : minutesToTimeLabel(minutes);
 }
 
-function printInvoiceReceipt(sale, policy, data) {
+function printInvoiceReceipt(sale, policy, data, targetWindow = null) {
   const items = sale.items || [];
   const profile = receiptPharmacyProfile(data);
   const totals = invoiceReceiptTotals(sale);
@@ -6062,7 +6092,7 @@ function printInvoiceReceipt(sale, policy, data) {
   const itemRows = items.length
     ? items.map((item) => `<tr><td>${htmlEscape(receiptProductName(item, data))}</td><td>${htmlEscape(money(item.total_qty))}</td><td>${htmlEscape(money(item.rate))}</td><td>${htmlEscape(money(item.payable_amount ?? item.amount))}</td></tr>`).join("")
     : `<tr><td colspan="4">No items found</td></tr>`;
-  const printWindow = window.open("", "_blank", "width=420,height=700");
+  const printWindow = targetWindow || window.open("", "_blank", "width=420,height=700");
   if (!printWindow) return;
   printWindow.document.write(`<!doctype html>
     <html>
