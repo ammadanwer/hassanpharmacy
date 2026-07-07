@@ -1063,6 +1063,7 @@ const SALE_QUANTITY_TYPE_OPTIONS = [
   { value: "Patta", label: "Patta" },
   { value: "Goli", label: "Goli" },
 ];
+const DEFAULT_SALE_QUANTITY_TYPE = "Goli";
 
 function normalizeQuantityType(value) {
   const type = String(value || "").toLowerCase();
@@ -1099,7 +1100,7 @@ function createSaleWorkspace(index = 1, overrides = {}) {
     barcode: "",
     showSuggestions: false,
     selectedBatch: null,
-    saleType: "Box",
+    saleType: DEFAULT_SALE_QUANTITY_TYPE,
     qty: "",
     paid: "",
     checkoutOpen: false,
@@ -1148,7 +1149,7 @@ function normalizeStoredSaleWorkspace(workspace, index) {
     ...workspace,
     selectedBatch: null,
     selectedBatchId,
-    saleType: hasActiveEntry && workspace.saleType ? workspace.saleType : "Box",
+    saleType: hasActiveEntry && workspace.saleType ? workspace.saleType : DEFAULT_SALE_QUANTITY_TYPE,
     showSuggestions: false,
     customer: { name: "Walk-in", phone: "", ...(workspace.customer || {}) },
     saleItems: Array.isArray(workspace.saleItems) ? workspace.saleItems : [],
@@ -1576,7 +1577,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setValidationMessage("");
     setShowSuggestions(false);
     updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
-    setSaleType("Box");
+    setSaleType(DEFAULT_SALE_QUANTITY_TYPE);
     setQty("");
     return true;
   }
