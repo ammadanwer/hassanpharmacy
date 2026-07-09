@@ -6587,9 +6587,11 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       .filter((batch) => Number(batch.supplier_id) === Number(supplierId) && batch.supplier_invoice_no && batch.supplier_invoice_no !== "-")
       .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0) || Number(b.id || 0) - Number(a.id || 0))[0]?.supplier_invoice_no || "";
     if (localInvoice) return localInvoice;
-    const params = new URLSearchParams({ supplier_id: String(supplierId), limit: "1", paged: "true" });
+    const params = new URLSearchParams({ supplier_id: String(supplierId), limit: "50", paged: "true" });
     const pageData = unpackPaged(await apiCall(`/api/batches?${params.toString()}`));
-    const invoiceNo = pageData.items?.[0]?.supplier_invoice_no;
+    const invoiceNo = [...(pageData.items || [])]
+      .filter((batch) => batch.supplier_invoice_no && batch.supplier_invoice_no !== "-")
+      .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0) || Number(b.id || 0) - Number(a.id || 0))[0]?.supplier_invoice_no;
     return invoiceNo && invoiceNo !== "-" ? invoiceNo : "";
   }
 
