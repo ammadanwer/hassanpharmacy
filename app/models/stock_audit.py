@@ -31,3 +31,11 @@ class StockAudit(Base, IdIntPK, TimestampMixin):
     product: Mapped["Product"] = relationship("Product", lazy="select")
     batch: Mapped["Batch"] = relationship("Batch", lazy="select")
     user: Mapped["User"] = relationship("User", lazy="select")
+
+    @property
+    def product_name(self) -> str | None:
+        return self.product.name if self.product else None
+
+    @property
+    def batch_no(self) -> str | None:
+        return self.batch.batch_no if self.batch else None

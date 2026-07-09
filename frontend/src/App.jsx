@@ -170,22 +170,32 @@ const pathRoutes = Object.fromEntries(Object.entries(routePaths).map(([route, pa
 
 const routeCoreDataKeys = {
   dashboard: ["pharmacyProfile"],
-  newsale: ["returnPolicies", "pharmacyProfile"],
-  batch: ["staff", "pharmacyProfile"],
+  newsale: ["returnPolicies", "shelves", "pharmacyProfile"],
+  batch: ["staff", "suppliers", "shelves", "pharmacyProfile"],
+  "return-item": ["returnPolicies", "pharmacyProfile"],
   saleshistory: ["pharmacyProfile"],
   returnhistory: ["pharmacyProfile"],
   productsaleshistory: ["pharmacyProfile"],
   "customer-history": ["pharmacyProfile"],
+  demand: ["demands", "suppliers", "pharmacyProfile"],
+  "stock-audit": ["stockAudits", "pharmacyProfile"],
+  "order-purchase": ["purchaseOrders", "suppliers", "shelves", "pharmacyProfile"],
+  medicines: ["categories", "formulas", "manufacturers", "pharmacyProfile"],
+  nonmedicines: ["categories", "manufacturers", "pharmacyProfile"],
   purchases: ["pharmacyProfile"],
-  supplier: ["pharmacyProfile"],
-  category: ["pharmacyProfile"],
-  medicineformula: ["pharmacyProfile"],
-  manufacturer: ["pharmacyProfile"],
-  shelf: ["pharmacyProfile"],
-  "staff-management": ["pharmacyProfile"],
-  "shift-management": ["pharmacyProfile"],
-  "expense-category": ["pharmacyProfile"],
+  supplier: ["suppliers", "pharmacyProfile"],
+  "supplier-details": ["suppliers", "batches", "pharmacyProfile"],
+  "supplier-invoice": ["suppliers", "batches", "pharmacyProfile"],
+  category: ["categories", "pharmacyProfile"],
+  medicineformula: ["formulas", "pharmacyProfile"],
+  manufacturer: ["manufacturers", "pharmacyProfile"],
+  shelf: ["shelves", "pharmacyProfile"],
+  "staff-management": ["staff", "pharmacyProfile"],
+  "shift-management": ["shifts", "pharmacyProfile"],
+  expense: ["expenses", "expenseCategories", "pharmacyProfile"],
+  "expense-category": ["expenseCategories", "pharmacyProfile"],
   "change-password": ["pharmacyProfile"],
+  "return-policy": ["returnPolicies", "returnNotes", "pharmacyProfile"],
   technicalhelp: ["pharmacyProfile"],
 };
 
@@ -415,7 +425,7 @@ export default function App() {
 
   useEffect(() => {
     if (!token) return;
-    loadCoreData({ keys: routeCoreDataKeys[route] }).catch((error) => handleApiError(error));
+    loadCoreData({ keys: routeCoreDataKeys[route] || ["pharmacyProfile"] }).catch((error) => handleApiError(error));
   }, [token, route]);
 
   useEffect(() => {
@@ -470,6 +480,12 @@ export default function App() {
       ...entryData,
       pharmacyProfile: normalizedProfile,
     }));
+  }
+
+  function reloadRouteData(extraKeys = []) {
+    const routeKeys = routeCoreDataKeys[route] || ["pharmacyProfile"];
+    const keys = [...new Set([...routeKeys, ...extraKeys])];
+    return loadCoreData({ keys });
   }
 
   function savePharmacyProfile(nextProfile) {
@@ -557,35 +573,35 @@ export default function App() {
           {route === "dashboard" && <Dashboard setRoute={setRoute} apiCall={apiCall} onError={handleApiError} />}
           {route === "newsale" && <NewSale data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} />}
           {route === "batch" && <BatchPage data={data} initialAlertFilter={batchRouteAlertFilter} openModal={(row = null) => setBatchModal({ row })} apiCall={apiCall} onError={handleApiError} />}
-          {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
+          {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "saleshistory" && <SalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "returnhistory" && <ReturnHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "productsaleshistory" && <ProductSalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "customer-history" && <CustomerHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
-          {route === "demand" && <DemandPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "stock-audit" && <StockAuditPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "order-purchase" && <OrderPurchasePage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} openBatchModal={(product) => setBatchModal({ row: null, product })} />}
-          {route === "medicines" && <ProductsPage type="medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "nonmedicines" && <ProductsPage type="non-medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "supplier" && <CrudPage config={crudConfigs.supplier} rows={data.suppliers} openModal={(row = null) => setCrudModal({ type: "supplier", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} setRoute={setRoute} />}
+          {route === "demand" && <DemandPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "stock-audit" && <StockAuditPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "order-purchase" && <OrderPurchasePage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} openBatchModal={(product) => setBatchModal({ row: null, product })} />}
+          {route === "medicines" && <ProductsPage type="medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "nonmedicines" && <ProductsPage type="non-medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "supplier" && <CrudPage config={crudConfigs.supplier} rows={data.suppliers} openModal={(row = null) => setCrudModal({ type: "supplier", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} setRoute={setRoute} />}
           {route === "supplier-details" && <SupplierDetailsPage data={data} setRoute={setRoute} />}
           {route === "supplier-invoice" && <SupplierInvoicePage data={data} setRoute={setRoute} />}
-          {route === "category" && <CrudPage config={crudConfigs.category} rows={data.categories} openModal={(row = null) => setCrudModal({ type: "category", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "medicineformula" && <CrudPage config={crudConfigs.medicineformula} rows={data.formulas} openModal={(row = null) => setCrudModal({ type: "medicineformula", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "manufacturer" && <CrudPage config={crudConfigs.manufacturer} rows={data.manufacturers} openModal={(row = null) => setCrudModal({ type: "manufacturer", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
+          {route === "category" && <CrudPage config={crudConfigs.category} rows={data.categories} openModal={(row = null) => setCrudModal({ type: "category", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "medicineformula" && <CrudPage config={crudConfigs.medicineformula} rows={data.formulas} openModal={(row = null) => setCrudModal({ type: "medicineformula", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "manufacturer" && <CrudPage config={crudConfigs.manufacturer} rows={data.manufacturers} openModal={(row = null) => setCrudModal({ type: "manufacturer", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "purchases" && <StockPurchasePage data={data} apiCall={apiCall} onError={handleApiError} />}
-          {route === "shelf" && <ShelfPage data={data} openModal={(row = null) => setCrudModal({ type: "shelf", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "staff-management" && <StaffPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "shift-management" && <ShiftPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "expense" && <ExpensePage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
-          {route === "expense-category" && <CrudPage config={crudConfigs.expenseCategory} rows={data.expenseCategories} openModal={(row = null) => setCrudModal({ type: "expenseCategory", row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
+          {route === "shelf" && <ShelfPage data={data} openModal={(row = null) => setCrudModal({ type: "shelf", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "staff-management" && <StaffPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "shift-management" && <ShiftPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "expense" && <ExpensePage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "expense-category" && <CrudPage config={crudConfigs.expenseCategory} rows={data.expenseCategories} openModal={(row = null) => setCrudModal({ type: "expenseCategory", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "change-password" && <ChangePasswordPage data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} />}
-          {route === "return-policy" && <ReturnPolicyPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
+          {route === "return-policy" && <ReturnPolicyPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "technicalhelp" && <TechnicalHelpPage setRoute={setRoute} />}
         </section>
       </main>
-      {batchModal ? <BatchModal data={data} row={batchModal.row} initialProduct={batchModal.product} close={() => setBatchModal(null)} apiCall={apiCall} reload={async () => { await loadCoreData(); window.dispatchEvent(new CustomEvent("batch-table-refresh")); }} onError={handleApiError} /> : null}
-      {crudModal ? <CrudModal config={crudConfigs[crudModal.type]} row={crudModal.row} close={() => setCrudModal(null)} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} /> : null}
+      {batchModal ? <BatchModal data={data} row={batchModal.row} initialProduct={batchModal.product} close={() => setBatchModal(null)} apiCall={apiCall} reload={async () => { await reloadRouteData(); window.dispatchEvent(new CustomEvent("batch-table-refresh")); }} onError={handleApiError} /> : null}
+      {crudModal ? <CrudModal config={crudConfigs[crudModal.type]} row={crudModal.row} close={() => setCrudModal(null)} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} /> : null}
       {profileOpen ? <PharmacyProfileModal profile={pharmacyProfile} close={() => setProfileOpen(false)} apiCall={apiCall} onError={handleApiError} onSave={savePharmacyProfile} /> : null}
     </div>
   );
@@ -3469,7 +3485,7 @@ function DemandPage({ data, apiCall, reload, onError }) {
     setEditing(row);
     setForm({ supplier_id: row.supplier_id || "", product_id: row.product_id || "", quantity_type: row.quantity_type || "Unit", quantity: row.quantity || "" });
     setSupplierQuery(row.supplier_name || nameById(data.suppliers, row.supplier_id));
-    setProductQuery(row.product_name || nameById(data.products, row.product_id));
+    setProductQuery(row.product_name || "");
     setQuantityTypeQuery(row.quantity_type || "Unit");
   }
   async function orderDemand(row) {
@@ -3488,7 +3504,7 @@ function DemandPage({ data, apiCall, reload, onError }) {
         profile: data.pharmacyProfile,
         formatValue: (row, key) => {
           if (key === "supplier_name") return row.supplier_name || nameById(data.suppliers, row.supplier_id);
-          if (key === "product_name") return row.product_name || nameById(data.products, row.product_id);
+          if (key === "product_name") return row.product_name || "";
           return formatCell(row[key]);
         },
       });
@@ -3506,7 +3522,7 @@ function DemandPage({ data, apiCall, reload, onError }) {
           <thead><tr><th>Supplier Name</th><th>Product Name</th><th>Type</th><th>Quantity</th><th>Action</th></tr></thead>
           <tbody><tr>
             <td><LookupField hideLabel label="Supplier Name" required value={form.supplier_id} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={selectSupplier} options={data.suppliers} placeholder="Supplier Name" addLabel="+ Add New" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} /></td>
-            <td><LookupField hideLabel label="Product Name" required value={form.product_id} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={selectProduct} options={data.products} placeholder="Medicine Name" addLabel="+ Add New" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} /></td>
+            <td><RemoteLookupField hideLabel label="Product Name" required value={form.product_id} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={selectProduct} apiCall={apiCall} endpoint="/api/products" params={{ status: "active" }} placeholder="Medicine Name" addLabel="+ Add New" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} onError={onError} /></td>
             <td><LookupField hideLabel label="Type" required value={form.quantity_type} query={quantityTypeQuery} onQueryChange={(value) => { setQuantityTypeQuery(value); set("quantity_type", ""); }} onSelect={selectDemandType} options={demandTypeOptions} placeholder="" addLabel="" openOnFocus={false} /></td>
             <td><Field hideLabel label="Quantity" type="number" value={form.quantity} onChange={(v) => set("quantity", v)} placeholder="Enter Quantity" /></td>
             <td><button className="primary">{editing ? "Save" : "Add To List"}</button></td>
@@ -3521,7 +3537,7 @@ function DemandPage({ data, apiCall, reload, onError }) {
       </div>
       <DataTable columns={columns} rows={rows} emptyText="No Demand Found" render={(row, key) => {
         if (key === "supplier_name") return row.supplier_name || nameById(data.suppliers, row.supplier_id);
-        if (key === "product_name") return row.product_name || nameById(data.products, row.product_id);
+        if (key === "product_name") return row.product_name || "";
         if (key === "actions") return (
           <div className="icon-actions">
             <button className="icon-action" type="button" title="Order" aria-label="Order" disabled={row.status !== "pending"} onClick={() => orderDemand(row)}><ShoppingCart size={18} /></button>
@@ -3549,6 +3565,8 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
   const [batchQuery, setBatchQuery] = useState("");
   const [quantityTypeQuery, setQuantityTypeQuery] = useState("Tablet");
   const [adjustmentTypeQuery, setAdjustmentTypeQuery] = useState("Increase");
+  const [auditProducts, setAuditProducts] = useState([]);
+  const [auditBatches, setAuditBatches] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
   const [savedRows, setSavedRows] = useState(data.stockAudits);
@@ -3575,16 +3593,22 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     return () => clearTimeout(timer);
   }, [loadAudits, onError]);
   const set = (key, value) => setForm((current) => ({ ...current, [key]: value }));
-  const batchOptions = data.batches
-    .filter((batch) => !form.product_id || Number(batch.product_id) === Number(form.product_id))
-    .map((batch) => ({ ...batch, name: `${batch.batch_no} - Stock ${batch.stock_remaining}` }));
+  function rememberAuditProduct(product) {
+    setAuditProducts((items) => [product, ...items.filter((item) => Number(item.id) !== Number(product.id))].slice(0, 20));
+  }
+  function rememberAuditBatch(batch) {
+    setAuditBatches((items) => [batch, ...items.filter((item) => Number(item.id) !== Number(batch.id))].slice(0, 30));
+  }
   function selectAuditProduct(product) {
+    rememberAuditProduct(product);
     setForm((current) => ({ ...current, product_id: product.id, batch_id: "" }));
     setProductQuery(product.name);
     setBatchQuery("");
   }
   function selectAuditBatch(batch) {
-    set("batch_id", batch.id);
+    rememberAuditBatch(batch);
+    setForm((current) => ({ ...current, batch_id: batch.id, product_id: current.product_id || batch.product_id || "" }));
+    if (!form.product_id && batch.product_name) setProductQuery(batch.product_name);
     setBatchQuery(batch.name);
   }
   function selectAuditType(option) {
@@ -3603,14 +3627,14 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     setAdjustmentTypeQuery("Increase");
   }
   function projectedStockForBatch(batchId) {
-    const batch = data.batches.find((item) => Number(item.id) === Number(batchId));
+    const batch = auditBatches.find((item) => Number(item.id) === Number(batchId));
     return pending
       .filter((item) => Number(item.batch_id) === Number(batchId))
       .reduce((stock, item) => item.adjustment_type === "Decrease" ? stock - Number(item.quantity_adjusted || 0) : stock + Number(item.quantity_adjusted || 0), Number(batch?.stock_remaining || 0));
   }
   async function add(event) {
     event.preventDefault();
-    const batch = data.batches.find((item) => Number(item.id) === Number(form.batch_id));
+    const batch = auditBatches.find((item) => Number(item.id) === Number(form.batch_id));
     if (!form.product_id || !form.batch_id || !batch) {
       onError(new Error("Select medicine and batch before adding to list."));
       return;
@@ -3661,6 +3685,8 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
       id: `${form.batch_id}-${Date.now()}`,
       product_id: Number(form.product_id),
       batch_id: Number(form.batch_id),
+      product_name: productQuery,
+      batch_no: batch.batch_no,
       entered_quantity: quantity,
       quantity_adjusted: effectiveQuantity,
       quantity_before: before,
@@ -3671,24 +3697,28 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     }]);
     resetAuditForm();
   }
-  function editAudit(row) {
-    const batch = data.batches.find((item) => Number(item.id) === Number(row.batch_id));
-    const product = data.products.find((item) => Number(item.id) === Number(row.product_id));
-    const storedQuantityType = normalizeQuantityType(row.quantity_type || "Tablet");
-    const quantityType = storedQuantityType === "Patta" ? "Tablet" : storedQuantityType;
-    const enteredQuantity = Number(row.quantity_adjusted || 0) / quantityTypeGoliMultiplier(batch, quantityType);
-    setEditingAudit(row);
-    setProductQuery(product?.name || nameById(data.products, row.product_id));
-    setBatchQuery(batch ? `${batch.batch_no} - Stock ${batch.stock_remaining}` : batchNo(data.batches, row.batch_id));
-    setQuantityTypeQuery(quantityType);
-    setAdjustmentTypeQuery(row.adjustment_type || "Increase");
-    setForm({
-      product_id: row.product_id || "",
-      batch_id: row.batch_id || "",
-      quantity_type: quantityType,
-      quantity_adjusted: enteredQuantity || "",
-      adjustment_type: row.adjustment_type || "Increase",
-    });
+  async function editAudit(row) {
+    try {
+      const batch = auditBatches.find((item) => Number(item.id) === Number(row.batch_id)) || await apiCall(`/api/batches/${row.batch_id}`);
+      rememberAuditBatch(batch);
+      const storedQuantityType = normalizeQuantityType(row.quantity_type || "Tablet");
+      const quantityType = storedQuantityType === "Patta" ? "Tablet" : storedQuantityType;
+      const enteredQuantity = Number(row.quantity_adjusted || 0) / quantityTypeGoliMultiplier(batch, quantityType);
+      setEditingAudit(row);
+      setProductQuery(row.product_name || batch.product_name || "");
+      setBatchQuery(`${batch.batch_no} - Stock ${batch.stock_remaining}`);
+      setQuantityTypeQuery(quantityType);
+      setAdjustmentTypeQuery(row.adjustment_type || "Increase");
+      setForm({
+        product_id: row.product_id || "",
+        batch_id: row.batch_id || "",
+        quantity_type: quantityType,
+        quantity_adjusted: enteredQuantity || "",
+        adjustment_type: row.adjustment_type || "Increase",
+      });
+    } catch (error) {
+      onError(error);
+    }
   }
   function cancelEditAudit() {
     setEditingAudit(null);
@@ -3732,8 +3762,8 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
         <table className="entry-table list-entry-table stock-audit-entry-table">
           <thead><tr><th>Product Name</th><th>Batch</th><th>Type</th><th>Quantity</th><th>Select Adjustment</th><th></th></tr></thead>
           <tbody><tr>
-            <td><LookupField hideLabel label="Product Name" required value={form.product_id} query={productQuery} onQueryChange={(value) => { setProductQuery(value); setForm((current) => ({ ...current, product_id: "", batch_id: "" })); setBatchQuery(""); }} onSelect={selectAuditProduct} options={data.products.filter((product) => product.status !== "reported")} placeholder="Search by medicine name..." /></td>
-            <td><LookupField hideLabel label="Batch" required value={form.batch_id} query={batchQuery} onQueryChange={(value) => { setBatchQuery(value); set("batch_id", ""); }} onSelect={selectAuditBatch} options={batchOptions} placeholder="Select Batch" /></td>
+            <td><RemoteLookupField hideLabel label="Product Name" required value={form.product_id} query={productQuery} onQueryChange={(value) => { setProductQuery(value); setForm((current) => ({ ...current, product_id: "", batch_id: "" })); setBatchQuery(""); }} onSelect={selectAuditProduct} apiCall={apiCall} endpoint="/api/products" params={{ status: "active" }} placeholder="Search by medicine name..." onError={onError} /></td>
+            <td><RemoteLookupField hideLabel label="Batch" required value={form.batch_id} query={batchQuery} onQueryChange={(value) => { setBatchQuery(value); set("batch_id", ""); }} onSelect={selectAuditBatch} apiCall={apiCall} endpoint="/api/batches" params={{ status: "active", product_id: form.product_id || "" }} formatOption={(batch) => `${batch.batch_no} - Stock ${batch.stock_remaining}`} placeholder="Select Batch" onError={onError} /></td>
             <td><LookupField hideLabel label="Type" required value={form.quantity_type} query={quantityTypeQuery} onQueryChange={(value) => { setQuantityTypeQuery(value); set("quantity_type", ""); }} onSelect={selectAuditType} options={auditTypeOptions} placeholder="" addLabel="" /></td>
             <td><Field hideLabel label="Quantity" type="number" value={form.quantity_adjusted} onChange={(v) => set("quantity_adjusted", v)} placeholder="Enter Quantity" /></td>
             <td><LookupField hideLabel label="Select Adjustment" required value={form.adjustment_type} query={adjustmentTypeQuery} onQueryChange={(value) => { setAdjustmentTypeQuery(value); set("adjustment_type", ""); }} onSelect={selectAdjustmentType} options={adjustmentTypeOptions} placeholder="" addLabel="" /></td>
@@ -3744,8 +3774,8 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
       </form>
       <div className="list-head"><h2>Stock Audit List</h2></div>
       <DataTable columns={[["product_id", "Product Name"], ["batch_id", "Batch No."], ["quantity_type", "Quantity Type"], ["quantity_before", "Quantity Before"], ["quantity_adjusted", "Quantity Adjusted"], ["quantity_after", "Quantity After"], ["adjustment_type", "Adjustment Type"], ["amount", "Amount"], ["actions", "Actions"]]} rows={rows} render={(row, key) => {
-        if (key === "product_id") return nameById(data.products, row[key]);
-        if (key === "batch_id") return batchNo(data.batches, row[key]);
+        if (key === "product_id") return row.product_name || auditProducts.find((item) => Number(item.id) === Number(row[key]))?.name || row[key];
+        if (key === "batch_id") return row.batch_no || auditBatches.find((item) => Number(item.id) === Number(row[key]))?.batch_no || row[key];
         if (key === "quantity_type") return displayQuantityType(row[key]);
         if (key === "actions") return row.pending ? (
           <div className="icon-actions"><button className="icon-action danger-icon" type="button" title="Remove" aria-label="Remove" onClick={() => setPending((items) => items.filter((item) => item.id !== row.id))}><Trash2 size={18} /></button></div>
@@ -3836,7 +3866,6 @@ function OrderPurchasePage({ data, apiCall, reload, onError, openBatchModal }) {
       .filter((product) => referenceOrderPurchaseIndex(product) != null)
       .sort((left, right) => referenceOrderPurchaseIndex(left) - referenceOrderPurchaseIndex(right));
   }, [type]);
-  const matchingProducts = useMemo(() => orderPurchaseProducts(data.products.filter((product) => product.type === type && product.status !== "reported" && needsOrderPurchase(product))), [data.products, orderPurchaseProducts, type]);
   const loadProducts = useCallback(async () => {
     const params = new URLSearchParams({
       type,
@@ -3853,10 +3882,6 @@ function OrderPurchasePage({ data, apiCall, reload, onError, openBatchModal }) {
     setRows(orderedItems);
     setTotalRows(type === "medical" ? orderedItems.length : pageData.total);
   }, [apiCall, orderPurchaseProducts, page, pageSize, search, type]);
-  useEffect(() => {
-    setRows(matchingProducts.slice((page - 1) * pageSize, page * pageSize));
-    setTotalRows(matchingProducts.length);
-  }, [matchingProducts, page, pageSize]);
   useEffect(() => {
     const timer = setTimeout(() => {
       loadProducts().catch((error) => onError(error));
@@ -3896,25 +3921,29 @@ function OrderPurchasePage({ data, apiCall, reload, onError, openBatchModal }) {
       <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
       {orderProductTarget ? <OrderProductModal product={orderProductTarget} data={data} close={() => setOrderProductTarget(null)} apiCall={apiCall} reload={async () => { await reload(); await loadProducts(); }} onError={onError} /> : null}
       {receiveOrder ? <ReceiveOrderModal order={receiveOrder} data={data} close={() => setReceiveOrder(null)} apiCall={apiCall} reload={reload} onError={onError} /> : null}
-      {historyProduct ? <OrderPurchaseProductHistoryModal product={historyProduct} data={data} close={() => setHistoryProduct(null)} openBatchModal={openBatchModal} /> : null}
+      {historyProduct ? <OrderPurchaseProductHistoryModal product={historyProduct} data={data} apiCall={apiCall} onError={onError} close={() => setHistoryProduct(null)} openBatchModal={openBatchModal} /> : null}
     </section>
   );
 }
 
-function OrderPurchaseProductHistoryModal({ product, data, close, openBatchModal }) {
-  const normText = (value) => String(value || "").replace(/\s+/g, " ").trim().toLowerCase();
-  const productAliases = new Set([
-    normText(product.name),
-    normText(`${product.name || ""} ${product.dose || ""}`),
-  ]);
-  const productsById = new Map(data.products.map((item) => [Number(item.id), item]));
-  const batches = data.batches
-    .filter((batch) => {
-      if (Number(batch.product_id) === Number(product.id)) return true;
-      const batchProduct = productsById.get(Number(batch.product_id));
-      return batchProduct && productAliases.has(normText(batchProduct.name));
-    })
-    .sort((left, right) => String(left.expire_date || "").localeCompare(String(right.expire_date || "")) || String(left.batch_no || "").localeCompare(String(right.batch_no || "")));
+function OrderPurchaseProductHistoryModal({ product, data, apiCall, onError, close, openBatchModal }) {
+  const [batches, setBatches] = useState([]);
+  useEffect(() => {
+    let active = true;
+    const params = new URLSearchParams({ product_id: String(product.id), limit: "100", paged: "true" });
+    apiCall(`/api/batches?${params.toString()}`)
+      .then((result) => {
+        if (!active) return;
+        const pageData = unpackPaged(result);
+        setBatches(pageData.items.sort((left, right) => String(left.expire_date || "").localeCompare(String(right.expire_date || "")) || String(left.batch_no || "").localeCompare(String(right.batch_no || ""))));
+      })
+      .catch((error) => {
+        if (active) onError(error);
+      });
+    return () => {
+      active = false;
+    };
+  }, [apiCall, onError, product.id]);
   const totalQuantity = batches.reduce((sum, batch) => sum + Number(batch.stock_in || 0), 0) || Number(product.total_quantity || 0);
   const remainingQuantity = batches.reduce((sum, batch) => sum + Number(batch.stock_remaining || 0), 0) || Number(product.remaining_quantity || 0);
   const rows = batches.map((batch) => ({
@@ -3999,7 +4028,6 @@ function OrderProductModal({ product, data, close, apiCall, reload, onError }) {
 }
 
 function ReceiveOrderModal({ order, data, close, apiCall, reload, onError }) {
-  const product = data.products.find((row) => Number(row.id) === Number(order.product_id));
   const [form, setForm] = useState(() => ({
     batch_no: `PO-${order.id}-${Date.now().toString().slice(-4)}`,
     quantity: order.quantity || 1,
@@ -4049,7 +4077,7 @@ function ReceiveOrderModal({ order, data, close, apiCall, reload, onError }) {
       <form className="simple-modal" onSubmit={submit}>
         <div className="modal-head"><h2>Receive Order</h2><button type="button" onClick={close}><X /></button></div>
         <div className="simple-modal-body three">
-          <Field label="Product" value={product?.name || order.product_name || ""} onChange={() => {}} disabled />
+          <Field label="Product" value={order.product_name || ""} onChange={() => {}} disabled />
           <Field label="Batch No." required value={form.batch_no} onChange={(v) => set("batch_no", v)} placeholder="Enter batch no." />
           <Field label="Quantity" required type="number" value={form.quantity} onChange={(v) => set("quantity", v)} placeholder="Quantity" />
           <Field label="Units per box" type="number" value={form.units_per_box} onChange={(v) => set("units_per_box", v)} placeholder="Units per box" />
@@ -6497,7 +6525,7 @@ function hasAddBatchDraftContent(form, supplierQuery, productQuery) {
 function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError }) {
   const editing = !!row;
   const defaultForm = () => {
-    const product = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
+    const product = initialProduct || (row?.product_id ? { id: row.product_id, name: row.product_name, type: row.product_type } : null);
     const tabletsPerBox = row ? batchTabletsPerBox(row) : "";
     return {
       stock_out: 0,
@@ -6518,13 +6546,12 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     return initial.tablets_per_box || !hasOldDimensions ? initial : { ...initial, tablets_per_box: batchTabletsPerBox(initial) || "" };
   });
   const initialSupplier = data.suppliers.find((item) => Number(item.id) === Number(row?.supplier_id));
-  const selectedInitialProduct = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
+  const selectedInitialProduct = initialProduct || (row?.product_id ? { id: row.product_id, name: row.product_name } : null);
   const [supplierQuery, setSupplierQuery] = useState(storedDraft?.supplierQuery ?? initialSupplier?.name ?? row?.supplier_name ?? "");
   const [productQuery, setProductQuery] = useState(storedDraft?.productQuery ?? selectedInitialProduct?.name ?? row?.product_name ?? "");
   const [invoiceTouched, setInvoiceTouched] = useState(storedDraft?.invoiceTouched ?? Boolean(row?.supplier_invoice_no));
   const [quickAdd, setQuickAdd] = useState(null);
   const set = (key, value) => setForm((current) => ({ ...current, [key]: value }));
-  const productOptions = data.products;
 
   useEffect(() => {
     if (editing) return;
@@ -6555,10 +6582,25 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     return `${prefix}-${productId || "NEW"}-${Date.now().toString().slice(-6)}`;
   }
 
-  function latestSupplierInvoiceNo(supplierId) {
-    return [...data.batches]
+  async function latestSupplierInvoiceNo(supplierId) {
+    const localInvoice = [...data.batches]
       .filter((batch) => Number(batch.supplier_id) === Number(supplierId) && batch.supplier_invoice_no && batch.supplier_invoice_no !== "-")
       .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0) || Number(b.id || 0) - Number(a.id || 0))[0]?.supplier_invoice_no || "";
+    if (localInvoice) return localInvoice;
+    const params = new URLSearchParams({ supplier_id: String(supplierId), limit: "1", paged: "true" });
+    const pageData = unpackPaged(await apiCall(`/api/batches?${params.toString()}`));
+    const invoiceNo = pageData.items?.[0]?.supplier_invoice_no;
+    return invoiceNo && invoiceNo !== "-" ? invoiceNo : "";
+  }
+
+  async function selectBatchSupplier(supplier) {
+    try {
+      const latestInvoice = !editing && !invoiceTouched ? await latestSupplierInvoiceNo(supplier.id) : "";
+      setForm((current) => ({ ...current, supplier_id: supplier.id, supplier_invoice_no: latestInvoice || current.supplier_invoice_no }));
+      setSupplierQuery(supplier.name);
+    } catch (error) {
+      onError(error);
+    }
   }
 
   function calculatedStock(nextForm) {
@@ -6577,9 +6619,8 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
 
   async function submit(event) {
     event.preventDefault();
-    const matchedProduct = productOptions.find((product) => product.name.toLowerCase() === productQuery.trim().toLowerCase());
     const matchedSupplier = data.suppliers.find((supplier) => supplier.name.toLowerCase() === supplierQuery.trim().toLowerCase());
-    const productId = form.product_id || matchedProduct?.id;
+    const productId = form.product_id;
     const supplierId = form.supplier_id || matchedSupplier?.id;
     if (!productId) {
       onError(new Error("Select an existing product name or use + Add as New."));
@@ -6590,7 +6631,6 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     const units = 1;
     const items = tabletsPerBox;
     const stock = form.stock_in ? Number(form.stock_in) : boxes * tabletsPerBox;
-    const selectedProduct = data.products.find((product) => Number(product.id) === Number(productId));
     const batchNo = form.batch_no || generatedBatchNo(productId, form.supplier_invoice_no);
     const stockOut = editing ? Number(row.stock_out || 0) : 0;
     const stockRemaining = editing ? stock - stockOut : stock;
@@ -6620,7 +6660,7 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       batch_no: batchNo,
       supplier_id: nullableNumber(supplierId),
       supplier_invoice_no: form.supplier_invoice_no || null,
-      product_type: selectedProduct?.type || form.product_type || "medical",
+      product_type: form.product_type || "medical",
       box_quantity: nullableNumber(form.box_quantity),
       units_per_box: units,
       items_per_unit: items,
@@ -6665,15 +6705,11 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
         <div className="modal-head"><h2>{editing ? "Edit Batch" : "Add Batch"}</h2><button type="button" onClick={close}><X /></button></div>
         <div className="modal-body">
           <Field label="Supplier Invoice No." value={form.supplier_invoice_no || ""} onChange={(v) => { setInvoiceTouched(true); set("supplier_invoice_no", v); }} placeholder="Enter Invoice no. of Supplier" />
-          <LookupField label="Supplier" value={form.supplier_id || ""} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={(supplier) => {
-            const latestInvoice = latestSupplierInvoiceNo(supplier.id);
-            setForm((current) => ({ ...current, supplier_id: supplier.id, supplier_invoice_no: !editing && !invoiceTouched && latestInvoice ? latestInvoice : current.supplier_invoice_no }));
-            setSupplierQuery(supplier.name);
-          }} options={data.suppliers.filter((supplier) => supplier.status !== "inactive")} placeholder="Supplier" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} />
-          <LookupField label="Name" required value={form.product_id || ""} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={(product) => {
+          <LookupField label="Supplier" value={form.supplier_id || ""} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={selectBatchSupplier} options={data.suppliers.filter((supplier) => supplier.status !== "inactive")} placeholder="Supplier" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} />
+          <RemoteLookupField label="Name" required value={form.product_id || ""} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={(product) => {
             setForm((current) => ({ ...current, product_id: product.id, product_type: product.type || current.product_type || "medical" }));
             setProductQuery(product.name);
-          }} options={productOptions.filter((product) => product.status !== "reported")} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} />
+          }} apiCall={apiCall} endpoint="/api/products" params={{ status: "active" }} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} onError={onError} />
           <Field label="Total Boxes" type="number" value={form.box_quantity || ""} onChange={(v) => setStockDimension("box_quantity", v)} placeholder="Add no. of boxes" />
           <Field label="Tab. per box" type="number" value={form.tablets_per_box || ""} onChange={(v) => setStockDimension("tablets_per_box", v)} placeholder="Add tab. per box" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
@@ -6780,6 +6816,35 @@ function LookupField({ label, optional, required, value, query, onQueryChange, o
       <input type="hidden" value={value || ""} readOnly />
     </label>
   );
+}
+
+function RemoteLookupField({ apiCall, endpoint, query, params = {}, limit = 8, formatOption, onError, ...props }) {
+  const [options, setOptions] = useState([]);
+  const paramsKey = JSON.stringify(params);
+  useEffect(() => {
+    if (!apiCall || !endpoint) return undefined;
+    let active = true;
+    const timer = setTimeout(async () => {
+      try {
+        const requestParams = new URLSearchParams({ limit: String(limit) });
+        Object.entries(JSON.parse(paramsKey)).forEach(([key, value]) => {
+          if (value !== "" && value != null) requestParams.set(key, String(value));
+        });
+        if (query?.trim()) requestParams.set("q", query.trim());
+        const result = await apiCall(`${endpoint}?${requestParams.toString()}`);
+        if (!active) return;
+        const rows = Array.isArray(result) ? result : result?.items || [];
+        setOptions(rows.map((item) => ({ ...item, name: formatOption ? formatOption(item) : item.name })));
+      } catch (error) {
+        if (active) onError?.(error);
+      }
+    }, 150);
+    return () => {
+      active = false;
+      clearTimeout(timer);
+    };
+  }, [apiCall, endpoint, query, paramsKey, limit]);
+  return <LookupField {...props} query={query} options={options} />;
 }
 
 function QuickAddModal({ type, initialName, productType, close, apiCall, reload, onError, onCreated }) {

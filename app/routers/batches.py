@@ -35,6 +35,7 @@ def list_batches(
     added_by: Optional[int] = Query(default=None),
     updated_by: Optional[int] = Query(default=None),
     supplier_id: Optional[int] = Query(default=None),
+    product_id: Optional[int] = Query(default=None),
     date: Optional[date] = Query(default=None),
     date_from: Optional[date] = Query(default=None),
     date_to: Optional[date] = Query(default=None),
@@ -56,6 +57,8 @@ def list_batches(
         query = query.filter(Batch.updated_by == updated_by)
     if supplier_id is not None:
         query = query.filter(Batch.supplier_id == supplier_id)
+    if product_id is not None:
+        query = query.filter(Batch.product_id == product_id)
     if date is not None:
         query = query.filter(Batch.expire_date <= date)
     date_column = {

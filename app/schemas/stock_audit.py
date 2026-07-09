@@ -30,6 +30,8 @@ class StockAuditResponse(BaseModel):
     id: int
     product_id: int
     batch_id: int
+    product_name: Optional[str] = None
+    batch_no: Optional[str] = None
     quantity_type: str
     quantity_before: float
     quantity_adjusted: float

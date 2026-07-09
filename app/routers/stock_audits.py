@@ -2,7 +2,7 @@ from typing import Annotated, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import or_
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from app.core.security import CurrentUser
 from app.db.session import get_db
@@ -61,7 +61,7 @@ def list_stock_audits(
     limit: int = 100,
     paged: bool = False,
 ):
-    query = db.query(StockAudit)
+    query = db.query(StockAudit).options(selectinload(StockAudit.product), selectinload(StockAudit.batch))
     if q:
         search = f"%{q.strip()}%"
         query = (
