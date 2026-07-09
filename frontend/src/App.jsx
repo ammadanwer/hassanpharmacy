@@ -184,8 +184,8 @@ const routeCoreDataKeys = {
   nonmedicines: ["categories", "manufacturers", "pharmacyProfile"],
   purchases: ["pharmacyProfile"],
   supplier: ["suppliers", "pharmacyProfile"],
-  "supplier-details": ["suppliers", "batches", "pharmacyProfile"],
-  "supplier-invoice": ["suppliers", "batches", "pharmacyProfile"],
+  "supplier-details": ["suppliers", "pharmacyProfile"],
+  "supplier-invoice": ["suppliers", "pharmacyProfile"],
   category: ["categories", "pharmacyProfile"],
   medicineformula: ["formulas", "pharmacyProfile"],
   manufacturer: ["manufacturers", "pharmacyProfile"],
@@ -584,8 +584,8 @@ export default function App() {
           {route === "medicines" && <ProductsPage type="medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "nonmedicines" && <ProductsPage type="non-medical" initialStockFilter={productRouteFilter} data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "supplier" && <CrudPage config={crudConfigs.supplier} rows={data.suppliers} openModal={(row = null) => setCrudModal({ type: "supplier", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} setRoute={setRoute} />}
-          {route === "supplier-details" && <SupplierDetailsPage data={data} setRoute={setRoute} />}
-          {route === "supplier-invoice" && <SupplierInvoicePage data={data} setRoute={setRoute} />}
+          {route === "supplier-details" && <SupplierDetailsPage data={data} apiCall={apiCall} onError={handleApiError} setRoute={setRoute} />}
+          {route === "supplier-invoice" && <SupplierInvoicePage data={data} apiCall={apiCall} onError={handleApiError} setRoute={setRoute} />}
           {route === "category" && <CrudPage config={crudConfigs.category} rows={data.categories} openModal={(row = null) => setCrudModal({ type: "category", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "medicineformula" && <CrudPage config={crudConfigs.medicineformula} rows={data.formulas} openModal={(row = null) => setCrudModal({ type: "medicineformula", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
           {route === "manufacturer" && <CrudPage config={crudConfigs.manufacturer} rows={data.manufacturers} openModal={(row = null) => setCrudModal({ type: "manufacturer", row })} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
@@ -2773,56 +2773,24 @@ function currentQueryParam(name) {
   return new URLSearchParams(window.location.search).get(name) || "";
 }
 
-function supplierInvoiceKey(batch) {
-  const value = String(batch?.supplier_invoice_no || "").trim();
-  return value && value !== "-" ? value : "No Invoice";
-}
-
-function batchCostTotal(batch) {
-  const explicitTotal = Number(batch.total_cost || 0);
-  if (explicitTotal) return explicitTotal;
-  return Number(batch.cost_price || 0) * Number(batch.stock_in || 0);
-}
-
-function batchSaleValue(batch) {
-  return Number(batch.sell_price || 0) * Number(batch.stock_in || 0);
-}
-
-function batchExpectedProfit(batch) {
-  return batchSaleValue(batch) - batchCostTotal(batch);
-}
-
-function SupplierDetailsPage({ data, setRoute }) {
+function SupplierDetailsPage({ data, apiCall, onError, setRoute }) {
   const supplierId = Number(currentQueryParam("supplier_id"));
   const supplier = data.suppliers.find((item) => Number(item.id) === supplierId);
-  const batches = data.batches.filter((batch) => Number(batch.supplier_id) === supplierId);
-  const invoiceRows = Object.values(batches.reduce((groups, batch) => {
-    const invoiceKey = supplierInvoiceKey(batch);
-    if (!groups[invoiceKey]) {
-      groups[invoiceKey] = {
-        id: invoiceKey,
-        invoice_no: invoiceKey,
-        invoice_key: invoiceKey,
-        batches_count: 0,
-        stock_in: 0,
-        stock_remaining: 0,
-        total_cost: 0,
-        sale_value: 0,
-        expected_profit: 0,
-        latest_date: "",
-      };
-    }
-    const row = groups[invoiceKey];
-    row.batches_count += 1;
-    row.stock_in += Number(batch.stock_in || 0);
-    row.stock_remaining += Number(batch.stock_remaining || 0);
-    row.total_cost += batchCostTotal(batch);
-    row.sale_value += batchSaleValue(batch);
-    row.expected_profit += batchExpectedProfit(batch);
-    const dateValue = batch.reference_created_at || batch.created_at || "";
-    if (dateValue && (!row.latest_date || new Date(dateValue) > new Date(row.latest_date))) row.latest_date = dateValue;
-    return groups;
-  }, {})).sort((a, b) => new Date(b.latest_date || 0) - new Date(a.latest_date || 0) || a.invoice_no.localeCompare(b.invoice_no));
+  const [invoiceRows, setInvoiceRows] = useState([]);
+  useEffect(() => {
+    if (!supplierId) return undefined;
+    let active = true;
+    apiCall(`/api/suppliers/${supplierId}/invoice-summary`)
+      .then((rows) => {
+        if (active) setInvoiceRows(rows || []);
+      })
+      .catch((error) => {
+        if (active) onError(error);
+      });
+    return () => {
+      active = false;
+    };
+  }, [apiCall, onError, supplierId]);
 
   if (!supplier) {
     return (
@@ -2864,19 +2832,26 @@ function SupplierDetailsPage({ data, setRoute }) {
   );
 }
 
-function SupplierInvoicePage({ data, setRoute }) {
+function SupplierInvoicePage({ data, apiCall, onError, setRoute }) {
   const supplierId = Number(currentQueryParam("supplier_id"));
   const invoiceNo = currentQueryParam("invoice_no") || "No Invoice";
   const supplier = data.suppliers.find((item) => Number(item.id) === supplierId);
-  const batches = data.batches
-    .filter((batch) => Number(batch.supplier_id) === supplierId && supplierInvoiceKey(batch) === invoiceNo)
-    .map((batch) => ({
-      ...batch,
-      invoice_no: supplierInvoiceKey(batch),
-      tablets_per_box: batchTabletsPerBox(batch),
-      sale_value: batchSaleValue(batch),
-      expected_profit: batchExpectedProfit(batch),
-    }));
+  const [batches, setBatches] = useState([]);
+  useEffect(() => {
+    if (!supplierId) return undefined;
+    let active = true;
+    const params = new URLSearchParams({ invoice_no: invoiceNo });
+    apiCall(`/api/suppliers/${supplierId}/invoice-batches?${params.toString()}`)
+      .then((rows) => {
+        if (active) setBatches(rows || []);
+      })
+      .catch((error) => {
+        if (active) onError(error);
+      });
+    return () => {
+      active = false;
+    };
+  }, [apiCall, invoiceNo, onError, supplierId]);
   const columns = [
     ["batch_no", "Batch No."],
     ["product_name", "Name"],
