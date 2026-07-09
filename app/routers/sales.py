@@ -16,7 +16,7 @@ from app.models.reference_product_sale import ReferenceProductSale
 from app.models.reference_product_sale_invoice import ReferenceProductSaleInvoice
 from app.models.sale import PaymentMethod, Sale, SaleStatus
 from app.models.sale_item import SaleItem
-from app.schemas.batch import BatchCreate, BatchUpdate, BatchResponse
+from app.models.shelf import Shelf
 from app.schemas.sale import (
     PagedProductSaleInvoiceHistoryResponse,
     PagedProductSalesHistoryResponse,
@@ -25,6 +25,7 @@ from app.schemas.sale import (
     ProductSalesHistoryRow,
     SaleCreate,
     SaleResponse,
+    SaleSearchBatchResponse,
     SalesSummaryResponse,
     SaleUpdate,
 )
@@ -59,6 +60,58 @@ def sale_item_payable(amount: float, discount_amount: Optional[float], discount_
     else:
         discount_value = 0
     return max(0, amount_value - discount_value)
+
+
+@router.get("/api/sale-search", response_model=list[SaleSearchBatchResponse])
+def sale_search(
+    db: Annotated[Session, Depends(get_db)],
+    current_user: CurrentUser,
+    q: str = Query(default="", min_length=1),
+    limit: int = Query(default=20, ge=1, le=50),
+):
+    search_text = q.strip()
+    search = f"%{search_text}%"
+    rows = (
+        db.query(
+            Batch.id,
+            Batch.product_id,
+            func.coalesce(Batch.reference_product_name, Product.name).label("product_name"),
+            Product.barcode.label("product_barcode"),
+            Batch.batch_no,
+            Batch.barcode,
+            Batch.shelf_id,
+            Shelf.name.label("shelf_name"),
+            Batch.stock_remaining,
+            Batch.sell_price,
+            Batch.cost_price,
+            Batch.boxes_price,
+            Batch.units_per_box,
+            Batch.items_per_unit,
+            Batch.status,
+        )
+        .outerjoin(Product, Batch.product_id == Product.id)
+        .outerjoin(Shelf, Batch.shelf_id == Shelf.id)
+        .filter(
+            Batch.status == BatchStatus.active,
+            Batch.stock_remaining > 0,
+            or_(Product.status.is_(None), Product.status != "reported"),
+            or_(
+                Batch.batch_no.ilike(search),
+                Batch.barcode.ilike(search),
+                Batch.reference_batch_no.ilike(search),
+                Batch.reference_product_name.ilike(search),
+                Product.name.ilike(search),
+                Product.barcode.ilike(search),
+                Product.brand_name.ilike(search),
+                Product.generic_name.ilike(search),
+                Product.medicine_formula.ilike(search),
+            ),
+        )
+        .order_by(Batch.reference_sort_order.is_(None), Batch.reference_sort_order.asc(), Batch.id.desc())
+        .limit(limit)
+        .all()
+    )
+    return [SaleSearchBatchResponse(**row._mapping) for row in rows]
 
 
 def invoice_number(db: Session, prefix: str) -> str:

@@ -82,3 +82,31 @@ class PagedBatchResponse(BaseModel):
     total: int
     skip: int = 0
     limit: int = 50
+
+
+class BatchTableRow(BaseModel):
+    id: int
+    batch_no: str
+    reference_batch_no: Optional[str] = None
+    supplier_invoice_no: Optional[str] = None
+    shelf_name: Optional[str] = None
+    product_name: Optional[str] = None
+    stock_in: int = 0
+    stock_out: int = 0
+    stock_remaining: int = 0
+    sell_price: Optional[float] = None
+    cost_price: Optional[float] = None
+    total_cost: Optional[float] = None
+    expire_date: Optional[date] = None
+    reference_sell_price_display: Optional[str] = None
+    reference_cost_price_display: Optional[str] = None
+    status: BatchStatus = BatchStatus.active
+
+
+class PagedBatchTableResponse(BaseModel):
+    items: list[BatchTableRow]
+    total: int
+    skip: int = 0
+    limit: int = 50
+    expired_count: int = 0
+    near_expiry_count: int = 0

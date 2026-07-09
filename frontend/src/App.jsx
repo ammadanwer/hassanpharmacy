@@ -169,6 +169,8 @@ const referenceNonMedicalOrderPurchaseDose = new Map([
 const pathRoutes = Object.fromEntries(Object.entries(routePaths).map(([route, path]) => [path, route]));
 
 const routeCoreDataKeys = {
+  dashboard: ["pharmacyProfile"],
+  newsale: ["returnPolicies", "pharmacyProfile"],
   batch: ["staff", "pharmacyProfile"],
   saleshistory: ["pharmacyProfile"],
   returnhistory: ["pharmacyProfile"],
@@ -552,9 +554,9 @@ export default function App() {
         </header>
         {notice ? <div className="notice">{notice}</div> : null}
         <section className="content">
-          {route === "dashboard" && <Dashboard data={data} setRoute={setRoute} apiCall={apiCall} onError={handleApiError} />}
-          {route === "newsale" && <NewSale data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} reload={loadCoreData} />}
-          {route === "batch" && <BatchPage data={data} initialAlertFilter={batchRouteAlertFilter} openModal={(row = null) => setBatchModal({ row })} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
+          {route === "dashboard" && <Dashboard setRoute={setRoute} apiCall={apiCall} onError={handleApiError} />}
+          {route === "newsale" && <NewSale data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} />}
+          {route === "batch" && <BatchPage data={data} initialAlertFilter={batchRouteAlertFilter} openModal={(row = null) => setBatchModal({ row })} apiCall={apiCall} onError={handleApiError} />}
           {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} />}
           {route === "saleshistory" && <SalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "returnhistory" && <ReturnHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
@@ -582,7 +584,7 @@ export default function App() {
           {route === "technicalhelp" && <TechnicalHelpPage setRoute={setRoute} />}
         </section>
       </main>
-      {batchModal ? <BatchModal data={data} row={batchModal.row} initialProduct={batchModal.product} close={() => setBatchModal(null)} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} /> : null}
+      {batchModal ? <BatchModal data={data} row={batchModal.row} initialProduct={batchModal.product} close={() => setBatchModal(null)} apiCall={apiCall} reload={async () => { await loadCoreData(); window.dispatchEvent(new CustomEvent("batch-table-refresh")); }} onError={handleApiError} /> : null}
       {crudModal ? <CrudModal config={crudConfigs[crudModal.type]} row={crudModal.row} close={() => setCrudModal(null)} apiCall={apiCall} reload={loadCoreData} onError={handleApiError} /> : null}
       {profileOpen ? <PharmacyProfileModal profile={pharmacyProfile} close={() => setProfileOpen(false)} apiCall={apiCall} onError={handleApiError} onSave={savePharmacyProfile} /> : null}
     </div>
@@ -921,75 +923,34 @@ function Sidebar({ routes, route, setRoute, openGroups, setOpenGroups, collapsed
   );
 }
 
-function Dashboard({ data, setRoute, apiCall, onError }) {
+function Dashboard({ setRoute, apiCall, onError }) {
   const [reportMonth, setReportMonth] = useState(() => today().slice(0, 7));
-  const [todaySummary, setTodaySummary] = useState(null);
-  const [monthSummary, setMonthSummary] = useState(null);
-  const activeSales = data.sales.filter((sale) => sale.status !== "draft");
-  const activeProducts = data.products.filter((product) => product.status !== "reported");
-  const activeBatches = data.batches.filter((batch) => batch.status !== "reported");
-  const todaySales = activeSales.filter((sale) => sale.date === today());
-  const monthSales = activeSales.filter((sale) => String(sale.date || "").startsWith(reportMonth));
-  const monthOptions = useMemo(() => {
-    const fromSales = activeSales.map((sale) => String(sale.date || "").slice(0, 7)).filter(Boolean);
-    return [...new Set([...recentMonthOptions(), ...fromSales])].sort().reverse();
-  }, [activeSales]);
+  const [summary, setSummary] = useState(null);
+  const monthOptions = useMemo(() => recentMonthOptions(), []);
   const monthSelectOptions = monthOptions.map((month) => ({ id: month, name: formatMonth(month) }));
-  const currentMonth = today().slice(0, 7);
-  const currentMonthStart = `${currentMonth}-01`;
-  const currentMonthEnd = `${currentMonth}-${String(new Date(Number(currentMonth.slice(0, 4)), Number(currentMonth.slice(5, 7)), 0).getDate()).padStart(2, "0")}`;
-  const todayDate = today();
   useEffect(() => {
     if (!apiCall) return;
     const timer = setTimeout(async () => {
       try {
-        const todayParams = new URLSearchParams({ date_from: today(), date_to: today() });
-        const monthParams = new URLSearchParams({ date_from: currentMonthStart, date_to: currentMonthEnd });
-        const [dayTotals, monthTotals] = await Promise.all([
-          apiCall(`/api/reports/sales-summary?${todayParams.toString()}`),
-          apiCall(`/api/reports/sales-summary?${monthParams.toString()}`),
-        ]);
-        setTodaySummary(dayTotals);
-        setMonthSummary(monthTotals);
+        const params = new URLSearchParams({ report_month: reportMonth });
+        setSummary(await apiCall(`/api/dashboard-summary?${params.toString()}`));
       } catch (error) {
         onError?.(error);
       }
     }, 150);
     return () => clearTimeout(timer);
-  }, [apiCall, currentMonthEnd, currentMonthStart, onError]);
-  const todayRevenue = todaySummary ? Number(todaySummary.net_sales || 0) : todaySales.reduce((sum, row) => sum + Number(row.total_payable || 0), 0);
-  const monthRevenue = monthSummary ? Number(monthSummary.net_sales || 0) : activeSales.filter((sale) => String(sale.date || "").startsWith(currentMonth)).reduce((sum, row) => sum + Number(row.total_payable || 0), 0);
-  const monthPending = monthSummary ? Number(monthSummary.pending || 0) : activeSales.filter((sale) => String(sale.date || "").startsWith(currentMonth)).reduce((sum, row) => sum + Number(row.due || 0), 0);
-  const soldThisMonth = monthSales.reduce((sum, sale) => sum + (sale.items || []).reduce((itemSum, item) => itemSum + Number(item.total_qty || 0), 0), 0);
-  const reportSold = soldThisMonth;
-  const reportInvoices = monthSales.length;
-  const medicalProducts = activeProducts.filter((product) => product.type === "medical").length;
-  const nonMedicalProducts = activeProducts.filter((product) => product.type === "non-medical").length;
-  const totalCost = activeBatches.reduce((sum, batch) => sum + Number(batch.total_cost || 0), 0);
-  const totalExpectedProfit = activeBatches.reduce((sum, batch) => sum + batchExpectedProfit(batch), 0);
-  const shortage = activeProducts.filter((product) => Number(product.remaining_quantity || 0) <= 0).length;
-  const expiredBatches = activeBatches.filter((batch) => batch.expire_date && batch.expire_date < todayDate);
-  const batchesInStock = activeBatches.filter((batch) => Number(batch.stock_remaining || 0) > 0).length;
-  const batchesOutOfStock = activeBatches.filter((batch) => Number(batch.stock_remaining || 0) <= 0).length;
-  const expiredRows = expiredBatches
-    .slice()
-    .sort((left, right) => String(left.expire_date || "").localeCompare(String(right.expire_date || "")))
-    .slice(0, 5);
-  const soldCounts = new Map();
-  activeSales.forEach((sale) => (sale.items || []).forEach((item) => {
-    const name = item.product_name || item.reference_receipt_name || item.reference_product_name;
-    if (name) soldCounts.set(name, (soldCounts.get(name) || 0) + Number(item.total_qty || 0));
-  }));
-  const frequentItems = [...soldCounts.entries()].sort((left, right) => right[1] - left[1]).slice(0, 3).map(([name]) => name).join(", ") || "-";
+  }, [apiCall, reportMonth]);
+  const dashboard = summary || {};
+  const expiredRows = dashboard.expired_rows || [];
   return (
     <>
       <section className="kpis">
-        <Kpi tone="mint" icon={<CircleDollarSign />} value={`Rs. ${referenceMoney(todayRevenue)}`} label="Today's Net Sale" />
-        <Kpi tone="cream" icon={<Calendar />} value={`Rs. ${referenceMoney(monthRevenue)}`} label="Monthly Revenue" sub={`Pending: ${referenceMoney(monthPending)}`} actionLabel="VIEW DETAILS" onAction={() => setRoute("saleshistory")} />
-        <Kpi tone="lavender" icon={<Grid2X2 />} value={formatCompactNumber(activeProducts.length)} label="All Products" sub={`Medical: ${formatCompactNumber(medicalProducts)} | Non-Medical: ${formatCompactNumber(nonMedicalProducts)}`} />
-        <Kpi tone="peach" icon={<Plus />} value={referenceMoney(totalCost)} label="Total Cost" />
-        <Kpi tone="mint" icon={<CircleDollarSign />} value={`Rs. ${referenceMoney(totalExpectedProfit)}`} label="Total Expected Profit" />
-        <article className="shortage"><strong>{formatCompactNumber(shortage)}</strong><span>Medicine Shortage</span><button onClick={() => setRoute("medicines", { stockFilter: "low_stock" })}>Resolve Now &raquo;</button></article>
+        <Kpi tone="mint" icon={<CircleDollarSign />} value={`Rs. ${referenceMoney(dashboard.today_net_sales)}`} label="Today's Net Sale" />
+        <Kpi tone="cream" icon={<Calendar />} value={`Rs. ${referenceMoney(dashboard.month_revenue)}`} label="Monthly Revenue" sub={`Pending: ${referenceMoney(dashboard.month_pending)}`} actionLabel="VIEW DETAILS" onAction={() => setRoute("saleshistory")} />
+        <Kpi tone="lavender" icon={<Grid2X2 />} value={formatCompactNumber(dashboard.all_products)} label="All Products" sub={`Medical: ${formatCompactNumber(dashboard.medical_products)} | Non-Medical: ${formatCompactNumber(dashboard.non_medical_products)}`} />
+        <Kpi tone="peach" icon={<Plus />} value={referenceMoney(dashboard.total_cost)} label="Total Cost" />
+        <Kpi tone="mint" icon={<CircleDollarSign />} value={`Rs. ${referenceMoney(dashboard.total_expected_profit)}`} label="Total Expected Profit" />
+        <article className="shortage"><strong>{formatCompactNumber(dashboard.shortage)}</strong><span>Medicine Shortage</span><button onClick={() => setRoute("medicines", { stockFilter: "low_stock" })}>Resolve Now &raquo;</button></article>
       </section>
       <section className="dashboard-grid">
         <Panel title="List of Expired Medicine Batch">
@@ -1001,17 +962,17 @@ function Dashboard({ data, setRoute, apiCall, onError }) {
         <Panel title="Quick Monthly Report">
           <div className="month-select"><SelectField hideLabel label="Quick Monthly Report Month" value={reportMonth} onChange={setReportMonth} options={monthSelectOptions} placeholder="Select Month" /></div>
           <div className="quick-report two">
-            <div><strong>{formatCompactNumber(reportSold)}</strong><span>Qty of Products Sold</span></div>
-            <div><strong>{formatCompactNumber(reportInvoices)}</strong><span>Invoices Generated</span></div>
+            <div><strong>{formatCompactNumber(dashboard.report_sold)}</strong><span>Qty of Products Sold</span></div>
+            <div><strong>{formatCompactNumber(dashboard.report_invoices)}</strong><span>Invoices Generated</span></div>
           </div>
         </Panel>
         <Panel title="Medicine Batches Overview" className="dashboard-wide">
           <div className="panel-link-row"><button className="text-button" type="button" onClick={() => setRoute("batch")}>Go To Batch Management &raquo;</button></div>
           <div className="quick-report four">
-            <div><strong>{formatCompactNumber(batchesInStock)}</strong><span>Batches in Stock</span></div>
-            <div><strong>{formatCompactNumber(batchesOutOfStock)}</strong><span>Batches out of Stock</span></div>
-            <div><strong>{formatCompactNumber(expiredBatches.length)}</strong><span>Expired Batches</span></div>
-            <div><strong>{frequentItems}</strong><span>Frequently bought Item(s)</span></div>
+            <div><strong>{formatCompactNumber(dashboard.batches_in_stock)}</strong><span>Batches in Stock</span></div>
+            <div><strong>{formatCompactNumber(dashboard.batches_out_of_stock)}</strong><span>Batches out of Stock</span></div>
+            <div><strong>{formatCompactNumber(dashboard.expired_batches)}</strong><span>Expired Batches</span></div>
+            <div><strong>{dashboard.frequent_items || "-"}</strong><span>Frequently bought Item(s)</span></div>
           </div>
         </Panel>
       </section>
@@ -1173,7 +1134,7 @@ function readStoredSaleWorkspaces() {
   }
 }
 
-function NewSale({ data, apiCall, onError, setNotice, reload }) {
+function NewSale({ data, apiCall, onError, setNotice }) {
   const [saleTab, setSaleTab] = useState("new");
   const [initialSaleWorkspaceState] = useState(readStoredSaleWorkspaces);
   const [saleWorkspaces, setSaleWorkspaces] = useState(() => initialSaleWorkspaceState.workspaces);
@@ -1251,13 +1212,33 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   const setCustomAmount = makeWorkspaceSetter("customAmount");
   const saleItems = activeWorkspace.saleItems;
   const setSaleItems = makeWorkspaceSetter("saleItems");
-  const suggestions = useMemo(() => {
-    const q = query.toLowerCase();
-    return data.batches.filter((batch) => {
-      const product = data.products.find((p) => p.id === batch.product_id);
-      return Number(batch.stock_remaining || 0) > 0 && (!q || product?.name?.toLowerCase().includes(q) || product?.barcode?.toLowerCase().includes(q) || batch.batch_no?.toLowerCase().includes(q) || batch.barcode?.toLowerCase().includes(q));
-    }).slice(0, 8);
-  }, [data, query]);
+  const [suggestions, setSuggestions] = useState([]);
+  const [saleSearchLoading, setSaleSearchLoading] = useState(false);
+  useEffect(() => {
+    const searchText = query.trim();
+    if (entryMode !== "product" || !showSuggestions || !searchText) {
+      setSuggestions([]);
+      setSaleSearchLoading(false);
+      return undefined;
+    }
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      setSaleSearchLoading(true);
+      try {
+        const params = new URLSearchParams({ q: searchText, limit: "8" });
+        const rows = await apiCall(`/api/sale-search?${params.toString()}`);
+        if (!cancelled) setSuggestions(Array.isArray(rows) ? rows : []);
+      } catch (error) {
+        if (!cancelled) onError(error);
+      } finally {
+        if (!cancelled) setSaleSearchLoading(false);
+      }
+    }, 180);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [apiCall, entryMode, query, showSuggestions]);
   useEffect(() => {
     setActiveSuggestionIndex((index) => Math.max(0, Math.min(index, Math.max(suggestions.length - 1, 0))));
   }, [suggestions.length]);
@@ -1481,26 +1462,27 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
   }
 
   function selectBatch(batch) {
-    const product = data.products.find((p) => p.id === batch.product_id);
     updateActiveWorkspace({ selectedBatch: batch, selectedBatchId: batch.id });
-    setQuery(product?.name || "");
-    setBarcode(batch.barcode || product?.barcode || "");
+    setQuery(batch.product_name || "");
+    setBarcode(batch.barcode || batch.product_barcode || "");
     setShowSuggestions(false);
   }
 
-  function changeBarcode(value) {
+  async function changeBarcode(value) {
     setBarcode(value);
-    const q = value.trim().toLowerCase();
+    const q = value.trim();
     if (!q) {
       updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
       return;
     }
     updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null });
-    const directBatchMatch = data.batches.find((batch) => Number(batch.stock_remaining || 0) > 0 && batch.barcode && String(batch.barcode).toLowerCase() === q);
-    const productMatch = data.products.find((product) => product.barcode && String(product.barcode).toLowerCase() === q);
-    const productBatchMatch = productMatch ? data.batches.find((batch) => Number(batch.product_id) === Number(productMatch.id) && Number(batch.stock_remaining || 0) > 0 && batch.status !== "reported") : null;
-    const match = directBatchMatch || productBatchMatch;
-    if (match) selectBatch(match);
+    try {
+      const params = new URLSearchParams({ q, limit: "1" });
+      const rows = await apiCall(`/api/sale-search?${params.toString()}`);
+      if (rows?.[0]) selectBatch(rows[0]);
+    } catch (error) {
+      onError(error);
+    }
   }
 
   function calculateItem(base, discountSource = "auto") {
@@ -1535,7 +1517,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       setValidationMessage("Please complete all fields");
       return false;
     }
-    const product = data.products.find((p) => p.id === batch.product_id);
     const quantity = Number(qty || 1);
     if (quantity <= 0) {
       onError(new Error("Enter a valid quantity."));
@@ -1557,7 +1538,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     setSaleItems([...saleItems, calculateItem({
       batch_id: batch.id,
       product_id: batch.product_id,
-      product_name: product?.name || "-",
+      product_name: batch.product_name || "-",
       batch_no: batch.batch_no,
       shelf_name: batch.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch.shelf_id))?.name || "-",
       sale_type: selectedSaleType,
@@ -1701,7 +1682,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       setCheckoutDiscountPercent("");
       setReceiveNow("");
       setSalesPin("");
-      await reload();
       setInvoiceSale(createdSale);
     } catch (error) {
       onError(error);
@@ -1728,7 +1708,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
       setSaleTab("draft");
       setSaleListPage(1);
       setSaleListPageSize(10);
-      await reload();
     } catch (error) {
       onError(error);
     }
@@ -1821,7 +1800,6 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
     try {
       await apiCall(`/api/draft-sales/${sale.id}`, { method: "DELETE" });
       if (currentDraftId === sale.id) setCurrentDraftId(null);
-      await reload();
       await loadSaleList();
     } catch (error) {
       onError(error);
@@ -1910,9 +1888,8 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
               <td className="suggest-cell">
                 <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
                 {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
-                  const product = data.products.find((p) => p.id === batch.product_id);
-                  return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{product?.name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
-                }) : <div className="empty-small">No products found</div>}</div> : null}
+                  return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{batch.product_name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
+                }) : <div className="empty-small">{saleSearchLoading ? "Searching..." : "No products found"}</div>}</div> : null}
               </td>
               <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
               <td>
@@ -1939,7 +1916,7 @@ function NewSale({ data, apiCall, onError, setNotice, reload }) {
                 <td>{item.product_name}</td>
                 <td>{saleItemShelf(item)}</td>
                 <td>{item.item_type === "custom" ? "-" : item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
-                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_patta ?? (Number(item.total_qty || 0) / batchItemsPerPatta(data.batches.find((batch) => Number(batch.id) === Number(item.batch_id)))))}</td>
+                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_patta ?? item.total_qty)}</td>
                 <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_units)}</td>
                 <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.total_qty)}</td>
                 {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
@@ -2371,7 +2348,7 @@ function SalesHistoryDetailsModal({ sale, data, close }) {
   );
 }
 
-function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, onError }) {
+function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, onError }) {
   const [search, setSearch] = useState("");
   const [statusTab, setStatusTab] = useState("active");
   const [dateMode, setDateMode] = useState("single");
@@ -2389,11 +2366,12 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   const [rows, setRows] = useState([]);
   const [totalRows, setTotalRows] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [refreshTick, setRefreshTick] = useState(0);
+  const [alertCounts, setAlertCounts] = useState({ expired: 0, near: 0 });
   const todayDate = today();
   const nearExpiryDate = addDays(todayDate, 180);
-  const activeBatches = data.batches.filter((batch) => batch.status !== "reported");
-  const expiredCount = activeBatches.filter((batch) => batch.expire_date && batch.expire_date < todayDate).length;
-  const nearExpiryCount = activeBatches.filter((batch) => batch.expire_date && batch.expire_date >= todayDate && batch.expire_date <= nearExpiryDate).length;
+  const expiredCount = alertCounts.expired;
+  const nearExpiryCount = alertCounts.near;
   function batchQueryParams(overrides = {}) {
     const dataPageSize = overrides.limit ?? pageSize;
     const params = new URLSearchParams({
@@ -2449,10 +2427,11 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
     setLoading(true);
     const timer = setTimeout(async () => {
       try {
-        const pageData = unpackPaged(await apiCall(`/api/batches?${batchQueryParams().toString()}`));
+        const pageData = unpackPaged(await apiCall(`/api/batches/table?${batchQueryParams().toString()}`));
         if (cancelled) return;
         setRows(pageData.items);
         setTotalRows(pageData.total);
+        setAlertCounts({ expired: Number(pageData.expired_count || 0), near: Number(pageData.near_expiry_count || 0) });
       } catch (error) {
         if (cancelled) return;
         onError(error);
@@ -2464,7 +2443,12 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [apiCall, onError, statusTab, dateMode, date, dateFrom, dateTo, dateField, stockFilter, search, filterAddedBy, filterUpdatedBy, actorId, page, pageSize]);
+  }, [apiCall, onError, statusTab, dateMode, date, dateFrom, dateTo, dateField, stockFilter, search, filterAddedBy, filterUpdatedBy, actorId, page, pageSize, refreshTick]);
+  useEffect(() => {
+    const refresh = () => setRefreshTick((value) => value + 1);
+    window.addEventListener("batch-table-refresh", refresh);
+    return () => window.removeEventListener("batch-table-refresh", refresh);
+  }, []);
   const columns = [
     ["supplier_invoice_no", "Supplier Invoice no."],
     ["shelf_name", "Shelf No."],
@@ -2475,17 +2459,14 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
     ["sell_price", "Sell Price"],
     ["cost_price", "Cost Price"],
     ["total_cost", "Total Cost"],
-    ["production_date", "Production Date"],
     ["expire_date", "Expire Date"],
-    ["created_at", "Created at"],
-    ["supplier_name", "Supplier Name"],
     ["actions", "Actions"],
   ];
   async function deleteBatch(row) {
     if (!window.confirm(`Report batch ${row.batch_no}?`)) return;
     try {
       await apiCall(`/api/batches/${row.id}`, { method: "DELETE" });
-      await reload();
+      setRefreshTick((value) => value + 1);
     } catch (error) {
       onError(error);
     }
@@ -2496,8 +2477,15 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
         method: "PUT",
         body: JSON.stringify({ status: "active" }),
       });
-      await reload();
       setStatusTab("active");
+      setRefreshTick((value) => value + 1);
+    } catch (error) {
+      onError(error);
+    }
+  }
+  async function editBatch(row) {
+    try {
+      openModal(await apiCall(`/api/batches/${row.id}`));
     } catch (error) {
       onError(error);
     }
@@ -2566,7 +2554,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
   async function printBatchHistory() {
     try {
       const limit = Math.max(totalRows, rows.length, pageSize, 1);
-      const pageData = unpackPaged(await apiCall(`/api/batches?${batchQueryParams({ skip: 0, limit }).toString()}`));
+      const pageData = unpackPaged(await apiCall(`/api/batches/table?${batchQueryParams({ skip: 0, limit }).toString()}`));
       const printRows = pageData.items.length ? [...pageData.items, makeBatchSummaryRow(pageData.items)] : [];
       printTable("Batch History", printRows, columns, { formatValue: formatBatchPrintCell, profile: data.pharmacyProfile });
     } catch (error) {
@@ -2643,7 +2631,7 @@ function BatchPage({ data, initialAlertFilter = "", openModal, apiCall, reload, 
         </div>
       </div>
       <div className="batch-table-wrap">
-        <DataTable columns={columns} rows={initialBatchLoad ? [] : tableRows} emptyText={initialBatchLoad ? "Loading batches..." : "No Data Found"} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => openModal(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
+        <DataTable columns={columns} rows={initialBatchLoad ? [] : tableRows} emptyText={initialBatchLoad ? "Loading batches..." : "No Data Found"} render={(row, key) => row.__summary ? formatBatchCell(row, key) : key === "actions" ? <BatchActions row={row} onEdit={() => editBatch(row)} onReport={() => deleteBatch(row)} onRestore={() => restoreBatch(row)} /> : formatBatchCell(row, key)} />
       </div>
       <PaginationFooter page={page} pageSize={pageSize} rowCount={totalRows} currentCount={rows.length} totalKnown onPageChange={setPage} onPageSizeChange={(value) => { setPageSize(value); setPage(1); }} />
     </section>

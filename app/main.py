@@ -44,6 +44,7 @@ from app.routers import (
     batches,
     categories,
     customers,
+    dashboard,
     demands,
     expense_categories,
     expenses,
@@ -104,6 +105,7 @@ async def enforce_staff_permissions(request: Request, call_next):
 
 
 app.include_router(auth.router)
+app.include_router(dashboard.router)
 app.include_router(sales.router)
 app.include_router(returns.router)
 app.include_router(batches.router)

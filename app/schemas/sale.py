@@ -146,3 +146,21 @@ class SalesSummaryResponse(BaseModel):
     total_cost: float = 0
     net_revenue: float = 0
     pending: float = 0
+
+
+class SaleSearchBatchResponse(BaseModel):
+    id: int
+    product_id: int
+    product_name: str
+    product_barcode: Optional[str] = None
+    batch_no: str
+    barcode: Optional[str] = None
+    shelf_id: Optional[int] = None
+    shelf_name: Optional[str] = None
+    stock_remaining: int = 0
+    sell_price: Optional[float] = None
+    cost_price: Optional[float] = None
+    boxes_price: Optional[float] = None
+    units_per_box: Optional[int] = None
+    items_per_unit: Optional[int] = None
+    status: str = "active"

@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from typing import Annotated, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -12,7 +12,7 @@ from app.models.batch import Batch, BatchStatus
 from app.models.product import Product
 from app.models.shelf import Shelf
 from app.models.supplier import Supplier
-from app.schemas.batch import BatchCreate, BatchUpdate, BatchResponse, PagedBatchResponse
+from app.schemas.batch import BatchCreate, BatchUpdate, BatchResponse, BatchTableRow, PagedBatchResponse, PagedBatchTableResponse
 
 router = APIRouter()
 
@@ -118,6 +118,103 @@ def apply_batch_search(query, query_text: Optional[str]):
                 Shelf.name.ilike(search),
             )
         )
+    )
+
+
+@router.get("/api/batches/table", response_model=PagedBatchTableResponse)
+def list_batch_table(
+    db: Annotated[Session, Depends(get_db)],
+    current_user: CurrentUser,
+    status: Optional[BatchStatus] = Query(default=None),
+    added_by: Optional[int] = Query(default=None),
+    updated_by: Optional[int] = Query(default=None),
+    date_from: Optional[date] = Query(default=None),
+    date_to: Optional[date] = Query(default=None),
+    date_field: str = Query(default="created_at"),
+    stock_filter: Optional[str] = Query(default=None),
+    query_text: Optional[str] = Query(default=None, alias="q"),
+    skip: int = 0,
+    limit: int = 50,
+):
+    query = (
+        db.query(
+            Batch.id,
+            Batch.batch_no,
+            Batch.reference_batch_no,
+            Batch.supplier_invoice_no,
+            Shelf.name.label("shelf_name"),
+            func.coalesce(Batch.reference_product_name, Product.name).label("product_name"),
+            Batch.stock_in,
+            Batch.stock_out,
+            Batch.stock_remaining,
+            Batch.sell_price,
+            Batch.cost_price,
+            Batch.total_cost,
+            Batch.expire_date,
+            Batch.reference_sell_price_display,
+            Batch.reference_cost_price_display,
+            func.coalesce(Batch.status, BatchStatus.active).label("status"),
+        )
+        .outerjoin(Product, Batch.product_id == Product.id)
+        .outerjoin(Supplier, Batch.supplier_id == Supplier.id)
+        .outerjoin(Shelf, Batch.shelf_id == Shelf.id)
+    )
+    if status == BatchStatus.active:
+        query = query.filter(or_(Batch.status == BatchStatus.active, Batch.status.is_(None)))
+    elif status:
+        query = query.filter(Batch.status == status)
+    if added_by is not None:
+        query = query.filter(Batch.added_by == added_by)
+    if updated_by is not None:
+        query = query.filter(Batch.updated_by == updated_by)
+    date_column = {
+        "created_at": func.date(Batch.created_at),
+        "expire_date": Batch.expire_date,
+        "production_date": Batch.production_date,
+        "purchase_date": Batch.batch_purchase_date,
+    }.get(date_field, func.date(Batch.created_at))
+    if date_from is not None:
+        query = query.filter(date_column >= date_from)
+    if date_to is not None:
+        query = query.filter(date_column <= date_to)
+    if stock_filter == "in_stock":
+        query = query.filter(Batch.stock_remaining > 0)
+    elif stock_filter == "out_of_stock":
+        query = query.filter(Batch.stock_remaining <= 0)
+    elif stock_filter == "shortage":
+        query = query.filter(Batch.stock_remaining > 0, Batch.stock_remaining <= 10)
+    if query_text:
+        search = f"%{query_text.strip()}%"
+        query = query.filter(
+            or_(
+                Batch.batch_no.ilike(search),
+                Batch.barcode.ilike(search),
+                Batch.supplier_invoice_no.ilike(search),
+                Product.name.ilike(search),
+                Product.medicine_formula.ilike(search),
+                Supplier.name.ilike(search),
+                Shelf.name.ilike(search),
+            )
+        )
+
+    today = date.today()
+    active_status = or_(Batch.status == BatchStatus.active, Batch.status.is_(None))
+    expired_count = db.query(func.count(Batch.id)).filter(active_status, Batch.expire_date < today).scalar() or 0
+    near_expiry_count = (
+        db.query(func.count(Batch.id))
+        .filter(active_status, Batch.expire_date >= today, Batch.expire_date <= today + timedelta(days=180))
+        .scalar()
+        or 0
+    )
+    total = query.count()
+    rows = query.order_by(Batch.reference_sort_order.is_(None), Batch.reference_sort_order.asc(), desc(Batch.id)).offset(skip).limit(limit).all()
+    return PagedBatchTableResponse(
+        items=[BatchTableRow(**row._mapping) for row in rows],
+        total=total,
+        skip=skip,
+        limit=limit,
+        expired_count=expired_count,
+        near_expiry_count=near_expiry_count,
     )
 
 
