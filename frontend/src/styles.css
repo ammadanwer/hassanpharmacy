@@ -2841,6 +2841,8 @@ main {
   height: min(858px, calc(100vh - 72px));
   max-height: calc(100vh - 32px);
   max-width: 1000px;
+  overflow-x: visible;
+  overflow-y: auto;
   width: min(100%, 1000px);
 }
 
@@ -3217,6 +3219,10 @@ main {
   align-content: start;
 }
 
+.batch-modal .modal-body {
+  overflow: visible;
+}
+
 .modal-body label {
   display: grid;
   font-size: 18px;
@@ -3546,6 +3552,14 @@ main {
   justify-content: space-between;
   min-height: 58px;
   padding: 8px 16px 14px;
+}
+
+.batch-modal .modal-actions {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  bottom: 0;
+  position: sticky;
+  z-index: 3;
 }
 
 .show-more {
