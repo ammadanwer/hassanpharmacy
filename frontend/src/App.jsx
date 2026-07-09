@@ -1021,16 +1021,20 @@ function Panel({ title, children, className = "" }) {
 
 const SALE_QUANTITY_TYPE_OPTIONS = [
   { value: "Box", label: "Box" },
-  { value: "Patta", label: "Patta" },
-  { value: "Goli", label: "Goli" },
+  { value: "Tablet", label: "Tab." },
 ];
-const DEFAULT_SALE_QUANTITY_TYPE = "Goli";
+const DEFAULT_SALE_QUANTITY_TYPE = "Tablet";
 
 function normalizeQuantityType(value) {
   const type = String(value || "").toLowerCase();
   if (type === "box") return "Box";
   if (type === "patta") return "Patta";
-  return "Goli";
+  return "Tablet";
+}
+
+function displayQuantityType(value) {
+  const type = normalizeQuantityType(value);
+  return type === "Box" ? "Box" : "Tab.";
 }
 
 function batchItemsPerPatta(batch) {
@@ -1040,6 +1044,12 @@ function batchItemsPerPatta(batch) {
 function batchGoliPerBox(batch) {
   const pattasPerBox = Number(batch?.units_per_box || 1) || 1;
   return pattasPerBox * batchItemsPerPatta(batch);
+}
+
+function batchTabletsPerBox(batch) {
+  const explicit = Number(batch?.tablets_per_box || 0);
+  if (explicit) return explicit;
+  return batchGoliPerBox(batch);
 }
 
 function quantityTypeGoliMultiplier(batch, quantityType) {
@@ -1192,18 +1202,12 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   const paid = activeWorkspace.paid;
   const setPaid = makeWorkspaceSetter("paid");
   const checkoutOpen = activeWorkspace.checkoutOpen;
-  const doctorName = activeWorkspace.doctorName;
-  const setDoctorName = makeWorkspaceSetter("doctorName");
-  const showCustomer = activeWorkspace.showCustomer;
-  const setShowCustomer = makeWorkspaceSetter("showCustomer");
   const customer = activeWorkspace.customer;
   const setCustomer = makeWorkspaceSetter("customer");
   const checkoutDiscountAmount = activeWorkspace.checkoutDiscountAmount;
   const setCheckoutDiscountAmount = makeWorkspaceSetter("checkoutDiscountAmount");
   const checkoutDiscountPercent = activeWorkspace.checkoutDiscountPercent;
   const setCheckoutDiscountPercent = makeWorkspaceSetter("checkoutDiscountPercent");
-  const receiveNow = activeWorkspace.receiveNow;
-  const setReceiveNow = makeWorkspaceSetter("receiveNow");
   const salesPin = activeWorkspace.salesPin;
   const setSalesPin = makeWorkspaceSetter("salesPin");
   const customDescription = activeWorkspace.customDescription || "";
@@ -1249,11 +1253,9 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   const totalDiscount = roundMoney(lineDiscount + checkoutDiscount);
   const totalDiscountPercent = grossAmount ? roundPercent((totalDiscount / grossAmount) * 100) : 0;
   const checkoutPayable = Math.max(0, payable - checkoutDiscount);
-  const checkoutReceived = Number(receiveNow || 0);
-  const returnedCash = Math.max(0, checkoutReceived - checkoutPayable);
   const salesPinRequired = Boolean(data.pharmacyProfile?.pin_required ?? data.pharmacyProfile?.pinRequired);
-  const canGenerateInvoice = receiveNow !== "" && (!salesPinRequired || salesPin.trim().length > 0);
-  const saleEntryFieldOrder = ["customerName", "product", "qty", "add"];
+  const canGenerateInvoice = !salesPinRequired || salesPin.trim().length > 0;
+  const saleEntryFieldOrder = ["customerName", "customerPhone", "product", "qty", "add"];
   function focusSaleEntryField(field) {
     requestAnimationFrame(() => saleEntryRefs.current[field]?.focus?.());
   }
@@ -1279,6 +1281,11 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     const productSuggestionsOpen = field === "product" && showSuggestions && suggestions.length > 0;
     if (field === "customerName" && event.key === "Enter") {
       event.preventDefault();
+      focusSaleEntryField("customerPhone");
+      return;
+    }
+    if (field === "customerPhone" && event.key === "Enter") {
+      event.preventDefault();
       focusSaleEntryField("product");
       return;
     }
@@ -1295,11 +1302,6 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     if (productSuggestionsOpen && event.key === "Enter") {
       event.preventDefault();
       chooseSaleSuggestion(suggestions[activeSuggestionIndex] || suggestions[0]);
-      return;
-    }
-    if (field === "product" && event.key === "ArrowDown") {
-      event.preventDefault();
-      focusSaleEntryField("receiveNow");
       return;
     }
     if (event.key === "ArrowDown") {
@@ -1527,14 +1529,18 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     const boxUnitMultiplier = batchGoliPerBox(batch);
     const saleMultiplier = quantityTypeGoliMultiplier(batch, selectedSaleType);
     const totalQty = quantity * saleMultiplier;
-    if (totalQty > Number(batch.stock_remaining || 0)) {
-      onError(new Error(`Only ${formatCompactNumber(batch.stock_remaining)} goli are available in this batch.`));
+    const batchStockRemaining = Number(batch.stock_remaining || 0);
+    const currentSaleBatchQty = saleItems
+      .filter((item) => item.item_type !== "custom" && Number(item.batch_id) === Number(batch.id))
+      .reduce((sum, item) => sum + Number(item.total_qty || item.qt_in_units || 0), 0);
+    const availableAfterCurrentSale = batchStockRemaining - currentSaleBatchQty;
+    if (totalQty > availableAfterCurrentSale) {
+      onError(new Error(`Only ${formatCompactNumber(Math.max(0, availableAfterCurrentSale))} tab. are available in this batch after the current sale items.`));
       return false;
     }
-    const goliRate = Number(batch.sell_price || 0);
-    const pattaRate = goliRate * itemsPerUnit;
-    const boxRate = Number(batch.boxes_price || goliRate * boxUnitMultiplier || goliRate);
-    const rate = selectedSaleType === "Box" ? boxRate : selectedSaleType === "Patta" ? pattaRate : goliRate;
+    const tabletRate = Number(batch.sell_price || 0);
+    const boxRate = Number(batch.boxes_price || tabletRate * boxUnitMultiplier || tabletRate);
+    const rate = selectedSaleType === "Box" ? boxRate : tabletRate;
     setSaleItems([...saleItems, calculateItem({
       batch_id: batch.id,
       product_id: batch.product_id,
@@ -1543,9 +1549,10 @@ function NewSale({ data, apiCall, onError, setNotice }) {
       shelf_name: batch.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch.shelf_id))?.name || "-",
       sale_type: selectedSaleType,
       qt_in_box: selectedSaleType === "Box" ? quantity : boxUnitMultiplier ? Number((totalQty / boxUnitMultiplier).toFixed(2)) : 0,
-      qt_in_patta: selectedSaleType === "Patta" ? quantity : itemsPerUnit ? Number((totalQty / itemsPerUnit).toFixed(2)) : 0,
+      qt_in_patta: itemsPerUnit ? Number((totalQty / itemsPerUnit).toFixed(2)) : 0,
       qt_in_units: totalQty,
       total_qty: totalQty,
+      stock_remaining_before_sale: batchStockRemaining,
       pricing_qty: quantity,
       cost_price: Number(batch.cost_price || 0),
       rate,
@@ -1615,11 +1622,11 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     const discountAmount = Number(overrides.discountAmount ?? 0);
     const discountPercent = overrides.discountPercent ?? null;
     const totalPayable = Number(overrides.totalPayable ?? Math.max(0, totalAmount - discountAmount));
-    const amountPaid = Number(overrides.paidAmount ?? paid ?? 0);
+    const amountPaid = Number(overrides.paidAmount ?? totalPayable);
     return {
       customer_name: overrides.customerName ?? customer.name ?? "Walk-in",
       customer_phone: overrides.customerPhone ?? customer.phone ?? null,
-      doctor_name: doctorName.trim() || null,
+      doctor_name: null,
       date: overrides.date ?? today(),
       time: overrides.time ?? nowTime(),
       total_amount: totalAmount,
@@ -1649,10 +1656,10 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     };
   }
 
-  async function generateInvoice() {
+  async function generateInvoice({ showInvoice = true } = {}) {
     if (!saleItems.length) return;
     if (!canGenerateInvoice) {
-      setValidationMessage(salesPinRequired && !salesPin.trim() ? "Enter sales PIN before printing invoice" : "Enter received amount before printing invoice");
+      setValidationMessage("Enter sales PIN before printing invoice");
       return;
     }
     try {
@@ -1665,7 +1672,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
           discountAmount: totalDiscount,
           discountPercent: totalDiscount ? totalDiscountPercent : null,
           totalPayable: checkoutPayable,
-          paidAmount: checkoutReceived,
+          paidAmount: checkoutPayable,
           date: editingSaleSnapshot?.date,
           time: editingSaleSnapshot?.time,
         })),
@@ -1675,14 +1682,11 @@ function NewSale({ data, apiCall, onError, setNotice }) {
       setEditingSaleSnapshot(null);
       setSaleItems([]);
       setPaid("");
-      setDoctorName("");
       setCustomer({ name: "Walk-in", phone: "" });
-      setShowCustomer(false);
       setCheckoutDiscountAmount("");
       setCheckoutDiscountPercent("");
-      setReceiveNow("");
       setSalesPin("");
-      setInvoiceSale(createdSale);
+      if (showInvoice) setInvoiceSale(createdSale);
     } catch (error) {
       onError(error);
     }
@@ -1713,8 +1717,14 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     }
   }
 
-  function loadSaleItems(sale) {
-    setSaleItems((sale.items || []).map((item) => {
+  function loadSaleItems(sale, { stockAlreadyDeducted = false } = {}) {
+    const saleItemsToLoad = sale.items || [];
+    const deductedByBatch = saleItemsToLoad.reduce((totals, item) => {
+      if ((item.item_type || "").toLowerCase() === "custom" || !item.batch_id) return totals;
+      totals.set(Number(item.batch_id), (totals.get(Number(item.batch_id)) || 0) + Number(item.total_qty || item.qt_in_units || 0));
+      return totals;
+    }, new Map());
+    setSaleItems(saleItemsToLoad.map((item) => {
       if ((item.item_type || "").toLowerCase() === "custom") {
         return {
           item_type: "custom",
@@ -1738,11 +1748,12 @@ function NewSale({ data, apiCall, onError, setNotice }) {
         };
       }
       const batch = data.batches.find((batchRow) => Number(batchRow.id) === Number(item.batch_id));
-      const saleItemType = normalizeQuantityType(item.sale_type || (Number(item.qt_in_box || 0) > 0 && Number(item.qt_in_units || 0) === 0 ? "Box" : "Goli"));
+      const saleItemType = normalizeQuantityType(item.sale_type || (Number(item.qt_in_box || 0) > 0 && Number(item.qt_in_units || 0) === 0 ? "Box" : "Tablet"));
       const totalQty = Number(item.total_qty || 0);
       const pattaQty = batchItemsPerPatta(batch) ? Number((totalQty / batchItemsPerPatta(batch)).toFixed(2)) : 0;
       const boxQty = batchGoliPerBox(batch) ? Number((totalQty / batchGoliPerBox(batch)).toFixed(2)) : Number(item.qt_in_box || 0);
       const pricingQty = saleItemType === "Box" ? Number(item.qt_in_box || boxQty || 0) : saleItemType === "Patta" ? pattaQty : totalQty;
+      const stockRemainingBeforeSale = Number(batch?.stock_remaining || 0) + (stockAlreadyDeducted ? Number(deductedByBatch.get(Number(item.batch_id)) || 0) : 0);
       return {
         batch_id: item.batch_id,
         product_id: item.product_id,
@@ -1755,6 +1766,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
         qt_in_patta: pattaQty,
         qt_in_units: Number(item.qt_in_units || totalQty || 0),
         total_qty: totalQty,
+        stock_remaining_before_sale: stockRemainingBeforeSale,
         pricing_qty: pricingQty,
         cost_price: Number(item.cost_price || 0),
         rate: Number(item.rate || 0),
@@ -1769,11 +1781,9 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   function resumeSale(sale) {
     loadSaleItems(sale);
     setPaid(sale.paid || "");
-    setDoctorName(sale.doctor_name || "");
     setCustomer({ name: sale.customer_name || "Walk-in", phone: sale.customer_phone || "" });
     setCheckoutDiscountAmount(sale.discount_amount || "");
     setCheckoutDiscountPercent(sale.discount_percent || "");
-    setReceiveNow(sale.paid || "");
     setSalesPin("");
     setCurrentDraftId(sale.id);
     setEditingSaleId(null);
@@ -1782,13 +1792,11 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   }
 
   function editExistingSale(sale) {
-    loadSaleItems(sale);
+    loadSaleItems(sale, { stockAlreadyDeducted: true });
     setPaid(sale.paid || "");
-    setDoctorName(sale.doctor_name || "");
     setCustomer({ name: sale.customer_name || "Walk-in", phone: sale.customer_phone || "" });
     setCheckoutDiscountAmount(sale.discount_amount || "");
     setCheckoutDiscountPercent(sale.discount_percent || "");
-    setReceiveNow(sale.paid || "");
     setSalesPin("");
     setCurrentDraftId(null);
     setEditingSaleId(sale.id);
@@ -1817,6 +1825,16 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     return batch?.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch?.shelf_id))?.name || "-";
   }
 
+  function saleItemRemainingAfterCurrentSale(item) {
+    if (item.item_type === "custom" || !item.batch_id) return null;
+    const batch = data.batches.find((batchRow) => Number(batchRow.id) === Number(item.batch_id));
+    const startingStock = Number(item.stock_remaining_before_sale ?? batch?.stock_remaining ?? 0);
+    const currentSaleBatchQty = saleItems
+      .filter((saleItem) => saleItem.item_type !== "custom" && Number(saleItem.batch_id) === Number(item.batch_id))
+      .reduce((sum, saleItem) => sum + Number(saleItem.total_qty || saleItem.qt_in_units || 0), 0);
+    return Math.max(0, startingStock - currentSaleBatchQty);
+  }
+
   useEffect(() => {
     function handlePrintShortcut(event) {
       if (!(event.ctrlKey || event.metaKey)) return;
@@ -1825,17 +1843,15 @@ function NewSale({ data, apiCall, onError, setNotice }) {
       if (saleTab !== "new") return;
       event.preventDefault();
       if (!saleItems.length) {
-        setValidationMessage(shortcutKey === "s" ? "Add at least one item before saving draft" : "Add at least one item before printing invoice");
+        setValidationMessage(shortcutKey === "s" ? "Add at least one item before recording sale" : "Add at least one item before printing invoice");
         return;
       }
       if (shortcutKey === "s") {
-        saveDraft({
-          totalAmount: grossAmount,
-          discountAmount: totalDiscount,
-          discountPercent: totalDiscount ? totalDiscountPercent : null,
-          totalPayable: checkoutPayable,
-          paidAmount: checkoutReceived,
-        });
+        if (!canGenerateInvoice) {
+          setValidationMessage("Enter sales PIN before recording sale");
+          return;
+        }
+        generateInvoice({ showInvoice: false });
         return;
       }
       if (invoiceSale) {
@@ -1843,14 +1859,14 @@ function NewSale({ data, apiCall, onError, setNotice }) {
         return;
       }
       if (!canGenerateInvoice) {
-        setValidationMessage(salesPinRequired && !salesPin.trim() ? "Enter sales PIN before printing invoice" : "Enter received amount before printing invoice");
+        setValidationMessage("Enter sales PIN before printing invoice");
         return;
       }
       generateInvoice();
     }
     window.addEventListener("keydown", handlePrintShortcut);
     return () => window.removeEventListener("keydown", handlePrintShortcut);
-  }, [saleTab, saleItems, invoiceSale, invoicePolicy, data, canGenerateInvoice, salesPinRequired, salesPin, generateInvoice, saveDraft, grossAmount, totalDiscount, totalDiscountPercent, checkoutPayable, checkoutReceived]);
+  }, [saleTab, saleItems, invoiceSale, invoicePolicy, data, canGenerateInvoice, generateInvoice]);
 
   function renderSaleEditor({ inline = false, showCost = !inline } = {}) {
     const tableColSpan = showCost ? 13 : 12;
@@ -1859,7 +1875,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
       discountAmount: totalDiscount,
       discountPercent: totalDiscount ? totalDiscountPercent : null,
       totalPayable: checkoutPayable,
-      paidAmount: checkoutReceived,
+      paidAmount: checkoutPayable,
     };
     return (
       <>
@@ -1871,6 +1887,10 @@ function NewSale({ data, apiCall, onError, setNotice }) {
         <label className="sale-customer-inline">
           <span>Customer Name <small>(Optional)</small></span>
           <input ref={(node) => { saleEntryRefs.current.customerName = node; }} placeholder="Customer Name" value={customer.name === "Walk-in" ? "" : customer.name} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerName")} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value || "Walk-in" }))} />
+        </label>
+        <label className="sale-customer-inline">
+          <span>Customer Phone <small>(Optional)</small></span>
+          <input ref={(node) => { saleEntryRefs.current.customerPhone = node; }} placeholder="Customer Phone" value={customer.phone || ""} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerPhone")} onChange={(event) => setCustomer((current) => ({ ...current, phone: event.target.value }))} />
         </label>
         {entryMode === "custom" ? (
           <table className="entry-table">
@@ -1911,14 +1931,14 @@ function NewSale({ data, apiCall, onError, setNotice }) {
           <div className="sale-items-title">{inline ? "Sales Items List" : "Purchased Items List"}</div>
           {inline && editingSaleSnapshot?.date ? <div className="sale-edit-date">{formatDisplayDate(editingSaleSnapshot.date)}</div> : null}
           <div className="sale-items-table-wrap">
-            <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Shelf</th><th>Qt in Box</th><th>Qt in Patta</th><th>Qt in Goli</th><th>Total Quantity (Goli)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
+            <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Shelf</th><th>Qt in Box</th><th>Qt in Tab.</th><th>Total Quantity (Tab.)</th><th>Remaining Stock (Tab.)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
               <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.item_type || "product"}-${item.batch_id || "custom"}-${index}`}>
                 <td>{item.product_name}</td>
                 <td>{saleItemShelf(item)}</td>
                 <td>{item.item_type === "custom" ? "-" : item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
-                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_patta ?? item.total_qty)}</td>
                 <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_units)}</td>
                 <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.total_qty)}</td>
+                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(saleItemRemainingAfterCurrentSale(item))}</td>
                 {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
                 <td><input className="table-input" type="number" min="0" value={item.rate} onChange={(event) => updateSaleItem(index, { rate: event.target.value })} /></td>
                 <td>{plainMoney(item.amount)}</td>
@@ -1931,14 +1951,6 @@ function NewSale({ data, apiCall, onError, setNotice }) {
           {saleItems.length ? <>
             <section className="sale-payment-panel">
               <div className="sale-payment-left">
-                <label className="doctor-field compact">
-                  <span>Doctor Name(Optional)</span>
-                  <input value={doctorName} placeholder="Doctor Name" onChange={(event) => setDoctorName(event.target.value)} />
-                </label>
-                <button className="customer-toggle compact" type="button" onClick={() => setShowCustomer((value) => !value)}><Plus size={18} /> Add Customer Phone</button>
-                {showCustomer ? <div className="customer-details compact">
-                  <input placeholder="Phone" value={customer.phone} onChange={(event) => setCustomer((current) => ({ ...current, phone: event.target.value }))} />
-                </div> : null}
                 <div className="checkout-discount">
                   <span>Add Discount</span>
                   <input type="number" min="0" placeholder="RS." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
@@ -1948,9 +1960,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
               <div className="sale-payment-right">
                 <div className="sale-total"><span>Total Amount</span><strong>Rs. {plainMoney(payable)}</strong></div>
                 <div className="payable-line"><span>Payable Amount</span><strong>RS. {money(checkoutPayable)}</strong></div>
-                <label className="receive-now"><span>Receive Now:</span><input ref={(node) => { saleEntryRefs.current.receiveNow = node; }} type="number" min="0" placeholder="Payment" value={receiveNow} onChange={(event) => setReceiveNow(event.target.value)} /></label>
                 {salesPinRequired ? <label className="receive-now"><span>Sales PIN:</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
-                <div className="returned-cash"><strong>Returned Cash:</strong> RS. {money(returnedCash)}</div>
                 <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" onClick={() => saveDraft(draftOverrides)}>Save as a Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice} onClick={generateInvoice}>Generate Invoice</button></div>
               </div>
             </section>
@@ -2200,7 +2210,7 @@ function InvoiceModal({ sale, data, close }) {
             <span>{formatInvoiceDate(sale)}</span>
           </div>
           <table>
-            <thead><tr><th>Item(s)</th><th>QTY (Goli)</th><th>Price</th><th>Amt</th></tr></thead>
+            <thead><tr><th>Item(s)</th><th>QTY (Tab.)</th><th>Price</th><th>Amt</th></tr></thead>
             <tbody>{items.length ? <>
               {items.map((item, index) => (
                 <tr key={item.id || index}>
@@ -2327,7 +2337,7 @@ function SalesHistoryDetailsModal({ sale, data, close }) {
           </> : null}
           <h4>Purchase Item List</h4>
           <table className="data-table">
-            <thead><tr><th>Batch no.</th><th>Product Name</th><th>QTY Sold (Goli)</th><th>QTY Returned</th><th>Rate/Sell Price</th><th>Amount</th></tr></thead>
+            <thead><tr><th>Batch no.</th><th>Product Name</th><th>QTY Sold (Tab.)</th><th>QTY Returned</th><th>Rate/Sell Price</th><th>Amount</th></tr></thead>
             <tbody>{items.length ? items.map((item, index) => (
               <tr key={item.id || index}>
                 <td>{item.batch_no}</td>
@@ -2847,6 +2857,7 @@ function SupplierInvoicePage({ data, setRoute }) {
     .map((batch) => ({
       ...batch,
       invoice_no: supplierInvoiceKey(batch),
+      tablets_per_box: batchTabletsPerBox(batch),
       sale_value: batchSaleValue(batch),
       expected_profit: batchExpectedProfit(batch),
     }));
@@ -2854,8 +2865,7 @@ function SupplierInvoicePage({ data, setRoute }) {
     ["batch_no", "Batch No."],
     ["product_name", "Name"],
     ["box_quantity", "Total Boxes"],
-    ["units_per_box", "Pattas/Box"],
-    ["items_per_unit", "Goli/Patta"],
+    ["tablets_per_box", "Tab./Box"],
     ["stock_in", "Total Stock"],
     ["stock_remaining", "Remaining Stock"],
     ["cost_price", "Cost Price"],
@@ -3531,13 +3541,13 @@ function DemandPage({ data, apiCall, reload, onError }) {
 function StockAuditPage({ data, apiCall, reload, onError }) {
   const auditTypeOptions = SALE_QUANTITY_TYPE_OPTIONS.map((option) => ({ id: option.value, name: option.label }));
   const adjustmentTypeOptions = [{ id: "Increase", name: "Increase" }, { id: "Decrease", name: "Decrease" }];
-  const [form, setForm] = useState({ product_id: "", batch_id: "", quantity_type: "Goli", quantity_adjusted: "", adjustment_type: "Increase" });
+  const [form, setForm] = useState({ product_id: "", batch_id: "", quantity_type: "Tablet", quantity_adjusted: "", adjustment_type: "Increase" });
   const [pending, setPending] = useState([]);
   const [editingAudit, setEditingAudit] = useState(null);
   const [search, setSearch] = useState("");
   const [productQuery, setProductQuery] = useState("");
   const [batchQuery, setBatchQuery] = useState("");
-  const [quantityTypeQuery, setQuantityTypeQuery] = useState("Goli");
+  const [quantityTypeQuery, setQuantityTypeQuery] = useState("Tablet");
   const [adjustmentTypeQuery, setAdjustmentTypeQuery] = useState("Increase");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
@@ -3586,10 +3596,10 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     setAdjustmentTypeQuery(option.name);
   }
   function resetAuditForm() {
-    setForm({ product_id: "", batch_id: "", quantity_type: "Goli", quantity_adjusted: "", adjustment_type: "Increase" });
+    setForm({ product_id: "", batch_id: "", quantity_type: "Tablet", quantity_adjusted: "", adjustment_type: "Increase" });
     setProductQuery("");
     setBatchQuery("");
-    setQuantityTypeQuery("Goli");
+    setQuantityTypeQuery("Tablet");
     setAdjustmentTypeQuery("Increase");
   }
   function projectedStockForBatch(batchId) {
@@ -3612,7 +3622,7 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
     }
     const matchedQuantityType = auditTypeOptions.find((option) => option.name.toLowerCase() === quantityTypeQuery.trim().toLowerCase());
     const matchedAdjustmentType = adjustmentTypeOptions.find((option) => option.name.toLowerCase() === adjustmentTypeQuery.trim().toLowerCase());
-    const quantityType = normalizeQuantityType(form.quantity_type || matchedQuantityType?.id || quantityTypeQuery.trim() || "Goli");
+    const quantityType = normalizeQuantityType(form.quantity_type || matchedQuantityType?.id || quantityTypeQuery.trim() || "Tablet");
     const adjustmentType = form.adjustment_type || matchedAdjustmentType?.id || adjustmentTypeQuery.trim() || "Increase";
     const effectiveQuantity = quantity * quantityTypeGoliMultiplier(batch, quantityType);
     let before = projectedStockForBatch(form.batch_id);
@@ -3664,7 +3674,8 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
   function editAudit(row) {
     const batch = data.batches.find((item) => Number(item.id) === Number(row.batch_id));
     const product = data.products.find((item) => Number(item.id) === Number(row.product_id));
-    const quantityType = normalizeQuantityType(row.quantity_type || "Goli");
+    const storedQuantityType = normalizeQuantityType(row.quantity_type || "Tablet");
+    const quantityType = storedQuantityType === "Patta" ? "Tablet" : storedQuantityType;
     const enteredQuantity = Number(row.quantity_adjusted || 0) / quantityTypeGoliMultiplier(batch, quantityType);
     setEditingAudit(row);
     setProductQuery(product?.name || nameById(data.products, row.product_id));
@@ -3735,7 +3746,7 @@ function StockAuditPage({ data, apiCall, reload, onError }) {
       <DataTable columns={[["product_id", "Product Name"], ["batch_id", "Batch No."], ["quantity_type", "Quantity Type"], ["quantity_before", "Quantity Before"], ["quantity_adjusted", "Quantity Adjusted"], ["quantity_after", "Quantity After"], ["adjustment_type", "Adjustment Type"], ["amount", "Amount"], ["actions", "Actions"]]} rows={rows} render={(row, key) => {
         if (key === "product_id") return nameById(data.products, row[key]);
         if (key === "batch_id") return batchNo(data.batches, row[key]);
-        if (key === "quantity_type") return normalizeQuantityType(row[key]);
+        if (key === "quantity_type") return displayQuantityType(row[key]);
         if (key === "actions") return row.pending ? (
           <div className="icon-actions"><button className="icon-action danger-icon" type="button" title="Remove" aria-label="Remove" onClick={() => setPending((items) => items.filter((item) => item.id !== row.id))}><Trash2 size={18} /></button></div>
         ) : <CrudIconActions onEdit={() => editAudit(row)} onDelete={() => deleteAudit(row)} />;
@@ -3908,6 +3919,7 @@ function OrderPurchaseProductHistoryModal({ product, data, close, openBatchModal
   const remainingQuantity = batches.reduce((sum, batch) => sum + Number(batch.stock_remaining || 0), 0) || Number(product.remaining_quantity || 0);
   const rows = batches.map((batch) => ({
     ...batch,
+    tablets_per_box: batchTabletsPerBox(batch),
     total_quantity: batch.stock_in,
     shelf_display: batch.shelf_name || data.shelves.find((shelf) => Number(shelf.id) === Number(batch.shelf_id))?.name || "-",
   }));
@@ -3923,7 +3935,7 @@ function OrderPurchaseProductHistoryModal({ product, data, close, openBatchModal
           />
           <h3>Batches List</h3>
           <DataTable
-            columns={[["batch_no", "Batch No."], ["box_quantity", "Total boxes"], ["units_per_box", "Units per box"], ["items_per_unit", "Items per unit"], ["total_quantity", "Total Qt."], ["cost_price", "Cost price"], ["sell_price", "Sell price"], ["shelf_display", "Shelf No."], ["expire_date", "Exp. Date"], ["actions", "Actions"]]}
+            columns={[["batch_no", "Batch No."], ["box_quantity", "Total boxes"], ["tablets_per_box", "Tab./box"], ["total_quantity", "Total Qt."], ["cost_price", "Cost price"], ["sell_price", "Sell price"], ["shelf_display", "Shelf No."], ["expire_date", "Exp. Date"], ["actions", "Actions"]]}
             rows={rows}
             emptyText="No Data Found"
             render={(row, key) => {
@@ -6126,7 +6138,7 @@ function printInvoiceReceipt(sale, policy, data, targetWindow = null) {
             <span>C. By: Admin</span>
             <span>${htmlEscape(formatInvoiceDate(sale))}</span>
           </div>
-          <table><thead><tr><th>Item(s)</th><th>QTY (Goli)</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
+          <table><thead><tr><th>Item(s)</th><th>QTY (Tab.)</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
           <div class="total"><span>Total Items: ${items.length}</span></div>
           <div class="total"><span>Gross Total:</span><strong>Rs. ${htmlEscape(money(totals.gross))}</strong></div>
           <div class="total"><span>Discount:</span><strong>Rs. ${htmlEscape(money(totals.discount))}</strong></div>
@@ -6433,21 +6445,19 @@ function clearAddBatchDraft() {
 
 const priceBasisOptions = [
   { id: "box", name: "Box" },
-  { id: "patta", name: "Patta" },
-  { id: "goli", name: "Goli" },
+  { id: "tablet", name: "Tab." },
 ];
 
 function normalizedPriceBasis(value) {
   const normalized = String(value || "box").trim().toLowerCase();
-  return ["box", "patta", "goli"].includes(normalized) ? normalized : "box";
+  if (normalized === "box") return "box";
+  if (["tablet", "goli", "patta"].includes(normalized)) return "tablet";
+  return "box";
 }
 
 function priceBasisMultiplier(form, basis = form?.price_basis) {
-  const unitsPerBox = Number(form?.units_per_box || 0) || 1;
-  const itemsPerUnit = Number(form?.items_per_unit || 0) || 1;
   const normalized = normalizedPriceBasis(basis);
-  if (normalized === "box") return unitsPerBox * itemsPerUnit;
-  if (normalized === "patta") return itemsPerUnit;
+  if (normalized === "box") return batchTabletsPerBox(form);
   return 1;
 }
 
@@ -6468,6 +6478,7 @@ function hasAddBatchDraftContent(form, supplierQuery, productQuery) {
     "supplier_id",
     "product_id",
     "box_quantity",
+    "tablets_per_box",
     "units_per_box",
     "items_per_unit",
     "stock_in",
@@ -6487,11 +6498,13 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
   const editing = !!row;
   const defaultForm = () => {
     const product = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
+    const tabletsPerBox = row ? batchTabletsPerBox(row) : "";
     return {
       stock_out: 0,
       product_id: product?.id || "",
       items_per_unit: row?.items_per_unit || "",
       ...(row || {}),
+      tablets_per_box: tabletsPerBox,
       price_basis: normalizedPriceBasis(row?.price_basis),
       entered_cost_price: displayEnteredPrice(row, "entered_cost_price", "cost_price"),
       entered_sell_price: displayEnteredPrice(row, "entered_sell_price", "sell_price"),
@@ -6499,7 +6512,11 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
     };
   };
   const storedDraft = !editing ? readAddBatchDraft() : null;
-  const [form, setForm] = useState(() => storedDraft?.form ? { ...defaultForm(), ...storedDraft.form } : defaultForm());
+  const [form, setForm] = useState(() => {
+    const initial = storedDraft?.form ? { ...defaultForm(), ...storedDraft.form } : defaultForm();
+    const hasOldDimensions = initial.units_per_box || initial.items_per_unit;
+    return initial.tablets_per_box || !hasOldDimensions ? initial : { ...initial, tablets_per_box: batchTabletsPerBox(initial) || "" };
+  });
   const initialSupplier = data.suppliers.find((item) => Number(item.id) === Number(row?.supplier_id));
   const selectedInitialProduct = data.products.find((item) => Number(item.id) === Number(row?.product_id)) || initialProduct;
   const [supplierQuery, setSupplierQuery] = useState(storedDraft?.supplierQuery ?? initialSupplier?.name ?? row?.supplier_name ?? "");
@@ -6546,9 +6563,8 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
 
   function calculatedStock(nextForm) {
     const boxes = Number(nextForm.box_quantity || 0);
-    const units = Number(nextForm.units_per_box || 0);
-    const items = Number(nextForm.items_per_unit || 0);
-    return boxes && units && items ? String(boxes * units * items) : "";
+    const tabletsPerBox = Number(nextForm.tablets_per_box || 0);
+    return boxes && tabletsPerBox ? String(boxes * tabletsPerBox) : "";
   }
 
   function setStockDimension(key, value) {
@@ -6570,9 +6586,10 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       return;
     }
     const boxes = Number(form.box_quantity || 0);
-    const units = Number(form.units_per_box || 0);
-    const items = Number(form.items_per_unit || 1) || 1;
-    const stock = form.stock_in ? Number(form.stock_in) : boxes * units * items;
+    const tabletsPerBox = Number(form.tablets_per_box || 1) || 1;
+    const units = 1;
+    const items = tabletsPerBox;
+    const stock = form.stock_in ? Number(form.stock_in) : boxes * tabletsPerBox;
     const selectedProduct = data.products.find((product) => Number(product.id) === Number(productId));
     const batchNo = form.batch_no || generatedBatchNo(productId, form.supplier_invoice_no);
     const stockOut = editing ? Number(row.stock_out || 0) : 0;
@@ -6582,7 +6599,7 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       return;
     }
     const price_basis = normalizedPriceBasis(form.price_basis);
-    const priceForm = { ...form, units_per_box: units, items_per_unit: items, price_basis };
+    const priceForm = { ...form, tablets_per_box: tabletsPerBox, units_per_box: units, items_per_unit: items, price_basis };
     const enteredCostPrice = nullableNumber(form.entered_cost_price);
     const enteredSellPrice = nullableNumber(form.entered_sell_price);
     const normalizedCostPrice = normalizeEnteredPrice(form.entered_cost_price, priceForm, price_basis);
@@ -6605,8 +6622,8 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       supplier_invoice_no: form.supplier_invoice_no || null,
       product_type: selectedProduct?.type || form.product_type || "medical",
       box_quantity: nullableNumber(form.box_quantity),
-      units_per_box: nullableNumber(form.units_per_box),
-      items_per_unit: nullableNumber(form.items_per_unit),
+      units_per_box: units,
+      items_per_unit: items,
       stock_in: stock,
       stock_remaining: stockRemaining,
       stock_out: stockOut,
@@ -6633,14 +6650,13 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
   }
   const currentPriceBasis = normalizedPriceBasis(form.price_basis);
   const pricePreviewForm = { ...form, price_basis: currentPriceBasis };
-  const previewCostGoli = normalizeEnteredPrice(form.entered_cost_price, pricePreviewForm, currentPriceBasis);
-  const previewSellGoli = normalizeEnteredPrice(form.entered_sell_price, pricePreviewForm, currentPriceBasis);
-  const pattaMultiplier = priceBasisMultiplier(pricePreviewForm, "patta");
+  const previewCostTablet = normalizeEnteredPrice(form.entered_cost_price, pricePreviewForm, currentPriceBasis);
+  const previewSellTablet = normalizeEnteredPrice(form.entered_sell_price, pricePreviewForm, currentPriceBasis);
   const boxMultiplier = priceBasisMultiplier(pricePreviewForm, "box");
-  const hasPricePreview = previewCostGoli != null || previewSellGoli != null;
+  const hasPricePreview = previewCostTablet != null || previewSellTablet != null;
   const previewLine = (label, multiplier) => (
     <span>
-      {label}: Cost Rs. {previewCostGoli == null ? "-" : plainMoney(previewCostGoli * multiplier)}, Sell Rs. {previewSellGoli == null ? "-" : plainMoney(previewSellGoli * multiplier)}
+      {label}: Cost Rs. {previewCostTablet == null ? "-" : plainMoney(previewCostTablet * multiplier)}, Sell Rs. {previewSellTablet == null ? "-" : plainMoney(previewSellTablet * multiplier)}
     </span>
   );
   return (
@@ -6659,15 +6675,13 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
             setProductQuery(product.name);
           }} options={productOptions.filter((product) => product.status !== "reported")} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} />
           <Field label="Total Boxes" type="number" value={form.box_quantity || ""} onChange={(v) => setStockDimension("box_quantity", v)} placeholder="Add no. of boxes" />
-          <Field label="Units per box (Patta)" type="number" value={form.units_per_box || ""} onChange={(v) => setStockDimension("units_per_box", v)} placeholder="Add no. of pattas per box" />
-          <Field label="Items per unit (Goli)" type="number" value={form.items_per_unit || ""} onChange={(v) => setStockDimension("items_per_unit", v)} placeholder="Goli per patta" />
+          <Field label="Tab. per box" type="number" value={form.tablets_per_box || ""} onChange={(v) => setStockDimension("tablets_per_box", v)} placeholder="Add tab. per box" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
           <SelectField label="Price entered per" value={currentPriceBasis} onChange={(v) => set("price_basis", v || "box")} options={priceBasisOptions} placeholder="Box" openDirection="up" />
           <Field label={`Cost Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_cost_price || ""} onChange={(v) => set("entered_cost_price", v)} placeholder="Cost price" />
           <Field label={`Sell Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_sell_price || ""} onChange={(v) => set("entered_sell_price", v)} placeholder="Sell price" />
           {hasPricePreview ? <div className="batch-price-preview">
-            {previewLine("Per goli", 1)}
-            {previewLine("Per patta", pattaMultiplier)}
+            {previewLine("Per tab.", 1)}
             {previewLine("Per box", boxMultiplier)}
           </div> : null}
           <SelectField label="Shelf" value={form.shelf_id || ""} onChange={(v) => set("shelf_id", v)} options={data.shelves} placeholder="Select Shelf" action={() => setQuickAdd({ type: "shelf" })} />

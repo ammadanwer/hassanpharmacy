@@ -9,7 +9,7 @@ from app.models.stock_audit import StockAuditMode
 class StockAuditCreate(BaseModel):
     product_id: int
     batch_id: int
-    quantity_type: str = "Goli"
+    quantity_type: str = "Tablet"
     quantity_adjusted: float = Field(gt=0)
     adjustment_type: StockAuditMode
     reason: Optional[str] = None

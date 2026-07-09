@@ -1672,6 +1672,13 @@ main {
   overflow-x: auto;
 }
 
+.batch-page .batch-table-wrap {
+  max-height: calc(100vh - 330px);
+  min-height: 260px;
+  overflow: auto;
+  position: relative;
+}
+
 .batch-table-wrap .data-table {
   min-width: 100%;
   width: max-content;
@@ -1680,6 +1687,42 @@ main {
 .batch-page .data-table .col-product_name {
   min-width: max-content;
   white-space: nowrap;
+  width: auto;
+}
+
+.batch-page .data-table th,
+.batch-page .data-table td {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.batch-page .data-table .col-actions {
+  background: #fff;
+  box-shadow: -8px 0 14px rgba(15, 23, 42, 0.08);
+  min-width: 120px;
+  position: sticky;
+  right: 0;
+  z-index: 3;
+}
+
+.batch-page .data-table th.col-actions {
+  background: #f3f6f8;
+  z-index: 5;
+}
+
+.batch-page .data-table .table-summary-row td {
+  background: #f8fafc;
+  box-shadow: 0 -8px 14px rgba(15, 23, 42, 0.08);
+  font-weight: 800;
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+}
+
+.batch-page .data-table .table-summary-row .col-actions {
+  background: #f8fafc;
+  right: 0;
+  z-index: 6;
 }
 
 .entry-table,
@@ -2046,7 +2089,7 @@ main {
 }
 
 .sale-items-table {
-  min-width: 1320px;
+  min-width: 1420px;
 }
 
 .sale-items-table th:nth-child(1),

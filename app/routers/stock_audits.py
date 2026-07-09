@@ -17,7 +17,7 @@ router = APIRouter()
 def effective_audit_quantity(batch: Batch, quantity: float, quantity_type: str) -> float:
     units_per_box = float(batch.units_per_box or 1)
     items_per_unit = float(batch.items_per_unit or 1)
-    normalized_type = (quantity_type or "goli").lower()
+    normalized_type = (quantity_type or "tablet").lower()
     if normalized_type == "box":
         return quantity * units_per_box * items_per_unit
     if normalized_type == "patta":
@@ -175,12 +175,14 @@ def update_stock_audit(
         raise HTTPException(status_code=400, detail="Batch does not belong to selected product")
     if audit_in.quantity_adjusted is not None:
         entered_quantity = audit_in.quantity_adjusted
-    elif quantity_type.lower() == "box":
-        entered_quantity = float(audit.quantity_adjusted or 0) / (float(new_batch.units_per_box or 1) * float(new_batch.items_per_unit or 1))
-    elif quantity_type.lower() == "patta":
-        entered_quantity = float(audit.quantity_adjusted or 0) / float(new_batch.items_per_unit or 1)
     else:
-        entered_quantity = float(audit.quantity_adjusted or 0)
+        normalized_quantity_type = quantity_type.lower()
+        if normalized_quantity_type == "box":
+            entered_quantity = float(audit.quantity_adjusted or 0) / (float(new_batch.units_per_box or 1) * float(new_batch.items_per_unit or 1))
+        elif normalized_quantity_type == "patta":
+            entered_quantity = float(audit.quantity_adjusted or 0) / float(new_batch.items_per_unit or 1)
+        else:
+            entered_quantity = float(audit.quantity_adjusted or 0)
 
     reverse_audit_from_batch(old_batch, audit)
     effective_quantity = effective_audit_quantity(new_batch, entered_quantity, quantity_type)
