@@ -56,10 +56,16 @@ def api_permission_requirement(path: str, method: str, query: dict[str, str] | N
         return (("new_sale",), "view")
     if path.startswith("/api/returns"):
         return (("sales_return",), "add") if method != "GET" else (("sales_return_history",), "view")
-    if path.startswith("/api/sales") or path.startswith("/api/draft-sales"):
+    if path.startswith("/api/draft-sales"):
         if method == "GET":
             return (("new_sale", "sales_history"), "view")
         return (("new_sale",), "add" if method == "POST" else "edit")
+    if path.startswith("/api/sales"):
+        if method == "GET":
+            return (("new_sale", "sales_history"), "view")
+        if method == "POST":
+            return (("new_sale",), "add")
+        return (("new_sale", "sales_history"), action)
 
     prefix_rules: tuple[tuple[str, tuple[str, ...]], ...] = (
         ("/api/staff", ("pharmacy_component",)),

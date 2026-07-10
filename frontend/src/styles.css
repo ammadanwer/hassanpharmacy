@@ -1057,6 +1057,32 @@ main {
   padding: 10px 12px;
 }
 
+.edit-sale-fields {
+  align-items: end;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(150px, 220px));
+  padding: 14px 16px;
+}
+
+.edit-sale-fields label {
+  display: grid;
+  gap: 6px;
+}
+
+.edit-sale-fields span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.edit-sale-fields input {
+  min-height: 40px;
+  width: 100%;
+}
+
 .recent-edit-row > td {
   background: #fff;
   padding: 14px;
@@ -1862,6 +1888,31 @@ main {
   margin: 0 auto;
   max-width: 920px;
   width: min(100%, 920px);
+}
+
+.sale-history-edit-backdrop {
+  align-items: flex-start;
+  overflow: auto;
+  padding: 24px 16px;
+}
+
+.history-sale-edit-modal {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  margin: 0 auto;
+  max-width: 1400px;
+  width: min(100%, 1400px);
+}
+
+.history-sale-edit-body {
+  max-height: calc(100vh - 110px);
+  overflow: auto;
+  padding: 16px;
+}
+
+.history-sale-edit-body .sale-entry-mode {
+  margin-top: 0;
 }
 
 .payment-history-modal {
@@ -3767,6 +3818,10 @@ main {
 
   .customer-details.compact,
   .sale-payment-panel .receive-now {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-sale-fields {
     grid-template-columns: 1fr;
   }
 

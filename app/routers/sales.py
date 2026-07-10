@@ -320,6 +320,8 @@ def update_sale(
         raise HTTPException(status_code=404, detail="Sale not found")
     if sale.status == SaleStatus.draft:
         raise HTTPException(status_code=400, detail="Use draft checkout to edit draft sales")
+    if sale.status == SaleStatus.returned or sale.returns:
+        raise HTTPException(status_code=409, detail="Sales with returns cannot be edited")
 
     require_sales_pin_if_enabled(db, sale_in, current_user)
     remove_customer_due(db, sale)
@@ -338,6 +340,28 @@ def update_sale(
     db.commit()
     db.refresh(sale)
     return sale
+
+
+@router.delete("/api/sales/{sale_id}")
+def delete_sale(
+    sale_id: int,
+    db: Annotated[Session, Depends(get_db)],
+    current_user: CurrentUser,
+):
+    sale = db.get(Sale, sale_id)
+    if not sale:
+        raise HTTPException(status_code=404, detail="Sale not found")
+    if sale.status == SaleStatus.draft:
+        raise HTTPException(status_code=400, detail="Use the draft sales action to delete draft sales")
+    if sale.status == SaleStatus.returned or sale.returns:
+        raise HTTPException(status_code=409, detail="Sales with returns cannot be deleted")
+
+    remove_customer_due(db, sale)
+    restore_sale_stock_and_items(db, sale)
+    invoice = sale.invoice_number
+    db.delete(sale)
+    db.commit()
+    return {"message": f"Sale {invoice} deleted"}
 
 
 @router.post("/api/draft-sales", response_model=SaleResponse, status_code=201)

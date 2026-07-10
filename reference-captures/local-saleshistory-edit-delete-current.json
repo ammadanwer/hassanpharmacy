@@ -1,0 +1,173 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/saleshistory",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Print Sales History",
+    "view",
+    "Edit INV-20260705070122666310-1",
+    "Delete INV-20260705070122666310-1",
+    "view",
+    "Edit INV-20260704133532012170-1",
+    "Delete INV-20260704133532012170-1",
+    "view",
+    "Edit INV-20260702101204680002-1",
+    "Delete INV-20260702101204680002-1",
+    "view",
+    "Edit INV-20260702093628865122-1",
+    "Delete INV-20260702093628865122-1",
+    "view",
+    "Edit 233965",
+    "Delete 233965",
+    "view",
+    "Edit 233964",
+    "Delete 233964",
+    "view",
+    "Edit 233961",
+    "Delete 233961",
+    "view",
+    "Edit 233960",
+    "Delete 233960",
+    "view",
+    "Edit 233951",
+    "Delete 233951",
+    "view",
+    "Edit 232938",
+    "Delete 232938",
+    "view",
+    "Edit 232723",
+    "Delete 232723",
+    "view",
+    "Edit 232204",
+    "Delete 232204",
+    "view",
+    "Edit 231647",
+    "Delete 231647",
+    "view",
+    "Edit 231646",
+    "Delete 231646",
+    "view",
+    "Edit 231645",
+    "Delete 231645",
+    "view",
+    "Edit 230911",
+    "Delete 230911",
+    "view",
+    "Edit 229368",
+    "Delete 229368",
+    "view",
+    "Edit 229275",
+    "Delete 229275",
+    "view",
+    "Edit 229237",
+    "Delete 229237",
+    "view",
+    "Edit 229009",
+    "Delete 229009",
+    "view",
+    "Edit 228957",
+    "Delete 228957"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "single",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "range",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "12:00 AM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "tel",
+      "placeholder": "hh:mm (a|p)m",
+      "value": "11:59 PM",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "All",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search by Invoice ID/Medicine Name...",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "",
+      "value": "50",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice Number",
+      "Date",
+      "Time",
+      "Total Amount(RS.)",
+      "Discount(%)",
+      "Discount Amount",
+      "Total Payable",
+      "Paid",
+      "Profit",
+      "Action"
+    ]
+  ],
+  "text": "H\n\nPharmacy Management System\n\nAdd New Sale\nDate\nDate Range\nFrom Date\nTo Date\nTime\n \nPrint Sales History\nGross Sales\nRs. 3024707.85\nTotal Discount\nRs. 200146.05\nNet Sales\nRs. 2824569.71\nTotal Cost\nRs. 2411074.97\nNet Revenue\nRs. 413494.74\nPending\nRs. 1975.00\nInvoice Number\tDate\tTime\tTotal Amount(RS.)\tDiscount(%)\tDiscount Amount\tTotal Payable\tPaid\tProfit\tAction\nINV-20260705070122666310-1\t2026-07-05\t05:01:00 PM\t80\t\t\t80.00\t80.00\t30.00\t\n\nINV-20260704133532012170-1\t2026-07-04\t11:35:00 PM\t750\t\t\t750.00\t750.00\t250.00\t\n\nINV-20260702101204680002-1\t2026-07-02\t08:12:00 PM\t8.5\t10.00\t0.85\t7.65\t7.65\t2.35\t\n\nINV-20260702093628865122-1\t2026-07-02\t07:36:00 PM\t8.5\t10.00\t0.85\t7.65\t7.00\t2.35\t\n\n233965\nReturn Invoice\t2026-07-02\t04:35:25 PM\t38\t0.00\t0.00\t38.00\t38.00\t8.90\t\n\n233964\t2026-07-02\t04:35:21 PM\t228\t0.00\t0.00\t228.00\t228.00\t53.40\t\n\n233961\nReturn Invoice\t2026-07-02\t04:32:40 PM\t306.2\t0.00\t0.00\t306.00\t306.00\t71.52\t\n\n233960\t2026-07-02\t04:32:38 PM\t758\t7.39\t56.00\t702.00\t702.00\t121.54\t\n\n233951\t2026-07-02\t04:26:04 PM\t212\t0.00\t0.00\t212.00\t212.00\t49.66\t\n\n232938\t2026-06-30\t10:31:19 PM\t474.03999999999996\t0.00\t0.00\t474.00\t474.00\t110.99\t\n\n232723\t2026-06-30\t05:04:22 PM\t150\t0.00\t0.00\t150.00\t150.00\t35.13\t\n\n232204\t2026-06-29\t09:16:07 PM\t162\t0.00\t0.00\t162.00\t200.00\t37.94\t\n\n231647\t2026-06-28\t08:49:05 PM\t2550\t0.00\t0.00\t2550.00\t2550.00\t597.28\t\n\n231646\t2026-06-28\t08:48:38 PM\t1500\t0.00\t0.00\t1500.00\t1500.00\t351.34\t\n\n231645\t2026-06-28\t08:47:54 PM\t99\t2.00\t1.98\t97.00\t97.00\t21.19\t\n\n230911\t2026-06-27\t03:23:47 PM\t12\t0.00\t0.00\t12.00\t50.00\t2.81\t\n\n229368\t2026-06-23\t08:17:11 PM\t12\t0.00\t0.00\t12.00\t50.00\t2.81\t\n\n229275\nReturn Invoice\t2026-06-23\t06:00:06 PM\t489.99999999999994\t21.88\t107.18\t383.00\t383.00\t7.77\t\n\n229237\t2026-06-23\t05:25:35 PM\t10\t10.00\t1.00\t9.00\t9.00\t1.34\t\n\n229009\t2026-06-22\t01:29:43 AM\t360\t0.00\t0.00\t360.00\t400.00\t84.32\t\n\n228957\t2026-06-22\t12:29:59 AM\t25\t0.00\t0.00\t25.00\t50.00\t5.86\t\n\n228952\t2026-06-22\t12:27:51 AM\t30\t0.00\t0.00\t30.00\t50.00\t7.03\t\n\n228950\t2026-06-22\t12:27:03 AM\t150\t0.00\t0.00\t150.00\t180.00\t35.13\t\n\n228847\t2026-06-22\t11:00:12 PM\t125\t0.00\t0.00\t125.00\t200.00\t29.28\t\n\n228523\t2026-06-22\t04:34:53 PM\t200\t0.00\t0.00\t200.00\t200.00\t46.85\t\n\n228435\t2026-06-22\t01:24:33 PM\t25\t0.00\t0.00\t25.00\t25.00\t5.86\t\n\n228408\t2026-06-21\t02:10:11 AM\t360\t5.00\t18.00\t342.00\t1000.00\t66.32\t\n\n228407\t2026-06-21\t02:07:18 AM\t300\t0.00\t0.00\t300.00\t500.00\t70.27\t\n\n228257\t2026-06-21\t09:52:22 PM\t1200\t10.00\t120.00\t1080.00\t1080.00\t161.07\t\n\n228252\t2026-06-21\t09:49:53 PM\t360\t3.00\t10.80\t349.00\t500.00\t73.32\t\n\n228251\t2026-06-21\t09:46:54 PM\t36\t10.00\t3.60\t32.00\t36.00\t4.43\t\n\n228248\t2026-06-21\t09:44:01 PM\t360\t2.78\t10.00\t350.00\t350.00\t74.32\t\n\n228247\t2026-06-21\t09:41:18 PM\t2400\t5.00\t120.00\t2280.00\t2400.00\t442.14\t\n\n228246\t2026-06-21\t09:39:46 PM\t150\t1.00\t1.50\t149.00\t149.00\t34.13\t\n\n228245\t2026-06-21\t09:38:42 PM\t40\t1.00\t0.40\t40.00\t40.00\t9.37\t\n\n228186\t2026-06-21\t07:47:25 PM\t100\t0.00\t0.00\t100.00\t500.00\t23.42\t\n\n227025\t2026-06-19\t05:34:25 PM\t60\t0.00\t0.00\t60.00\t60.00\t14.05\t\n\n226501\t2026-06-18\t05:26:03 PM\t675\t8.89\t60.00\t615.00\t700.00\t98.10\t\n\n224752\t2026-06-15\t04:37:13 PM\t140\t5.00\t7.00\t133.00\t133.00\t25.79\t\n\n224751\t2026-06-15\t04:35:52 PM\t72\t10.00\t7.20\t65.00\t65.00\t9.86\t\n\n223067\t2026-06-11\t08:11:09 PM\t25\t0.00\t0.00\t25.00\t30.00\t5.86\t\n\n223063\t2026-06-11\t08:08:16 PM\t62.5\t0.00\t0.00\t63.00\t63.00\t15.14\t\n\n220947\t2026-06-07\t09:15:01 PM\t849.96\t1.17\t9.96\t840.00\t1000.00\t189.12\t\n\n220791\t2026-06-07\t03:33:07 PM\t270\t5.00\t13.50\t257.00\t257.00\t50.24\t\n\n220337\t2026-06-06\t07:41:30 PM\t375\t0.00\t0.00\t375.00\t500.00\t87.83\t\n\n220333\t2026-06-06\t07:29:07 PM\t534.15\t0.00\t0.00\t534.00\t1000.00\t124.96\t\n\n220115\t2026-06-06\t04:00:46 PM\t180\t0.00\t0.00\t180.00\t200.00\t42.16\t\n\n219642\t2026-06-05\t03:49:13 PM\t1900.3\t0.00\t0.00\t1900.00\t1900.00\t444.80\t\n\n219103\t2026-06-03\t04:27:30 AM\t108\t7.41\t8.00\t100.00\t100.00\t17.30\t\n\n217526\t2026-06-01\t07:18:42 PM\t3398.15\t0.00\t0.00\t3398.00\t4000.00\t795.79\t\n< BACK\n1\n2\n3\n4\n5\n...\n15\nNEXT >\nRows per page\n1-50 of 715",
+  "evalResults": {
+    "beforeClick": {
+      "range": true,
+      "dates": 2
+    }
+  }
+}

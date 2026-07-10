@@ -173,7 +173,7 @@ const routeCoreDataKeys = {
   newsale: ["returnPolicies", "shelves", "pharmacyProfile"],
   batch: ["staff", "suppliers", "shelves", "pharmacyProfile"],
   "return-item": ["returnPolicies", "pharmacyProfile"],
-  saleshistory: ["pharmacyProfile"],
+  saleshistory: ["returnPolicies", "shelves", "pharmacyProfile"],
   returnhistory: ["pharmacyProfile"],
   productsaleshistory: ["pharmacyProfile"],
   "customer-history": ["pharmacyProfile"],
@@ -574,7 +574,7 @@ export default function App() {
           {route === "newsale" && <NewSale data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} />}
           {route === "batch" && <BatchPage data={data} initialAlertFilter={batchRouteAlertFilter} openModal={(row = null) => setBatchModal({ row })} apiCall={apiCall} onError={handleApiError} />}
           {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
-          {route === "saleshistory" && <SalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
+          {route === "saleshistory" && <SalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} user={user} />}
           {route === "returnhistory" && <ReturnHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "productsaleshistory" && <ProductSalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "customer-history" && <CustomerHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
@@ -1160,9 +1160,13 @@ function readStoredSaleWorkspaces() {
   }
 }
 
-function NewSale({ data, apiCall, onError, setNotice }) {
+function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOnly = false, onEditSaved, onEditCancel }) {
   const [saleTab, setSaleTab] = useState("new");
-  const [initialSaleWorkspaceState] = useState(readStoredSaleWorkspaces);
+  const [initialSaleWorkspaceState] = useState(() => {
+    if (!editOnly) return readStoredSaleWorkspaces();
+    const first = createSaleWorkspace(1);
+    return { workspaces: [first], activeWorkspaceId: first.id };
+  });
   const [saleWorkspaces, setSaleWorkspaces] = useState(() => initialSaleWorkspaceState.workspaces);
   const [activeSaleWorkspaceId, setActiveSaleWorkspaceId] = useState(() => initialSaleWorkspaceState.activeWorkspaceId);
   const [validationMessage, setValidationMessage] = useState("");
@@ -1413,11 +1417,13 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   }, [loadSaleList, onError, saleTab]);
 
   useEffect(() => {
+    if (editOnly) return undefined;
     window.addEventListener("new-sale-workspace", addSaleWorkspace);
     return () => window.removeEventListener("new-sale-workspace", addSaleWorkspace);
-  }, [saleWorkspaces]);
+  }, [saleWorkspaces, editOnly]);
 
   useEffect(() => {
+    if (editOnly) return;
     try {
       const payload = {
         activeWorkspaceId: activeSaleWorkspaceId,
@@ -1427,7 +1433,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     } catch {
       // Keep the sale screen usable if browser storage is unavailable.
     }
-  }, [saleWorkspaces, activeSaleWorkspaceId]);
+  }, [saleWorkspaces, activeSaleWorkspaceId, editOnly]);
 
   useEffect(() => {
     if (!data.batches.length) return;
@@ -1672,7 +1678,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     };
   }
 
-  async function generateInvoice({ showInvoice = true } = {}) {
+  async function generateInvoice({ showInvoice = !editOnly } = {}) {
     if (!saleItems.length) return;
     if (!canGenerateInvoice) {
       setValidationMessage("Enter sales PIN before printing invoice");
@@ -1688,7 +1694,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
           discountAmount: totalDiscount,
           discountPercent: totalDiscount ? totalDiscountPercent : null,
           totalPayable: checkoutPayable,
-          paidAmount: checkoutPayable,
+          paidAmount: editingSaleId ? Number(paid || 0) : checkoutPayable,
           date: editingSaleSnapshot?.date,
           time: editingSaleSnapshot?.time,
         })),
@@ -1702,6 +1708,7 @@ function NewSale({ data, apiCall, onError, setNotice }) {
       setCheckoutDiscountAmount("");
       setCheckoutDiscountPercent("");
       setSalesPin("");
+      if (editingSaleId) onEditSaved?.(createdSale);
       if (showInvoice) setInvoiceSale(createdSale);
     } catch (error) {
       onError(error);
@@ -1795,11 +1802,14 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   }
 
   function resumeSale(sale) {
+    const itemGross = (sale.items || []).reduce((sum, item) => sum + Number(item.amount || 0), 0);
+    const itemPayable = (sale.items || []).reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
+    const checkoutDiscount = Math.max(0, Number(sale.discount_amount || 0) - Math.max(0, itemGross - itemPayable));
     loadSaleItems(sale);
     setPaid(sale.paid || "");
     setCustomer({ name: sale.customer_name || "Walk-in", phone: sale.customer_phone || "" });
-    setCheckoutDiscountAmount(sale.discount_amount || "");
-    setCheckoutDiscountPercent(sale.discount_percent || "");
+    setCheckoutDiscountAmount(checkoutDiscount || "");
+    setCheckoutDiscountPercent(checkoutDiscount && itemPayable ? roundPercent((checkoutDiscount / itemPayable) * 100) : "");
     setSalesPin("");
     setCurrentDraftId(sale.id);
     setEditingSaleId(null);
@@ -1808,16 +1818,25 @@ function NewSale({ data, apiCall, onError, setNotice }) {
   }
 
   function editExistingSale(sale) {
+    const itemGross = (sale.items || []).reduce((sum, item) => sum + Number(item.amount || 0), 0);
+    const itemPayable = (sale.items || []).reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
+    const checkoutDiscount = Math.max(0, Number(sale.discount_amount || 0) - Math.max(0, itemGross - itemPayable));
     loadSaleItems(sale, { stockAlreadyDeducted: true });
     setPaid(sale.paid || "");
     setCustomer({ name: sale.customer_name || "Walk-in", phone: sale.customer_phone || "" });
-    setCheckoutDiscountAmount(sale.discount_amount || "");
-    setCheckoutDiscountPercent(sale.discount_percent || "");
+    setCheckoutDiscountAmount(checkoutDiscount || "");
+    setCheckoutDiscountPercent(checkoutDiscount && itemPayable ? roundPercent((checkoutDiscount / itemPayable) * 100) : "");
     setSalesPin("");
     setCurrentDraftId(null);
     setEditingSaleId(sale.id);
     setEditingSaleSnapshot({ date: sale.date, time: sale.time });
   }
+
+  useEffect(() => {
+    if (!initialSale) return;
+    editExistingSale(initialSale);
+    setSaleTab("new");
+  }, [initialSale]);
 
   async function discardDraft(sale) {
     if (!window.confirm(`Discard draft ${sale.invoice_number}?`)) return;
@@ -1896,6 +1915,11 @@ function NewSale({ data, apiCall, onError, setNotice }) {
     return (
       <>
         {!inline && editingSaleId ? <div className="edit-sale-notice">Editing existing invoice. Checkout will update this sale.</div> : null}
+        {editingSaleId ? <div className="edit-sale-fields">
+          <label><span>Sale Date</span><input type="date" value={editingSaleSnapshot?.date || ""} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), date: event.target.value }))} /></label>
+          <label><span>Sale Time</span><input type="time" value={String(editingSaleSnapshot?.time || "").slice(0, 5)} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), time: event.target.value }))} /></label>
+          <label><span>Paid Amount</span><input type="number" min="0" step="0.01" value={paid} onChange={(event) => setPaid(event.target.value)} /></label>
+        </div> : null}
         <div className="sale-entry-mode">
           <button className={entryMode === "product" ? "active" : ""} type="button" onClick={() => setEntryMode("product")}>Product</button>
           <button className={entryMode === "custom" ? "active" : ""} type="button" onClick={() => { setEntryMode("custom"); requestAnimationFrame(() => saleEntryRefs.current.customDescription?.focus?.()); }}>Service Charge</button>
@@ -1977,11 +2001,30 @@ function NewSale({ data, apiCall, onError, setNotice }) {
                 <div className="sale-total"><span>Total Amount</span><strong>Rs. {plainMoney(payable)}</strong></div>
                 <div className="payable-line"><span>Payable Amount</span><strong>RS. {money(checkoutPayable)}</strong></div>
                 {salesPinRequired ? <label className="receive-now"><span>Sales PIN:</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
-                <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" onClick={() => saveDraft(draftOverrides)}>Save as a Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice} onClick={generateInvoice}>Generate Invoice</button></div>
+                <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" onClick={() => saveDraft(draftOverrides)}>Save as a Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice} onClick={generateInvoice}>{editingSaleId ? "Update Sale" : "Generate Invoice"}</button></div>
               </div>
             </section>
           </> : null}
         </section>
+      </>
+    );
+  }
+
+  if (editOnly) {
+    return (
+      <>
+        <div className="modal-backdrop sale-history-edit-backdrop">
+          <section className="history-sale-edit-modal">
+            <div className="invoice-head">
+              <h2>Edit Sale {initialSale?.invoice_number || ""}</h2>
+              <button type="button" aria-label="Close edit sale" onClick={onEditCancel}><X /></button>
+            </div>
+            <div className="history-sale-edit-body">
+              {editingSaleId ? renderSaleEditor({ inline: true }) : <p className="report-empty">Loading sale...</p>}
+            </div>
+          </section>
+        </div>
+        {validationMessage ? <ValidationModal message={validationMessage} close={() => setValidationMessage("")} /> : null}
       </>
     );
   }
@@ -4883,11 +4926,15 @@ function ChangePasswordPage({ data, apiCall, onError, setNotice }) {
   );
 }
 
-function SalesHistoryPage({ data, apiCall, onError }) {
+function SalesHistoryPage({ data, apiCall, onError, user }) {
   const [rows, setRows] = useState([]);
   const [totalRows, setTotalRows] = useState(0);
   const [summary, setSummary] = useState(null);
   const [detailSale, setDetailSale] = useState(null);
+  const [editingSale, setEditingSale] = useState(null);
+  const latestFiltersRef = useRef(null);
+  const canEditSales = userHasPermission(user, "sales_history", "edit") || userHasPermission(user, "new_sale", "edit");
+  const canDeleteSales = userHasPermission(user, "sales_history", "delete") || userHasPermission(user, "new_sale", "delete");
   const salesParamsForFilters = useCallback((filters, overrides = {}) => {
     const pageSize = filters.pageSize || 50;
     const params = new URLSearchParams({
@@ -4911,6 +4958,7 @@ function SalesHistoryPage({ data, apiCall, onError }) {
   }, []);
   const loadSales = useCallback(async (filters) => {
     if (!apiCall) return;
+    latestFiltersRef.current = filters;
     const params = salesParamsForFilters(filters);
     params.set("paged", "true");
     try {
@@ -4944,6 +4992,27 @@ function SalesHistoryPage({ data, apiCall, onError }) {
       onError(error);
     }
   }
+  async function editSale(row) {
+    try {
+      setEditingSale(await apiCall(`/api/sales/${row.id}`));
+    } catch (error) {
+      onError(error);
+    }
+  }
+  async function deleteSale(row) {
+    if (!window.confirm(`Delete sale ${row.invoice_number}? This will restore its sold stock.`)) return;
+    try {
+      await apiCall(`/api/sales/${row.id}`, { method: "DELETE" });
+      if (detailSale?.id === row.id) setDetailSale(null);
+      if (latestFiltersRef.current) await loadSales(latestFiltersRef.current);
+    } catch (error) {
+      onError(error);
+    }
+  }
+  async function saleEdited() {
+    setEditingSale(null);
+    if (latestFiltersRef.current) await loadSales(latestFiltersRef.current);
+  }
   const columns = [
     ["invoice_number", "Invoice Number"],
     ["date", "Date"],
@@ -4975,12 +5044,15 @@ function SalesHistoryPage({ data, apiCall, onError }) {
         render={(row, key) => key === "actions" ? (
           <div className="invoice-actions">
             <button className="icon-action" type="button" title="view" aria-label="view" onClick={() => openSaleDetails(row)}><Eye size={18} /></button>
+            {canEditSales ? <button className="icon-action" type="button" title={row.status === "returned" ? "Returned sales cannot be edited" : "Edit sale"} aria-label={`Edit ${row.invoice_number}`} disabled={row.status === "returned"} onClick={() => editSale(row)}><Pencil size={18} /></button> : null}
+            {canDeleteSales ? <button className="icon-action danger-icon" type="button" title={row.status === "returned" ? "Returned sales cannot be deleted" : "Delete sale"} aria-label={`Delete ${row.invoice_number}`} disabled={row.status === "returned"} onClick={() => deleteSale(row)}><Trash2 size={18} /></button> : null}
           </div>
         ) : key === "invoice_number" && row.status === "returned" ? (
           <span>{row.invoice_number}<br /><small>Return Invoice</small></span>
         ) : key === "time" ? formatHistoryTime(row[key]) : formatSalesHistoryCell(row, key)}
       />
       {detailSale ? <SalesHistoryDetailsModal sale={detailSale} data={data} close={() => setDetailSale(null)} /> : null}
+      {editingSale ? <NewSale data={data} apiCall={apiCall} onError={onError} initialSale={editingSale} editOnly onEditSaved={saleEdited} onEditCancel={() => setEditingSale(null)} /> : null}
     </>
   );
 }
