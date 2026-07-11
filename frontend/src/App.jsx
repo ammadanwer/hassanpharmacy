@@ -6,6 +6,7 @@ import {
   Bell,
   Boxes,
   Calendar,
+  Check,
   ChevronLeft,
   ChevronDown,
   CircleDollarSign,
@@ -573,7 +574,7 @@ export default function App() {
           {route === "dashboard" && <Dashboard setRoute={setRoute} apiCall={apiCall} onError={handleApiError} />}
           {route === "newsale" && <NewSale data={data} apiCall={apiCall} onError={handleApiError} setNotice={setNotice} />}
           {route === "batch" && <BatchPage data={data} initialAlertFilter={batchRouteAlertFilter} openModal={(row = null) => setBatchModal({ row })} apiCall={apiCall} onError={handleApiError} />}
-          {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} />}
+          {route === "return-item" && <ReturnItemPage data={data} apiCall={apiCall} reload={reloadRouteData} onError={handleApiError} setNotice={setNotice} />}
           {route === "saleshistory" && <SalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} user={user} />}
           {route === "returnhistory" && <ReturnHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
           {route === "productsaleshistory" && <ProductSalesHistoryPage data={data} apiCall={apiCall} onError={handleApiError} />}
@@ -1050,7 +1051,9 @@ function normalizeQuantityType(value) {
 
 function displayQuantityType(value) {
   const type = normalizeQuantityType(value);
-  return type === "Box" ? "Box" : "Tab.";
+  if (type === "Box") return "Box";
+  if (type === "Patta") return "Patta";
+  return "Tab.";
 }
 
 function batchItemsPerPatta(batch) {
@@ -1177,6 +1180,8 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const [draftSales, setDraftSales] = useState([]);
   const [recentTotal, setRecentTotal] = useState(0);
   const [draftTotal, setDraftTotal] = useState(0);
+  const [editingSaleItemIndex, setEditingSaleItemIndex] = useState(null);
+  const [saleItemEditDraft, setSaleItemEditDraft] = useState(null);
   const [recentDateMode, setRecentDateMode] = useState("single");
   const [recentDate, setRecentDate] = useState(today());
   const [recentDateFrom, setRecentDateFrom] = useState("");
@@ -1236,6 +1241,15 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const setCustomAmount = makeWorkspaceSetter("customAmount");
   const saleItems = activeWorkspace.saleItems;
   const setSaleItems = makeWorkspaceSetter("saleItems");
+  useEffect(() => {
+    setEditingSaleItemIndex(null);
+    setSaleItemEditDraft(null);
+  }, [activeSaleWorkspaceId, saleTab]);
+  useEffect(() => {
+    if (saleItems.length) return;
+    setEditingSaleItemIndex(null);
+    setSaleItemEditDraft(null);
+  }, [saleItems.length]);
   const [suggestions, setSuggestions] = useState([]);
   const [saleSearchLoading, setSaleSearchLoading] = useState(false);
   useEffect(() => {
@@ -1266,8 +1280,22 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   useEffect(() => {
     setActiveSuggestionIndex((index) => Math.max(0, Math.min(index, Math.max(suggestions.length - 1, 0))));
   }, [suggestions.length]);
-  const grossAmount = saleItems.reduce((sum, item) => sum + Number(item.amount || 0), 0);
-  const payable = saleItems.reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
+  const hasPendingSaleItemEdit = editingSaleItemIndex !== null
+    && saleItemEditDraft?.workspaceId === activeWorkspace.id
+    && Boolean(saleItems[editingSaleItemIndex]);
+  const pendingSaleItem = hasPendingSaleItemEdit ? saleItems[editingSaleItemIndex] : null;
+  const pendingPricingQty = pendingSaleItem?.item_type === "custom" ? 1 : Number(saleItemEditDraft?.quantity || 0);
+  const pendingRate = Number(saleItemEditDraft?.rate || 0);
+  const saleItemEditPreview = pendingSaleItem ? calculateItem({
+    ...pendingSaleItem,
+    pricing_qty: Number.isFinite(pendingPricingQty) ? pendingPricingQty : 0,
+    rate: Number.isFinite(pendingRate) ? pendingRate : 0,
+    discount_percent: saleItemEditDraft.discountPercent,
+    discount_amount: saleItemEditDraft.discountAmount,
+  }, saleItemEditDraft.discountSource) : null;
+  const displayedSaleItems = saleItemEditPreview ? saleItems.map((item, index) => index === editingSaleItemIndex ? saleItemEditPreview : item) : saleItems;
+  const grossAmount = displayedSaleItems.reduce((sum, item) => sum + Number(item.amount || 0), 0);
+  const payable = displayedSaleItems.reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
   const lineDiscount = Math.max(0, grossAmount - payable);
   const checkoutDiscount = Number(checkoutDiscountAmount || 0);
   const totalDiscount = roundMoney(lineDiscount + checkoutDiscount);
@@ -1275,7 +1303,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const checkoutPayable = Math.max(0, payable - checkoutDiscount);
   const salesPinRequired = Boolean(data.pharmacyProfile?.pin_required ?? data.pharmacyProfile?.pinRequired);
   const canGenerateInvoice = !salesPinRequired || salesPin.trim().length > 0;
-  const saleEntryFieldOrder = ["customerName", "customerPhone", "product", "qty", "add"];
+  const saleEntryFieldOrder = ["customerPhone", "customerName", "product", "qty", "add"];
   function focusSaleEntryField(field) {
     requestAnimationFrame(() => saleEntryRefs.current[field]?.focus?.());
   }
@@ -1299,12 +1327,12 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   }
   function handleSaleEntryKeyDown(event, field) {
     const productSuggestionsOpen = field === "product" && showSuggestions && suggestions.length > 0;
-    if (field === "customerName" && event.key === "Enter") {
+    if (field === "customerPhone" && event.key === "Enter") {
       event.preventDefault();
-      focusSaleEntryField("customerPhone");
+      focusSaleEntryField("customerName");
       return;
     }
-    if (field === "customerPhone" && event.key === "Enter") {
+    if (field === "customerName" && event.key === "Enter") {
       event.preventDefault();
       focusSaleEntryField("product");
       return;
@@ -1420,7 +1448,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     if (editOnly) return undefined;
     window.addEventListener("new-sale-workspace", addSaleWorkspace);
     return () => window.removeEventListener("new-sale-workspace", addSaleWorkspace);
-  }, [saleWorkspaces, editOnly]);
+  }, [saleWorkspaces, editOnly, hasPendingSaleItemEdit]);
 
   useEffect(() => {
     if (editOnly) return;
@@ -1446,6 +1474,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   }, [data.batches]);
 
   function addSaleWorkspace() {
+    if (!requireFinishedSaleItemEdit()) return;
     const nextWorkspace = createSaleWorkspace(nextAvailableSaleWorkspaceNumber(saleWorkspaces));
     setSaleWorkspaces((workspaces) => [...workspaces, nextWorkspace]);
     setActiveSaleWorkspaceId(nextWorkspace.id);
@@ -1453,6 +1482,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   }
 
   function closeSaleWorkspace(workspaceId) {
+    if (workspaceId === activeWorkspace.id && !requireFinishedSaleItemEdit()) return;
     const workspace = saleWorkspaces.find((item) => item.id === workspaceId);
     if (!workspace || saleWorkspaces.length === 1) return;
     const hasWork = workspace.saleItems.length || workspace.query || workspace.barcode || workspace.checkoutOpen;
@@ -1475,14 +1505,20 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
           const suffix = workspace.saleItems.length ? ` (${workspace.saleItems.length})` : "";
           return (
             <div className={`sale-workspace-tab${active ? " active" : ""}`} key={workspace.id}>
-              <button type="button" onClick={() => { setActiveSaleWorkspaceId(workspace.id); setSaleTab("new"); }}>{workspace.label || `Sale ${index + 1}`}{suffix}</button>
-              {saleWorkspaces.length > 1 ? <button className="sale-workspace-close" type="button" aria-label={`Close ${workspace.label}`} onClick={() => closeSaleWorkspace(workspace.id)}><X size={14} /></button> : null}
+              <button type="button" disabled={hasPendingSaleItemEdit && !active} onClick={() => { if (!active && !requireFinishedSaleItemEdit()) return; setActiveSaleWorkspaceId(workspace.id); setSaleTab("new"); }}>{workspace.label || `Sale ${index + 1}`}{suffix}</button>
+              {saleWorkspaces.length > 1 ? <button className="sale-workspace-close" type="button" disabled={hasPendingSaleItemEdit && active} aria-label={`Close ${workspace.label}`} onClick={() => closeSaleWorkspace(workspace.id)}><X size={14} /></button> : null}
             </div>
           );
         })}
-        <button className="sale-workspace-add" type="button" onClick={addSaleWorkspace}><Plus size={18} /> New Sale Tab</button>
+        <button className="sale-workspace-add" type="button" disabled={hasPendingSaleItemEdit} onClick={addSaleWorkspace}><Plus size={18} /> New Sale Tab</button>
       </div>
     );
+  }
+
+  function requireFinishedSaleItemEdit() {
+    if (!hasPendingSaleItemEdit) return true;
+    setValidationMessage("Finish the current item edit with the checkmark before continuing.");
+    return false;
   }
 
   function selectBatch(batch) {
@@ -1625,8 +1661,108 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     return true;
   }
 
-  function updateSaleItem(index, patch, discountSource) {
-    setSaleItems((items) => items.map((item, itemIndex) => itemIndex === index ? calculateItem({ ...item, ...patch }, discountSource) : item));
+  function beginSaleItemEdit(index) {
+    const item = saleItems[index];
+    if (!item) return;
+    setEditingSaleItemIndex(index);
+    setSaleItemEditDraft({
+      workspaceId: activeWorkspace.id,
+      itemType: item.item_type || "product",
+      quantity: String(item.pricing_qty ?? item.total_qty ?? ""),
+      rate: String(item.rate ?? ""),
+      discountPercent: item.discount_percent ?? "",
+      discountAmount: item.discount_amount ?? "",
+      discountSource: item.discount_source || (item.discount_percent === "" && item.discount_amount !== "" ? "amount" : "percent"),
+    });
+  }
+
+  function updateSaleItemEditDraft(field, value) {
+    setSaleItemEditDraft((current) => {
+      if (!current) return current;
+      const next = { ...current, [field]: value };
+      if (field === "discountPercent") next.discountSource = "percent";
+      if (field === "discountAmount") next.discountSource = "amount";
+      const pricingQty = next.itemType === "custom" ? 1 : Number(next.quantity || 0);
+      const lineAmount = pricingQty * Number(next.rate || 0);
+      if (next.discountSource === "amount") {
+        next.discountPercent = next.discountAmount === "" ? "" : roundPercent(lineAmount ? (Number(next.discountAmount || 0) / lineAmount) * 100 : 0);
+      } else {
+        next.discountAmount = next.discountPercent === "" ? "" : roundMoney(lineAmount * (Number(next.discountPercent || 0) / 100));
+      }
+      return next;
+    });
+  }
+
+  function finishSaleItemEdit(index) {
+    const item = saleItems[index];
+    const draft = saleItemEditDraft;
+    if (!item || editingSaleItemIndex !== index || draft?.workspaceId !== activeWorkspace.id) return;
+    const pricingQty = item.item_type === "custom" ? 1 : Number(draft.quantity);
+    const rate = Number(draft.rate);
+    if (!Number.isFinite(pricingQty) || pricingQty <= 0) {
+      onError(new Error("Quantity must be greater than 0. Use Delete to remove the item."));
+      return;
+    }
+    if (!Number.isFinite(rate) || rate <= 0) {
+      onError(new Error("Rate / Sell Price must be greater than 0."));
+      return;
+    }
+    const discountPercent = draft.discountPercent === "" ? "" : Number(draft.discountPercent);
+    const discountAmount = draft.discountAmount === "" ? "" : Number(draft.discountAmount);
+    const lineAmount = pricingQty * rate;
+    if ((discountPercent !== "" && (!Number.isFinite(discountPercent) || discountPercent < 0 || discountPercent > 100))
+      || (discountAmount !== "" && (!Number.isFinite(discountAmount) || discountAmount < 0 || discountAmount > lineAmount))) {
+      onError(new Error("Discount must be between 0 and the item amount (maximum 100%)."));
+      return;
+    }
+
+    let totalQty = Number(item.total_qty || 0);
+    let qtInBox = Number(item.qt_in_box || 0);
+    let qtInPatta = Number(item.qt_in_patta || 0);
+    if (item.item_type !== "custom") {
+      const batch = data.batches.find((batchRow) => Number(batchRow.id) === Number(item.batch_id));
+      const originalPricingQty = Number(item.pricing_qty || 0);
+      const originalMultiplier = originalPricingQty ? Number(item.total_qty || 0) / originalPricingQty : 0;
+      const quantityMultiplier = batch ? quantityTypeGoliMultiplier(batch, item.sale_type) : originalMultiplier || 1;
+      totalQty = pricingQty * quantityMultiplier;
+      const otherBatchQty = saleItems
+        .filter((saleItem, itemIndex) => itemIndex !== index && saleItem.item_type !== "custom" && Number(saleItem.batch_id) === Number(item.batch_id))
+        .reduce((sum, saleItem) => sum + Number(saleItem.total_qty || 0), 0);
+      const fallbackStock = otherBatchQty + Number(item.total_qty || 0);
+      const startingStock = Number(item.stock_remaining_before_sale ?? batch?.stock_remaining ?? fallbackStock);
+      const maxPricingQty = quantityMultiplier ? Math.max(0, (startingStock - otherBatchQty) / quantityMultiplier) : pricingQty;
+      if (!Number.isFinite(startingStock) || !Number.isFinite(maxPricingQty)) {
+        onError(new Error("Stock information for this item is invalid. Delete it and add the product again."));
+        return;
+      }
+      if (pricingQty > maxPricingQty) {
+        onError(new Error(`Only ${formatCompactNumber(maxPricingQty)} ${displayQuantityType(item.sale_type).toLowerCase()} are available for this item.`));
+        return;
+      }
+      qtInBox = batch ? totalQty / batchGoliPerBox(batch) : (Number(item.total_qty || 0) ? totalQty * (Number(item.qt_in_box || 0) / Number(item.total_qty)) : 0);
+      qtInPatta = batch ? totalQty / batchItemsPerPatta(batch) : (Number(item.total_qty || 0) ? totalQty * (Number(item.qt_in_patta || 0) / Number(item.total_qty)) : 0);
+    }
+
+    setSaleItems((items) => items.map((saleItem, itemIndex) => itemIndex === index ? calculateItem({
+      ...saleItem,
+      pricing_qty: pricingQty,
+      total_qty: totalQty,
+      qt_in_units: totalQty,
+      qt_in_box: qtInBox,
+      qt_in_patta: qtInPatta,
+      rate,
+      discount_percent: discountPercent,
+      discount_amount: discountAmount,
+      discount_source: draft.discountSource,
+    }, draft.discountSource) : saleItem));
+    setEditingSaleItemIndex(null);
+    setSaleItemEditDraft(null);
+  }
+
+  function deleteSaleItem(index) {
+    setSaleItems((items) => items.filter((_, itemIndex) => itemIndex !== index));
+    setEditingSaleItemIndex(null);
+    setSaleItemEditDraft(null);
   }
 
   function updateCheckoutDiscountPercent(value) {
@@ -1680,6 +1816,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
 
   async function generateInvoice({ showInvoice = !editOnly } = {}) {
     if (!saleItems.length) return;
+    if (!requireFinishedSaleItemEdit()) return;
     if (!canGenerateInvoice) {
       setValidationMessage("Enter sales PIN before printing invoice");
       return;
@@ -1717,6 +1854,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
 
   async function saveDraft(payloadOverrides = {}) {
     if (!saleItems.length) return;
+    if (!requireFinishedSaleItemEdit()) return;
     if (editingSaleId) {
       onError(new Error("Existing sales must be checked out after editing."));
       return;
@@ -1741,6 +1879,8 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   }
 
   function loadSaleItems(sale, { stockAlreadyDeducted = false } = {}) {
+    setEditingSaleItemIndex(null);
+    setSaleItemEditDraft(null);
     const saleItemsToLoad = sale.items || [];
     const deductedByBatch = saleItemsToLoad.reduce((totals, item) => {
       if ((item.item_type || "").toLowerCase() === "custom" || !item.batch_id) return totals;
@@ -1881,6 +2021,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
         setValidationMessage(shortcutKey === "s" ? "Add at least one item before recording sale" : "Add at least one item before printing invoice");
         return;
       }
+      if (!requireFinishedSaleItemEdit()) return;
       if (shortcutKey === "s") {
         if (!canGenerateInvoice) {
           setValidationMessage("Enter sales PIN before recording sale");
@@ -1901,10 +2042,10 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     }
     window.addEventListener("keydown", handlePrintShortcut);
     return () => window.removeEventListener("keydown", handlePrintShortcut);
-  }, [saleTab, saleItems, invoiceSale, invoicePolicy, data, canGenerateInvoice, generateInvoice]);
+  }, [saleTab, saleItems, invoiceSale, invoicePolicy, data, canGenerateInvoice, generateInvoice, hasPendingSaleItemEdit]);
 
   function renderSaleEditor({ inline = false, showCost = !inline } = {}) {
-    const tableColSpan = showCost ? 13 : 12;
+    const tableColSpan = showCost ? 9 : 8;
     const draftOverrides = {
       totalAmount: grossAmount,
       discountAmount: totalDiscount,
@@ -1913,100 +2054,88 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
       paidAmount: checkoutPayable,
     };
     return (
-      <>
-        {!inline && editingSaleId ? <div className="edit-sale-notice">Editing existing invoice. Checkout will update this sale.</div> : null}
-        {editingSaleId ? <div className="edit-sale-fields">
-          <label><span>Sale Date</span><input type="date" value={editingSaleSnapshot?.date || ""} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), date: event.target.value }))} /></label>
-          <label><span>Sale Time</span><input type="time" value={String(editingSaleSnapshot?.time || "").slice(0, 5)} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), time: event.target.value }))} /></label>
-          <label><span>Paid Amount</span><input type="number" min="0" step="0.01" value={paid} onChange={(event) => setPaid(event.target.value)} /></label>
-        </div> : null}
-        <div className="sale-entry-mode">
-          <button className={entryMode === "product" ? "active" : ""} type="button" onClick={() => setEntryMode("product")}>Product</button>
-          <button className={entryMode === "custom" ? "active" : ""} type="button" onClick={() => { setEntryMode("custom"); requestAnimationFrame(() => saleEntryRefs.current.customDescription?.focus?.()); }}>Service Charge</button>
-        </div>
-        <label className="sale-customer-inline">
-          <span>Customer Name <small>(Optional)</small></span>
-          <input ref={(node) => { saleEntryRefs.current.customerName = node; }} placeholder="Customer Name" value={customer.name === "Walk-in" ? "" : customer.name} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerName")} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value || "Walk-in" }))} />
-        </label>
-        <label className="sale-customer-inline">
-          <span>Customer Phone <small>(Optional)</small></span>
-          <input ref={(node) => { saleEntryRefs.current.customerPhone = node; }} placeholder="Customer Phone" value={customer.phone || ""} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerPhone")} onChange={(event) => setCustomer((current) => ({ ...current, phone: event.target.value }))} />
-        </label>
-        {entryMode === "custom" ? (
-          <table className="entry-table">
-            <thead><tr><th>Description</th><th>Amount</th><th>Action</th></tr></thead>
-            <tbody><tr>
-              <td><input ref={(node) => { saleEntryRefs.current.customDescription = node; }} placeholder="Service description" value={customDescription} onKeyDown={(event) => handleCustomEntryKeyDown(event, "customDescription")} onChange={(event) => setCustomDescription(event.target.value)} /></td>
-              <td><input ref={(node) => { saleEntryRefs.current.customAmount = node; }} type="number" min="0" placeholder="Amount" value={customAmount} onKeyDown={(event) => handleCustomEntryKeyDown(event, "customAmount")} onChange={(event) => setCustomAmount(event.target.value)} /></td>
-              <td><button ref={(node) => { saleEntryRefs.current.customAdd = node; }} className="primary" type="button" onKeyDown={(event) => handleCustomEntryKeyDown(event, "customAdd")} onClick={addCustomItem}>Add to List</button></td>
-            </tr></tbody>
-          </table>
-        ) : (
-          <table className="entry-table">
-            <thead><tr><th>Product Name</th><th>Quantity</th><th>Sale Type</th><th>Action</th></tr></thead>
-            <tbody><tr>
-              <td className="suggest-cell">
-                <input ref={(node) => { saleEntryRefs.current.product = node; }} placeholder="Enter Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
+      <div className={`sale-editor-shell${inline ? " is-inline" : ""}`}>
+        <div className="sale-editor-controls">
+          {!inline && editingSaleId ? <div className="edit-sale-notice">Editing existing invoice. Checkout will update this sale.</div> : null}
+          {editingSaleId ? <div className="edit-sale-fields">
+            <label><span>Sale Date</span><input type="date" value={editingSaleSnapshot?.date || ""} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), date: event.target.value }))} /></label>
+            <label><span>Sale Time</span><input type="time" value={String(editingSaleSnapshot?.time || "").slice(0, 5)} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), time: event.target.value }))} /></label>
+            <label><span>Paid Amount</span><input type="number" min="0" step="0.01" value={paid} onChange={(event) => setPaid(event.target.value)} /></label>
+          </div> : null}
+          <div className={`sale-entry-toolbar${entryMode === "custom" ? " is-custom" : ""}`}>
+            <div className="sale-entry-customer-row">
+              <div className="sale-entry-mode compact-sale-entry-mode">
+                <button className={entryMode === "product" ? "active" : ""} type="button" onClick={() => setEntryMode("product")}>Product</button>
+                <button className={entryMode === "custom" ? "active" : ""} type="button" onClick={() => { setEntryMode("custom"); requestAnimationFrame(() => saleEntryRefs.current.customDescription?.focus?.()); }}>Service</button>
+              </div>
+              <input ref={(node) => { saleEntryRefs.current.customerPhone = node; }} aria-label="Customer Number" inputMode="tel" placeholder="Customer Number" value={customer.phone || ""} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerPhone")} onChange={(event) => setCustomer((current) => ({ ...current, phone: event.target.value }))} />
+              <input ref={(node) => { saleEntryRefs.current.customerName = node; }} aria-label="Customer Name" placeholder="Customer Name" value={customer.name === "Walk-in" ? "" : customer.name} onKeyDown={(event) => handleSaleEntryKeyDown(event, "customerName")} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value || "Walk-in" }))} />
+            </div>
+            {entryMode === "custom" ? <div className="sale-entry-product-row is-custom">
+              <input ref={(node) => { saleEntryRefs.current.customDescription = node; }} aria-label="Service Description" placeholder="Service description" value={customDescription} onKeyDown={(event) => handleCustomEntryKeyDown(event, "customDescription")} onChange={(event) => setCustomDescription(event.target.value)} />
+              <input ref={(node) => { saleEntryRefs.current.customAmount = node; }} aria-label="Service Amount" type="number" min="0" placeholder="Amount" value={customAmount} onKeyDown={(event) => handleCustomEntryKeyDown(event, "customAmount")} onChange={(event) => setCustomAmount(event.target.value)} />
+              <button ref={(node) => { saleEntryRefs.current.customAdd = node; }} className="primary" type="button" onKeyDown={(event) => handleCustomEntryKeyDown(event, "customAdd")} onClick={addCustomItem}>Add</button>
+            </div> : <div className="sale-entry-product-row">
+              <div className="sale-entry-product">
+                <input ref={(node) => { saleEntryRefs.current.product = node; }} aria-label="Product Name" placeholder="Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
                 {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
                   return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{batch.product_name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
                 }) : <div className="empty-small">{saleSearchLoading ? "Searching..." : "No products found"}</div>}</div> : null}
-              </td>
-              <td><input ref={(node) => { saleEntryRefs.current.qty = node; }} type="number" min="1" placeholder="Enter quantity" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} /></td>
-              <td>
-                <TextOptionPicker
-                  className="sale-type-picker"
-                  ariaLabel="Sale Type"
-                  placeholder="Select Sale Type"
-                  value={saleType}
-                  options={SALE_QUANTITY_TYPE_OPTIONS}
-                  onChange={setSaleType}
-                  inputRef={(node) => { saleEntryRefs.current.saleType = node; }}
-                />
-              </td>
-              <td><button ref={(node) => { saleEntryRefs.current.add = node; }} className="primary" type="button" onKeyDown={(event) => handleSaleEntryKeyDown(event, "add")} onClick={() => { if (addItem()) focusSaleEntryField("product"); }}>Add to List</button></td>
-            </tr></tbody>
-          </table>
-        )}
+              </div>
+              <input ref={(node) => { saleEntryRefs.current.qty = node; }} aria-label="Quantity" type="number" min="1" placeholder="Qty" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} />
+              <TextOptionPicker
+                className="sale-type-picker"
+                ariaLabel="Sale Type"
+                placeholder="Type"
+                value={saleType}
+                options={SALE_QUANTITY_TYPE_OPTIONS}
+                onChange={setSaleType}
+                inputRef={(node) => { saleEntryRefs.current.saleType = node; }}
+              />
+              <button ref={(node) => { saleEntryRefs.current.add = node; }} className="primary" type="button" onKeyDown={(event) => handleSaleEntryKeyDown(event, "add")} onClick={() => { if (addItem()) focusSaleEntryField("product"); }}>Add</button>
+            </div>}
+          </div>
+        </div>
         <section className={`panel sale-items-panel${inline ? " inline-sale-editor" : ""}`}>
-          <div className="sale-items-title">{inline ? "Sales Items List" : "Purchased Items List"}</div>
+          <div className="sale-items-title"><span>{inline ? "Sales Items" : "Purchased Items"}</span><small>{saleItems.length} {saleItems.length === 1 ? "item" : "items"}</small></div>
           {inline && editingSaleSnapshot?.date ? <div className="sale-edit-date">{formatDisplayDate(editingSaleSnapshot.date)}</div> : null}
           <div className="sale-items-table-wrap">
-            <table className="data-table sale-items-table"><thead><tr><th>Product Name</th><th>Shelf</th><th>Qt in Box</th><th>Qt in Tab.</th><th>Total Quantity (Tab.)</th><th>Remaining Stock (Tab.)</th>{showCost ? <th>Cost Price</th> : null}<th>Rate/Sell Price</th><th>Amount</th><th>Discount(%)</th><th>Discount(Amt)</th><th>Payable Amt</th><th>Actions</th></tr></thead>
-              <tbody>{saleItems.length ? saleItems.map((item, index) => <tr key={`${item.item_type || "product"}-${item.batch_id || "custom"}-${index}`}>
-                <td>{item.product_name}</td>
-                <td>{saleItemShelf(item)}</td>
-                <td>{item.item_type === "custom" ? "-" : item.reference_qt_in_box_display || formatCompactNumber(item.qt_in_box)}</td>
-                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.qt_in_units)}</td>
-                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(item.total_qty)}</td>
-                <td>{item.item_type === "custom" ? "-" : formatCompactNumber(saleItemRemainingAfterCurrentSale(item))}</td>
-                {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
-                <td><input className="table-input" type="number" min="0" value={item.rate} onChange={(event) => updateSaleItem(index, { rate: event.target.value })} /></td>
-                <td>{plainMoney(item.amount)}</td>
-                <td><input className="table-input" type="number" min="0" placeholder="Disc(%)" value={item.discount_percent} onChange={(event) => updateSaleItem(index, { discount_percent: event.target.value }, "percent")} /></td>
-                <td><input className="table-input" type="number" min="0" placeholder="Disc Amt" value={item.discount_amount} onChange={(event) => updateSaleItem(index, { discount_amount: event.target.value }, "amount")} /></td>
-                <td>{plainMoney(item.payable_amount)}</td>
-                <td><div className="icon-actions"><button className="icon-action" type="button" title="Edit"><Pencil size={18} /></button><button className="icon-action danger-icon" type="button" title="Delete" onClick={() => setSaleItems(saleItems.filter((_, i) => i !== index))}><Trash2 size={18} /></button></div></td>
-              </tr>) : <tr><td colSpan={tableColSpan} className="empty">No Data Found</td></tr>}</tbody></table>
+            <table className="data-table sale-items-table"><thead><tr><th>Product</th><th>Quantity</th>{showCost ? <th>Cost Price</th> : null}<th>Rate</th><th>Amount</th><th>Disc. %</th><th>Disc. Amt</th><th>Payable</th><th>Action</th></tr></thead>
+              <tbody>{saleItems.length ? saleItems.map((item, index) => {
+                const editing = editingSaleItemIndex === index && saleItemEditDraft?.workspaceId === activeWorkspace.id;
+                const displayedItem = editing && saleItemEditPreview ? saleItemEditPreview : item;
+                const lockedByOtherEdit = hasPendingSaleItemEdit && !editing;
+                return <tr className={editing ? "is-editing" : ""} key={`${item.item_type || "product"}-${item.batch_id || "custom"}-${index}`}>
+                  <td><div className="sale-item-product"><strong>{item.product_name}</strong><small>{item.item_type === "custom" ? "Service charge" : `Batch ${item.batch_no || "-"} · Shelf ${saleItemShelf(item)}`}</small></div></td>
+                  <td>{editing && item.item_type !== "custom" ? <input className="table-input sale-quantity-input" aria-label={`Quantity for ${item.product_name}`} type="number" min="0.01" step="any" value={saleItemEditDraft.quantity} onChange={(event) => updateSaleItemEditDraft("quantity", event.target.value)} /> : <div className="sale-item-quantity"><strong>{item.item_type === "custom" ? "1 service" : `${formatCompactNumber(item.pricing_qty ?? item.total_qty)} ${displayQuantityType(item.sale_type)}`}</strong>{item.item_type === "custom" ? null : <small>{formatCompactNumber(item.total_qty)} tab. total · {formatCompactNumber(saleItemRemainingAfterCurrentSale(item))} left</small>}</div>}</td>
+                  {showCost ? <td>{plainMoney(item.cost_price)}</td> : null}
+                  <td>{editing ? <input className="table-input" aria-label={`Rate for ${item.product_name}`} type="number" min="0.001" step="0.001" value={saleItemEditDraft.rate} onChange={(event) => updateSaleItemEditDraft("rate", event.target.value)} /> : plainMoney(item.rate)}</td>
+                  <td>{plainMoney(displayedItem.amount)}</td>
+                  <td>{editing ? <input className="table-input" aria-label={`Discount percent for ${item.product_name}`} type="number" min="0" max="100" step="0.01" placeholder="Disc. %" value={saleItemEditDraft.discountPercent} onChange={(event) => updateSaleItemEditDraft("discountPercent", event.target.value)} /> : formatCompactNumber(Number(item.discount_percent || 0))}</td>
+                  <td>{editing ? <input className="table-input" aria-label={`Discount amount for ${item.product_name}`} type="number" min="0" max={Number(saleItemEditDraft.quantity || 0) * Number(saleItemEditDraft.rate || 0)} step="0.01" placeholder="Disc. Amt" value={saleItemEditDraft.discountAmount} onChange={(event) => updateSaleItemEditDraft("discountAmount", event.target.value)} /> : plainMoney(item.discount_amount || 0)}</td>
+                  <td>{plainMoney(displayedItem.payable_amount)}</td>
+                  <td><div className="icon-actions sale-item-actions"><button className="icon-action" type="button" disabled={lockedByOtherEdit} title={lockedByOtherEdit ? "Finish the current row edit first" : editing ? "Done" : "Edit"} aria-label={`${editing ? "Done editing" : "Edit"} ${item.product_name}`} onClick={() => editing ? finishSaleItemEdit(index) : beginSaleItemEdit(index)}>{editing ? <Check size={17} /> : <Pencil size={17} />}</button><button className="icon-action danger-icon" type="button" disabled={lockedByOtherEdit} title={lockedByOtherEdit ? "Finish the current row edit first" : "Delete"} aria-label={`Delete ${item.product_name}`} onClick={() => deleteSaleItem(index)}><Trash2 size={17} /></button></div></td>
+                </tr>;
+              }) : <tr><td colSpan={tableColSpan} className="empty">No Data Found</td></tr>}</tbody></table>
           </div>
           {saleItems.length ? <>
-            <section className="sale-payment-panel">
-              <div className="sale-payment-left">
-                <div className="checkout-discount">
-                  <span>Add Discount</span>
-                  <input type="number" min="0" placeholder="RS." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
-                  <div className="percent-input"><input type="number" min="0" placeholder="0" value={checkoutDiscountPercent} onChange={(event) => updateCheckoutDiscountPercent(event.target.value)} /><span>%</span></div>
-                </div>
+            <section className="sale-payment-panel compact-sale-payment">
+              <div className="sale-payment-metrics">
+                <div><span>Subtotal</span><strong>Rs. {plainMoney(payable)}</strong></div>
+                <div><span>Payable</span><strong>Rs. {money(checkoutPayable)}</strong></div>
               </div>
-              <div className="sale-payment-right">
-                <div className="sale-total"><span>Total Amount</span><strong>Rs. {plainMoney(payable)}</strong></div>
-                <div className="payable-line"><span>Payable Amount</span><strong>RS. {money(checkoutPayable)}</strong></div>
-                {salesPinRequired ? <label className="receive-now"><span>Sales PIN:</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
-                <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" onClick={() => saveDraft(draftOverrides)}>Save as a Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice} onClick={generateInvoice}>{editingSaleId ? "Update Sale" : "Generate Invoice"}</button></div>
+              <div className="checkout-discount compact-checkout-discount">
+                <span>Discount</span>
+                <input aria-label="Discount amount" type="number" min="0" placeholder="Rs." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
+                <div className="percent-input"><input aria-label="Discount percent" type="number" min="0" placeholder="0" value={checkoutDiscountPercent} onChange={(event) => updateCheckoutDiscountPercent(event.target.value)} /><span>%</span></div>
               </div>
+              {salesPinRequired ? <label className="compact-sales-pin"><span>PIN</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
+              {hasPendingSaleItemEdit ? <span className="sale-edit-pending-hint">Click ✓ to apply item changes</span> : null}
+              <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" disabled={hasPendingSaleItemEdit} onClick={() => saveDraft(draftOverrides)}>Save Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice || hasPendingSaleItemEdit} onClick={generateInvoice}>{editingSaleId ? "Update Sale" : "Generate Invoice"}</button></div>
             </section>
           </> : null}
         </section>
-      </>
+      </div>
     );
   }
 
@@ -2031,11 +2160,11 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
 
   return (
     <>
-    <section className="sale-page">
+    <section className={`sale-page${saleTab === "new" ? " sale-page-pos" : ""}`}>
       <div className="tabs">
         <label><input type="radio" name="sale-tab" value="new" checked={saleTab === "new"} onChange={() => { setNotice?.(""); setSaleTab("new"); setSaleListPage(1); }} /> New Sales</label>
-        <label><input type="radio" name="sale-tab" value="recent" checked={saleTab === "recent"} onChange={() => { setNotice?.(""); setSaleTab("recent"); setSaleListPage(1); setSaleListPageSize(10); }} /> Recent Sales</label>
-        <label><input type="radio" name="sale-tab" value="draft" checked={saleTab === "draft"} onChange={() => { setNotice?.(""); setSaleTab("draft"); setSaleListPage(1); setSaleListPageSize(10); }} /> Draft Sales</label>
+        <label><input type="radio" name="sale-tab" value="recent" disabled={hasPendingSaleItemEdit} checked={saleTab === "recent"} onChange={() => { setNotice?.(""); setSaleTab("recent"); setSaleListPage(1); setSaleListPageSize(10); }} /> Recent Sales</label>
+        <label><input type="radio" name="sale-tab" value="draft" disabled={hasPendingSaleItemEdit} checked={saleTab === "draft"} onChange={() => { setNotice?.(""); setSaleTab("draft"); setSaleListPage(1); setSaleListPageSize(10); }} /> Draft Sales</label>
       </div>
       {saleTab === "new" ? <>{renderSaleWorkspaceTabs()}{renderSaleEditor()}</> : saleTab === "recent" ? (
         <RecentSalesList
@@ -2322,7 +2451,7 @@ function ReturnInvoiceModal({ detail, data = {}, close }) {
           <div className="receipt-meta">
             <span>Return Inv. No: {invoiceNumber}</span>
             <span>Original Inv. No: {sale.invoice_number}</span>
-            <span>{formatInvoiceDate(sale)}</span>
+            <span>Return Date: {formatDisplayDate(returns[0]?.date || sale.date)}</span>
           </div>
           <table>
             <thead><tr><th>Item(s)</th><th>Returned</th><th>Rate</th><th>Amt</th></tr></thead>
@@ -5686,11 +5815,13 @@ function PrintOptionsModal({ option, setOption, printing, close, print }) {
   );
 }
 
-function ReturnItemPage({ data, apiCall, reload, onError }) {
+function ReturnItemPage({ data, apiCall, reload, onError, setNotice }) {
   const [invoiceQuery, setInvoiceQuery] = useState("");
+  const [returnDate, setReturnDate] = useState(today());
   const [sale, setSale] = useState(null);
   const [returnQty, setReturnQty] = useState({});
   const [returnInvoice, setReturnInvoice] = useState(null);
+  const [lookupLoading, setLookupLoading] = useState(false);
   const returnRows = useMemo(() => (sale?.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => {
     const returned = Number(item.qty_returned || 0);
     const remaining = Math.max(0, Number(item.total_qty || 0) - returned);
@@ -5715,28 +5846,24 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
 
   async function lookupInvoice() {
     const query = invoiceQuery.trim();
-    if (!query) return;
+    if (!query || lookupLoading) return;
+    setLookupLoading(true);
+    setNotice?.("");
     try {
-      let match;
-      try {
-        match = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(query)}`);
-      } catch (error) {
-        if (error.status !== 404 || !/^\d+$/.test(query)) throw error;
-        match = await apiCall(`/api/sales/${query}`);
-      }
+      const match = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(query)}`);
       setSale(match);
       setReturnQty(Object.fromEntries((match.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => [item.batch_id, ""])));
+      setNotice?.("");
     } catch (error) {
       setSale(null);
       onError(error.status === 404 ? new Error("Invoice not found.") : error);
+    } finally {
+      setLookupLoading(false);
     }
   }
 
   async function generateReturnInvoice() {
-    if (!sale) {
-      await lookupInvoice();
-      return;
-    }
+    if (!sale) return;
     if (!selectedReturnRows.length) {
       onError(new Error("Enter a valid return quantity."));
       return;
@@ -5758,13 +5885,13 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
               amount: qty * Number(row.unit_refund_amount || row.rate || 0),
               reason: "Customer return",
               refund_method: "cash",
-              date: today(),
+              date: returnDate,
             };
           }),
         }),
       });
       await reload();
-      const refreshed = await apiCall(`/api/sales/${sale.id}`);
+      const refreshed = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(sale.invoice_number)}`);
       setSale(refreshed);
       setReturnQty(Object.fromEntries((refreshed.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => [item.batch_id, ""])));
       setReturnInvoice({ sale: refreshed, returns: createdReturns });
@@ -5776,13 +5903,16 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
   return (
     <section className="list-page">
       <div className="return-search reference-return-search">
-        <label>
+        <div className="return-invoice-field">
           <span className="field-title">Reference Invoice #</span>
-          <input placeholder="Enter the original invoice#" value={invoiceQuery} onChange={(event) => { setInvoiceQuery(event.target.value); setSale(null); }} onKeyDown={(event) => { if (event.key === "Enter") lookupInvoice(); }} />
-        </label>
+          <div className="return-invoice-input-row">
+            <input aria-label="Reference Invoice Number" placeholder="Enter the original invoice#" value={invoiceQuery} disabled={lookupLoading} onChange={(event) => { setInvoiceQuery(event.target.value); setSale(null); setReturnQty({}); setNotice?.(""); }} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); lookupInvoice(); } }} />
+            <button className="primary return-search-button" type="button" disabled={!invoiceQuery.trim() || lookupLoading} onClick={lookupInvoice}><Search size={17} /> {lookupLoading ? "Searching..." : "Search Invoice"}</button>
+          </div>
+        </div>
         <label>
           <span className="field-title">Return Invoice Date</span>
-          <input disabled placeholder="Enter the original invoice#" value={formatDashDate(today())} />
+          <input aria-label="Return Invoice Date" type="date" max={today()} value={returnDate} onChange={(event) => setReturnDate(event.target.value)} />
         </label>
       </div>
       <section className="sale-items-panel return-items-panel">
@@ -5795,7 +5925,7 @@ function ReturnItemPage({ data, apiCall, reload, onError }) {
         }} />
       </section>
       <div className="return-actions">
-        <button className="primary" type="button" disabled={sale ? !selectedReturnRows.length : !invoiceQuery.trim()} onClick={generateReturnInvoice}>Generate Invoice</button>
+        <button className="primary" type="button" disabled={!sale || !selectedReturnRows.length || !returnDate} onClick={generateReturnInvoice}>Generate Invoice</button>
       </div>
       {returnInvoice ? <ReturnInvoiceModal detail={returnInvoice} data={data} close={() => setReturnInvoice(null)} /> : null}
     </section>
@@ -6268,7 +6398,7 @@ function printReturnReceipt(detail, data = {}) {
           <div class="meta">
             <span>Return Inv. No: ${htmlEscape(invoiceNumber)}</span>
             <span>Original Inv. No: ${htmlEscape(sale.invoice_number)}</span>
-            <span>${htmlEscape(formatInvoiceDate(sale))}</span>
+            <span>Return Date: ${htmlEscape(formatDisplayDate(returns[0]?.date || sale.date))}</span>
           </div>
           <table><thead><tr><th>Item(s)</th><th>Returned</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
           <div class="total"><span>Total Items: ${returns.length}</span></div>

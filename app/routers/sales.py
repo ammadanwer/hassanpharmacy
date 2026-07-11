@@ -3,7 +3,7 @@ from typing import Annotated, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import Numeric, and_, case, cast, func, or_
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from app.core.reference_stock import adjust_reference_product_stock
 from app.core.security import CurrentUser, verify_password
@@ -522,7 +522,13 @@ def sales_summary(
 
 @router.get("/api/sales/by-invoice/{invoice_number}", response_model=SaleResponse)
 def get_sale_by_invoice(invoice_number: str, db: Annotated[Session, Depends(get_db)], current_user: CurrentUser):
-    sale = db.query(Sale).filter(Sale.invoice_number == invoice_number).first()
+    query = db.query(Sale).options(
+        selectinload(Sale.items).selectinload(SaleItem.product),
+        selectinload(Sale.returns),
+    )
+    sale = query.filter(Sale.invoice_number == invoice_number.strip()).first()
+    if not sale and invoice_number.strip().isdigit():
+        sale = query.filter(Sale.id == int(invoice_number.strip())).first()
     if not sale:
         raise HTTPException(status_code=404, detail="Sale not found")
     return sale

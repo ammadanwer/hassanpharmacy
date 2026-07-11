@@ -54,6 +54,8 @@ def api_permission_requirement(path: str, method: str, query: dict[str, str] | N
         return (("pharmacy_dashboard", "new_sale", "sales_history", "batch", "medical_product", "non_medical_product"), "view")
     if path.startswith("/api/sale-search"):
         return (("new_sale",), "view")
+    if path.startswith("/api/sales/by-invoice/"):
+        return (("sales_return",), "add")
     if path.startswith("/api/returns"):
         return (("sales_return",), "add") if method != "GET" else (("sales_return_history",), "view")
     if path.startswith("/api/draft-sales"):

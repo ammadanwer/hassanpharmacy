@@ -1,0 +1,166 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Sale 2 (1)",
+    "New Sale Tab",
+    "Product",
+    "Service",
+    "Add",
+    "Done editing AVSAR 80/5MG TAB",
+    "Delete AVSAR 80/5MG TAB",
+    "Save Draft",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Number",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Product Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Qty",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Type",
+      "value": "Tab.",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "4",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "40",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc. %",
+      "value": "10",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc. Amt",
+      "value": "16",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Rs.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "0",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product",
+      "Quantity",
+      "Cost Price",
+      "Rate",
+      "Amount",
+      "Disc. %",
+      "Disc. Amt",
+      "Payable",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nSale 2 (1)\nNew Sale Tab\nProduct\nService\nAdd\nPurchased Items\n1 item\nProduct\tQuantity\tCost Price\tRate\tAmount\tDisc. %\tDisc. Amt\tPayable\tAction\n\nAVSAR 80/5MG TAB\nBatch 6c035 · Shelf -\n\t\t28.21\t\t160.00\t\t\t144.00\t\nSUBTOTAL\nRs. 144.00\nPAYABLE\nRs. 144.00\nDiscount\n%\nClick ✓ to apply item changes\nSave Draft\nGenerate Invoice",
+  "evalResults": {
+    "afterClick": {
+      "quantity": "4",
+      "rate": "40",
+      "discountPercent": "10",
+      "discountAmount": "16",
+      "amountPreview": "160.00",
+      "payablePreview": "144.00",
+      "totalsPreview": [
+        "Rs. 144.00",
+        "Rs. 144.00"
+      ],
+      "saveDraftDisabled": true,
+      "generateDisabled": true,
+      "historyTabsDisabled": 2,
+      "pendingHint": "Click ✓ to apply item changes",
+      "productInputWidth": 560,
+      "tableOverflow": false
+    }
+  }
+}

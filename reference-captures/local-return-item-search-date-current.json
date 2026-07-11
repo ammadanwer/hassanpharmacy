@@ -1,0 +1,249 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Search Invoice",
+    "Return",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "233964",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "2026-07-10",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Return Quantity",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch no.",
+      "Name",
+      "Quantity Sold",
+      "Quantity Returned",
+      "Rate/Sell Price",
+      "Amount",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nHassan Pharmacy\nReference Invoice #\nSearch Invoice\nReturn Invoice Date\nPurchased Items List\nBatch no.\tName\tQuantity Sold\tQuantity Returned\tRate/Sell Price\tAmount\tAction\nAA078\tEMPTIN OD 150MG\t6\t\t38\t228\tReturn\nGenerate Invoice",
+  "evalResults": {
+    "beforeClick": {
+      "ready": true,
+      "elapsedMs": 35,
+      "selectedDate": "2026-07-10",
+      "invoice": "233964",
+      "rowLoaded": true
+    }
+  },
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "debug",
+        "args": [
+          {
+            "type": "string",
+            "value": "[vite] connecting..."
+          }
+        ],
+        "executionContextId": 5,
+        "timestamp": 1783752656242.234,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 732,
+              "columnNumber": 8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "info",
+        "args": [
+          {
+            "type": "string",
+            "value": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools"
+          },
+          {
+            "type": "string",
+            "value": "font-weight:bold"
+          }
+        ],
+        "executionContextId": 5,
+        "timestamp": 1783752656252.442,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "27",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/chunk-ZK5Y27IM.js?v=f517ba8b",
+              "lineNumber": 21606,
+              "columnNumber": 24
+            },
+            {
+              "functionName": "node_modules/react-dom/cjs/react-dom.development.js",
+              "scriptId": "27",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/chunk-ZK5Y27IM.js?v=f517ba8b",
+              "lineNumber": 21626,
+              "columnNumber": 8
+            },
+            {
+              "functionName": "__require",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/chunk-DY34KBJM.js?v=f517ba8b",
+              "lineNumber": 8,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "node_modules/react-dom/index.js",
+              "scriptId": "27",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/chunk-ZK5Y27IM.js?v=f517ba8b",
+              "lineNumber": 21638,
+              "columnNumber": 23
+            },
+            {
+              "functionName": "__require",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/chunk-DY34KBJM.js?v=f517ba8b",
+              "lineNumber": 8,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "node_modules/react-dom/client.js",
+              "scriptId": "25",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=f517ba8b",
+              "lineNumber": 10,
+              "columnNumber": 12
+            },
+            {
+              "functionName": "__require",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/chunk-DY34KBJM.js?v=f517ba8b",
+              "lineNumber": 8,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "",
+              "scriptId": "25",
+              "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=f517ba8b",
+              "lineNumber": 36,
+              "columnNumber": 15
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "debug",
+        "args": [
+          {
+            "type": "string",
+            "value": "[vite] connected."
+          }
+        ],
+        "executionContextId": 5,
+        "timestamp": 1783752656270.592,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "handleMessage",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 826,
+              "columnNumber": 11
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 457,
+              "columnNumber": 41
+            },
+            {
+              "functionName": "dequeue",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 479,
+              "columnNumber": 7
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 471,
+              "columnNumber": 8
+            },
+            {
+              "functionName": "enqueue",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 465,
+              "columnNumber": 9
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 457,
+              "columnNumber": 27
+            },
+            {
+              "functionName": "onMessage",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 304,
+              "columnNumber": 5
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:5173/@vite/client",
+              "lineNumber": 412,
+              "columnNumber": 4
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

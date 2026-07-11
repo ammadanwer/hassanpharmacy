@@ -1,0 +1,128 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Sale 1",
+    "New Sale Tab",
+    "Product",
+    "Service Charge",
+    "Add to List"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Number",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter Product Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter quantity",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Select Sale Type",
+      "value": "Tab.",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product Name",
+      "Quantity",
+      "Sale Type",
+      "Action"
+    ],
+    [
+      "Product Name",
+      "Shelf",
+      "Qt in Box",
+      "Qt in Tab.",
+      "Total Quantity (Tab.)",
+      "Remaining Stock (Tab.)",
+      "Cost Price",
+      "Rate/Sell Price",
+      "Amount",
+      "Discount(%)",
+      "Discount(Amt)",
+      "Payable Amt",
+      "Actions"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nSale 1\nNew Sale Tab\nProduct\nService Charge\nCustomer Number (Optional)\nCustomer Name (Optional)\nProduct Name\tQuantity\tSale Type\tAction\n\t\t\n\tAdd to List\nPurchased Items List\nProduct Name\tShelf\tQt in Box\tQt in Tab.\tTotal Quantity (Tab.)\tRemaining Stock (Tab.)\tCost Price\tRate/Sell Price\tAmount\tDiscount(%)\tDiscount(Amt)\tPayable Amt\tActions\nNo Data Found",
+  "evalResults": {
+    "beforeClick": {
+      "number": {
+        "x": 277,
+        "y": 302,
+        "width": 360,
+        "height": 44
+      },
+      "name": {
+        "x": 653,
+        "y": 302,
+        "width": 360,
+        "height": 44
+      },
+      "sameLine": true,
+      "numberFirst": true
+    }
+  }
+}

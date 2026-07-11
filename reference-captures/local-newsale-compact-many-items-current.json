@@ -1,0 +1,576 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Sale 1 (1)",
+    "New Sale Tab",
+    "Product",
+    "Service",
+    "Add",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Delete Risek 40mg",
+    "Save Draft",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Number",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Product Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Qty",
+      "value": "1",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Type",
+      "value": "Tab.",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "6",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc(%)",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Disc Amt",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Rs.",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "0",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product",
+      "Quantity",
+      "Rate",
+      "Amount",
+      "Disc. %",
+      "Disc. Amt",
+      "Payable",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nHassan Pharmacy\nNew Sales\nRecent Sales\nDraft Sales\nSale 1 (1)\nNew Sale Tab\nProduct\nService\nAdd\nPurchased Items\n1 item\nProduct\tQuantity\tRate\tAmount\tDisc. %\tDisc. Amt\tPayable\tAction\n\nRisek 40mg\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 2\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 3\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 4\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 5\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 6\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 7\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 8\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 9\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 10\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 11\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 12\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 13\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 14\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 15\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 16\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 17\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 18\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 19\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\n\n\nDemo item 20\nBatch 1257mmm · Shelf -\n\t\n9 Tab.\n9 tab. total · 706 left\n\t\t54.00\t\t\t54.00\t\nSUBTOTAL\nRs. 54.00\nPAYABLE\nRs. 54.00\nDiscount\n%\nSave Draft\nGenerate Invoice",
+  "evalResults": {
+    "beforeClick": {
+      "ready": true,
+      "renderedRows": 20,
+      "internalOverflow": true,
+      "wrapClientHeight": 354,
+      "wrapScrollHeight": 808,
+      "panel": {
+        "top": 227,
+        "bottom": 665,
+        "height": 438
+      },
+      "payment": {
+        "top": 612,
+        "bottom": 664,
+        "height": 52
+      },
+      "pageScroll": 60,
+      "headerPosition": "sticky"
+    }
+  }
+}
