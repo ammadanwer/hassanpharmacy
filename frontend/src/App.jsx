@@ -1190,6 +1190,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const activeWorkspace = saleWorkspaces.find((workspace) => workspace.id === activeSaleWorkspaceId) || saleWorkspaces[0] || createSaleWorkspace(1);
   const workspaceIndex = Math.max(0, saleWorkspaces.findIndex((workspace) => workspace.id === activeWorkspace.id));
   const saleEntryRefs = useRef({});
+  const suggestionListRef = useRef(null);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   function updateActiveWorkspace(updater) {
     setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
@@ -1278,6 +1279,18 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   useEffect(() => {
     setActiveSuggestionIndex((index) => Math.max(0, Math.min(index, Math.max(suggestions.length - 1, 0))));
   }, [suggestions.length]);
+  useEffect(() => {
+    if (!showSuggestions || !suggestions.length) return;
+    const list = suggestionListRef.current;
+    const activeOption = list?.querySelector('[data-suggestion-active="true"]');
+    if (!list || !activeOption) return;
+    const optionTop = activeOption.offsetTop;
+    const optionBottom = optionTop + activeOption.offsetHeight;
+    const visibleTop = list.scrollTop;
+    const visibleBottom = visibleTop + list.clientHeight;
+    if (optionTop < visibleTop) list.scrollTop = optionTop;
+    else if (optionBottom > visibleBottom) list.scrollTop = Math.max(0, optionBottom - list.clientHeight);
+  }, [activeSuggestionIndex, showSuggestions, suggestions]);
   const hasPendingSaleItemEdit = editingSaleItemIndex !== null
     && saleItemEditDraft?.workspaceId === activeWorkspace.id
     && Boolean(saleItems[editingSaleItemIndex]);
@@ -2073,8 +2086,9 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
             </div> : <div className="sale-entry-product-row">
               <div className="sale-entry-product">
                 <input ref={(node) => { saleEntryRefs.current.product = node; }} aria-label="Product Name" placeholder="Product Name" value={query} onFocus={() => { setShowSuggestions(Boolean(query)); setActiveSuggestionIndex(0); }} onKeyDown={(event) => handleSaleEntryKeyDown(event, "product")} onChange={(event) => { setQuery(event.target.value); setActiveSuggestionIndex(0); updateActiveWorkspace({ selectedBatch: null, selectedBatchId: null }); setBarcode(""); setShowSuggestions(Boolean(event.target.value)); }} onBlur={() => setTimeout(() => setShowSuggestions(false), 120)} />
-                {showSuggestions && query ? <div className="suggestions">{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
-                  return <button className={suggestionIndex === activeSuggestionIndex ? "active" : ""} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{batch.product_name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
+                {showSuggestions && query ? <div className="suggestions" ref={suggestionListRef}>{suggestions.length ? suggestions.map((batch, suggestionIndex) => {
+                  const active = suggestionIndex === activeSuggestionIndex;
+                  return <button className={active ? "active" : ""} data-suggestion-active={active ? "true" : undefined} type="button" key={batch.id} onMouseDown={(event) => event.preventDefault()} onMouseEnter={() => setActiveSuggestionIndex(suggestionIndex)} onClick={() => chooseSaleSuggestion(batch)}>{batch.product_name}<span>Batch {batch.batch_no} - Stock {batch.stock_remaining}</span></button>;
                 }) : <div className="empty-small">{saleSearchLoading ? "Searching..." : "No products found"}</div>}</div> : null}
               </div>
               <input ref={(node) => { saleEntryRefs.current.qty = node; }} aria-label="Quantity" type="number" min="1" placeholder="Qty" value={qty} onKeyDown={(event) => handleSaleEntryKeyDown(event, "qty")} onChange={(event) => setQty(event.target.value)} />
