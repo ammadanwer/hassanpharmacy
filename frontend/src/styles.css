@@ -2122,12 +2122,6 @@ main {
   margin-top: 8px;
 }
 
-.receipt-policy {
-  border-top: 1px dashed #8b8b8b;
-  margin-top: 12px !important;
-  padding-top: 8px;
-}
-
 .receipt-footer {
   font-weight: 700;
 }

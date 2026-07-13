@@ -1191,8 +1191,6 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const workspaceIndex = Math.max(0, saleWorkspaces.findIndex((workspace) => workspace.id === activeWorkspace.id));
   const saleEntryRefs = useRef({});
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
-  const invoicePolicy = data.returnPolicies?.[0]?.description || "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable";
-
   function updateActiveWorkspace(updater) {
     setSaleWorkspaces((workspaces) => workspaces.map((workspace) => {
       if (workspace.id !== activeWorkspace.id) return workspace;
@@ -2016,6 +2014,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
       const shortcutKey = event.key.toLowerCase();
       if (!["p", "s"].includes(shortcutKey)) return;
       if (saleTab !== "new") return;
+      if (shortcutKey === "p" && invoiceSale) return;
       event.preventDefault();
       if (!saleItems.length) {
         setValidationMessage(shortcutKey === "s" ? "Add at least one item before recording sale" : "Add at least one item before printing invoice");
@@ -2030,10 +2029,6 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
         generateInvoice({ showInvoice: false });
         return;
       }
-      if (invoiceSale) {
-        printInvoiceReceipt(invoiceSale, invoicePolicy, data);
-        return;
-      }
       if (!canGenerateInvoice) {
         setValidationMessage("Enter sales PIN before printing invoice");
         return;
@@ -2042,7 +2037,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     }
     window.addEventListener("keydown", handlePrintShortcut);
     return () => window.removeEventListener("keydown", handlePrintShortcut);
-  }, [saleTab, saleItems, invoiceSale, invoicePolicy, data, canGenerateInvoice, generateInvoice, hasPendingSaleItemEdit]);
+  }, [saleTab, saleItems, invoiceSale, canGenerateInvoice, generateInvoice, hasPendingSaleItemEdit]);
 
   function renderSaleEditor({ inline = false, showCost = !inline } = {}) {
     const tableColSpan = showCost ? 9 : 8;
@@ -2362,21 +2357,70 @@ function DraftSalesList({ sales, page, pageSize, totalRows, onPageChange, onPage
   );
 }
 
-function InvoiceModal({ sale, data, close }) {
+const INVOICE_RECEIPT_CSS = `
+  .invoice-receipt { box-sizing: border-box; color: #111; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0 auto; padding: 16px 18px; width: 330px; }
+  .invoice-receipt h3 { font-size: 22px; margin: 0; text-align: center; }
+  .invoice-receipt p { font-size: 13px; margin: 4px 0; text-align: center; }
+  .invoice-receipt .receipt-meta { border-top: 1px dashed #8b8b8b; border-bottom: 1px dashed #8b8b8b; display: grid; font-size: 13px; gap: 4px; margin: 10px 0; padding: 8px 0; }
+  .invoice-receipt table { border-collapse: collapse; font-size: 12px; width: 100%; }
+  .invoice-receipt th, .invoice-receipt td { border-bottom: 1px solid #e1e1e1; padding: 6px 3px; text-align: left; vertical-align: top; }
+  .invoice-receipt th:nth-child(n+2), .invoice-receipt td:nth-child(n+2) { text-align: right; }
+  .invoice-receipt .receipt-total-row { display: flex; font-size: 13px; justify-content: space-between; margin-top: 8px; }
+`;
+
+function InvoiceReceipt({ sale, data, receiptRef }) {
   const items = sale.items || [];
-  const policy = data.returnPolicies?.[0]?.description || "Please check and verify your medicines. Medicines will be returned within 15 days. Fridge items are non returnable";
   const profile = receiptPharmacyProfile(data);
   const totals = invoiceReceiptTotals(sale);
-  const showPaymentRows = sale.reference_original_due_display !== "";
+  return (
+    <>
+      <style>{INVOICE_RECEIPT_CSS}</style>
+      <div className="invoice-receipt" id="invoice-receipt" ref={receiptRef}>
+        <h3>Hassan Pharmacy</h3>
+        <p>Pharmacy Management System</p>
+        {profile.address ? <p>{profile.address}</p> : null}
+        {profile.customerService ? <p>Phone # {profile.customerService}</p> : null}
+        <div className="receipt-meta">
+          {sale.customer_name ? <span>C.Name: {sale.customer_name}</span> : null}
+          {sale.customer_phone ? <span>C.Ph #: {sale.customer_phone}</span> : null}
+          <span>Inv. No: {sale.invoice_number}</span>
+          <span>{formatInvoiceDate(sale)}</span>
+        </div>
+        <table>
+          <thead><tr><th>Item(s)</th><th>QTY (Tab.)</th><th>Price</th><th>Amt</th></tr></thead>
+          <tbody>{items.length ? <>
+            {items.map((item, index) => (
+              <tr key={item.id || index}>
+                <td>{receiptProductName(item, data)}</td>
+                <td>{money(item.total_qty)}</td>
+                <td>{money(item.rate)}</td>
+                <td>{money(item.payable_amount ?? item.amount)}</td>
+              </tr>
+            ))}
+            <tr><td colSpan="4">Total Items: {items.length}</td></tr>
+          </> : <tr><td colSpan="4">No items found</td></tr>}</tbody>
+        </table>
+        <div className="receipt-total-row"><span>Gross Total:</span><strong>Rs. {money(totals.gross)}</strong></div>
+        <div className="receipt-total-row"><span>Discount:</span><strong>Rs. {money(totals.discount)}</strong></div>
+        <div className="receipt-total-row"><span>Net Total:</span><strong>Rs. {money(totals.net)}</strong></div>
+      </div>
+    </>
+  );
+}
+
+function InvoiceModal({ sale, data, close }) {
+  const receiptRef = useRef(null);
   useEffect(() => {
     function handleInvoiceKeyDown(event) {
-      if (event.key !== "Enter") return;
+      const isPrintShortcut = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "p";
+      if (event.key !== "Enter" && !isPrintShortcut) return;
       event.preventDefault();
-      printInvoiceReceipt(sale, policy, data);
+      if (isPrintShortcut) event.stopImmediatePropagation();
+      printInvoiceReceipt(sale, receiptRef.current);
     }
     window.addEventListener("keydown", handleInvoiceKeyDown);
     return () => window.removeEventListener("keydown", handleInvoiceKeyDown);
-  }, [sale, policy, data]);
+  }, [sale]);
   return (
     <div className="modal-backdrop invoice-backdrop">
       <section className="invoice-modal">
@@ -2384,45 +2428,9 @@ function InvoiceModal({ sale, data, close }) {
           <h2>Invoice Details</h2>
           <button type="button" onClick={close}><X /></button>
         </div>
-        <div className="receipt-card" id="invoice-receipt">
-          <h3>Hassan Pharmacy</h3>
-          <p>Pharmacy Management System</p>
-          {profile.address ? <p>{profile.address}</p> : null}
-          {profile.customerService ? <p>Phone # {profile.customerService}</p> : null}
-          {profile.licenseNumber ? <p>License No. {profile.licenseNumber}</p> : null}
-          <div className="receipt-meta">
-            {sale.customer_name ? <span>C.Name: {sale.customer_name}</span> : null}
-            {sale.customer_phone ? <span>C.Ph #: {sale.customer_phone}</span> : null}
-            <span>Inv. No: {sale.invoice_number}</span>
-            <span>C. By: Admin</span>
-            <span>{formatInvoiceDate(sale)}</span>
-          </div>
-          <table>
-            <thead><tr><th>Item(s)</th><th>QTY (Tab.)</th><th>Price</th><th>Amt</th></tr></thead>
-            <tbody>{items.length ? <>
-              {items.map((item, index) => (
-                <tr key={item.id || index}>
-                  <td>{receiptProductName(item, data)}</td>
-                  <td>{money(item.total_qty)}</td>
-                  <td>{money(item.rate)}</td>
-                  <td>{money(item.payable_amount ?? item.amount)}</td>
-                </tr>
-              ))}
-              <tr><td colSpan="4">Total Items: {items.length}</td></tr>
-            </> : <tr><td colSpan="4">No items found</td></tr>}</tbody>
-          </table>
-          <div className="receipt-total-row"><span>Gross Total:</span><strong>Rs. {money(totals.gross)}</strong></div>
-          <div className="receipt-total-row"><span>Discount:</span><strong>Rs. {money(totals.discount)}</strong></div>
-          <div className="receipt-total-row"><span>Net Total:</span><strong>Rs. {money(totals.net)}</strong></div>
-          {showPaymentRows ? <>
-            <div className="receipt-total-row"><span>Payment Received:</span><strong>Rs. {money(totals.paid)}</strong></div>
-            <div className="receipt-total-row"><span>Due Payment:</span><strong>Rs. {money(totals.due)}</strong></div>
-          </> : null}
-          <p className="receipt-policy">{policy}</p>
-          <p className="receipt-footer">Software By Hassan Pharmacy{profile.customerService ? `, Phone# ${profile.customerService}` : ""}</p>
-        </div>
+        <InvoiceReceipt sale={sale} data={data} receiptRef={receiptRef} />
         <div className="invoice-modal-actions">
-          <button className="primary" type="button" onClick={() => printInvoiceReceipt(sale, policy, data)}>Print Invoice</button>
+          <button className="primary" type="button" onClick={() => printInvoiceReceipt(sale, receiptRef.current)}>Print Invoice</button>
         </div>
       </section>
     </div>
@@ -5060,6 +5068,7 @@ function SalesHistoryPage({ data, apiCall, onError, user }) {
   const [totalRows, setTotalRows] = useState(0);
   const [summary, setSummary] = useState(null);
   const [detailSale, setDetailSale] = useState(null);
+  const [invoiceSale, setInvoiceSale] = useState(null);
   const [editingSale, setEditingSale] = useState(null);
   const latestFiltersRef = useRef(null);
   const canEditSales = userHasPermission(user, "sales_history", "edit") || userHasPermission(user, "new_sale", "edit");
@@ -5121,6 +5130,13 @@ function SalesHistoryPage({ data, apiCall, onError, user }) {
       onError(error);
     }
   }
+  async function printSale(row) {
+    try {
+      setInvoiceSale(await apiCall(`/api/sales/${row.id}`));
+    } catch (error) {
+      onError(error);
+    }
+  }
   async function editSale(row) {
     try {
       setEditingSale(await apiCall(`/api/sales/${row.id}`));
@@ -5173,6 +5189,7 @@ function SalesHistoryPage({ data, apiCall, onError, user }) {
         render={(row, key) => key === "actions" ? (
           <div className="invoice-actions">
             <button className="icon-action" type="button" title="view" aria-label="view" onClick={() => openSaleDetails(row)}><Eye size={18} /></button>
+            <button className="icon-action" type="button" title="Print Invoice" aria-label={`Print Invoice ${row.invoice_number}`} onClick={() => printSale(row)}><Printer size={18} /></button>
             {canEditSales ? <button className="icon-action" type="button" title={row.status === "returned" ? "Returned sales cannot be edited" : "Edit sale"} aria-label={`Edit ${row.invoice_number}`} disabled={row.status === "returned"} onClick={() => editSale(row)}><Pencil size={18} /></button> : null}
             {canDeleteSales ? <button className="icon-action danger-icon" type="button" title={row.status === "returned" ? "Returned sales cannot be deleted" : "Delete sale"} aria-label={`Delete ${row.invoice_number}`} disabled={row.status === "returned"} onClick={() => deleteSale(row)}><Trash2 size={18} /></button> : null}
           </div>
@@ -5181,6 +5198,7 @@ function SalesHistoryPage({ data, apiCall, onError, user }) {
         ) : key === "time" ? formatHistoryTime(row[key]) : formatSalesHistoryCell(row, key)}
       />
       {detailSale ? <SalesHistoryDetailsModal sale={detailSale} data={data} close={() => setDetailSale(null)} /> : null}
+      {invoiceSale ? <InvoiceModal sale={invoiceSale} data={data} close={() => setInvoiceSale(null)} /> : null}
       {editingSale ? <NewSale data={data} apiCall={apiCall} onError={onError} initialSale={editingSale} editOnly onEditSaved={saleEdited} onEditCancel={() => setEditingSale(null)} /> : null}
     </>
   );
@@ -6183,8 +6201,6 @@ function invoiceReceiptTotals(sale) {
     gross: Math.round(Number(grossSource || 0)),
     discount: Number(sale.reference_original_discount_amount ?? sale.discount_amount ?? 0),
     net: Number(sale.reference_original_total_payable ?? sale.total_payable ?? 0),
-    paid: Number(sale.reference_original_paid ?? sale.paid ?? 0),
-    due: Number(sale.reference_original_due ?? sale.due ?? 0),
   };
 }
 
@@ -6297,17 +6313,8 @@ function formatTimeInput(value, fallback) {
   return minutes == null ? fallback : minutesToTimeLabel(minutes);
 }
 
-function printInvoiceReceipt(sale, policy, data, targetWindow = null) {
-  const items = sale.items || [];
-  const profile = receiptPharmacyProfile(data);
-  const totals = invoiceReceiptTotals(sale);
-  const paymentRows = sale.reference_original_due_display === ""
-    ? ""
-    : `<div class="total"><span>Payment Received:</span><strong>Rs. ${htmlEscape(money(totals.paid))}</strong></div>
-          <div class="total"><span>Due Payment:</span><strong>Rs. ${htmlEscape(money(totals.due))}</strong></div>`;
-  const itemRows = items.length
-    ? items.map((item) => `<tr><td>${htmlEscape(receiptProductName(item, data))}</td><td>${htmlEscape(money(item.total_qty))}</td><td>${htmlEscape(money(item.rate))}</td><td>${htmlEscape(money(item.payable_amount ?? item.amount))}</td></tr>`).join("")
-    : `<tr><td colspan="4">No items found</td></tr>`;
+function printInvoiceReceipt(sale, receiptElement, targetWindow = null) {
+  if (!receiptElement) return;
   const printWindow = targetWindow || window.open("", "_blank", "width=420,height=700");
   if (!printWindow) return;
   printWindow.document.write(`<!doctype html>
@@ -6316,43 +6323,11 @@ function printInvoiceReceipt(sale, policy, data, targetWindow = null) {
         <title>Invoice ${htmlEscape(sale.invoice_number)}</title>
         <style>
           body { color: #111; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; }
-          .receipt { margin: 0 auto; padding: 14px 12px; width: 300px; }
-          h1 { font-size: 20px; margin: 0; text-align: center; }
-          p { font-size: 12px; margin: 3px 0; text-align: center; }
-          .meta { border-top: 1px dashed #777; border-bottom: 1px dashed #777; display: grid; gap: 3px; margin: 9px 0; padding: 7px 0; }
-          .meta span { font-size: 12px; }
-          table { border-collapse: collapse; font-size: 11px; width: 100%; }
-          th, td { border-bottom: 1px solid #ddd; padding: 5px 3px; text-align: left; vertical-align: top; }
-          th:nth-child(n+2), td:nth-child(n+2) { text-align: right; }
-          .total { display: flex; font-size: 12px; justify-content: space-between; margin-top: 8px; }
-          .policy { border-top: 1px dashed #777; margin-top: 10px; padding-top: 8px; }
-          @media print { @page { margin: 5mm; size: 80mm auto; } .receipt { width: auto; } }
+          ${INVOICE_RECEIPT_CSS}
+          @media print { @page { margin: 5mm; size: 80mm auto; } .invoice-receipt { width: auto; } }
         </style>
       </head>
-      <body>
-        <section class="receipt">
-          <h1>Hassan Pharmacy</h1>
-          <p>Pharmacy Management System</p>
-          ${profile.address ? `<p>${htmlEscape(profile.address)}</p>` : ""}
-          ${profile.customerService ? `<p>Phone # ${htmlEscape(profile.customerService)}</p>` : ""}
-          ${profile.licenseNumber ? `<p>License No. ${htmlEscape(profile.licenseNumber)}</p>` : ""}
-          <div class="meta">
-            ${sale.customer_name ? `<span>C.Name: ${htmlEscape(sale.customer_name)}</span>` : ""}
-            ${sale.customer_phone ? `<span>C.Ph #: ${htmlEscape(sale.customer_phone)}</span>` : ""}
-            <span>Inv. No: ${htmlEscape(sale.invoice_number)}</span>
-            <span>C. By: Admin</span>
-            <span>${htmlEscape(formatInvoiceDate(sale))}</span>
-          </div>
-          <table><thead><tr><th>Item(s)</th><th>QTY (Tab.)</th><th>Price</th><th>Amt</th></tr></thead><tbody>${itemRows}</tbody></table>
-          <div class="total"><span>Total Items: ${items.length}</span></div>
-          <div class="total"><span>Gross Total:</span><strong>Rs. ${htmlEscape(money(totals.gross))}</strong></div>
-          <div class="total"><span>Discount:</span><strong>Rs. ${htmlEscape(money(totals.discount))}</strong></div>
-          <div class="total"><span>Net Total:</span><strong>Rs. ${htmlEscape(money(totals.net))}</strong></div>
-          ${paymentRows}
-          <p class="policy">${htmlEscape(policy)}</p>
-          <p>Software By Hassan Pharmacy${profile.customerService ? `, Phone# ${htmlEscape(profile.customerService)}` : ""}</p>
-        </section>
-      </body>
+      <body>${receiptElement.outerHTML}</body>
     </html>`);
   printWindow.document.close();
   printWindow.focus();
