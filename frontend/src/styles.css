@@ -2476,7 +2476,7 @@ main {
   align-items: center;
   background: #fff;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 12px;
   justify-content: space-between;
   min-height: 52px;
@@ -2539,6 +2539,21 @@ main {
 
 .compact-checkout-discount .percent-input span {
   font-size: 13px;
+}
+
+.compact-amount-received {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.compact-amount-received input {
+  min-height: 34px;
+  width: 88px;
 }
 
 .compact-sales-pin {

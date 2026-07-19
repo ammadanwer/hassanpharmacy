@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import { api, clearSession, getStoredSession, storeSession } from "./api";
 import loginMedicalIllustration from "./assets/login-medical-illustration.png";
+import { defaultAmountReceived, salePaymentRecord } from "./salePayment";
 
 const routes = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -1093,6 +1094,7 @@ function createSaleWorkspace(index = 1, overrides = {}) {
     saleType: DEFAULT_SALE_QUANTITY_TYPE,
     qty: "",
     paid: "",
+    receivedAmountEdited: false,
     checkoutOpen: false,
     doctorName: "",
     showCustomer: false,
@@ -1143,6 +1145,7 @@ function normalizeStoredSaleWorkspace(workspace, index) {
     showSuggestions: false,
     customer: { name: "Walk-in", phone: "", ...(workspace.customer || {}) },
     saleItems: Array.isArray(workspace.saleItems) ? workspace.saleItems : [],
+    receivedAmountEdited: workspace.receivedAmountEdited ?? Boolean(workspace.paid !== "" && workspace.paid != null),
   });
 }
 
@@ -1224,7 +1227,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const qty = activeWorkspace.qty;
   const setQty = makeWorkspaceSetter("qty");
   const paid = activeWorkspace.paid;
-  const setPaid = makeWorkspaceSetter("paid");
+  const receivedAmountEdited = Boolean(activeWorkspace.receivedAmountEdited);
   const checkoutOpen = activeWorkspace.checkoutOpen;
   const customer = activeWorkspace.customer;
   const setCustomer = makeWorkspaceSetter("customer");
@@ -1248,7 +1251,8 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     if (saleItems.length) return;
     setEditingSaleItemIndex(null);
     setSaleItemEditDraft(null);
-  }, [saleItems.length]);
+    updateActiveWorkspace({ paid: "", receivedAmountEdited: false });
+  }, [saleItems.length, activeSaleWorkspaceId]);
   const [suggestions, setSuggestions] = useState([]);
   const [saleSearchLoading, setSaleSearchLoading] = useState(false);
   useEffect(() => {
@@ -1312,6 +1316,10 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   const totalDiscount = roundMoney(lineDiscount + checkoutDiscount);
   const totalDiscountPercent = grossAmount ? roundPercent((totalDiscount / grossAmount) * 100) : 0;
   const checkoutPayable = Math.max(0, payable - checkoutDiscount);
+  const automaticAmountReceived = defaultAmountReceived(checkoutPayable);
+  const amountReceivedInput = editingSaleId || receivedAmountEdited ? paid : String(automaticAmountReceived);
+  const amountReceivedValue = Number(amountReceivedInput);
+  const amountReceivedValid = String(amountReceivedInput).trim() !== "" && Number.isFinite(amountReceivedValue) && amountReceivedValue >= 0;
   const salesPinRequired = Boolean(data.pharmacyProfile?.pin_required ?? data.pharmacyProfile?.pinRequired);
   const canGenerateInvoice = !salesPinRequired || salesPin.trim().length > 0;
   const saleEntryFieldOrder = ["customerPhone", "customerName", "product", "qty", "add"];
@@ -1786,12 +1794,22 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     setCheckoutDiscountPercent(value === "" ? "" : roundPercent(payable ? (Number(value || 0) / payable) * 100 : 0));
   }
 
+  function updateAmountReceived(value, edited = true) {
+    updateActiveWorkspace({ paid: value, receivedAmountEdited: edited });
+  }
+
+  function requireValidAmountReceived() {
+    if (amountReceivedValid) return true;
+    setValidationMessage("Enter a valid amount received");
+    return false;
+  }
+
   function salePayload(overrides = {}) {
     const totalAmount = Number(overrides.totalAmount ?? grossAmount);
     const discountAmount = Number(overrides.discountAmount ?? 0);
     const discountPercent = overrides.discountPercent ?? null;
     const totalPayable = Number(overrides.totalPayable ?? Math.max(0, totalAmount - discountAmount));
-    const amountPaid = Number(overrides.paidAmount ?? totalPayable);
+    const payment = salePaymentRecord(totalPayable, overrides.paidAmount ?? defaultAmountReceived(totalPayable));
     return {
       customer_name: overrides.customerName ?? customer.name ?? "Walk-in",
       customer_phone: overrides.customerPhone ?? customer.phone ?? null,
@@ -1802,9 +1820,9 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
       discount_percent: discountPercent === "" ? null : discountPercent,
       discount_amount: discountAmount || null,
       total_payable: totalPayable,
-      paid: amountPaid,
-      due: Math.max(0, totalPayable - amountPaid),
-      change_returned: Math.max(0, amountPaid - totalPayable),
+      paid: payment.paid,
+      due: payment.due,
+      change_returned: Number(overrides.changeReturned ?? payment.changeReturned),
       payment_method: "cash",
       sales_pin: salesPinRequired ? salesPin.trim() : null,
       items: saleItems.map((item) => ({
@@ -1828,6 +1846,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   async function generateInvoice({ showInvoice = !editOnly } = {}) {
     if (!saleItems.length) return;
     if (!requireFinishedSaleItemEdit()) return;
+    if (!requireValidAmountReceived()) return;
     if (!canGenerateInvoice) {
       setValidationMessage("Enter sales PIN before printing invoice");
       return;
@@ -1842,7 +1861,8 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
           discountAmount: totalDiscount,
           discountPercent: totalDiscount ? totalDiscountPercent : null,
           totalPayable: checkoutPayable,
-          paidAmount: editingSaleId ? Number(paid || 0) : checkoutPayable,
+          paidAmount: amountReceivedValue,
+          changeReturned: editingSaleId ? Number(editingSaleSnapshot?.changeReturned || 0) : 0,
           date: editingSaleSnapshot?.date,
           time: editingSaleSnapshot?.time,
         })),
@@ -1851,7 +1871,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
       setEditingSaleId(null);
       setEditingSaleSnapshot(null);
       setSaleItems([]);
-      setPaid("");
+      updateAmountReceived("", false);
       setCustomer({ name: "Walk-in", phone: "" });
       setCheckoutDiscountAmount("");
       setCheckoutDiscountPercent("");
@@ -1866,6 +1886,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
   async function saveDraft(payloadOverrides = {}) {
     if (!saleItems.length) return;
     if (!requireFinishedSaleItemEdit()) return;
+    if (!requireValidAmountReceived()) return;
     if (editingSaleId) {
       onError(new Error("Existing sales must be checked out after editing."));
       return;
@@ -1879,7 +1900,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
       setEditingSaleId(null);
       setEditingSaleSnapshot(null);
       setSaleItems([]);
-      setPaid("");
+      updateAmountReceived("", false);
       setSalesPin("");
       setSaleTab("draft");
       setSaleListPage(1);
@@ -1957,7 +1978,10 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     const itemPayable = (sale.items || []).reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
     const checkoutDiscount = Math.max(0, Number(sale.discount_amount || 0) - Math.max(0, itemGross - itemPayable));
     loadSaleItems(sale);
-    setPaid(sale.paid || "");
+    const storedPaid = Number(sale.paid || 0);
+    const storedPayable = Number(sale.total_payable || 0);
+    const storedPaymentWasAutomatic = storedPaid === 0 || storedPaid === storedPayable || storedPaid === defaultAmountReceived(storedPayable);
+    updateAmountReceived(sale.paid ?? "", !storedPaymentWasAutomatic);
     setCustomer({ name: sale.customer_name || "Walk-in", phone: sale.customer_phone || "" });
     setCheckoutDiscountAmount(checkoutDiscount || "");
     setCheckoutDiscountPercent(checkoutDiscount && itemPayable ? roundPercent((checkoutDiscount / itemPayable) * 100) : "");
@@ -1973,14 +1997,14 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
     const itemPayable = (sale.items || []).reduce((sum, item) => sum + Number(item.payable_amount ?? item.amount ?? 0), 0);
     const checkoutDiscount = Math.max(0, Number(sale.discount_amount || 0) - Math.max(0, itemGross - itemPayable));
     loadSaleItems(sale, { stockAlreadyDeducted: true });
-    setPaid(sale.paid || "");
+    updateAmountReceived(sale.paid ?? "", true);
     setCustomer({ name: sale.customer_name || "Walk-in", phone: sale.customer_phone || "" });
     setCheckoutDiscountAmount(checkoutDiscount || "");
     setCheckoutDiscountPercent(checkoutDiscount && itemPayable ? roundPercent((checkoutDiscount / itemPayable) * 100) : "");
     setSalesPin("");
     setCurrentDraftId(null);
     setEditingSaleId(sale.id);
-    setEditingSaleSnapshot({ date: sale.date, time: sale.time });
+    setEditingSaleSnapshot({ date: sale.date, time: sale.time, changeReturned: Number(sale.change_returned || 0) });
   }
 
   useEffect(() => {
@@ -2059,7 +2083,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
       discountAmount: totalDiscount,
       discountPercent: totalDiscount ? totalDiscountPercent : null,
       totalPayable: checkoutPayable,
-      paidAmount: checkoutPayable,
+      paidAmount: amountReceivedValue,
     };
     return (
       <div className={`sale-editor-shell${inline ? " is-inline" : ""}`}>
@@ -2068,7 +2092,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
           {editingSaleId ? <div className="edit-sale-fields">
             <label><span>Sale Date</span><input type="date" value={editingSaleSnapshot?.date || ""} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), date: event.target.value }))} /></label>
             <label><span>Sale Time</span><input type="time" value={String(editingSaleSnapshot?.time || "").slice(0, 5)} onChange={(event) => setEditingSaleSnapshot((current) => ({ ...(current || {}), time: event.target.value }))} /></label>
-            <label><span>Paid Amount</span><input type="number" min="0" step="0.01" value={paid} onChange={(event) => setPaid(event.target.value)} /></label>
+            <label><span>Amount Received</span><input type="number" min="0" step="0.01" value={paid} onChange={(event) => updateAmountReceived(event.target.value)} /></label>
           </div> : null}
           <div className={`sale-entry-toolbar${entryMode === "custom" ? " is-custom" : ""}`}>
             <div className="sale-entry-customer-row">
@@ -2138,6 +2162,7 @@ function NewSale({ data, apiCall, onError, setNotice, initialSale = null, editOn
                 <input aria-label="Discount amount" type="number" min="0" placeholder="Rs." value={checkoutDiscountAmount} onChange={(event) => updateCheckoutDiscountAmount(event.target.value)} />
                 <div className="percent-input"><input aria-label="Discount percent" type="number" min="0" placeholder="0" value={checkoutDiscountPercent} onChange={(event) => updateCheckoutDiscountPercent(event.target.value)} /><span>%</span></div>
               </div>
+              {!editingSaleId ? <label className="compact-amount-received"><span>Amount Received</span><input aria-label="Amount received" type="number" min="0" step="0.01" value={amountReceivedInput} onChange={(event) => updateAmountReceived(event.target.value)} /></label> : null}
               {salesPinRequired ? <label className="compact-sales-pin"><span>PIN</span><input type="password" inputMode="numeric" placeholder="PIN" value={salesPin} onChange={(event) => setSalesPin(event.target.value.replace(/\D/g, "").slice(0, 8))} /></label> : null}
               {hasPendingSaleItemEdit ? <span className="sale-edit-pending-hint">Click ✓ to apply item changes</span> : null}
               <div className="sale-actions">{!editingSaleId ? <button className="outline draft-outline" type="button" disabled={hasPendingSaleItemEdit} onClick={() => saveDraft(draftOverrides)}>Save Draft</button> : null}<button className="primary" type="button" disabled={!canGenerateInvoice || hasPendingSaleItemEdit} onClick={generateInvoice}>{editingSaleId ? "Update Sale" : "Generate Invoice"}</button></div>

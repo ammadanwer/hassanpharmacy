@@ -1,0 +1,149 @@
+{
+  "url": "http://127.0.0.1:4174/pms/dashboard/newsale",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Sale 1 (1)",
+    "Close Sale 1",
+    "Sale 2 (1)",
+    "Close Sale 2",
+    "Sale 3 (1)",
+    "Close Sale 3",
+    "New Sale Tab",
+    "Product",
+    "Service",
+    "Add",
+    "Edit Automatic payment probe",
+    "Delete Automatic payment probe",
+    "Save Draft",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "new",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "recent",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "radio",
+      "placeholder": "",
+      "value": "draft",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Number",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Customer Name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Service description",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Amount",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Rs.",
+      "value": "1",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "0",
+      "value": "10.53",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "",
+      "value": "9",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Product",
+      "Quantity",
+      "Cost Price",
+      "Rate",
+      "Amount",
+      "Disc. %",
+      "Disc. Amt",
+      "Payable",
+      "Action"
+    ]
+  ],
+  "text": "H\n\nPharmacy Management System\n\nAdd New Sale\nNew Sales\nRecent Sales\nDraft Sales\nSale 1 (1)\nSale 2 (1)\nSale 3 (1)\nNew Sale Tab\nProduct\nService\nAdd\nPurchased Items\n1 item\nProduct\tQuantity\tCost Price\tRate\tAmount\tDisc. %\tDisc. Amt\tPayable\tAction\n\nAutomatic payment probe\nService charge\n\t\n1 service\n\t0.00\t9.50\t9.50\t0\t0.00\t9.50\t\nSUBTOTAL\nRs. 9.50\nPAYABLE\nRs. 8.50\nDiscount\n%\nAmount Received\nSave Draft\nGenerate Invoice",
+  "evalResults": {
+    "beforeClickFile": {
+      "ok": true,
+      "initialCeiling": {
+        "paymentText": "SUBTOTAL\nRs. 9.50\nPAYABLE\nRs. 9.50\nDiscount\n%\nAmount Received\nSave Draft\nGenerate Invoice",
+        "amountReceived": "10",
+        "footerFits": true,
+        "footerWidth": 656,
+        "footerScrollWidth": 656
+      },
+      "automaticAfterDiscount": {
+        "paymentText": "SUBTOTAL\nRs. 9.50\nPAYABLE\nRs. 8.50\nDiscount\n%\nAmount Received\nSave Draft\nGenerate Invoice",
+        "amountReceived": "9",
+        "footerFits": true,
+        "footerWidth": 656,
+        "footerScrollWidth": 656
+      },
+      "manual": {
+        "paymentText": "SUBTOTAL\nRs. 9.50\nPAYABLE\nRs. 8.50\nDiscount\n%\nAmount Received\nSave Draft\nGenerate Invoice",
+        "amountReceived": "15",
+        "footerFits": true,
+        "footerWidth": 656,
+        "footerScrollWidth": 656
+      }
+    }
+  }
+}
