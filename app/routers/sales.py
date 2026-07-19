@@ -62,6 +62,13 @@ def sale_item_payable(amount: float, discount_amount: Optional[float], discount_
     return max(0, amount_value - discount_value)
 
 
+def retained_sale_overpayment(paid: float, total_payable: float, change_returned: Optional[float]) -> float:
+    paid_value = float(paid or 0)
+    payable_value = float(total_payable or 0)
+    returned_value = max(0, float(change_returned or 0))
+    return max(0, paid_value - payable_value - returned_value)
+
+
 @router.get("/api/sale-search", response_model=list[SaleSearchBatchResponse])
 def sale_search(
     db: Annotated[Session, Depends(get_db)],
@@ -503,6 +510,10 @@ def sales_summary(
     gross_sales = sum(float(row.total_amount or 0) for row in rows)
     total_discount = sum(float(row.discount_amount or 0) for row in rows)
     net_sales = sum(float(row.total_payable or 0) for row in rows)
+    retained_overpayment = sum(
+        retained_sale_overpayment(row.paid, row.total_payable, row.change_returned)
+        for row in rows
+    )
     total_cost = sum(
         float(row.reference_cost_amount or 0)
         if not row.items and row.reference_cost_amount is not None
@@ -515,7 +526,7 @@ def sales_summary(
         total_discount=round(total_discount, 2),
         net_sales=round(net_sales, 2),
         total_cost=round(total_cost, 2),
-        net_revenue=round(net_sales - total_cost, 2),
+        net_revenue=round(net_sales + retained_overpayment - total_cost, 2),
         pending=round(pending, 2),
     )
 

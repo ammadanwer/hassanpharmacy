@@ -20,3 +20,21 @@ export function salePaymentRecord(totalPayable, amountReceived) {
     changeReturned: 0,
   };
 }
+
+function finiteAmount(value) {
+  const amount = Number(value || 0);
+  return Number.isFinite(amount) ? amount : 0;
+}
+
+export function retainedSaleOverpayment(totalPayable, amountReceived, changeReturned = 0) {
+  const payable = finiteAmount(totalPayable);
+  const paid = finiteAmount(amountReceived);
+  const returned = Math.max(0, finiteAmount(changeReturned));
+  return Math.max(0, paid - payable - returned);
+}
+
+export function saleProfit(totalPayable, amountReceived, changeReturned, cost) {
+  return finiteAmount(totalPayable)
+    + retainedSaleOverpayment(totalPayable, amountReceived, changeReturned)
+    - finiteAmount(cost);
+}

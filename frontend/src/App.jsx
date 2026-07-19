@@ -42,7 +42,7 @@ import {
 } from "lucide-react";
 import { api, clearSession, getStoredSession, storeSession } from "./api";
 import loginMedicalIllustration from "./assets/login-medical-illustration.png";
-import { defaultAmountReceived, salePaymentRecord } from "./salePayment";
+import { defaultAmountReceived, salePaymentRecord, saleProfit } from "./salePayment";
 
 const routes = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -5702,7 +5702,8 @@ function ReportPage({ title, radios, inputs, rows, columns, render, printFormatV
     const netSales = displayRows.reduce((sum, row) => sum + Number(row.total_payable || 0), 0);
     const totalCost = displayRows.reduce((sum, row) => sum + saleRowCost(row), 0);
     const pending = displayRows.reduce((sum, row) => sum + Number(row.due || 0), 0);
-    return { grossSales, totalDiscount, netSales, totalCost, netRevenue: netSales - totalCost, pending };
+    const netRevenue = displayRows.reduce((sum, row) => sum + saleRowProfit(row), 0);
+    return { grossSales, totalDiscount, netSales, totalCost, netRevenue, pending };
   }, [displayRows]);
   const displayedSalesTotals = summaryTotals ? {
     grossSales: Number(summaryTotals.gross_sales || 0),
@@ -6149,7 +6150,7 @@ function saleRowCost(row) {
 }
 
 function saleRowProfit(row) {
-  return Number(row.total_payable || 0) - saleRowCost(row);
+  return saleProfit(row.total_payable, row.paid, row.change_returned, saleRowCost(row));
 }
 
 function formatSalesHistoryCell(row, key) {
@@ -6455,7 +6456,7 @@ function printSalesHistoryReport(rows, summary, filters = {}) {
     }, 0),
     pending: rows.reduce((sum, row) => sum + Number(row.due || 0), 0),
   };
-  const netRevenue = Number(totals.netRevenue ?? (Number(totals.grossSales || 0) - Number(totals.totalDiscount || 0) - Number(totals.totalCost || 0)));
+  const netRevenue = Number(totals.netRevenue ?? rows.reduce((sum, row) => sum + saleRowProfit(row), 0));
   const tableRows = rows.length
     ? rows.map((row) => `<tr>
       <td>${htmlEscape(row.invoice_number || "")}${row.return_invoice_number || row.is_return || row.status === "returned" ? "<br><small>Return Invoice</small>" : ""}</td>
