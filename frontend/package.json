@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test src/salePayment.test.js"
+    "test": "node --test src/salePayment.test.js src/returnItems.test.js"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.1",

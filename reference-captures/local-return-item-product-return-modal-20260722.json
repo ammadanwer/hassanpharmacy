@@ -1,0 +1,103 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+  "title": "Hassan Pharmacy",
+  "headings": [
+    "Return Invoice Details",
+    "Hassan Pharmacy"
+  ],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Search Invoice",
+    "Search Sales",
+    "Select",
+    "Select",
+    "Select",
+    "Select",
+    "Select",
+    "Select",
+    "Return",
+    "Generate Invoice",
+    "Print Return Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "Invoice-18",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search sales by product name",
+      "value": "AVSAR",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "2026-07-22",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "number",
+      "placeholder": "Enter Return Quantity",
+      "value": "",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Invoice #",
+      "Purchase Date",
+      "Customer",
+      "Product",
+      "Qty Sold",
+      "Already Returned",
+      "Returnable",
+      "Status",
+      "Action"
+    ],
+    [
+      "Batch no.",
+      "Name",
+      "Quantity Sold",
+      "Already Returned",
+      "Return Quantity",
+      "Rate/Sell Price",
+      "Refund Amount",
+      "Action"
+    ],
+    [
+      "Item(s)",
+      "Returned",
+      "Rate",
+      "Amt"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nHassan Pharmacy\nReference Invoice #\nSearch Invoice\nProduct Name\nSearch Sales\nReturn Invoice Date\nSales Matching Product\nInvoice #\tPurchase Date\tCustomer\tProduct\tQty Sold\tAlready Returned\tReturnable\tStatus\tAction\nInvoice-18\t22/07/2026\tWalk-in\tAVSAR 80/5MG TAB\t2\t0\t2\tpaid\tSelect\nInvoice-14\t13/07/2026\tWalk-in\tAVSAR 80/5MG TAB\t1\t0\t1\tpaid\tSelect\nInvoice-5\t06/07/2026\tkk\tAVSAR 80/5MG TAB\t9\t0\t9\tpaid\tSelect\nInvoice-4\t06/07/2026\tammad\tAVSAR 80/5MG TAB\t2\t0\t2\tpartial\tSelect\n233960\t02/07/2026\t-\tAVSAR 80/5MG TAB\t6\t0\t6\tpaid\tSelect\n232938\t30/06/2026\t-\tAVSAR 160/5MG TAB\t14\t0\t14\tpaid\tSelect\nPurchased Items List\nInvoice Invoice-18 · Purchased 22/07/2026\nBatch no.\tName\tQuantity Sold\tAlready Returned\tReturn Quantity\tRate/Sell Price\tRefund Amount\tAction\n6c035\tAVSAR 80/5MG TAB\t2\t1\t\t33\t-\tReturn\nGenerate Invoice\nReturn Invoice Details\nHassan Pharmacy\n\nPharmacy Management System\n\nOld Chaudhary pansar store, harappa\n\nPhone # 0345 7427946\n\nLicense No. 1\n\nReturn Inv. No: RET-20260721181641869423-1\nOriginal Inv. No: Invoice-18\nReturn Date: 22/07/2026\nItem(s)\tReturned\tRate\tAmt\nAVSAR 80/5MG TAB\t1\t29.70\t29.70\nTotal Items: 1\nTotal Return:\nRs. 29.70\n\nSoftware By Hassan Pharmacy, Phone# 0345 7427946\n\nPrint Return Invoice",
+  "evalResults": {
+    "beforeClickFile": {
+      "returned": true,
+      "modalText": "Reference Invoice #\nSearch Invoice\nProduct Name\nSearch Sales\nReturn Invoice Date\nSales Matching Product\nInvoice #\tPurchase Date\tCustomer\tProduct\tQty Sold\tAlready Returned\tReturnable\tStatus\tAction\nInvoice-18\t22/07/2026\tWalk-in\tAVSAR 80/5MG TAB\t2\t0\t2\tpaid\tSelect\nInvoice-14\t13/07/2026\tWalk-in\tAVSAR 80/5MG TAB\t1\t0\t1\tpaid\tSelect\nInvoice-5\t06/07/2026\tkk\tAVSAR 80/5MG TAB\t9\t0\t9\tpaid\tSelect\nInvoice-4\t06/07/2026\tammad\tAVSAR 80/5MG TAB\t2\t0\t2\tpartial\tSelect\n233960\t02/07/2026\t-\tAVSAR 80/5MG TAB\t6\t0\t6\tpaid\tSelect\n232938\t30/06/2026\t-\tAVSAR 160/5MG TAB\t14\t0\t14\tpaid\tSelect\nPurchased Items List\nInvoice Invoice-18 · Purchased 22/07/2026\nBatch no.\tName\tQuantity Sold\tAlready Returned\tReturn Quantity\tRate/Sell Price\tRefund Amount\tAction\n6c035\tAVSAR 80/5MG TAB\t2\t1\t\t33\t-\tReturn\nGenerate Invoice\nReturn Invoice Details\nHassan Pharmacy\n\nPharmacy Management System\n\nOld Chaudhary pansar store, harappa\n\nPhone # 0345 7427946\n\nLicense No. 1\n\nReturn Inv. No: RET-20260721181641869423-1\nOriginal Inv. No: Invoice-18\nReturn Date: 22/07/2026\nItem(s)\tReturned\tRate\tAmt\nAVSAR 80/5MG TAB\t1\t29.70\t29.70\nTotal Items: 1\nTotal Return:\nRs. 29.70\n\nSoftware By Hassan Pharmacy, Phone# 0345 7427946\n\nPrint Return Invoice"
+    }
+  }
+}

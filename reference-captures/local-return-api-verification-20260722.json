@@ -1,0 +1,48 @@
+{
+  "target": "Local Docker API and PostgreSQL database",
+  "verification_date": "2026-07-22",
+  "temporary_data_policy": "Each test sale used a unique codex-return-* doctor_name tag and was deleted after assertions.",
+  "product_search_and_discounted_ui_flow": {
+    "product": "AVSAR 80/5MG TAB",
+    "product_search_included_purchase_date": true,
+    "discounted_refunds": [29.7, 29.7],
+    "statuses": ["partial", "returned"],
+    "over_return_http_status": 400,
+    "stock_path": [44, 42, 43, 44]
+  },
+  "rounding_and_validation_flow": {
+    "sale_payable": 1.0,
+    "quantity_sold": 3,
+    "sequential_refunds": [0.33, 0.33, 0.34],
+    "local_return_amount": 1.0,
+    "statuses": ["partial", "partial", "returned"],
+    "fractional_return_http_status": 422,
+    "over_return_http_status": 400,
+    "batch_stock": {
+      "baseline": {"remaining": 44, "out": 12},
+      "after_sale": {"remaining": 41, "out": 15},
+      "after_returns": {"remaining": 44, "out": 12}
+    },
+    "reference_product_remaining": [44, 41, 44]
+  },
+  "mixed_product_service_flow": {
+    "sale_payable": 100.0,
+    "product_value": 50.0,
+    "service_value": 50.0,
+    "product_refund": 50.0,
+    "service_refunded": false,
+    "stock_restored": true
+  },
+  "literal_search_flow": {
+    "query": "10%",
+    "result_count_after_literal_escaping": 0,
+    "wildcard_inflated_result_count_before_fix": 82
+  },
+  "cleanup_verification": {
+    "tagged_sales_remaining": 0,
+    "returns_table_count": 1,
+    "batch_1_stock_remaining": 44,
+    "batch_1_stock_out": 12,
+    "product_1_reference_remaining": 44
+  }
+}

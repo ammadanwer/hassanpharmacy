@@ -1,24 +1,29 @@
 from datetime import date, datetime, time as dt_time
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ReturnBase(BaseModel):
     return_invoice_number: Optional[str] = None
     sale_id: int
     batch_id: int
-    qty_sold: float
-    qty_returned: float
-    rate: float
-    amount: float
-    reason: Optional[str] = None
-    refund_method: Optional[str] = None
+    qty_sold: float = Field(allow_inf_nan=False)
+    qty_returned: float = Field(gt=0, allow_inf_nan=False)
+    rate: float = Field(allow_inf_nan=False)
+    amount: float = Field(allow_inf_nan=False)
+    reason: Optional[str] = Field(default=None, max_length=500)
+    refund_method: Optional[str] = Field(default=None, max_length=100)
     date: date
 
 
-class ReturnCreate(ReturnBase):
-    pass
+class ReturnCreate(BaseModel):
+    sale_id: int
+    batch_id: int
+    qty_returned: int = Field(gt=0, strict=True)
+    reason: Optional[str] = Field(default=None, max_length=500)
+    refund_method: Optional[str] = Field(default=None, max_length=100)
+    date: date
 
 
 class ReturnBulkCreate(BaseModel):

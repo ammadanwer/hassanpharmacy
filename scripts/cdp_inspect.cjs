@@ -260,6 +260,14 @@ async function inspect({ match, navigate }) {
     text: document.body.innerText.slice(0, ${Number.isFinite(textLimit) ? textLimit : 4000})
   }))()`;
   const result = await client.send("Runtime.evaluate", { expression, returnByValue: true, awaitPromise: true });
+  if (process.env.CDP_SCREENSHOT_FILE) {
+    const screenshot = await client.send("Page.captureScreenshot", {
+      format: "png",
+      captureBeyondViewport: true,
+      fromSurface: true,
+    });
+    fs.writeFileSync(process.env.CDP_SCREENSHOT_FILE, Buffer.from(screenshot.result.data, "base64"));
+  }
   client.close();
   if (eventClient) eventClient.close();
   const value = result.result.result.value;

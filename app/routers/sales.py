@@ -20,9 +20,12 @@ from app.models.shelf import Shelf
 from app.schemas.sale import (
     PagedProductSaleInvoiceHistoryResponse,
     PagedProductSalesHistoryResponse,
+    PagedReturnSaleSearchResponse,
     PagedSalesResponse,
     ProductSaleInvoiceHistoryRow,
     ProductSalesHistoryRow,
+    ReturnSaleSearchRow,
+    ReturnableSaleResponse,
     SaleCreate,
     SaleResponse,
     SaleSearchBatchResponse,
@@ -67,6 +70,11 @@ def retained_sale_overpayment(paid: float, total_payable: float, change_returned
     payable_value = float(total_payable or 0)
     returned_value = max(0, float(change_returned or 0))
     return max(0, paid_value - payable_value - returned_value)
+
+
+def literal_contains_pattern(value: str) -> str:
+    escaped = value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+    return f"%{escaped}%"
 
 
 @router.get("/api/sale-search", response_model=list[SaleSearchBatchResponse])
@@ -139,14 +147,14 @@ def invoice_number(db: Session, prefix: str) -> str:
 def attach_customer_due(db: Session, sale_in: SaleCreate, customer_due: float) -> Optional[int]:
     customer_id = sale_in.customer_id
     if customer_id:
-        customer = db.get(Customer, customer_id)
+        customer = db.query(Customer).filter(Customer.id == customer_id).with_for_update().first()
         if customer:
             customer.due_amount = float(customer.due_amount or 0) + customer_due
         return customer_id
     if not customer_id and (sale_in.customer_name or sale_in.customer_phone) and sale_in.customer_name != "Walk-in":
         customer = None
         if sale_in.customer_phone:
-            customer = db.query(Customer).filter(Customer.phone == sale_in.customer_phone).first()
+            customer = db.query(Customer).filter(Customer.phone == sale_in.customer_phone).with_for_update().first()
         if not customer:
             customer = Customer(name=sale_in.customer_name or "Walk-in", phone=sale_in.customer_phone, due_amount=0)
             db.add(customer)
@@ -156,7 +164,54 @@ def attach_customer_due(db: Session, sale_in: SaleCreate, customer_due: float) -
     return customer_id
 
 
-def add_sale_items(db: Session, sale: Sale, sale_in: SaleCreate, *, decrement_stock: bool) -> None:
+def sale_batch_ids(sale_in: SaleCreate) -> set[int]:
+    return {
+        item.batch_id
+        for item in sale_in.items
+        if (item.item_type or "product").lower() != "custom" and item.batch_id is not None
+    }
+
+
+def lock_batches(db: Session, batch_ids: set[int]) -> dict[int, Batch]:
+    if not batch_ids:
+        return {}
+    batches = {
+        batch.id: batch
+        for batch in (
+            db.query(Batch)
+            .filter(Batch.id.in_(batch_ids))
+            .order_by(Batch.id.asc())
+            .with_for_update()
+            .populate_existing()
+            .all()
+        )
+    }
+    missing = sorted(batch_ids - batches.keys())
+    if missing:
+        raise HTTPException(status_code=400, detail=f"Batch {missing[0]} not found")
+    return batches
+
+
+def load_sale_batches(db: Session, sale_in: SaleCreate, *, lock: bool) -> dict[int, Batch]:
+    batch_ids = sale_batch_ids(sale_in)
+    if lock:
+        return lock_batches(db, batch_ids)
+    return {
+        batch.id: batch
+        for batch in db.query(Batch).filter(Batch.id.in_(batch_ids)).all()
+    }
+
+
+def add_sale_items(
+    db: Session,
+    sale: Sale,
+    sale_in: SaleCreate,
+    *,
+    decrement_stock: bool,
+    batches: dict[int, Batch] | None = None,
+) -> None:
+    batches = batches if batches is not None else load_sale_batches(db, sale_in, lock=decrement_stock)
+    reference_stock_delta_by_product: dict[int, float] = {}
     for item_in in sale_in.items:
         item_type = (item_in.item_type or "product").lower()
         item_data = item_in.model_dump()
@@ -183,7 +238,7 @@ def add_sale_items(db: Session, sale: Sale, sale_in: SaleCreate, *, decrement_st
         else:
             if item_in.batch_id is None:
                 raise HTTPException(status_code=400, detail="Batch is required for product sale items")
-            batch = db.get(Batch, item_in.batch_id)
+            batch = batches.get(item_in.batch_id)
             if not batch:
                 raise HTTPException(status_code=400, detail=f"Batch {item_in.batch_id} not found")
             if batch.stock_remaining < item_in.total_qty:
@@ -191,29 +246,56 @@ def add_sale_items(db: Session, sale: Sale, sale_in: SaleCreate, *, decrement_st
             if decrement_stock:
                 batch.stock_remaining -= item_in.total_qty
                 batch.stock_out += item_in.total_qty
-                adjust_reference_product_stock(db, batch.product_id, remaining_delta=-float(item_in.total_qty or 0))
+                reference_stock_delta_by_product[batch.product_id] = (
+                    reference_stock_delta_by_product.get(batch.product_id, 0)
+                    - float(item_in.total_qty or 0)
+                )
             item_data["item_type"] = "product"
             item_data["product_id"] = batch.product_id
             item_data["product_name"] = batch.product.name
             item_data["batch_no"] = batch.batch_no
         db.add(SaleItem(**item_data))
+    for product_id in sorted(reference_stock_delta_by_product):
+        adjust_reference_product_stock(
+            db,
+            product_id,
+            remaining_delta=reference_stock_delta_by_product[product_id],
+        )
 
 
-def restore_sale_stock_and_items(db: Session, sale: Sale) -> None:
-    for item in list(sale.items):
-        batch = db.get(Batch, item.batch_id) if item.batch_id is not None else None
+def restore_sale_stock_and_items(
+    db: Session,
+    sale: Sale,
+    *,
+    batches: dict[int, Batch] | None = None,
+) -> None:
+    items = list(sale.items)
+    batch_ids = {item.batch_id for item in items if item.batch_id is not None}
+    batches = batches if batches is not None else lock_batches(db, batch_ids)
+    reference_stock_delta_by_product: dict[int, float] = {}
+    for item in items:
+        batch = batches.get(item.batch_id) if item.batch_id is not None else None
         if batch:
             batch.stock_remaining = float(batch.stock_remaining or 0) + float(item.total_qty or 0)
             batch.stock_out = max(0, float(batch.stock_out or 0) - float(item.total_qty or 0))
-            adjust_reference_product_stock(db, batch.product_id, remaining_delta=float(item.total_qty or 0))
+            reference_stock_delta_by_product[batch.product_id] = (
+                reference_stock_delta_by_product.get(batch.product_id, 0)
+                + float(item.total_qty or 0)
+            )
         db.delete(item)
+    for product_id in sorted(reference_stock_delta_by_product):
+        adjust_reference_product_stock(
+            db,
+            product_id,
+            remaining_delta=reference_stock_delta_by_product[product_id],
+        )
     db.flush()
 
 
 def remove_customer_due(db: Session, sale: Sale) -> None:
     if not sale.customer_id or not sale.due:
         return
-    customer = db.get(Customer, sale.customer_id)
+    customer = db.query(Customer).filter(Customer.id == sale.customer_id).with_for_update().first()
     if customer:
         customer.due_amount = max(0, float(customer.due_amount or 0) - float(sale.due or 0))
 
@@ -294,6 +376,7 @@ def create_sale(
 ):
     require_sales_pin_if_enabled(db, sale_in, current_user)
     new_invoice_number = invoice_number(db, "Invoice")
+    batches = load_sale_batches(db, sale_in, lock=True)
     customer_due = max(0, sale_in.total_payable - sale_in.paid)
     customer_id = attach_customer_due(db, sale_in, customer_due)
     sale = Sale(
@@ -309,7 +392,7 @@ def create_sale(
     )
     db.add(sale)
     db.flush()
-    add_sale_items(db, sale, sale_in, decrement_stock=True)
+    add_sale_items(db, sale, sale_in, decrement_stock=True, batches=batches)
     db.commit()
     db.refresh(sale)
     return sale
@@ -322,7 +405,13 @@ def update_sale(
     db: Annotated[Session, Depends(get_db)],
     current_user: CurrentUser,
 ):
-    sale = db.get(Sale, sale_id)
+    sale = (
+        db.query(Sale)
+        .options(selectinload(Sale.items), selectinload(Sale.returns))
+        .filter(Sale.id == sale_id)
+        .with_for_update()
+        .first()
+    )
     if not sale:
         raise HTTPException(status_code=404, detail="Sale not found")
     if sale.status == SaleStatus.draft:
@@ -331,8 +420,10 @@ def update_sale(
         raise HTTPException(status_code=409, detail="Sales with returns cannot be edited")
 
     require_sales_pin_if_enabled(db, sale_in, current_user)
+    batch_ids = {item.batch_id for item in sale.items if item.batch_id is not None} | sale_batch_ids(sale_in)
+    batches = lock_batches(db, batch_ids)
     remove_customer_due(db, sale)
-    restore_sale_stock_and_items(db, sale)
+    restore_sale_stock_and_items(db, sale, batches=batches)
 
     customer_due = max(0, sale_in.total_payable - sale_in.paid)
     customer_id = attach_customer_due(db, sale_in, customer_due)
@@ -343,7 +434,7 @@ def update_sale(
         customer_id,
         sale_status_for_payload(sale_in),
     )
-    add_sale_items(db, sale, sale_in, decrement_stock=True)
+    add_sale_items(db, sale, sale_in, decrement_stock=True, batches=batches)
     db.commit()
     db.refresh(sale)
     return sale
@@ -355,7 +446,13 @@ def delete_sale(
     db: Annotated[Session, Depends(get_db)],
     current_user: CurrentUser,
 ):
-    sale = db.get(Sale, sale_id)
+    sale = (
+        db.query(Sale)
+        .options(selectinload(Sale.items), selectinload(Sale.returns))
+        .filter(Sale.id == sale_id)
+        .with_for_update()
+        .first()
+    )
     if not sale:
         raise HTTPException(status_code=404, detail="Sale not found")
     if sale.status == SaleStatus.draft:
@@ -363,8 +460,9 @@ def delete_sale(
     if sale.status == SaleStatus.returned or sale.returns:
         raise HTTPException(status_code=409, detail="Sales with returns cannot be deleted")
 
+    batches = lock_batches(db, {item.batch_id for item in sale.items if item.batch_id is not None})
     remove_customer_due(db, sale)
-    restore_sale_stock_and_items(db, sale)
+    restore_sale_stock_and_items(db, sale, batches=batches)
     invoice = sale.invoice_number
     db.delete(sale)
     db.commit()
@@ -429,6 +527,7 @@ def checkout_draft_sale(
         raise HTTPException(status_code=400, detail="Only draft sales can be checked out")
 
     require_sales_pin_if_enabled(db, sale_in, current_user)
+    batches = load_sale_batches(db, sale_in, lock=True)
     for item in list(sale.items):
         db.delete(item)
     db.flush()
@@ -443,7 +542,7 @@ def checkout_draft_sale(
         customer_id,
         sale_status_for_payload(sale_in),
     )
-    add_sale_items(db, sale, sale_in, decrement_stock=True)
+    add_sale_items(db, sale, sale_in, decrement_stock=True, batches=batches)
     db.commit()
     db.refresh(sale)
     return sale
@@ -531,18 +630,79 @@ def sales_summary(
     )
 
 
-@router.get("/api/sales/by-invoice/{invoice_number}", response_model=SaleResponse)
+@router.get("/api/sales/by-invoice/{invoice_number}", response_model=ReturnableSaleResponse)
 def get_sale_by_invoice(invoice_number: str, db: Annotated[Session, Depends(get_db)], current_user: CurrentUser):
+    normalized_invoice = invoice_number.strip()
     query = db.query(Sale).options(
         selectinload(Sale.items).selectinload(SaleItem.product),
         selectinload(Sale.returns),
-    )
-    sale = query.filter(Sale.invoice_number == invoice_number.strip()).first()
-    if not sale and invoice_number.strip().isdigit():
-        sale = query.filter(Sale.id == int(invoice_number.strip())).first()
+    ).filter(Sale.status.notin_([SaleStatus.draft, SaleStatus.void]))
+    sale = query.filter(func.lower(Sale.invoice_number) == normalized_invoice.lower()).first()
+    if not sale and normalized_invoice.isdigit():
+        sale = query.filter(Sale.id == int(normalized_invoice)).first()
     if not sale:
         raise HTTPException(status_code=404, detail="Sale not found")
     return sale
+
+
+@router.get("/api/sales/return-search", response_model=PagedReturnSaleSearchResponse)
+def return_sale_search(
+    db: Annotated[Session, Depends(get_db)],
+    current_user: CurrentUser,
+    q: str = Query(min_length=2),
+    skip: int = Query(default=0, ge=0),
+    limit: int = Query(default=20, ge=1, le=100),
+):
+    search_text = q.strip()
+    if len(search_text) < 2:
+        raise HTTPException(status_code=400, detail="Enter at least 2 characters of the product name")
+    search = literal_contains_pattern(search_text)
+    base_query = db.query(Sale).filter(
+        Sale.status.notin_([SaleStatus.draft, SaleStatus.void]),
+        Sale.items.any(and_(
+            SaleItem.product_name.ilike(search, escape="\\"),
+            SaleItem.batch_id.isnot(None),
+            SaleItem.item_type != "custom",
+        )),
+    )
+    total = base_query.count()
+    sales = (
+        base_query.options(selectinload(Sale.items), selectinload(Sale.returns))
+        .order_by(Sale.date.desc(), Sale.time.desc(), Sale.id.desc())
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
+    items = []
+    normalized_search = search_text.casefold()
+    for sale in sales:
+        matching_items = [
+            item for item in sale.items
+            if normalized_search in (item.product_name or "").casefold() and item.batch_id is not None
+        ]
+        batch_ids = {item.batch_id for item in matching_items}
+        quantity_sold = sum(float(item.total_qty or 0) for item in matching_items)
+        reference_returned = sum(float(item.reference_qty_returned or 0) for item in matching_items)
+        actual_returned = sum(
+            float(return_row.qty_returned or 0)
+            for return_row in sale.returns
+            if return_row.batch_id in batch_ids
+        )
+        quantity_returned = min(quantity_sold, reference_returned + actual_returned)
+        product_names = ", ".join(dict.fromkeys(item.product_name for item in matching_items if item.product_name))
+        items.append(ReturnSaleSearchRow(
+            sale_id=sale.id,
+            invoice_number=sale.invoice_number,
+            purchase_date=sale.date,
+            purchase_time=sale.time,
+            customer_name=sale.customer_name,
+            status=sale.status,
+            product_names=product_names or search_text,
+            quantity_sold=quantity_sold,
+            quantity_returned=quantity_returned,
+            returnable_quantity=max(0, quantity_sold - quantity_returned),
+        ))
+    return PagedReturnSaleSearchResponse(items=items, total=total, skip=skip, limit=limit)
 
 
 def apply_product_sales_filters(query, date_from: Optional[date] = None, date_to: Optional[date] = None, query_text: Optional[str] = None):
@@ -806,20 +966,6 @@ def get_sale(sale_id: int, db: Annotated[Session, Depends(get_db)], current_user
     if not sale:
         raise HTTPException(status_code=404, detail="Sale not found")
     return sale
-
-
-@router.post("/api/sales/{sale_id}/return")
-def return_sale(
-    sale_id: int,
-    db: Annotated[Session, Depends(get_db)],
-    current_user: CurrentUser,
-):
-    sale = db.get(Sale, sale_id)
-    if not sale:
-        raise HTTPException(status_code=404, detail="Sale not found")
-    sale.status = SaleStatus.returned
-    db.commit()
-    return {"message": "Sale marked as returned"}
 
 
 @router.post("/api/sales/{sale_id}/generate-invoice")

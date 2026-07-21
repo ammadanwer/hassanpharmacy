@@ -32,6 +32,7 @@ class SaleItemResponse(SaleItemCreate):
     batch_no: str
     payable_amount: float
     qty_returned: float = 0
+    reference_qty_returned: Optional[float] = None
     product_weight: Optional[str] = None
     product_unit: Optional[str] = None
     reference_receipt_name: Optional[str] = None
@@ -96,11 +97,35 @@ class SaleResponse(SaleBase):
     items: list[SaleItemResponse] = []
 
 
+class ReturnableSaleResponse(SaleResponse):
+    local_return_amount: float = 0
+
+
 class PagedSalesResponse(BaseModel):
     items: list[SaleResponse]
     total: int
     skip: int = 0
     limit: int = 50
+
+
+class ReturnSaleSearchRow(BaseModel):
+    sale_id: int
+    invoice_number: str
+    purchase_date: date
+    purchase_time: time
+    customer_name: Optional[str] = None
+    status: SaleStatus
+    product_names: str
+    quantity_sold: float = 0
+    quantity_returned: float = 0
+    returnable_quantity: float = 0
+
+
+class PagedReturnSaleSearchResponse(BaseModel):
+    items: list[ReturnSaleSearchRow]
+    total: int
+    skip: int = 0
+    limit: int = 20
 
 
 class ProductSalesHistoryRow(BaseModel):

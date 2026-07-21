@@ -1,0 +1,62 @@
+{
+  "url": "http://127.0.0.1:5173/pms/dashboard/return-item",
+  "title": "Hassan Pharmacy",
+  "headings": [],
+  "buttons": [
+    "Dashboard",
+    "Sales",
+    "New Sale",
+    "Return Item",
+    "Sales History",
+    "Return History",
+    "Customer History",
+    "Inventory",
+    "Staff Management",
+    "Shift Management",
+    "Daily Expense",
+    "Settings",
+    "Get Technical Help",
+    "Collapse sidebar",
+    "Add New Sale",
+    "Open account menu",
+    "Search Invoice",
+    "Search Sales",
+    "Generate Invoice"
+  ],
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Enter the original invoice#",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "placeholder": "Search sales by product name",
+      "value": "",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "date",
+      "placeholder": "",
+      "value": "2026-07-22",
+      "text": ""
+    }
+  ],
+  "headers": [
+    [
+      "Batch no.",
+      "Name",
+      "Quantity Sold",
+      "Already Returned",
+      "Return Quantity",
+      "Rate/Sell Price",
+      "Refund Amount",
+      "Action"
+    ]
+  ],
+  "text": "H\nHassan\nPharmacy\n\nPharmacy Management System\n\nDashboard\nSales\nNew Sale\nReturn Item\nSales History\nReturn History\nCustomer History\nInventory\nStaff Management\nShift Management\nDaily Expense\nSettings\nGet Technical Help\nAdd New Sale\nHP\nHassan Pharmacy\nReference Invoice #\nSearch Invoice\nProduct Name\nSearch Sales\nReturn Invoice Date\nPurchased Items List\nBatch no.\tName\tQuantity Sold\tAlready Returned\tReturn Quantity\tRate/Sell Price\tRefund Amount\tAction\nNo Data Found!\nGenerate Invoice"
+}

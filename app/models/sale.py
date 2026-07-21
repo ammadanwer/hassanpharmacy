@@ -76,3 +76,7 @@ class Sale(Base, IdIntPK, TimestampMixin):
     user: Mapped["User"] = relationship("User", back_populates="sales", lazy="select")
     items: Mapped[list["SaleItem"]] = relationship("SaleItem", back_populates="sale", lazy="select", cascade="all, delete-orphan")
     returns: Mapped[list["Return"]] = relationship("Return", back_populates="sale", lazy="select")
+
+    @property
+    def local_return_amount(self) -> float:
+        return sum(float(row.amount or 0) for row in self.returns)

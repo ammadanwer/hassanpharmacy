@@ -6,10 +6,11 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import Numeric, cast, func, or_
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 import importlib
 
 from app.core.reference_stock import adjust_reference_product_stock
+from app.core.return_calculation import bounded_refund_amount, refundable_amount_for_batch, refundable_product_total
 from app.core.security import CurrentUser
 from app.db.session import get_db
 from app.models.batch import Batch
@@ -201,12 +202,10 @@ def return_invoice_number(user_id: int) -> str:
     return f"RET-{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}-{user_id}"
 
 
-def reduce_customer_due(db: Session, sale: Sale, amount: float) -> None:
-    if not sale.customer_id or amount <= 0:
+def reduce_customer_due(customer: Customer | None, amount: float) -> None:
+    if not customer or amount <= 0:
         return
-    customer = db.get(Customer, sale.customer_id)
-    if customer:
-        customer.due_amount = max(0, float(customer.due_amount or 0) - amount)
+    customer.due_amount = max(0, float(customer.due_amount or 0) - amount)
 
 
 def apply_return_filters(query, date_from: date | None = None, date_to: date | None = None, q: str | None = None):
@@ -391,86 +390,156 @@ def return_history(
     )
 
 
-def refundable_amount_for_batch(sale: Sale, batch_id: int, quantity: float) -> float:
-    remaining = float(quantity or 0)
-    refund = 0.0
-    for item in sale.items:
-        if item.batch_id != batch_id or remaining <= 0:
-            continue
-        item_qty = float(item.total_qty or 0)
-        if item_qty <= 0:
-            continue
-        qty_for_item = min(remaining, item_qty)
-        per_unit = float(item.payable_amount or item.amount or 0) / item_qty
-        refund += qty_for_item * per_unit
-        remaining -= qty_for_item
-    return round(refund, 2)
-
-
 def create_return_rows(return_inputs: list[ReturnCreate], db: Session, current_user: CurrentUser) -> list[Return]:
     if not return_inputs:
         raise HTTPException(status_code=400, detail="No return items selected")
 
     sale_ids = {row.sale_id for row in return_inputs}
     batch_ids = {row.batch_id for row in return_inputs}
-    sales = {row.id: row for row in db.query(Sale).filter(Sale.id.in_(sale_ids)).all()}
-    batches = {row.id: row for row in db.query(Batch).filter(Batch.id.in_(batch_ids)).all()}
+    sales = {
+        row.id: row
+        for row in (
+            db.query(Sale)
+            .options(selectinload(Sale.items), selectinload(Sale.returns))
+            .filter(Sale.id.in_(sale_ids))
+            .order_by(Sale.id.asc())
+            .with_for_update()
+            .all()
+        )
+    }
+    batches = {
+        row.id: row
+        for row in (
+            db.query(Batch)
+            .filter(Batch.id.in_(batch_ids))
+            .order_by(Batch.id.asc())
+            .with_for_update()
+            .all()
+        )
+    }
+    customer_ids = sorted({sale.customer_id for sale in sales.values() if sale.customer_id})
+    customers = {
+        row.id: row
+        for row in (
+            db.query(Customer)
+            .filter(Customer.id.in_(customer_ids))
+            .order_by(Customer.id.asc())
+            .with_for_update()
+            .all()
+        )
+    } if customer_ids else {}
     pending_by_sale_batch: dict[tuple[int, int], float] = {}
     refund_by_sale: dict[int, float] = {}
+    reference_stock_delta_by_product: dict[int, int] = {}
+    existing_refund_by_sale = {
+        sale.id: float(sale.reference_return_amount or 0)
+        + sum(float(return_row.amount or 0) for return_row in sale.returns)
+        for sale in sales.values()
+    }
+    product_items_by_sale = {
+        sale.id: [item for item in sale.items if item.batch_id is not None and item.item_type != "custom"]
+        for sale in sales.values()
+    }
+    total_sold_by_sale = {
+        sale_id: sum(float(item.total_qty or 0) for item in items)
+        for sale_id, items in product_items_by_sale.items()
+    }
+    existing_returned_qty_by_sale = {
+        sale.id: sum(float(item.reference_qty_returned or 0) for item in product_items_by_sale[sale.id])
+        + sum(float(return_row.qty_returned or 0) for return_row in sale.returns)
+        for sale in sales.values()
+    }
+    requested_qty_by_sale: dict[int, int] = {}
+    last_input_position_by_sale: dict[int, int] = {}
+    for index, return_in in enumerate(return_inputs):
+        requested_qty_by_sale[return_in.sale_id] = requested_qty_by_sale.get(return_in.sale_id, 0) + return_in.qty_returned
+        last_input_position_by_sale[return_in.sale_id] = index
     validated = []
     generated_invoice = return_invoice_number(current_user.id)
 
-    for return_in in return_inputs:
+    for index, return_in in enumerate(return_inputs):
         sale = sales.get(return_in.sale_id)
         batch = batches.get(return_in.batch_id)
         if not sale:
             raise HTTPException(status_code=404, detail="Sale not found")
         if not batch:
             raise HTTPException(status_code=404, detail="Batch not found")
-
-        qty = float(return_in.qty_returned or 0)
+        if sale.status in {SaleStatus.draft, SaleStatus.void}:
+            raise HTTPException(status_code=400, detail="This sale cannot be returned")
+        qty = int(return_in.qty_returned)
         sold_for_batch = sum(float(item.total_qty or 0) for item in sale.items if item.batch_id == return_in.batch_id)
         already_returned = sum(float(row.qty_returned or 0) for row in sale.returns if row.batch_id == return_in.batch_id)
         already_returned += sum(float(item.reference_qty_returned or 0) for item in sale.items if item.batch_id == return_in.batch_id)
         pending_key = (sale.id, return_in.batch_id)
         pending_returned = pending_by_sale_batch.get(pending_key, 0.0)
         available = sold_for_batch - already_returned - pending_returned
-        if qty <= 0 or qty > available:
+        if qty <= 0 or qty > available + 1e-9:
             raise HTTPException(status_code=400, detail="Invalid return quantity")
 
-        amount = refundable_amount_for_batch(sale, return_in.batch_id, qty)
+        amount = refundable_amount_for_batch(
+            sale,
+            return_in.batch_id,
+            qty,
+            quantity_already_returned=already_returned + pending_returned,
+        )
+        remaining_refund = max(
+            0,
+            refundable_product_total(sale)
+            - existing_refund_by_sale.get(sale.id, 0)
+            - refund_by_sale.get(sale.id, 0),
+        )
+        completes_sale = (
+            total_sold_by_sale.get(sale.id, 0) > 0
+            and existing_returned_qty_by_sale.get(sale.id, 0) + requested_qty_by_sale.get(sale.id, 0)
+            >= total_sold_by_sale.get(sale.id, 0) - 1e-9
+            and index == last_input_position_by_sale.get(sale.id)
+        )
+        amount = bounded_refund_amount(amount, remaining_refund, completes_sale=completes_sale)
         pending_by_sale_batch[pending_key] = pending_returned + qty
         refund_by_sale[sale.id] = refund_by_sale.get(sale.id, 0.0) + amount
         validated.append((return_in, sale, batch, qty, amount))
 
     created = []
     for return_in, sale, batch, qty, amount in validated:
-        batch.stock_remaining = int((batch.stock_remaining or 0) + qty)
-        batch.stock_out = max(0, int((batch.stock_out or 0) - qty))
-        adjust_reference_product_stock(db, batch.product_id, remaining_delta=qty)
+        batch.stock_remaining = int(batch.stock_remaining or 0) + qty
+        batch.stock_out = max(0, int(batch.stock_out or 0) - qty)
+        reference_stock_delta_by_product[batch.product_id] = reference_stock_delta_by_product.get(batch.product_id, 0) + qty
         row_data = return_in.model_dump()
-        row_data["return_invoice_number"] = return_in.return_invoice_number or generated_invoice
+        row_data["return_invoice_number"] = generated_invoice
+        row_data["qty_sold"] = sum(
+            float(item.total_qty or 0) for item in sale.items if item.batch_id == return_in.batch_id
+        )
         row_data["amount"] = amount
-        row_data["rate"] = amount / qty if qty else return_in.rate
+        row_data["rate"] = amount / qty
         row = Return(**row_data)
         db.add(row)
         created.append(row)
+
+    for product_id in sorted(reference_stock_delta_by_product):
+        adjust_reference_product_stock(
+            db,
+            product_id,
+            remaining_delta=reference_stock_delta_by_product[product_id],
+        )
 
     for sale_id, sale in sales.items():
         added_returned = sum(qty for (current_sale_id, _), qty in pending_by_sale_batch.items() if current_sale_id == sale_id)
         if added_returned <= 0:
             continue
-        total_sold = sum(float(item.total_qty or 0) for item in sale.items)
-        reference_returned = sum(float(item.reference_qty_returned or 0) for item in sale.items)
+        product_items = product_items_by_sale[sale_id]
+        total_sold = sum(float(item.total_qty or 0) for item in product_items)
+        reference_returned = sum(float(item.reference_qty_returned or 0) for item in product_items)
         total_returned = reference_returned + sum(float(return_row.qty_returned or 0) for return_row in sale.returns) + added_returned
-        if total_returned >= total_sold:
+        if total_returned >= total_sold - 1e-9:
             sale.status = SaleStatus.returned
         elif sale.status != SaleStatus.draft:
             sale.status = SaleStatus.partial
         refund_amount = refund_by_sale.get(sale_id, 0.0)
-        if sale.customer_id and sale.due:
-            sale.due = max(0, float(sale.due or 0) - refund_amount)
-            reduce_customer_due(db, sale, refund_amount)
+        if sale.due:
+            due_reduction = min(float(sale.due or 0), refund_amount)
+            sale.due = max(0, float(sale.due or 0) - due_reduction)
+            if sale.customer_id:
+                reduce_customer_due(customers.get(sale.customer_id), due_reduction)
 
     db.commit()
     for row in created:
@@ -489,42 +558,44 @@ def create_returns_bulk(return_in: ReturnBulkCreate, db: Annotated[Session, Depe
 
 
 
+@router.post("/api/sales/{sale_id}/return")
 @router.post("/api/sales/{sale_id}/return-all")
 def return_all_sale(sale_id: int, db: Annotated[Session, Depends(get_db)], current_user: CurrentUser):
-    sale = db.get(Sale, sale_id)
+    sale = (
+        db.query(Sale)
+        .options(selectinload(Sale.items), selectinload(Sale.returns))
+        .filter(Sale.id == sale_id)
+        .first()
+    )
     if not sale:
         raise HTTPException(status_code=404, detail="Sale not found")
-    created = []
-    invoice = return_invoice_number(current_user.id)
-    total_refund = 0.0
-    for item in sale.items:
+    return_inputs = []
+    seen_batches = set()
+    for item in sorted(sale.items, key=lambda row: row.id or 0):
+        if item.batch_id is None or item.batch_id in seen_batches or item.item_type == "custom":
+            continue
+        seen_batches.add(item.batch_id)
+        sold = sum(float(row.total_qty or 0) for row in sale.items if row.batch_id == item.batch_id)
         returned = sum(float(row.qty_returned or 0) for row in sale.returns if row.batch_id == item.batch_id)
-        qty = float(item.total_qty or 0) - returned
+        returned += sum(float(row.reference_qty_returned or 0) for row in sale.items if row.batch_id == item.batch_id)
+        qty = sold - returned
         if qty <= 0:
             continue
-        batch = db.get(Batch, item.batch_id)
-        if batch:
-            batch.stock_remaining = int((batch.stock_remaining or 0) + qty)
-            batch.stock_out = max(0, int((batch.stock_out or 0) - qty))
-        amount = refundable_amount_for_batch(sale, item.batch_id, qty)
-        row = Return(
-            return_invoice_number=invoice,
+        if not float(qty).is_integer():
+            raise HTTPException(status_code=400, detail="Sale contains a fractional stock quantity that cannot be returned")
+        return_inputs.append(ReturnCreate(
             sale_id=sale.id,
             batch_id=item.batch_id,
-            qty_sold=item.total_qty,
-            qty_returned=qty,
-            rate=item.rate,
-            amount=amount,
+            qty_returned=int(qty),
             reason="Full invoice return",
             refund_method="cash",
             date=date.today(),
-        )
-        row.rate = row.amount / qty if qty else item.rate
-        db.add(row)
-        created.append(row)
-        total_refund += amount
-    sale.status = SaleStatus.returned
-    sale.due = 0
-    reduce_customer_due(db, sale, total_refund)
-    db.commit()
-    return {"message": "Sale returned", "items": len(created), "return_invoice_number": invoice}
+        ))
+    if not return_inputs:
+        raise HTTPException(status_code=400, detail="No returnable items found")
+    created = create_return_rows(return_inputs, db, current_user)
+    return {
+        "message": "Sale returned",
+        "items": len(created),
+        "return_invoice_number": created[0].return_invoice_number if created else None,
+    }

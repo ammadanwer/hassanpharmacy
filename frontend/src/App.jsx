@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import { api, clearSession, getStoredSession, storeSession } from "./api";
 import loginMedicalIllustration from "./assets/login-medical-illustration.png";
+import { buildReturnRows } from "./returnItems";
 import { defaultAmountReceived, salePaymentRecord, saleProfit } from "./salePayment";
 
 const routes = [
@@ -225,19 +226,6 @@ const recentMonthOptions = (months = 7) => {
   });
 };
 const nowTime = () => new Date().toTimeString().slice(0, 5);
-const localReturnInvoiceNumber = () => {
-  const date = new Date();
-  const stamp = [
-    date.getFullYear(),
-    String(date.getMonth() + 1).padStart(2, "0"),
-    String(date.getDate()).padStart(2, "0"),
-    String(date.getHours()).padStart(2, "0"),
-    String(date.getMinutes()).padStart(2, "0"),
-    String(date.getSeconds()).padStart(2, "0"),
-    String(date.getMilliseconds()).padStart(3, "0"),
-  ].join("");
-  return `RET-${stamp}`;
-};
 
 const alwaysAllowedRoutes = new Set(["change-password", "technicalhelp"]);
 const routePermissionMap = {
@@ -5873,45 +5861,57 @@ function PrintOptionsModal({ option, setOption, printing, close, print }) {
   );
 }
 
-function ReturnItemPage({ data, apiCall, reload, onError, setNotice }) {
+function ReturnItemPage({ data, apiCall, onError, setNotice }) {
   const [invoiceQuery, setInvoiceQuery] = useState("");
+  const [productQuery, setProductQuery] = useState("");
+  const [productSales, setProductSales] = useState([]);
+  const [productSalesTotal, setProductSalesTotal] = useState(0);
+  const [productPage, setProductPage] = useState(1);
+  const [productPageSize, setProductPageSize] = useState(20);
+  const [productSearchComplete, setProductSearchComplete] = useState(false);
+  const [productSearchLoading, setProductSearchLoading] = useState(false);
   const [returnDate, setReturnDate] = useState(today());
   const [sale, setSale] = useState(null);
   const [returnQty, setReturnQty] = useState({});
   const [returnInvoice, setReturnInvoice] = useState(null);
   const [lookupLoading, setLookupLoading] = useState(false);
-  const returnRows = useMemo(() => (sale?.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => {
-    const returned = Number(item.qty_returned || 0);
-    const remaining = Math.max(0, Number(item.total_qty || 0) - returned);
-    const originalLineAmount = Number(item.payable_amount ?? item.amount ?? 0);
-    const unitPayable = Number(item.total_qty || 0) ? originalLineAmount / Number(item.total_qty || 1) : Number(item.rate || 0);
-    const selectedQty = Number(returnQty[item.batch_id] || 0);
-    return {
-      ...item,
-      quantity_sold: Number(item.total_qty || 0),
-      quantity_returned: returned,
-      returnable_qty: remaining,
-      unit_refund_amount: unitPayable,
-      line_amount: originalLineAmount,
-      amount: selectedQty * unitPayable,
-    };
-  }), [sale, data.returns, returnQty]);
+  const [submitting, setSubmitting] = useState(false);
+  const returnRows = useMemo(() => buildReturnRows(sale, returnQty), [sale, returnQty]);
 
-  const selectedReturnRows = returnRows.filter((row) => {
-    const qty = Number(returnQty[row.batch_id] || 0);
-    return qty > 0 && qty <= Number(row.returnable_qty || 0);
+  const enteredReturnRows = returnRows.filter((row) => String(returnQty[row.batch_id] ?? "").trim() !== "");
+  const selectedReturnRows = enteredReturnRows.filter((row) => {
+    const qty = Number(row.selected_qty || 0);
+    return Number.isInteger(qty) && qty > 0 && qty <= Number(row.returnable_qty || 0);
   });
+  const invalidReturnBatchIds = new Set(
+    enteredReturnRows
+      .filter((row) => !selectedReturnRows.includes(row))
+      .map((row) => row.batch_id),
+  );
+  const hasInvalidReturnQty = invalidReturnBatchIds.size > 0;
 
-  async function lookupInvoice() {
-    const query = invoiceQuery.trim();
+  function setSelectedSale(match) {
+    setSale(match);
+    setInvoiceQuery(match.invoice_number || "");
+    setProductSearchComplete(false);
+    setReturnQty(Object.fromEntries(
+      (match.items || [])
+        .filter((item) => item.batch_id != null && item.item_type !== "custom")
+        .map((item) => [item.batch_id, ""]),
+    ));
+    setNotice?.("");
+  }
+
+  async function lookupInvoiceValue(value) {
+    const query = value.trim();
     if (!query || lookupLoading) return;
     setLookupLoading(true);
+    setSale(null);
+    setReturnQty({});
     setNotice?.("");
     try {
       const match = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(query)}`);
-      setSale(match);
-      setReturnQty(Object.fromEntries((match.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => [item.batch_id, ""])));
-      setNotice?.("");
+      setSelectedSale(match);
     } catch (error) {
       setSale(null);
       onError(error.status === 404 ? new Error("Invoice not found.") : error);
@@ -5920,27 +5920,67 @@ function ReturnItemPage({ data, apiCall, reload, onError, setNotice }) {
     }
   }
 
+  async function lookupInvoice() {
+    await lookupInvoiceValue(invoiceQuery);
+  }
+
+  async function searchProductSales(
+    nextPage = 1,
+    nextPageSize = productPageSize,
+    { reportError = true, clearNotice = true } = {},
+  ) {
+    const query = productQuery.trim();
+    if (query.length < 2 || productSearchLoading) {
+      if (query.length < 2 && reportError) onError(new Error("Enter at least 2 characters of the product name."));
+      return false;
+    }
+    setProductSearchLoading(true);
+    if (clearNotice) setNotice?.("");
+    try {
+      const params = new URLSearchParams({
+        q: query,
+        skip: String((nextPage - 1) * nextPageSize),
+        limit: String(nextPageSize),
+      });
+      const result = await apiCall(`/api/sales/return-search?${params.toString()}`, { noCache: true });
+      setProductSales(result.items || []);
+      setProductSalesTotal(Number(result.total || 0));
+      setProductPage(nextPage);
+      setProductPageSize(nextPageSize);
+      setProductSearchComplete(true);
+      return true;
+    } catch (error) {
+      setProductSales([]);
+      setProductSalesTotal(0);
+      setProductSearchComplete(true);
+      if (reportError) onError(error);
+      return false;
+    } finally {
+      setProductSearchLoading(false);
+    }
+  }
+
   async function generateReturnInvoice() {
-    if (!sale) return;
+    if (!sale || submitting || lookupLoading) return;
+    if (hasInvalidReturnQty) {
+      onError(new Error("Return quantities must be whole numbers within the available quantity."));
+      return;
+    }
     if (!selectedReturnRows.length) {
       onError(new Error("Enter a valid return quantity."));
       return;
     }
+    setSubmitting(true);
     try {
-      const returnInvoiceNumber = localReturnInvoiceNumber();
       const createdReturns = await apiCall("/api/returns/bulk", {
         method: "POST",
         body: JSON.stringify({
           returns: selectedReturnRows.map((row) => {
-            const qty = Number(returnQty[row.batch_id] || 0);
+            const qty = Number(row.selected_qty || 0);
             return {
-              return_invoice_number: returnInvoiceNumber,
               sale_id: sale.id,
               batch_id: row.batch_id,
-              qty_sold: row.quantity_sold,
               qty_returned: qty,
-              rate: Number(row.rate || 0),
-              amount: qty * Number(row.unit_refund_amount || row.rate || 0),
               reason: "Customer return",
               refund_method: "cash",
               date: returnDate,
@@ -5948,13 +5988,33 @@ function ReturnItemPage({ data, apiCall, reload, onError, setNotice }) {
           }),
         }),
       });
-      await reload();
-      const refreshed = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(sale.invoice_number)}`);
-      setSale(refreshed);
-      setReturnQty(Object.fromEntries((refreshed.items || []).filter((item) => item.batch_id != null && item.item_type !== "custom").map((item) => [item.batch_id, ""])));
-      setReturnInvoice({ sale: refreshed, returns: createdReturns });
+      const submittedSale = sale;
+      setReturnInvoice({ sale: submittedSale, returns: createdReturns });
+      setSale(null);
+      setReturnQty({});
+      let refreshWarning = false;
+      try {
+        const refreshed = await apiCall(`/api/sales/by-invoice/${encodeURIComponent(submittedSale.invoice_number)}`);
+        setSelectedSale(refreshed);
+        setReturnInvoice({ sale: refreshed, returns: createdReturns });
+      } catch {
+        refreshWarning = true;
+      }
+      if (productSearchComplete && productQuery.trim().length >= 2) {
+        const productRefreshSucceeded = await searchProductSales(
+          productPage,
+          productPageSize,
+          { reportError: false, clearNotice: false },
+        );
+        refreshWarning = refreshWarning || !productRefreshSucceeded;
+      }
+      if (refreshWarning) {
+        setNotice?.("Return completed. Search the invoice again to refresh the latest quantities.");
+      }
     } catch (error) {
       onError(error);
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -5964,26 +6024,53 @@ function ReturnItemPage({ data, apiCall, reload, onError, setNotice }) {
         <div className="return-invoice-field">
           <span className="field-title">Reference Invoice #</span>
           <div className="return-invoice-input-row">
-            <input aria-label="Reference Invoice Number" placeholder="Enter the original invoice#" value={invoiceQuery} disabled={lookupLoading} onChange={(event) => { setInvoiceQuery(event.target.value); setSale(null); setReturnQty({}); setNotice?.(""); }} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); lookupInvoice(); } }} />
-            <button className="primary return-search-button" type="button" disabled={!invoiceQuery.trim() || lookupLoading} onClick={lookupInvoice}><Search size={17} /> {lookupLoading ? "Searching..." : "Search Invoice"}</button>
+            <input aria-label="Reference Invoice Number" placeholder="Enter the original invoice#" value={invoiceQuery} disabled={lookupLoading || submitting} onChange={(event) => { setInvoiceQuery(event.target.value); setSale(null); setReturnQty({}); setNotice?.(""); }} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); lookupInvoice(); } }} />
+            <button className="primary return-search-button" type="button" disabled={!invoiceQuery.trim() || lookupLoading || submitting} onClick={lookupInvoice}><Search size={17} /> {lookupLoading ? "Searching..." : "Search Invoice"}</button>
+          </div>
+        </div>
+        <div className="return-invoice-field">
+          <span className="field-title">Product Name</span>
+          <div className="return-invoice-input-row">
+            <input aria-label="Search Product Sales" placeholder="Search sales by product name" value={productQuery} disabled={productSearchLoading || submitting} onChange={(event) => { setProductQuery(event.target.value); setProductSearchComplete(false); }} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); searchProductSales(1); } }} />
+            <button className="primary return-search-button" type="button" disabled={productQuery.trim().length < 2 || productSearchLoading || submitting} onClick={() => searchProductSales(1)}><Search size={17} /> {productSearchLoading ? "Searching..." : "Search Sales"}</button>
           </div>
         </div>
         <label>
           <span className="field-title">Return Invoice Date</span>
-          <input aria-label="Return Invoice Date" type="date" max={today()} value={returnDate} onChange={(event) => setReturnDate(event.target.value)} />
+          <input aria-label="Return Invoice Date" type="date" max={today()} value={returnDate} disabled={submitting} onChange={(event) => setReturnDate(event.target.value)} />
         </label>
       </div>
+      {productSearchComplete ? <section className="sale-items-panel return-items-panel return-sales-results" aria-live="polite">
+        <div className="sale-items-title">Sales Matching Product</div>
+        <DataTable emptyText="No matching sales found." columns={[["invoice_number", "Invoice #"], ["purchase_date", "Purchase Date"], ["customer_name", "Customer"], ["product_names", "Product"], ["quantity_sold", "Qty Sold"], ["quantity_returned", "Already Returned"], ["returnable_quantity", "Returnable"], ["status", "Status"], ["actions", "Action"]]} rows={productSales} render={(row, key) => {
+          if (key === "purchase_date") return formatDisplayDate(row.purchase_date);
+          if (["quantity_sold", "quantity_returned", "returnable_quantity"].includes(key)) return formatCompactNumber(row[key]);
+          if (key === "status") return String(row.status || "-").replaceAll("_", " ");
+          if (key === "actions") return <button className="return-row-action" type="button" aria-label={`Select invoice ${row.invoice_number} for return`} disabled={lookupLoading || submitting || Number(row.returnable_quantity || 0) <= 0} onClick={() => lookupInvoiceValue(row.invoice_number)}>Select</button>;
+          return formatCell(row[key]);
+        }} />
+        {productSalesTotal > productPageSize ? <PaginationFooter page={productPage} pageSize={productPageSize} pageSizeOptions={[20, 50, 100]} rowCount={productSalesTotal} currentCount={productSales.length} totalKnown onPageChange={(value) => searchProductSales(value, productPageSize)} onPageSizeChange={(value) => searchProductSales(1, value)} /> : null}
+      </section> : null}
       <section className="sale-items-panel return-items-panel">
-        <div className="sale-items-title">Purchased Items List</div>
-        <DataTable emptyText="No Data Found!" columns={[["batch_no", "Batch no."], ["product_name", "Name"], ["quantity_sold", "Quantity Sold"], ["quantity_returned", "Quantity Returned"], ["rate", "Rate/Sell Price"], ["amount", "Amount"], ["actions", "Action"]]} rows={returnRows} render={(row, key) => {
-          if (key === "quantity_returned") return <input className="table-input" type="number" min="0" max={row.returnable_qty} placeholder="Enter Return Quantity" aria-label="Enter Return Quantity" value={returnQty[row.batch_id] || ""} onChange={(event) => setReturnQty((current) => ({ ...current, [row.batch_id]: event.target.value }))} />;
-          if (key === "amount") return returnQty[row.batch_id] ? money(row.amount) : formatPlainCompactAmount(row.line_amount);
-          if (key === "actions") return <button className="return-row-action" type="button" onClick={() => setReturnQty((current) => ({ ...current, [row.batch_id]: current[row.batch_id] || String(row.returnable_qty || "") }))}>Return</button>;
+        <div className="sale-items-title">Purchased Items List{sale ? <span className="return-selected-sale">Invoice {sale.invoice_number} · Purchased {formatDisplayDate(sale.date)}</span> : null}</div>
+        <DataTable emptyText="No Data Found!" columns={[["batch_no", "Batch no."], ["product_name", "Name"], ["quantity_sold", "Quantity Sold"], ["quantity_returned", "Already Returned"], ["return_quantity", "Return Quantity"], ["rate", "Rate/Sell Price"], ["amount", "Refund Amount"], ["actions", "Action"]]} rows={returnRows} render={(row, key) => {
+          if (key === "return_quantity") return <input className="table-input" type="number" min="1" max={row.returnable_qty} step="1" placeholder="Enter Return Quantity" aria-label={`Return quantity for ${row.product_name}, batch ${row.batch_no}`} aria-invalid={invalidReturnBatchIds.has(row.batch_id) || undefined} disabled={submitting || lookupLoading || row.returnable_qty <= 0} value={returnQty[row.batch_id] || ""} onChange={(event) => setReturnQty((current) => ({ ...current, [row.batch_id]: event.target.value }))} />;
+          if (key === "quantity_returned") return formatCompactNumber(row.quantity_returned);
+          if (key === "amount") {
+            const qty = Number(row.selected_qty || 0);
+            return Number.isInteger(qty) && qty > 0 && qty <= Number(row.returnable_qty || 0) ? money(row.amount) : "-";
+          }
+          if (key === "actions") {
+            const isSelected = selectedReturnRows.some((selectedRow) => selectedRow.batch_id === row.batch_id);
+            return <button className={`return-row-action${isSelected ? " is-selected" : ""}`} type="button" aria-label={isSelected ? `${row.product_name}, batch ${row.batch_no} selected for return` : `Select ${row.product_name}, batch ${row.batch_no} for return`} aria-pressed={isSelected} disabled={submitting || lookupLoading || row.returnable_qty <= 0} onClick={() => setReturnQty((current) => ({ ...current, [row.batch_id]: String(row.returnable_qty || "") }))}>{isSelected ? <><Check aria-hidden="true" size={15} /> Selected</> : "Return"}</button>;
+          }
           return formatCell(row[key]);
         }} />
       </section>
+      {hasInvalidReturnQty ? <p className="return-quantity-error" role="alert">Return quantities must be whole numbers between 1 and the available quantity.</p> : null}
+      {selectedReturnRows.length && !hasInvalidReturnQty ? <p className="return-selection-note" role="status"><Check aria-hidden="true" size={17} /> {selectedReturnRows.length} {selectedReturnRows.length === 1 ? "item" : "items"} selected. Click Generate Invoice to complete the return.</p> : null}
       <div className="return-actions">
-        <button className="primary" type="button" disabled={!sale || !selectedReturnRows.length || !returnDate} onClick={generateReturnInvoice}>Generate Invoice</button>
+        <button className="primary" type="button" disabled={!sale || !selectedReturnRows.length || hasInvalidReturnQty || !returnDate || submitting || lookupLoading} onClick={generateReturnInvoice}>{submitting ? "Processing Return..." : "Generate Invoice"}</button>
       </div>
       {returnInvoice ? <ReturnInvoiceModal detail={returnInvoice} data={data} close={() => setReturnInvoice(null)} /> : null}
     </section>
