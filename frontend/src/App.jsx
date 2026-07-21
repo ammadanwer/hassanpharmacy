@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import { api, clearSession, getStoredSession, storeSession } from "./api";
 import loginMedicalIllustration from "./assets/login-medical-illustration.png";
+import { latestBatchPriceDefaults } from "./batchPricing";
 import { buildReturnRows } from "./returnItems";
 import { defaultAmountReceived, salePaymentRecord, saleProfit } from "./salePayment";
 
@@ -6830,6 +6831,8 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
   const [productQuery, setProductQuery] = useState(storedDraft?.productQuery ?? selectedInitialProduct?.name ?? row?.product_name ?? "");
   const [invoiceTouched, setInvoiceTouched] = useState(storedDraft?.invoiceTouched ?? Boolean(row?.supplier_invoice_no));
   const [quickAdd, setQuickAdd] = useState(null);
+  const productPriceLookupSequence = useRef(0);
+  const priceEditVersion = useRef(0);
   const set = (key, value) => setForm((current) => ({ ...current, [key]: value }));
 
   useEffect(() => {
@@ -6883,6 +6886,60 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
       onError(error);
     }
   }
+
+  async function selectBatchProduct(product) {
+    const lookupSequence = ++productPriceLookupSequence.current;
+    const editVersion = priceEditVersion.current;
+    setProductQuery(product.name);
+    setForm((current) => ({
+      ...current,
+      product_id: product.id,
+      product_type: product.type || current.product_type || "medical",
+      ...(!editing ? { price_basis: "box", entered_cost_price: "", entered_sell_price: "" } : {}),
+    }));
+    if (editing) return;
+    try {
+      const params = new URLSearchParams({
+        product_id: String(product.id),
+        limit: "5000",
+        paged: "true",
+      });
+      const pageData = unpackPaged(await apiCall(`/api/batches?${params.toString()}`, { noCache: true }));
+      const priceDefaults = latestBatchPriceDefaults(pageData.items, product.id);
+      if (lookupSequence !== productPriceLookupSequence.current || editVersion !== priceEditVersion.current) return;
+      setForm((current) => {
+        if (Number(current.product_id) !== Number(product.id) || editVersion !== priceEditVersion.current || !priceDefaults) return current;
+        return {
+          ...current,
+          price_basis: priceDefaults.price_basis,
+          entered_cost_price: priceDefaults.entered_cost_price,
+          entered_sell_price: priceDefaults.entered_sell_price,
+        };
+      });
+    } catch (error) {
+      if (lookupSequence === productPriceLookupSequence.current) onError(error);
+    }
+  }
+
+  function editBatchPrice(key, value) {
+    priceEditVersion.current += 1;
+    set(key, value);
+  }
+
+  useEffect(() => {
+    const hasDraftPrice = [form.entered_cost_price, form.entered_sell_price]
+      .some((value) => value !== "" && value != null);
+    if (!editing && form.product_id && !hasDraftPrice) {
+      selectBatchProduct({
+        id: form.product_id,
+        name: productQuery || initialProduct?.name || "",
+        type: form.product_type || initialProduct?.type || "medical",
+      });
+    }
+    return () => {
+      productPriceLookupSequence.current += 1;
+    };
+  }, []);
 
   function calculatedStock(nextForm) {
     const boxes = Number(nextForm.box_quantity || 0);
@@ -6987,16 +7044,17 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
         <div className="modal-body">
           <Field label="Supplier Invoice No." value={form.supplier_invoice_no || ""} onChange={(v) => { setInvoiceTouched(true); set("supplier_invoice_no", v); }} placeholder="Enter Invoice no. of Supplier" />
           <LookupField label="Supplier" value={form.supplier_id || ""} query={supplierQuery} onQueryChange={(value) => { setSupplierQuery(value); set("supplier_id", ""); }} onSelect={selectBatchSupplier} options={data.suppliers.filter((supplier) => supplier.status !== "inactive")} placeholder="Supplier" onAdd={() => setQuickAdd({ type: "supplier", initialName: supplierQuery })} />
-          <RemoteLookupField label="Name" required value={form.product_id || ""} query={productQuery} onQueryChange={(value) => { setProductQuery(value); set("product_id", ""); }} onSelect={(product) => {
-            setForm((current) => ({ ...current, product_id: product.id, product_type: product.type || current.product_type || "medical" }));
-            setProductQuery(product.name);
-          }} apiCall={apiCall} endpoint="/api/products" params={{ status: "active" }} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} onError={onError} />
+          <RemoteLookupField label="Name" required value={form.product_id || ""} query={productQuery} onQueryChange={(value) => {
+            productPriceLookupSequence.current += 1;
+            setProductQuery(value);
+            setForm((current) => ({ ...current, product_id: "", ...(!editing ? { price_basis: "box", entered_cost_price: "", entered_sell_price: "" } : {}) }));
+          }} onSelect={selectBatchProduct} apiCall={apiCall} endpoint="/api/products" params={{ status: "active" }} placeholder="Name" onAdd={() => setQuickAdd({ type: "product", initialName: productQuery })} onError={onError} />
           <Field label="Total Boxes" type="number" value={form.box_quantity || ""} onChange={(v) => setStockDimension("box_quantity", v)} placeholder="Add no. of boxes" />
           <Field label="Tab. per box" type="number" value={form.tablets_per_box || ""} onChange={(v) => setStockDimension("tablets_per_box", v)} placeholder="Add tab. per box" />
           <Field label="Total Stock" type="number" value={form.stock_in || ""} onChange={(v) => set("stock_in", v)} placeholder="Add Quantity" />
-          <SelectField label="Price entered per" value={currentPriceBasis} onChange={(v) => set("price_basis", v || "box")} options={priceBasisOptions} placeholder="Box" openDirection="up" />
-          <Field label={`Cost Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_cost_price || ""} onChange={(v) => set("entered_cost_price", v)} placeholder="Cost price" />
-          <Field label={`Sell Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_sell_price || ""} onChange={(v) => set("entered_sell_price", v)} placeholder="Sell price" />
+          <SelectField label="Price entered per" value={currentPriceBasis} onChange={(v) => editBatchPrice("price_basis", v || "box")} options={priceBasisOptions} placeholder="Box" openDirection="up" />
+          <Field label={`Cost Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_cost_price ?? ""} onChange={(v) => editBatchPrice("entered_cost_price", v)} placeholder="Cost price" />
+          <Field label={`Sell Price / ${priceBasisOptions.find((option) => option.id === currentPriceBasis)?.name || "Box"}`} type="number" value={form.entered_sell_price ?? ""} onChange={(v) => editBatchPrice("entered_sell_price", v)} placeholder="Sell price" />
           {hasPricePreview ? <div className="batch-price-preview">
             {previewLine("Per tab.", 1)}
             {previewLine("Per box", boxMultiplier)}
@@ -7015,10 +7073,7 @@ function BatchModal({ data, row, initialProduct, close, apiCall, reload, onError
           setSupplierQuery(created.name);
         } else if (quickAdd.type === "shelf") {
           set("shelf_id", created.id);
-        } else {
-          setForm((current) => ({ ...current, product_id: created.id, product_type: created.type || current.product_type || "medical" }));
-          setProductQuery(created.name);
-        }
+        } else selectBatchProduct(created);
       }} /> : null}
     </div>
   );
